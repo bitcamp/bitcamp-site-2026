@@ -102,10 +102,6 @@ const closeChat = () => {
     isOpen.value = false
 }
 
-const onKey = (e: KeyboardEvent) => {
-    if (e.key === 'Escape' && isOpen.value) closeChat()
-}
-
 const scrollMessagesToBottom = () => {
     const el = messagesRef.value
     if (el) el.scrollTop = el.scrollHeight
@@ -124,7 +120,7 @@ const sendMessage = async () => {
         messages.value.push({ role: 'bot', text: `Got it — you said: "${text}"`, time: getCurrentTime() })
         await nextTick()
         scrollMessagesToBottom()
-    }, 700)
+    }, 300)
 }
 
 const onInputKeydown = (e: KeyboardEvent) => {
@@ -133,13 +129,6 @@ const onInputKeydown = (e: KeyboardEvent) => {
         sendMessage()
     }
 }
-
-onMounted(() => {
-    window.addEventListener('keydown', onKey)
-})
-onBeforeUnmount(() => {
-    window.removeEventListener('keydown', onKey)
-})
 
 </script>
 
@@ -167,8 +156,10 @@ onBeforeUnmount(() => {
 .chat_icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50% }
 
 .chat_panel {
-    width: 400px;
-    height: 600px;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 600px;
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -313,6 +304,46 @@ onBeforeUnmount(() => {
     color: rgba(0,0,0,0.5); 
     padding-right: 5px;
     margin-top: 2px;
+}
+
+
+/* FOR MOBILE */
+@media (max-width: 480px) {
+    .bitbot_wrapper {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .chat_panel {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    .panel_footer {
+        padding: 12px;
+    }
+
+    .input_form {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .input_textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat_icon {
+        width: 48px;
+        height: 48px;
+        right: 12px;
+        bottom: 12px;
+    }
 }
 
 </style>
