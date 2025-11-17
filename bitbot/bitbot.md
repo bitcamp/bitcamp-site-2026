@@ -12,9 +12,10 @@ manually install ollama from developer documentation
 python app.py
 ```
 OR
-remove ```python
+remove 
+```python
 if __name__==""__main__"":
     app.run(debug=True, port=3000)
-```, run with
-```gunicorn -b 0.0.0.0:5000 bitbot:app```
-which will automatically find
+```
+, run with
+```gunicorn -b 0.0.0.0:3000 bitbot:app```
