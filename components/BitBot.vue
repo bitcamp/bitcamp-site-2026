@@ -64,6 +64,7 @@
                     <textarea
                         v-model="draft"
                         class="input_textarea"
+                        :class="{ filled: draft.trim().length > 0 }"
                         placeholder="Type your message"
                         @keydown="onInputKeydown"
                         @input="autoResizeTextarea"
@@ -252,10 +253,15 @@ const onInputKeydown = (e: KeyboardEvent) => {
 
 .panel_footer { padding: 1.8vh 1.4vw; border-top: 1px solid rgba(0,0,0,0.04); background: #fff }
 
-.input_form { width: 28vw; display:flex; gap:1.5vw; align-items:flex-end }
+.input_form {
+    width: 100%;
+    display: flex;
+    gap: 1.5vw;
+    align-items: flex-end;
+}
 
 .input_textarea {
-    width: 21vw;
+    flex: 1 1 auto;
     min-height: 5vh;
     max-height: 20vh;
     padding: 1.2vh 1.2vw;
@@ -268,6 +274,13 @@ const onInputKeydown = (e: KeyboardEvent) => {
     box-sizing: border-box;
     align-content: center;
 }
+
+.input_textarea:focus {
+    outline: none;
+    border-color: #FF6F3F;
+    box-shadow: 0 0 0 2px rgba(255,111,63,0.5);
+}
+
 .send_button {
     background: #6B7282;
     color: #fff;
@@ -454,6 +467,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
         padding: 3vw 4vw;
         min-height: 10vw;
         max-height: 50vw;
+        overflow-y: hidden;
     }
 
     .chat_icon {
