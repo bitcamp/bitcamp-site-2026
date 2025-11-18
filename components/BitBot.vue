@@ -7,7 +7,7 @@
             @click="openChat"
             alt="Open BitBot chat"
         >
-            <img src="/bitcamp-brand/logos/bitbot_button.png" alt="BitBot Icon" />
+            <img src="/bitcamp-brand/logos/bitbot_button.svg" alt="BitBot Icon" />
         </button>
 
         
@@ -16,7 +16,7 @@
         <div v-else class="chat_panel" role="dialog" alt="BitBot chat window">
             <header class="chat_header">
                 <div class="header_left">
-                    <img class="bot_pfp" src="/bitcamp-brand/logos/bitbot_pfp.png" alt="BitBot" />
+                    <img class="bot_pfp" src="/bitcamp-brand/logos/bitbot_pfp.svg" alt="BitBot" />
                     <div class="header_text">
                         <div class="title">BitBot</div>
                         <div class="subtitle">Ask me anything Bitcamp related!</div>
@@ -35,7 +35,7 @@
 
                     <!-- Bot message -->
                     <div v-if="m.role === 'bot'" class="message_left">
-                        <img class="msg_bot_pfp" src="/bitcamp-brand/logos/bitbot_pfp.png" alt="BitBot Profile Picture" />
+                        <img class="msg_bot_pfp" src="/bitcamp-brand/logos/bitbot_pfp.svg" alt="BitBot Profile Picture" />
                         <div class="message_with_time">
                             <div v-if="m.typing" class="typing">
                                 <div class="dots"><span></span><span></span><span></span></div>
@@ -49,7 +49,7 @@
 
                     <!-- User message -->
                     <div v-else class="message_right">
-                        <img class="msg_usr_pfp" src="/bitcamp-brand/logos/bb_user_pfp.png" alt="User Profile Picture" />
+                        <img class="msg_usr_pfp" src="/bitcamp-brand/logos/bb_user_pfp.svg" alt="User Profile Picture" />
                         <div class="message_with_time">
                             <div class="message user">{{ m.text }}</div>
                             <div class="message_time user">{{ m.time }}</div>
@@ -158,17 +158,20 @@ const onInputKeydown = (e: KeyboardEvent) => {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 .bitbot_wrapper {
     position: fixed;
-    right: 16px;
-    bottom: 16px;
+    right: 35px;
+    bottom: 30px;
     z-index: 9999;
     font-family: inherit;
 }
 
 .chat_icon {
-    width: 3.72vmax;
-    height: 3.72vmax;
+    width: 4.75vmax;
+    height: 4.75vmax;
     padding: 0;
     border: none;
     background: transparent;
@@ -216,8 +219,8 @@ const onInputKeydown = (e: KeyboardEvent) => {
 }
 .close_button:focus { outline: .2vmax solid rgba(255,255,255,0.25) }
 
-.msg_bot_pfp { width:3.75vmin; height:3.75vmin; object-fit:cover; border:0px; border-radius: 50%; background: #ff6f3f }
-.msg_usr_pfp { width:3.75vmin; height:3.75vmin; object-fit:cover; border:0px; border-radius: 50%; background: #6B7282 }
+.msg_bot_pfp { width:2.75vmax; height:2.75vmax; object-fit:cover; border:0px; border-radius: 50%; background: #ff6f3f }
+.msg_usr_pfp { width:2.75vmax; height:2.75vmax; object-fit:cover; border:0px; border-radius: 50%; background: #6B7282 }
 
 .messages {
     padding: 1.6vmax;
@@ -358,42 +361,104 @@ const onInputKeydown = (e: KeyboardEvent) => {
 }
 
 
-/* FOR MOBILE */
-@media (max-width: 480px) {
+/*mobile*/
+@media (max-width: 600px) {
     .bitbot_wrapper {
-        right: 0;
-        bottom: 0;
-        width: 100%;
+        right: 15px;
+        bottom: 15px;
+        position: fixed;
+        margin: 0;
+        z-index: 999999 !important;
     }
 
     .chat_panel {
-        width: 100%;
-        height: 100vh;
+        width: 100vw;
+        height: 100dvh;
         max-width: none;
         max-height: none;
         border-radius: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-size: 4vw;
+    }
+
+    .chat_header {
+        padding: 4vw;
+    }
+
+    .bot_pfp {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .header_left {
+        gap: 3vw;
+    }
+
+    .header_text .title {
+        font-size: 5vw;
+    }
+
+    .header_text .subtitle {
+        font-size: 3.5vw;
+    }
+
+    .messages {
+        padding: 4vw;
+        gap: 3vw;
+        font-size: 3.6vw;
+        flex: 1 1 0;
+    }
+
+    .close_button {
+        background: rgba(255,255,255,0.0);
+        color: white;
+        border: none;
+        padding: 1.6vw 1.6vw;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 4.5vw;
+    }
+    .close_button:focus { outline: .2vw solid rgba(255,255,255,0.25) }
+
+    .message {
+        max-width: 80vw;
+        padding: 3vw 4vw;
+        font-size: 3.8vw;
+    }
+
+    .msg_bot_pfp,
+    .msg_usr_pfp {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .message_time {
+        font-size: 3vw;
     }
 
     .panel_footer {
-        padding: 1.2vmax;
+        padding: 4vw;
     }
 
     .input_form {
         width: 100%;
-        gap: 1vmax;
+        gap: 3vw;
+        align-items: flex-end;
     }
 
     .input_textarea {
         width: 100%;
+        font-size: 4vw;
+        padding: 3vw 4vw;
+        min-height: 10vw;
+        max-height: 50vw;
     }
-}
 
-@media (max-width: 100%) {
     .chat_icon {
-        width: 4.8vw;
-        height: 4.8vh;
-        right: 12px;
-        bottom: 12px;
+        width: 12vw;
+        height: 12vw;
     }
 }
 
