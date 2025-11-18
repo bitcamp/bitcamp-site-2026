@@ -10,6 +10,8 @@
             <img src="/bitcamp-brand/logos/bitbot_button.png" alt="BitBot Icon" />
         </button>
 
+        
+
         <!-- Chat panel -->
         <div v-else class="chat_panel" role="dialog" alt="BitBot chat window">
             <header class="chat_header">
@@ -30,12 +32,18 @@
                     :key="idx"
                     class="message_row"
                 >
+
                     <!-- Bot message -->
                     <div v-if="m.role === 'bot'" class="message_left">
                         <img class="msg_bot_pfp" src="/bitcamp-brand/logos/bitbot_pfp.png" alt="BitBot Profile Picture" />
                         <div class="message_with_time">
-                            <div class="message bot">{{ m.text }}</div>
-                            <div class="message_time bot">{{ m.time }}</div>
+                            <div v-if="m.typing" class="typing">
+                                <div class="dots"><span></span><span></span><span></span></div>
+                            </div>
+                            <div v-else>
+                                <div class="message bot">{{ m.text }}</div>
+                                <div class="message_time bot">{{ m.time }}</div>
+                            </div>
                         </div>
                     </div>
 
@@ -58,10 +66,11 @@
                         class="input_textarea"
                         placeholder="Type your message"
                         @keydown="onInputKeydown"
+                        @input="autoResizeTextarea"
                         rows="1"
                         alt="Type your message"
                     ></textarea>
-                    <button type="submit" class="send_button":class="{ active: draft.trim().length > 0 }" alt="Send button">
+                    <button type="submit" class="send_button" :class="{ active: draft.trim().length > 0 }" alt="Send button">
                         <img src="/bitcamp-brand/logos/send-button.png" alt="Airplane silhouette" />
                     </button>
                 </form>
@@ -74,7 +83,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
-type Msg = { role: 'bot' | 'user'; text: string; time: string}
+type Msg = { role: 'bot' | 'user'; text: string; time: string; typing?: boolean }
 
 const getCurrentTime = (): string => {
     const now = new Date()
@@ -107,6 +116,12 @@ const scrollMessagesToBottom = () => {
     if (el) el.scrollTop = el.scrollHeight
 }
 
+const autoResizeTextarea = (e: Event) => {
+    const el = e.target as HTMLTextAreaElement
+    el.style.height = 'auto' 
+    el.style.height = Math.min(el.scrollHeight, 200) + 'px'
+}
+
 const sendMessage = async () => {
     const text = draft.value.trim()
     if (!text) return
@@ -115,8 +130,18 @@ const sendMessage = async () => {
     await nextTick()
     scrollMessagesToBottom()
 
+    // show typing indicator
+    const typingMsg: Msg = { role: 'bot', text: '', time: getCurrentTime(), typing: true }
+    messages.value.push(typingMsg)
+    await nextTick()
+    scrollMessagesToBottom()
+
     //random bot reply, replace w bot later
     setTimeout(async () => {
+        // remove typing indicator
+        const idx = messages.value.findIndex(m => m.typing === true)
+        if (idx !== -1) messages.value.splice(idx, 1)
+
         messages.value.push({ role: 'bot', text: `Got it — you said: "${text}"`, time: getCurrentTime() })
         await nextTick()
         scrollMessagesToBottom()
@@ -142,8 +167,8 @@ const onInputKeydown = (e: KeyboardEvent) => {
 }
 
 .chat_icon {
-    width: 56px;
-    height: 56px;
+    width: 3.72vmax;
+    height: 3.72vmax;
     padding: 0;
     border: none;
     background: transparent;
@@ -156,61 +181,60 @@ const onInputKeydown = (e: KeyboardEvent) => {
 .chat_icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50% }
 
 .chat_panel {
-    width: 100%;
-    max-width: 400px;
-    height: 100%;
-    max-height: 600px;
+    width: 28vw;
+    height: 64vh;
     display: flex;
     flex-direction: column;
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 12px 40px rgba(22, 31, 41, 0.16);
+    font-size: 1.1vmax;
 }
 
 .chat_header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 1.2vw 1.6vh;
     background: linear-gradient(90deg, #AD3928 0%, #FF6F3F 100%);
 }
 
-.header_left { display:flex; align-items:center; gap:12px }
-.bot_pfp { width:40px; height:40px; object-fit:cover; border-radius: 50%; background-color: #F3F3F5}
-.header_text .title { font-family: 'aleo'; font-size: 20px; font-weight: 700; letter-spacing: 0% }
-.header_text .subtitle { font-family:'inter'; font-weight: 400; font-size: 14px; letter-spacing: 0%; opacity:0.75 } /*THIS FONT IS NOT UPLOADED */
+.header_left { display:flex; align-items:center; gap:1.2vw }
+.bot_pfp { width: 3vw; height:3vw; object-fit:cover; border-radius: 50%; background-color: #F3F3F5}
+.header_text .title { font-family: 'aleo'; font-size: 1.5vmax; font-weight: 700; letter-spacing: 0% }
+.header_text .subtitle { font-family:'inter'; font-weight: 400; font-size: 1vmax; letter-spacing: 0%; opacity:0.75 } /*THIS FONT IS NOT UPLOADED */
 
 .close_button {
     background: rgba(255,255,255,0.0);
     color: white;
     border: none;
-    padding: 6px 10px;
+    padding: .6vmax .6vmax;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.6vmax;
 }
-.close_button:focus { outline: 2px solid rgba(255,255,255,0.25) }
+.close_button:focus { outline: .2vmax solid rgba(255,255,255,0.25) }
 
-.msg_bot_pfp { width:32px; height:32px; object-fit:cover; border:0px; border-radius: 50%; background: #ff6f3f }
-.msg_usr_pfp { width:32px; height:32px; object-fit:cover; border:0px; border-radius: 50%; background: #6B7282 }
+.msg_bot_pfp { width:3.75vmin; height:3.75vmin; object-fit:cover; border:0px; border-radius: 50%; background: #ff6f3f }
+.msg_usr_pfp { width:3.75vmin; height:3.75vmin; object-fit:cover; border:0px; border-radius: 50%; background: #6B7282 }
 
 .messages {
-    padding: 16px;
+    padding: 1.6vmax;
     background: #ffffff 100%;
     flex: 1 1 auto;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1.2vmax;
     color: rgba(0, 0, 0, 0.75);
     max-width: 100%;
     font-family: 'avenir';
 }
 .message {
-    max-width: 257px;
-    padding: 10px 12px;
+    max-width: 20.7vw;
+    padding: 1vh 1vw;
     border-radius: 10px;
     line-height: 1.3;
     word-break: break-word;
@@ -223,19 +247,19 @@ const onInputKeydown = (e: KeyboardEvent) => {
 .message.bot { background: #F3F3F5; align-self: start }
 .message.user { background: #FF6F3F; align-self: end; color: white}
 
-.panel_footer { padding: 14px 18px; border-top: 1px solid rgba(0,0,0,0.04); background: #fff }
+.panel_footer { padding: 1.8vh 1.4vw; border-top: 1px solid rgba(0,0,0,0.04); background: #fff }
 
-.input_form { width: 365px; display:flex; gap:15px; align-items:flex-end }
+.input_form { width: 28vw; display:flex; gap:1.5vw; align-items:flex-end }
 
 .input_textarea {
-    width:300px;
-    min-height: 50px;
-    max-height: 200px;
-    padding: 8px 18px;
+    width: 21vw;
+    min-height: 5vh;
+    max-height: 20vh;
+    padding: 1.2vh 1.2vw;
     background: #F3F3F5;
     border-radius: 15px;
     border: 1px solid rgba(0,0,0,0.08);
-    font-size: 16px;
+    font-size: 1vmax;
     font-family: 'Avenir';
     resize: none;
     box-sizing: border-box;
@@ -245,12 +269,16 @@ const onInputKeydown = (e: KeyboardEvent) => {
     background: #6B7282;
     color: #fff;
     border: none;
-    padding: 10px 10px;
+    padding: 1vw 1vh;
     border-radius: 15px;
     cursor: pointer;
     font-weight: 600;
-    height: 50px;
-    width: 50px;
+    height: 5vh;
+    width: 5vh;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .send_button.active {
@@ -267,7 +295,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
 
 .message_left, .message_right {
     display: flex;
-    gap: 12px;
+    gap: 1.2vmax;
 }
 
 .message_left {
@@ -283,11 +311,11 @@ const onInputKeydown = (e: KeyboardEvent) => {
 .message_with_time {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: .2vmax;
 }
 
 .message_time {
-    font-size: 12px;
+    font-size: .75vmax;
     font-family: 'Avenir';
     font-weight: 500;
 }
@@ -295,15 +323,38 @@ const onInputKeydown = (e: KeyboardEvent) => {
 .message_time.bot { 
     text-align: left; 
     color: rgba(0,0,0,0.5); 
-    padding-left: 5px;
-    margin-top: 2px;
+    padding-left: .5vmax;
+    margin-top: .2vmax;
 }
 
 .message_time.user { 
     text-align: right; 
     color: rgba(0,0,0,0.5); 
-    padding-right: 5px;
-    margin-top: 2px;
+    padding-right: .5vmax;
+    margin-top: .2vmax;
+}
+
+.typing .dots {
+  display: flex;
+  align-items: center;
+  gap: .4vmax;
+}
+
+.typing .dots span {
+  width: .6rem;
+  height: .6rem;
+  background-color: #333;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1.4s infinite both;
+}
+
+.typing .dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing .dots span:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
 
@@ -324,12 +375,12 @@ const onInputKeydown = (e: KeyboardEvent) => {
     }
 
     .panel_footer {
-        padding: 12px;
+        padding: 1.2vmax;
     }
 
     .input_form {
         width: 100%;
-        gap: 10px;
+        gap: 1vmax;
     }
 
     .input_textarea {
@@ -337,10 +388,10 @@ const onInputKeydown = (e: KeyboardEvent) => {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
     .chat_icon {
-        width: 48px;
-        height: 48px;
+        width: 4.8vw;
+        height: 4.8vh;
         right: 12px;
         bottom: 12px;
     }
