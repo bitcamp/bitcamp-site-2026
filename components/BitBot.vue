@@ -200,9 +200,15 @@ const sendMessage = async () => {
     const idx = messages.value.findIndex((m) => m.typing === true);
     if (idx !== -1) messages.value.splice(idx, 1);
 
+    const response = await fetch("FUNCTION_URL", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ text })
+    });
+
     messages.value.push({
       role: "bot",
-      text: `Got it — you said: "${text}"`,
+      text: JSON.stringify(response['body']),
       time: getCurrentTime(),
     });
     await nextTick();
