@@ -23,14 +23,14 @@
 </template>
 
 <script lang="ts">
-import sameer from '../assets/img/images/headshots/Sameer.png';
-import kai from '../assets/img/images/headshots/Kai.png';
-import ben from '../assets/img/images/headshots/Ben.png';
-import sri from '../assets/img/images/headshots/Sri.png';
-import purva from '../assets/img/images/headshots/Purva.png';
-import kaylee from '../assets/img/images/headshots/Kaylee.png';
-import richard from '../assets/img/images/headshots/Richard.png';
-import grace from '../assets/img/images/headshots/Grace.png';
+import sameer from '../assets/img/images/headshots/Sameer.webp';
+import kai from '../assets/img/images/headshots/Kai.webp';
+import ben from '../assets/img/images/headshots/Ben.webp';
+import sri from '../assets/img/images/headshots/Sri.webp';
+import purva from '../assets/img/images/headshots/Purva.webp';
+import kaylee from '../assets/img/images/headshots/Kaylee.webp';
+import richard from '../assets/img/images/headshots/Richard.webp';
+import grace from '../assets/img/images/headshots/Grace.webp';
 
 export default {
     name: 'HomePage',
@@ -102,13 +102,13 @@ export default {
                     rel: 'icon',
                     type: 'image/png',
                     sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
+                    href: '/bitcamp-brand/favicons/favicon-32x32.webp',
                 },
                 {
                     rel: 'icon',
                     type: 'image/png',
                     sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
+                    href: '/bitcamp-brand/favicons/favicon-16x16.webp',
                 },
                 {
                     rel: 'manifest',

@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts">
-import anjali from '../assets/img/images/headshots/anjali.jpg'
-import sharvari from '../assets/img/images/headshots/sharvari.jpg'
+import anjali from '../assets/img/images/headshots/anjali.webp'
+import sharvari from '../assets/img/images/headshots/sharvari.webp'
 
 export default {
     name: 'HomePage',

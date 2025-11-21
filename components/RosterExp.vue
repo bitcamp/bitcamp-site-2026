@@ -29,17 +29,17 @@
 </template>
 
 <script lang="ts">
-import avanti from '../assets/img/images/headshots/Avanti.jpg';
-import aditi from '../assets/img/images/headshots/Aditi.jpg';
-import debarshi from '../assets/img/images/headshots/Debarshi.jpg';
-import sif from '../assets/img/images/headshots/Sifene.jpg';
-import sam from '../assets/img/images/headshots/Sam.jpg';
-import jas from '../assets/img/images/headshots/Jas.jpg';
-import alex from '../assets/img/images/headshots/Alex.jpg';
-import nithika from '../assets/img/images/headshots/Nithika.jpg';
-import michelle from '../assets/img/images/headshots/Michelle.jpg';
-import anannya from '../assets/img/images/headshots/Anannya.jpg';
-import michelleYu from '../assets/img/images/headshots/MichelleYu.jpg';
+import avanti from '../assets/img/images/headshots/Avanti.webp';
+import aditi from '../assets/img/images/headshots/Aditi.webp';
+import debarshi from '../assets/img/images/headshots/Debarshi.webp';
+import sif from '../assets/img/images/headshots/Sifene.webp';
+import sam from '../assets/img/images/headshots/Sam.webp';
+import jas from '../assets/img/images/headshots/Jas.webp';
+import alex from '../assets/img/images/headshots/Alex.webp';
+import nithika from '../assets/img/images/headshots/Nithika.webp';
+import michelle from '../assets/img/images/headshots/Michelle.webp';
+import anannya from '../assets/img/images/headshots/Anannya.webp';
+import michelleYu from '../assets/img/images/headshots/MichelleYu.webp';
 
 export default {
     name: 'HomePage',
