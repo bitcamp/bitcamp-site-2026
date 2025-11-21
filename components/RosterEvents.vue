@@ -22,14 +22,14 @@
 </template>
 
 <script lang="ts">
-import adrian from '../assets/img/images/headshots/Adrian.jpg';
-import anu from '../assets/img/images/headshots/Anunithaa.jpg';
-import hannah from '../assets/img/images/headshots/Hannah.jpg';
-import harleen from '../assets/img/images/headshots/Harleen.jpg';
-import ishaan from '../assets/img/images/headshots/Ishaan.jpg';
-import meilin from '../assets/img/images/headshots/Meilin.jpg';
-import saanvi from '../assets/img/images/headshots/Saanvi.jpg';
-import sofie from '../assets/img/images/headshots/Sofie.jpg';
+import adrian from '../assets/img/images/headshots/Adrian.webp';
+import anu from '../assets/img/images/headshots/Anunithaa.webp';
+import hannah from '../assets/img/images/headshots/Hannah.webp';
+import harleen from '../assets/img/images/headshots/Harleen.webp';
+import ishaan from '../assets/img/images/headshots/Ishaan.webp';
+import meilin from '../assets/img/images/headshots/Meilin.webp';
+import saanvi from '../assets/img/images/headshots/Saanvi.webp';
+import sofie from '../assets/img/images/headshots/Sofie.webp';
 
 export default {
     name: 'HomePage',

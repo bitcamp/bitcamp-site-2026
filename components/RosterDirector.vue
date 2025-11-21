@@ -27,16 +27,16 @@
 </template>
 
 <script lang="ts">
-import amber from '../assets/img/images/headshots/Amber.png';
-import ananya from '../assets/img/images/headshots/Ananya.jpg';
-import beatrice from '../assets/img/images/headshots/beatricechung.jpg';
-import daniel from '../assets/img/images/headshots/danielchung1.jpg';
-import julia from '../assets/img/images/headshots/juliachen.jpg';
-import mika from '../assets/img/images/headshots/Mika.jpg';
-import neha from '../assets/img/images/headshots/nehaveeragandham.jpg';
-import nitya from '../assets/img/images/headshots/Nitya.jpg';
-import saloni from '../assets/img/images/headshots/salonishah.jpg';
-import sai from '../assets/img/images/headshots/saipranavtheerthala1.jpg'
+import amber from '../assets/img/images/headshots/Amber.webp';
+import ananya from '../assets/img/images/headshots/Ananya.webp';
+import beatrice from '../assets/img/images/headshots/beatricechung.webp';
+import daniel from '../assets/img/images/headshots/danielchung1.webp';
+import julia from '../assets/img/images/headshots/juliachen.webp';
+import mika from '../assets/img/images/headshots/Mika.webp';
+import neha from '../assets/img/images/headshots/nehaveeragandham.webp';
+import nitya from '../assets/img/images/headshots/Nitya.webp';
+import saloni from '../assets/img/images/headshots/salonishah.webp';
+import sai from '../assets/img/images/headshots/saipranavtheerthala1.webp'
 
 export default {
     name: 'HomePage',
