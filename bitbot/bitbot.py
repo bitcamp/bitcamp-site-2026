@@ -3,11 +3,18 @@ import json
 
 EMBEDDING_MODEL = 'hf.co/CompendiumLabs/bge-base-en-v1.5-gguf'
 LANGUAGE_MODEL = 'llama3.2:3b'
+"""
+BOT_MODE must be one of these three:
+    sleeper_site
+    main_website
+    day_of_website
+"""
+BOT_MODE = "sleeper_site"
 
 dataset = []
 with open('faq.json', 'r') as file:
     for line in json.load(file):
-        dataset.append(f"q: {line['question']}\na: {line['answer']}")
+        dataset.append(f"q: {line[BOT_MODE]['question']}\na: {line[BOT_MODE]['question']['answer']}")
 
 db = []
 

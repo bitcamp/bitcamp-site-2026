@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper" ref="el">
     <div class="app-container">
+      <BitBot />
       <Navbar />
       <LandingPage />
       <div class="transition0"></div>
@@ -106,6 +107,8 @@ useHead({
 });
 </script>
 <script lang="ts">
+import BitBot from '~/components/BitBot.vue';
+
 // import { Break } from '#build/components';
 import Navbar from '~/components/Navbar.vue';
 import Schedule from '~/components/Schedule.vue';

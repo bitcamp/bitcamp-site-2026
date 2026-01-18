@@ -31,18 +31,18 @@
 </template>
 
 <script lang="ts">
-import mohe from '../assets/img/images/headshots/mohe.jpg';
-import eileen from '../assets/img/images/headshots/eileenchen.jpg';
-import tyson from '../assets/img/images/headshots/tysoncheung.jpg';
-import arya from '../assets/img/images/headshots/aryagijare.jpg';
-import sanya from '../assets/img/images/headshots/sanyagupta.jpg';
-import joanne from '../assets/img/images/headshots/joannelee.jpg';
-import devon from '../assets/img/images/headshots/devonlai.jpg';
-import harrison from '../assets/img/images/headshots/harrisonpadgett.jpg';
-import swathi from '../assets/img/images/headshots/swathipulipati.jpg';
-import thiru from '../assets/img/images/headshots/thirusethuraman.jpg';
-import srujana from '../assets/img/images/headshots/srujanatheerthala.jpg';
-import harini from '../assets/img/images/headshots/harinithirukonda.jpg';
+import mohe from '../assets/img/images/headshots/mohe.webp';
+import eileen from '../assets/img/images/headshots/eileenchen.webp';
+import tyson from '../assets/img/images/headshots/tysoncheung.webp';
+import arya from '../assets/img/images/headshots/aryagijare.webp';
+import sanya from '../assets/img/images/headshots/sanyagupta.webp';
+import joanne from '../assets/img/images/headshots/joannelee.webp';
+import devon from '../assets/img/images/headshots/devonlai.webp';
+import harrison from '../assets/img/images/headshots/harrisonpadgett.webp';
+import swathi from '../assets/img/images/headshots/swathipulipati.webp';
+import thiru from '../assets/img/images/headshots/thirusethuraman.webp';
+import srujana from '../assets/img/images/headshots/srujanatheerthala.webp';
+import harini from '../assets/img/images/headshots/harinithirukonda.webp';
 
 export default {
     name: 'HomePage',

@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import eric from '../assets/img/images/headshots/eric.jpg'
-import anthony from '../assets/img/images/headshots/anthony.jpg'
-import amrit from '../assets/img/images/headshots/amrit.jpg'
-import eunice from '../assets/img/images/headshots/eunice.jpg'
+import eric from '../assets/img/images/headshots/eric.webp'
+import anthony from '../assets/img/images/headshots/anthony.webp'
+import amrit from '../assets/img/images/headshots/amrit.webp'
+import eunice from '../assets/img/images/headshots/eunice.webp'
 
 export default {
     name: 'HomePage',
