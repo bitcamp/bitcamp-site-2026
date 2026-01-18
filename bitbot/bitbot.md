@@ -18,4 +18,4 @@ if __name__==""__main__"":
     app.run(debug=True, port=3000)
 ```
 , run with
-```gunicorn -b 0.0.0.0:3000 bitbot:app```a
+```gunicorn -b 0.0.0.0:3000 bitbot:app```
