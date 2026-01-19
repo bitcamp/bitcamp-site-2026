@@ -1,17 +1,7 @@
 from groq import Groq
-import json
 from openai import OpenAI
 import numpy as np
-from dotenv import load_dotenv
 
-load_dotenv()
-
-"""
-BOT_MODE must be one of these three:
-    sleeper_site
-    main_website
-    day_of_website
-"""
 BOT_MODE = "sleeper_site"
 
 embed_client = OpenAI()
@@ -20,9 +10,11 @@ text_client = Groq()
 index = np.load("faq_index.npz", allow_pickle=True)
 TEXTS = index["texts"]
 EMBEDDINGS = index["embeddings"]
-    
+
+
 def cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
 
 def retrieve(query, top_n=3):
     query_embedding = embed_client.embeddings.create(
@@ -52,7 +44,6 @@ def SYS_PROMPT(info_block):
         ABOVE ALL: MAINTAIN FULL PROFESSIONALISM. 
         If the answer to the user's question is not explicitly contained in the Information, reply EXACTLY with the following text (and nothing else):
         {SUPPORT_RET}
-
         Information:
         {info_block}
         """
@@ -77,27 +68,7 @@ def receive(query):
         stream=False
     )
     return resp.choices[0].message.content
-        
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route("/")
-def confirmation():
-    print("running")
-    return "running"
-    
-@app.route("/chat", methods=['GET'])
-def chat():
-    query = request.args.get('query')
-    response = receive(query)
-    return jsonify({
-        'status': 'OK',
-        'response': response
-    })
-
-    
-if __name__=="__main__":
+if __name__ == "__main__":
     print(receive(input(">>> ")))

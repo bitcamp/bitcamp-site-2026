@@ -123,7 +123,7 @@ import Schedule from '~/components/Schedule.vue';
 export default {
   name: 'HomePage',
   // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-  components: { Navbar, Schedule },
+  components: { BitBot, Navbar, Schedule },
 };
 </script>
 
