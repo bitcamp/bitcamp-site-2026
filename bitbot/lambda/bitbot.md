@@ -14,3 +14,8 @@ To update the bot's knowledge or change the bot's context, first make appropriat
 Run the script locally to generate a new index: `python build_index.py` (ensuring dependencies are installed: `pip install -r requirements.txt` and the environment file `.env` is configured with `OPENAI_API_KEY`). 
 
 Finally, upload the new `faq_index.npz` to the AWS Lambda production environment under function name `bitbot`. 
+
+If the build file is gone in the lambda aws function use this (u gotta be in the ../bitbot/lambda directory):
+wsl bash -c "cd build && zip -r ../lambda_package.zip . && cd .. && zip -g lambda_package.zip lambda_function.py bitbot.py faq.json faq_index.npz build_index.py requirements.txt"
+
+then import the lambda aws with zip and put this zip.
