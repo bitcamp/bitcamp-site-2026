@@ -178,7 +178,7 @@ const sendMessage = async () => {
   draft.value = "";
   await nextTick();
   const textarea = document.querySelector(
-    ".input_textarea"
+    ".input_textarea",
   ) as HTMLTextAreaElement;
   if (textarea) textarea.style.height = "auto";
   scrollMessagesToBottom();
@@ -194,26 +194,41 @@ const sendMessage = async () => {
   await nextTick();
   scrollMessagesToBottom();
 
-  //random bot reply, replace w bot later
-  setTimeout(async () => {
-    // remove typing indicator
+  try {
+    const response = await fetch(import.meta.env.VITE_BITBOT_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text }),
+    });
+
     const idx = messages.value.findIndex((m) => m.typing === true);
     if (idx !== -1) messages.value.splice(idx, 1);
 
-    const response = await fetch("FUNCTION_URL", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ text })
-    });
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`API error: ${response.status}. ${errText}`);
+    }
+
+    const data = await response.json();
 
     messages.value.push({
       role: "bot",
-      text: JSON.stringify(response['body']),
+      text: data.reply || "Sorry, I couldn't process that request.",
       time: getCurrentTime(),
     });
-    await nextTick();
-    scrollMessagesToBottom();
-  }, 300);
+  } catch (error) {
+    const idx = messages.value.findIndex((m) => m.typing === true);
+    if (idx !== -1) messages.value.splice(idx, 1);
+
+    console.error("BitBot API error:", error);
+    messages.value.push({
+      role: "bot",
+      text: "Sorry, I'm having trouble connecting right now. Please try again later!",
+      time: getCurrentTime(),
+    });
+  }
+  await nextTick();
+  scrollMessagesToBottom();
 };
 
 const onInputKeydown = (e: KeyboardEvent) => {

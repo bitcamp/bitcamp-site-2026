@@ -1,0 +1,106 @@
+{
+  "sleeper_site": {
+    "questions": {
+      "Interested in being an organizer?": {
+        "answer": "Applications to be an organizer open around September–October at the beginning of the school year before Bitcamp!"
+      },
+      "Interested in hacking?": {
+        "answer": "Please fill out this form to be notified when our registrations open: https://docs.google.com/forms/d/e/1FAIpQLScISWbfoN-tbEwNN-1z0_GFOd8gZjSwJZuFqvwfkTuQKB6Bcg/viewform"
+      },
+      "Interested in sponsoring us?": {
+        "answer": "Please check out more information at: https://bit.camp/sponsor"
+      },
+      "What does Bitcamp look like?": {
+        "answer": "Here is a recap video that encapsulates what you will experience during the weekend: https://www.youtube.com/watch?v=n5AL9sNhZgE"
+      }
+    }
+  },
+
+  "main_website": {
+    "questions": {
+      "What/When is Bitcamp?": {
+        "answer": "Bitcamp falls in the 2nd week of April and takes place from Friday–Saturday."
+      },
+      "What's a hackathon?": {
+        "answer": "A hackathon is a time-bound event where individuals or teams collaborate to solve a specific problem, often by creating a working prototype or new product within a short timeframe."
+      },
+      "Do I have to be experienced to attend?": {
+        "answer": "No, beginners are welcome and encouraged!"
+      },
+      "Is it okay if I don't have an idea or team?": {
+        "answer": "Yes that's totally fine! We will have a team formation event to help you find teammates."
+      },
+      "Can I attend if I'm a minor (under 18)?": {
+        "answer": "Yes, but there are additional forms/waivers that must be filled out."
+      },
+      "Can I attend if I don't want to hack?": {
+        "answer": "Of course! TThere are tons of events, workshops, and networking opportunities for students who don't want to hack."
+      },
+      "How else can I get involved without hacking?": {
+        "answer": "You can apply to be an organizer next year around September/October, host a workshop, or register as a mentor/volunteer."
+      },
+      "How do I join a team?": {
+        "answer": "Teams of 1–4 can be formed before or at Bitcamp and will be reflected on Devpost."
+      },
+      "How competitive is the application?": {
+        "answer": "There is no application to attend Bitcamp as a hacker."
+      },
+      "Who can apply to organize Bitcamp?": {
+        "answer": "Any UMD undergraduate students are eligible to apply! No previous hackathon experience is required."
+      },
+      "Is Bitcamp free?": {
+        "answer": "Yes! Bitcamp is fully free to attend."
+      },
+      "Can non-registered people attend?": {
+        "answer": "Yes. People that haven’t registered can show up after a designated time in-person to pick up a waitlist number and then may be able to attend depending on headcount."
+      },
+      "What have people made in the past?": {
+        "answer": "You can check out last year’s projects here https://bitcamp2025.devpost.com/!"
+      },
+      "What hardware is available?": {
+        "answer": "The specified hardware that will be available is not determined yet, but we will have multiple options available for our hackers."
+      },
+      "Is there travel reimbursement?": {
+        "answer": "Yes, we offer travel reimbursement depending on the constraints."
+      },
+      "Do I need to wear a mask?": {
+        "answer": "Masks are not required unless you have an infectious illness."
+      },
+      "Is there a quiet area?": {
+        "answer": "No, there is not."
+      }
+    }
+  },
+
+  "day_of_website": {
+    "questions": {
+      "How many people per team?": {
+        "answer": "Up to 4 people can form a team."
+      },
+      "What are the different tracks?": {
+        "answer": "TBA"
+      },
+      "Can I leave the venue and come back?": {
+        "answer": "YAs long as you have your wristband signifying you checked in, then yes!"
+      },
+      "How does judging work?": {
+        "answer": "Judging occurs during Expo and is conducted by organizers or sponsors."
+      },
+      "Where can I sleep?": {
+        "answer": "You are able to sleep on your desk sitting up, but you are not allowed to lie down due to potential hazards"
+      },
+      "What is the WiFi password?": {
+        "answer": "You can join the free UMD guest wifi, or join via your UID using Eduroam if you’re a UMD Student!"
+      },
+      "Are showers available?": {
+        "answer": "No."
+      },
+      "Are there quiet zones?": {
+        "answer": "No, there are not."
+      },
+      "Are snacks available?": {
+        "answer": "Yes there will be a food table during weekend of. We will provide you with meals, and there will be a snack table."
+      }
+    }
+  }
+}
