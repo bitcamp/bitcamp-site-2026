@@ -194,8 +194,17 @@ const sendMessage = async () => {
   await nextTick();
   scrollMessagesToBottom();
 
+  // uncomment me and comment the other block if ur tesintg locally, if pushing return production
+
   try {
-    const response = await fetch(import.meta.env.VITE_BITBOT_API_URL, {
+    // FOR PRODUCTION UNCOMMENT ME WHEN TESTING LOCALLY, UNCOMMENT ME WHEN PUSHING TO REPO
+    // const response = await fetch(import.meta.env.VITE_BITBOT_API_URL, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ message: text }),
+    // });
+    // FOR PRODUCTION UNCOMMENT ME WHEN PUSHING TO REPO, COMMENT ME WHEN TESTING LOCALLY
+    const response = await fetch("/api/bitbot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: text }),
