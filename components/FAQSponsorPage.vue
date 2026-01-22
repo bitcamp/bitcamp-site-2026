@@ -153,10 +153,10 @@ const sponsors: Sponsor[] = Array(12).fill({
     content: '';
     position: absolute;
     top: clamp(-1000px, -110vh, -500px); 
-    left: clamp(-1700px, -166vw, -100px); 
+    left: clamp(-2200px, -250vw, -300px);
     width: clamp(1000px, 400vw, 4000px);
     height: clamp(800px, 200vh, 2000px);
-    background-image: url('../assets/img/faq/blue-planet.png');
+    background-image: url('../assets/img/faq/blue-planet.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -172,7 +172,7 @@ const sponsors: Sponsor[] = Array(12).fill({
     top: -40vh;
     width: 40vw;
     height: 70vh;
-    background-image: url('../assets/img/faq/green-planet.png');
+    background-image: url('../assets/img/faq/green-planet.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -198,8 +198,8 @@ const sponsors: Sponsor[] = Array(12).fill({
   gap: 2vw;
   padding: 3rem;
   margin-bottom: 5vh;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-left: 3.5vw;
+  margin-right: 3.5vw;
 }
 
 .sponsor-card {
@@ -316,12 +316,12 @@ const sponsors: Sponsor[] = Array(12).fill({
     margin-top: 1rem;
     margin-right: 1rem;
     transform: rotateZ(0deg);
-    transition: all 0.4s ease-out;
+    transition: content 0.6s ease;
     flex-shrink: 0;
   }
 
   &.opened::before {
-    transform: rotateZ(90deg);
+    content: url(../assets/img/icons/minus.png);
   }
 }
 
@@ -337,6 +337,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 .Answer_Opened {
   padding: 0px 12px;
   padding-top: 1rem;
+  margin-left: 4.6vw;
   text-align: left;
   font-size: 1.4vw;
   overflow-y: auto;
@@ -347,6 +348,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 @media (max-width: 768px) {
   .faq-text-div, .sponsor-text-div {
     font-size: 5vw;
+    text-align:center;
     margin-left: 5vw;
   }
 
@@ -392,11 +394,17 @@ const sponsors: Sponsor[] = Array(12).fill({
     min-height: 4rem;
   }
 }
+
+@media (max-width: 1024px) {
+  .sponsor-logo-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
 
 <style lang="scss">
 a.link {
-  color: #8B2000;
+  color: #6982ac;
 }
 
 ul {
