@@ -2,12 +2,6 @@
   <header>
     <nav>
       <div class="non-pages">
-        <div id="logo-container">
-          <a tag="img" href="/">
-            <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
-            <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" />
-          </a>
-        </div>
         <div class="hamburgerContainer">
           <button class="hamburger hamburger--spin" type="button" style="color: #ffffff"
             :class="{ 'is-active': showDropdown }" @click="toggleDropdown">
@@ -29,6 +23,14 @@
         <li class="page">
           <a href="#roster" class="page-type">Our Team</a>
         </li>
+
+        <li class="page page-logo">
+        <a href="/">
+        <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
+        <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" />
+        </a>
+      </li>
+
         <li class="page">
           <a href="#schedule" class="page-type">Schedule</a>
         </li>
@@ -129,7 +131,7 @@ header {
   width: 80%;
   left: 45%;
   transform: translateX(-50%);
-  background-color: #FFEAC7;
+  background-color: transparent;
   border-radius: 50px;
   justify-content: center;
   margin-top: 30px;
@@ -150,10 +152,10 @@ nav {
 }
 
 #logo-with-text {
-  max-height: 100%;
-  max-width: 100%;
+  height: 36px;
+  max-width: auto;
   object-fit: cover;
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 #logo-image {
@@ -161,9 +163,9 @@ nav {
 }
 
 .page-type {
-  color: #FF6F3F;
+  color: #FFFFFFB2;
   font-family: Aleo;
-  font-size: 14px;
+  font-size: 23.767px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -340,7 +342,7 @@ nav {
     width: 20%;
     min-width: 150px;
     font-size: 32px;
-    background-color: #FFEAC7;
+    background-color:transparent;
     position: absolute;
     right: 0;
     flex-direction: column;
