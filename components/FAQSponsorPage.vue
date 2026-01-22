@@ -148,6 +148,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   position: relative;
   overflow: hidden;
   border-top: 1px solid #000;  
+  text-align: left;
 
   &::after {
     content: '';
@@ -163,6 +164,11 @@ const sponsors: Sponsor[] = Array(12).fill({
     z-index: 0;
     pointer-events: none;
     opacity: 1;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
   }
 
   &::before {
@@ -179,6 +185,11 @@ const sponsors: Sponsor[] = Array(12).fill({
     z-index: 0;
     pointer-events: none;
     opacity: 1;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
   }
 }
 
@@ -348,10 +359,9 @@ const sponsors: Sponsor[] = Array(12).fill({
 @media (max-width: 768px) {
   .faq-text-div, .sponsor-text-div {
     font-size: 5vw;
-    text-align:center;
+    text-align:left;
     margin-left: 5vw;
   }
-
   .sponsor-logo-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -398,6 +408,55 @@ const sponsors: Sponsor[] = Array(12).fill({
 @media (max-width: 1024px) {
   .sponsor-logo-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-text-div, .sponsor-text-div {
+    font-size: 5vw;
+    text-align:left;
+    margin-left: 5vw;
+  }
+  .sponsor-logo-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .sponsor-card {
+    font-size: 4vw;
+    padding: 1rem;
+  }
+
+  .Question_Column {
+    min-width: 100%;
+  }
+
+  .Question, .Question_Button {
+    font-size: 3vw;
+  }
+
+  .Question_Button {
+    height: 10vw;
+    padding: 2rem 12px 1.75rem;
+    &::before {
+      min-width: 4rem;
+      min-height: 4rem;
+    }
+  }
+
+  .Answer, .Answer_Opened {
+    height: 100%;
+    font-size: 2.5vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Question_Button::before {
+    min-width: 4rem;
+    min-height: 4rem;
   }
 }
 </style>
