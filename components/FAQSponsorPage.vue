@@ -209,7 +209,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   gap: 2vw;
   padding: 3rem;
   margin-bottom: 5vh;
-  margin-left: 3.5vw;
+  margin-left: 3vw;
   margin-right: 3.5vw;
 }
 
@@ -332,6 +332,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
 
   &.opened::before {
+    transform: scale(0.75);
     content: url(../assets/img/icons/minus.png);
   }
 }
@@ -348,7 +349,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 .Answer_Opened {
   padding: 0px 12px;
   padding-top: 1rem;
-  margin-left: 4.6vw;
+  padding-left: calc(12px + 1rem + 3rem);   
   text-align: left;
   font-size: 1.4vw;
   overflow-y: auto;
@@ -366,8 +367,8 @@ const sponsors: Sponsor[] = Array(12).fill({
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 1.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 3vw;
+    margin-right: 3vw;
   }
 
   .sponsor-card {
@@ -395,6 +396,16 @@ const sponsors: Sponsor[] = Array(12).fill({
   .Answer, .Answer_Opened {
     height: 100%;
     font-size: 2.5vw;
+  }
+  .Answer_Opened {
+    padding: 0px 12px;
+    padding-top: 1rem;
+    padding-left: calc(12px + 1rem + 3rem); 
+    text-align: left;
+    font-size: 1.4vw;
+    overflow-y: auto;
+    transition: max-height 0.6s ease-in-out;
+    margin-bottom: 2rem;
   }
 }
 
@@ -408,6 +419,10 @@ const sponsors: Sponsor[] = Array(12).fill({
 @media (max-width: 1024px) {
   .sponsor-logo-container {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-left: 3vw;
+    margin-right: 1rem;
   }
 }
 
@@ -421,7 +436,7 @@ const sponsors: Sponsor[] = Array(12).fill({
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem;
     padding: 1.5rem;
-    margin-left: 1rem;
+    margin-left: 3vw;
     margin-right: 1rem;
   }
 
@@ -451,6 +466,16 @@ const sponsors: Sponsor[] = Array(12).fill({
     height: 100%;
     font-size: 2.5vw;
   }
+  .Answer_Opened {
+    padding: 0px 12px;
+    padding-top: 1rem;
+    padding-left: calc(12px + 1rem + 3rem); 
+    text-align: left;
+    font-size: 1.4vw;
+    overflow-y: auto;
+    transition: max-height 0.6s ease-in-out;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -463,7 +488,8 @@ const sponsors: Sponsor[] = Array(12).fill({
 
 <style lang="scss">
 a.link {
-  color: #6982ac;
+  color: #FF6F3F;
+  text-decoration: underline;
 }
 
 ul {
