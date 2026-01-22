@@ -149,7 +149,6 @@ const messages = ref<Msg[]>([
   },
 ]);
 const draft = ref("");
-
 const openChat = async () => {
   isOpen.value = true;
   await nextTick();
