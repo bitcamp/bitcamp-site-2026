@@ -52,11 +52,11 @@
                 top: -30px;
                 margin-top: -1.5rem;
                 position: absolute;
-                right: -10vw;
+                right: -5vw;
               "
-            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2025-season&utm_content=yellow"
+            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
             target="_blank">
-            <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-yellow.svg"
+            <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
               alt="Major League Hacking 2025 Hackathon Season" style="width:100%">
           </a>
         </template>
@@ -128,13 +128,14 @@ header {
   z-index: 100000; // should be higher than everything else
   position: fixed;
   border: 0;
-  width: 80%;
+  width: 90%;
   left: 45%;
   transform: translateX(-50%);
   background-color: transparent;
   border-radius: 50px;
   justify-content: center;
   margin-top: 30px;
+  padding: 0 2vw;
 }
 
 nav {
@@ -152,7 +153,7 @@ nav {
 }
 
 #logo-with-text {
-  height: 36px;
+  height: 42px;
   max-width: auto;
   object-fit: cover;
   margin-left: 0;
@@ -165,10 +166,11 @@ nav {
 .page-type {
   color: #FFFFFFB2;
   font-family: Aleo;
-  font-size: 23.767px;
+  font-size: 1.4vw;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  white-space: nowrap;
 }
 
 .page-type:hover {
@@ -177,10 +179,12 @@ nav {
 
 .nav-pages {
   display: flex;
-  margin-left: 10vw;
+  margin-left: 0;
   flex-direction: row;
   justify-content: space-evenly;
-}
+  align-items: center;
+  width: 100% 
+  }
 
 .nav-pages li {
   display: flex;
@@ -195,7 +199,7 @@ nav {
 
 .nav-pages li a {
   text-decoration: none;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
 }
 
 .divider-large-screen {
