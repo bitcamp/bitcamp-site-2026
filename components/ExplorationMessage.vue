@@ -17,20 +17,32 @@ export default {
 
 <style scoped>
 
+.exploration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 60px 20px;      
+    box-sizing: border-box;
+}
+
 .exploration-message {
     background-color: transparent; 
-    boarder: none;
-    float: right;
-    color: white;
-    padding: 3rem 5rem;
+    border: none;
+    color: var(--Starlight, #FFF7EB);
+    padding: 2rem;           /* Even padding all around */
     font-family: Aleo, serif;
     box-sizing: border-box;
-    max-width: 100rem;
-    text-align: center;
+
+    /* THE KEY CHANGES */
+    max-width: 45rem;        /* This creates the "box" shape from your screenshot */
+    margin: 0 auto;          /* Extra insurance for centering */
+    text-align: center;      /* Centers the text lines inside the box */
 }
 
 .title {
-    color: #FFF9F0;
+    color: var(--Starlight, #FFF7EB);
     text-align: center;
     font-family: 'Aleo', serif;
     font-size: 46.144px;
@@ -45,7 +57,7 @@ export default {
 }
 
 .description {
-    color: var(#FFF7EB);
+    color: var(--Starlight, #FFF7EB);
     text-align: center;
     font-family: 'Avenir', sans-serif;
     font-size: 24px;
@@ -53,12 +65,6 @@ export default {
     font-weight: 400;
     line-height: normal;
     opacity: 0.9;
-}
-
-.exploration-container {
-    padding-top: 40px;
-    position: relative;
-    width: 100%;
 }
 
 @media (max-width: 796px) {
