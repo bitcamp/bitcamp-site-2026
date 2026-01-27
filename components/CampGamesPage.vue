@@ -38,8 +38,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Avenir');
-
 .cfg-top {
     padding: 5% 0;
     background-color: #010B18;
@@ -59,30 +57,29 @@ export default {
 
 .cfg-title {
     width: 100%;
-    max-width: 850px;
+    max-width: 60%;
 }
 
 .cfg-box {
-    padding-left: 10rem;
-    padding-right: 55%;
-    margin: 0;
+    padding-left: 7%;
+    padding-right: 50%;
 }
 
 #cfg-blurb-first, #cfg-blurb-second {
     font-family: 'Avenir';
     color: #FFF7EB;
-    font-size: 18px;
+    font-size: 2.2rem;
     line-height: 150%;
     text-align: left;
     margin: 0;
 }
 
 #cfg-blurb-first {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #cfg-blurb-second {
-    font-weight: 100;
+    font-weight: 300;
     margin-top: 2rem;
 }
 
@@ -101,13 +98,13 @@ export default {
     }
     
     .cfg-title {
-        width: 200%;
+        width: 150%;
+        max-width: none;
     }
     
     .cfg-box {
         width: 80%;
         margin: 0 auto;
-        padding: 2rem;
         align-items: center;
     }
 }
