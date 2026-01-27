@@ -14,23 +14,19 @@ export default {
 };
 </script>
 <style scoped>
-
 .exploration-message {
     background-color: transparent; 
-    boarder: none;
-    float: right;
+    border: none;
     color: white;
     padding: 3rem 5rem;
     font-family: Aleo, serif;
     box-sizing: border-box;
-
-    /* THE KEY CHANGES */
-    max-width: 45rem;        /* This creates the "box" shape from your screenshot */
-    margin: 0 auto;          /* Extra insurance for centering */
-    text-align: center;      /* Centers the text lines inside the box */
+    max-width: 100rem;
+    text-align: center;
 }
+
 .title {
-    color: #FFF9F0;
+    color: #FFF7EB;
     text-align: center;
     font-family: 'Aleo', serif;
     font-size: 46.144px;
@@ -42,8 +38,9 @@ export default {
     text-shadow: 0 0 20.82px rgba(255, 249, 240, 1); 
     margin-bottom: 1.5rem;
 }
+
 .description {
-    color: var(#FFF7EB);
+    color: #FFF7EB;
     text-align: center;
     font-family: 'Avenir', sans-serif;
     font-size: 24px;
@@ -54,33 +51,23 @@ export default {
 }
 
 .exploration-container {
-    padding-top: 40px;
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 10vw; 
+    max-width: none;
+    box-shadow: none;
+    margin-top: 100px;
+    margin-right: 1000px;
 }
 
 /* Mobile view */
 @media (max-width: 992px) {
-    
     .exploration-container {
-        margin-right: 0;
-        padding: 30px 20px;
-    }
-    
-    .exploration-message {
-        padding: 2rem 1.5rem;
-        max-width: 100%;
-    }
-    
-    .title {
-        font-size: 36px;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-    }
-    
-    .description {
-        font-size: 18px;
-        line-height: 1.4;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 </style>
