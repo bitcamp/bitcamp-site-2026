@@ -8,30 +8,19 @@
         </div>
     </div>
 </template>
-
 <script lang="ts">
 export default {
     name: "ExplorationMessage",
 };
 </script>
-
 <style scoped>
-
-.exploration-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    padding: 60px 20px;      
-    box-sizing: border-box;
-}
 
 .exploration-message {
     background-color: transparent; 
-    border: none;
-    color: var(--Starlight, #FFF7EB);
-    padding: 2rem;           /* Even padding all around */
+    boarder: none;
+    float: right;
+    color: white;
+    padding: 3rem 5rem;
     font-family: Aleo, serif;
     box-sizing: border-box;
 
@@ -40,9 +29,8 @@ export default {
     margin: 0 auto;          /* Extra insurance for centering */
     text-align: center;      /* Centers the text lines inside the box */
 }
-
 .title {
-    color: var(--Starlight, #FFF7EB);
+    color: #FFF9F0;
     text-align: center;
     font-family: 'Aleo', serif;
     font-size: 46.144px;
@@ -53,11 +41,9 @@ export default {
     /* The Glow effect behind the text */
     text-shadow: 0 0 20.82px rgba(255, 249, 240, 1); 
     margin-bottom: 1.5rem;
-
 }
-
 .description {
-    color: var(--Starlight, #FFF7EB);
+    color: var(#FFF7EB);
     text-align: center;
     font-family: 'Avenir', sans-serif;
     font-size: 24px;
@@ -67,17 +53,34 @@ export default {
     opacity: 0.9;
 }
 
-@media (max-width: 796px) {
+.exploration-container {
+    padding-top: 40px;
+    position: relative;
+    width: 100%;
+}
+
+/* Mobile view */
+@media (max-width: 992px) {
+    
+    .exploration-container {
+        margin-right: 0;
+        padding: 30px 20px;
+    }
+    
     .exploration-message {
-        border: 0;
-        border-radius: 0;
-        text-align: center;
-        width: 100%;
-        margin: 0;
-        padding: 10vw;
-        max-width: none;
-        font-size: 5vw;
-        box-shadow: none;
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
+    
+    .title {
+        font-size: 36px;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .description {
+        font-size: 18px;
+        line-height: 1.4;
     }
 }
 </style>
