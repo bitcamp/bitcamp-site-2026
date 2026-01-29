@@ -1,52 +1,18 @@
 <template>
-  <div class="footer-container">
-    <div class="footer-background">
-      <picture>
-        <source media="(max-width: 700px)" srcset="../assets/img/images/footer_bg_mobile.svg" />
-        <img src="../assets/img/images/footer_bg.svg" alt="" class="background-image" />
-      </picture>
-      
-      <div class="footer-content">
-        <div class="logo-section">
-          <img src="../assets/img/images/bitcamp_logo.svg" alt="Bitcamp" class="bitcamp-logo" />
-        </div>
-
-        <div class="links-section">
-          <div class="link-columns">
-            <div class="link-column">
-              <a href="#tracks">Tracks</a>
-              <a href="#campfire-games">Campfire Games</a>
-              <a href="#roster">Our Team</a>
-              <a href="#schedule">Schedule</a>
-              <a href="#faq">FAQ</a>
-            </div>
-            <div class="link-column">
-              <a href="mailto:hello@bit.camp">Contact Us</a>
-              <a href="/sponsor" target="_blank">Sponsor Us</a>
-              <a href="http://mlh.io/code-of-conduct">MLH Code of Conduct</a>
-              <a href="/brand.pdf">Brand Guidelines</a>
+  <div class="gradient">
+    <div class="section-container">
+      <div class="footer">
+        <div class="floatie-text past-grid-container">
+          <div class="links">
+            <a href="http://mlh.io/code-of-conduct">MLH Code of Conduct</a> |
+            <a href="/sponsor" target="_blank">Sponsor Us</a> |
+            <a href="/brand.pdf">Brand Guidelines</a> |
+            <a href="mailto:hello@bit.camp">Contact Us</a>
+            <div class="copyright">
+              Copyright &copy; 2019 - 2025 Bitcamp. All Rights Reserved.
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="social-icons">
-        <a href="https://www.instagram.com/bitcamp" target="_blank" rel="noopener noreferrer">
-          <img src="../assets/img/images/instagram_logo.svg" alt="Instagram" />
-        </a>
-        <a href="https://www.tiktok.com/@bitcamp_umd" target="_blank" rel="noopener noreferrer">
-          <img src="../assets/img/images/tiktok_logo.svg" alt="TikTok" />
-        </a>
-        <a href="https://x.com/bitcmp" target="_blank" rel="noopener noreferrer">
-          <img src="../assets/img/images/x_logo.svg" alt="X" />
-        </a>
-        <a href="https://www.facebook.com/bitcmp" target="_blank" rel="noopener noreferrer">
-          <img src="../assets/img/images/facebook_logo.svg" alt="Facebook" />
-        </a>
-      </div>
-
-      <div class="copyright">
-        Copyright © 2019-2026 Bitcamp. All rights reserved.
       </div>
     </div>
   </div>
@@ -54,204 +20,172 @@
 
 <script lang="ts">
 export default {
-  name: 'Footer',
+  name: 'PastEventsGrid',
+  components: {},
+  data() {
+    return {
+    };
+  },
 };
 </script>
 
 <style scoped>
-.footer-container {
-  width: 100%;
-  position: relative;
-  background-color: #010B18;
+.elvis {
+  width: 125px;
+  height: 125px;
+  transform: rotate(4.426deg);
 }
 
-.footer-background {
-  position: relative;
-  width: 100%;
-  overflow: visible;
-  background-color: #010B18;
-  aspect-ratio: 1442 / 813;
+.footer {
+  /* position: relative; */
+  box-sizing: border-box;
+  margin-top: 5vw;
+  height: 15vw;
+  width: 100vw;
+  overflow: hidden;
 }
 
-.footer-background picture {
+.links a {
+  text-decoration: underline;
+}
+
+.floatie-text {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
+  text-align: center;
+  margin: auto;
   left: 0;
+  right: 0;
+  bottom: 6.5vw;
+  font-size: 1.5vw;
+}
+
+@media (max-width: 976px) {
+  .floatie-text {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .floatie-text {
+    font-size: 2.5vw;
+  }
+
+  .elvis {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+.gradient {
+  background-color: #540000;
+  ;
+}
+
+.section-container {
+  position: relative;
+}
+
+.past-grid-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  z-index: 0;
 }
 
-.footer-content {
-  position: absolute;
-  z-index: 1;
+.past-grid {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  bottom: 2vw;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100rem;
+  padding: 0 3rem 0 3rem;
 }
 
-.logo-section {
-  display: flex;
-  align-items: center;
-}
+@keyframes bb-rotate {
 
-.bitcamp-logo {
-  width: calc(5rem + 15vw);
-  padding-left: 2vw;
-}
-
-.links-section {
-  padding: calc(7rem + 23vw) 2vw 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.link-columns {
-  display: flex;
-  gap: 4vw;
-}
-
-.link-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.link-column a {
-  color: #FFF7EB;
-  text-decoration: none;
-  font-size: calc(0.5rem + 1vw);
-  font-family: 'Avenir';
-  font-weight: 400;
-  transition: opacity 0.2s;
-}
-
-.link-column a:hover {
-  opacity: 0.7;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1.2vw;
-  align-items: center;
-  position: absolute;
-  bottom: 1.5vw;
-  right: 2vw;
-  z-index: 1;
-}
-
-.social-icons a {
-  display: flex;
-  align-items: center;
-  transition: opacity 0.2s;
-}
-
-.social-icons a:hover {
-  opacity: 0.7;
-}
-
-.social-icons img {
-  width: calc(0.5rem + 2.5vw);
-}
-
-.copyright {
-  position: absolute;
-  bottom: 1.5vw;
-  padding-left: 2vw;
-  color: #FFF7EB;
-  font-size: calc(0.5rem + 1vw);
-  font-weight: 300;
-  z-index: 1;
-}
-
-@media (max-width: 700px) {
-  .footer-background {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start ;
-    gap: 2rem;
+  0%,
+  100% {
+    transform: rotate(-5deg);
   }
 
-  .footer-content {
-    position: static;
-    height: auto;
-    bottom: auto;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: flex-start;
-    text-align: left;
-    order: 1;
-    padding: 4rem 0 0 4vw;
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes circle-rotate {
+
+  0%,
+  100% {
+    transform: rotate(-2deg);
   }
 
-  .logo-section {
-    position: relative;
-    align-items: flex-start;
-    padding-top: 2.5rem;
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.bb-rotate-div {
+  animation: bb-rotate 8s ease infinite reverse;
+}
+
+.circle-rotate-div {
+  animation: circle-rotate 8s ease infinite reverse;
+}
+
+.bob-div {
+  animation: floatie-bob 6s ease infinite reverse;
+}
+
+.bb-floatie {
+  width: 50vw;
+  margin-left: -2vw;
+  margin-bottom: -12vw;
+}
+
+.bb-floatie-text {
+  position: absolute;
+  transform: rotate(-20.5deg);
+  font-size: 2.8vw;
+  top: 13vw;
+  left: 7.5vw;
+}
+
+.circle-floatie {
+  width: 75vw;
+  margin-left: 60vw;
+  margin-top: -75vh;
+  margin-bottom: -4vw;
+}
+
+/* mobile view */
+
+/* bb floatie size */
+@media (max-width: 768px) {
+  .bb-floatie {
+    width: 70vw;
+    margin-left: -5vw;
+    margin-bottom: -20vw;
   }
 
-  .logo-section::before {
-    content: "";
+  .bb-floatie-text {
+    font-size: 5vw;
+    top: 17.5vw;
+    left: 2.5vw;
+  }
+}
+
+/* circle floatie position */
+@media (max-width: 920px) {
+  .circle-rotate-div {
     position: absolute;
-    width: 100%;
-    top: 0;
+    margin-top: 0;
     left: 0;
-    height: 2px;
-    width: 90vw;
-    background: #FFFFFF;
-    opacity: 0.5;
+    top: 0vh;
   }
 
-  .bitcamp-logo {
-    width: calc(10rem + 20vw);
-  }
-
-  .links-section {
-    align-items: flex-start;
-    padding: 0 4vw 0 0;
-  }
-
-  .link-columns {
-    flex-direction: row;
-    text-align: left;
-    gap: 2rem;
-  }
-
-  .link-column a {
-    font-size: calc(0.9rem + 1.5vw);
-  }
-
-  .social-icons {
-    position: static;
-    order: 2;
-    gap: 1.5rem;
-    justify-content: flex-start;
-    padding: 2vw 0 2vw 4vw;
-  }
-
-  .social-icons img {
-    width: calc(1.5rem + 3.5vw);
-  }
-
-  .copyright {
-    position: static;
-    order: 3;
-    padding-left: 4vw;
-    padding-bottom: 3rem;
-    text-align: left;
+  .circle-floatie {
+    width: 100vw;
+    margin-top: 70vh;
   }
 }
 </style>
