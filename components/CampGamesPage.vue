@@ -122,23 +122,19 @@ export default {
     #cfg-blurb-first, #cfg-blurb-second {
         font-size: 16px;
     }
+
+    .cfg-title {
+        width: 125%;
+    }
 }
 
 @media screen and (max-width: 515px) {
     #cfg-blurb-first, #cfg-blurb-second {
         font-size: 14px;
     }
-}
 
-@media screen and (max-width: 400px) {
-    #cfg-blurb-first, #cfg-blurb-second {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 270px) {
-    #cfg-blurb-first, #cfg-blurb-second {
-        font-size: 10px;
+    .cfg-title {
+        width: 110%;
     }
 }
 </style>
