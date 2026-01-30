@@ -22,7 +22,7 @@
             </div>
             <div class="link-column">
               <a href="mailto:hello@bit.camp">Contact Us</a>
-              <a href="/sponsor" target="_blank">Sponsor Us</a>
+              <a href="https://bit.camp/sponsor">Sponsor Us</a>
               <a href="http://mlh.io/code-of-conduct">MLH Code of Conduct</a>
               <a href="/brand.pdf">Brand Guidelines</a>
             </div>
@@ -227,7 +227,7 @@ export default {
   .link-columns {
     flex-direction: row;
     text-align: left;
-    gap: 2rem;
+    gap: 8rem;
   }
 
   .link-column a {
