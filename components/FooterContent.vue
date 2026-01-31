@@ -108,7 +108,7 @@ export default {
 
 .bitcamp-logo {
   width: calc(5rem + 15vw);
-  padding-left: 2vw;
+  padding-left: 0.2vw;
 }
 
 .links-section {
