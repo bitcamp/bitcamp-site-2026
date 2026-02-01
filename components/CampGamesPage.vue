@@ -29,17 +29,79 @@
                 Find your community, develop your team identity, and collaborate on something bigger than yourself: #UnearthYourPotential
             </p>
         </div>
-        <div class="vertical-img-container">
-            <img src="../assets/img/images/marshies-mv.svg" class="dinos-vertical">
+        <div class="team-row-desktop">
+            <div class="team-row-item" v-for="team in teams" :key="'desktop-' + team.name">
+                <img :src="team.src" :alt="team.name" />
+            </div>
+        </div>
+        <div class="team-carousel">
+            <div class="carousel-container">
+                <button class="nav-button nav-button--left" @click="prevTeam">
+                    <img src="assets/img/icons/left-arrow.svg" alt="Left Arrow" />
+                </button>
+                <div class="carousel-track" :style="trackStyle">
+                    <div
+                        v-for="(team, index) in teams"
+                        :key="team.name"
+                        class="carousel-item"
+                    >
+                        <img :src="team.src" :alt="team.name" />
+                    </div>
+                </div>
+                <button class="nav-button nav-button--right" @click="nextTeam">
+                    <img src="assets/img/icons/right-arrow.svg" alt="Right Arrow" />
+                </button>
+            </div>
         </div>
     </div>
     
 </template>
 
 <script lang="ts">
+import redTeam from '@/assets/img/images/red-team.svg';
+import greenTeam from '@/assets/img/images/green-team.svg';
+import blueTeam from '@/assets/img/images/blue-team.svg';
+
+
 export default {
-    name: 'PastEventsGrid',
+    name: 'CampGamesPage',
+
+    data() {
+        return {
+            currentTeamIndex: 1,
+            teams: [
+                { name: 'Red Team', src: redTeam },
+                { name: 'Green Team', src: greenTeam },
+                { name: 'Blue Team', src: blueTeam },
+            ],
+            
+        };
+    },
+    computed: {
+        trackStyle() {
+            const ITEM_WIDTH  = 75;   // %
+            const GAP         = 5;    // %
+            const ITEM_STEP   = ITEM_WIDTH + GAP;
+            const LEFT_OFFSET = (100 - ITEM_WIDTH) / 2; // 12.5
+
+            const translateX = LEFT_OFFSET - this.currentTeamIndex * ITEM_STEP;
+            return { transform: `translateX(${translateX}%)` };
+        },
+    },
+    methods: {
+        nextTeam() {
+            this.currentTeamIndex =
+                (this.currentTeamIndex + 1) % this.teams.length;
+        },
+        prevTeam() {
+            this.currentTeamIndex =
+                (this.currentTeamIndex - 1 + this.teams.length) %
+                this.teams.length;
+        },
+    },
 };
+
+
 </script>
 
 <style scoped>
@@ -84,9 +146,9 @@ export default {
     background-color: #701407;
     display: flex;
 }
-.vertical-img-container {
+/* .horizontal-img-container {
     display: none;
-}
+} */
 .gradient {
     background-image: url(assets/img/images/marshies-new.webp);
     background-repeat: no-repeat;
@@ -94,6 +156,84 @@ export default {
     height: 176vh;
     background-position: center;
 }
+.team-row-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+    padding: 5vmax 2%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.team-row-item {
+    flex: 1;
+    max-width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.team-row-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.team-carousel {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vmax;
+}
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.carousel-track {
+  display: flex;
+  gap: 5%;
+  transition: transform 0.5s ease;
+}
+.carousel-item {
+  flex: 0 0 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4vmax;
+  padding-bottom: 4vmax;
+}
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.nav-button {
+    position: absolute;
+    top: 35%;
+    z-index: 2;
+    border: none;
+    border-radius: 50%;
+    width: 5vmax;
+    height: 5vmax;
+    min-width: 40px;
+    min-height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+.nav-button img {
+    width: 100%;
+    height: 100%;
+    transition: filter 0.15s ease, transform 0.15s ease;
+}
+.nav-button:active img {
+    filter: drop-shadow(0 0 6px #F98F37) drop-shadow(0 0 14px #F98F37);
+    transform: scale(0.85);
+}
+.nav-button--left  { left:  1%; }
+.nav-button--right { right: 1%; }
 /* @media screen and (width:1024px) and (height: 1366px) {
     .gradient {
         height: 200vh;
@@ -139,10 +279,13 @@ export default {
         display: flex;
         margin-left: 15%;
     }
-    .dinos-vertical {
+    /* .teams-horizontal {
         display: flex;
         width: 90%;
         visibility: visible;
+    } */
+    .team-carousel {
+        display: flex;
     }
 }
 @media screen and (max-width: 700px) {
