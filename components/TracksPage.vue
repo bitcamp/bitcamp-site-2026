@@ -1,69 +1,81 @@
 <template>
-  <div id="tracks" class="tracks-page gradient">
-    <div class="tracks-container">
-      <div class="title-container">
-        <img src="@/assets/img/icons/foot-1.svg" class="foot" />
-        <img src="@/assets/img/icons/foot-2.svg" class="foot" />
-        <img src="@/assets/img/icons/TRACKS (1).svg" class="title" />
-        <img src="@/assets/img/icons/foot-3.svg" class="foot" />
-        <img src="@/assets/img/icons/foot-4.svg" class="foot" />
+  <div id="tracks" class="tracks-page">
+    <div class="stars-overlay"></div>
+
+    <div class="content-wrapper">
+      <div class="center-header">
+        <h1 class="main-title">Tracks</h1>
+        <p class="main-subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          In mollis facilisis urna, in pellentesque nisi ultrices non. 
+          Duis vestibulum felis quis magna laoreet pretium. 
+          Aliquam ut pretium massa, a eleifend ligula. Quisque 
+          elementum arcu finibus vestibulum efficitur.
+        </p>
       </div>
 
-      <div class="tracks-grid">
-        <div class="track-card left">
-          <!-- Track Text Container -->
-          <img :src="tracks[0].icon" :alt="tracks[0].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[0].title }}</h2>
-            <p class="track-description">{{ tracks[0].description }}</p>
-          </div>
-        </div>
-        <img :src="tracks[0].feet" :alt="tracks[0].title" class="feet" />
-
-        <div class="track-card right">
-          <!-- Track Text Container -->
-          <img :src="tracks[1].icon" :alt="tracks[1].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[1].title }}</h2>
-            <p class="track-description">{{ tracks[1].description }}</p>
-          </div>
-        </div>
-        <img :src="tracks[1].feet" :alt="tracks[1].title" class="feet" />
-
-        <div class="track-card left">
-          <!-- Track Text Container -->
-          <img :src="tracks[2].icon" :alt="tracks[2].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[2].title }}</h2>
-            <p class="track-description">{{ tracks[2].description }}</p>
-          </div>
-        </div>
-        <img :src="tracks[2].feet" :alt="tracks[2].title" class="feet" />
-
-        <div class="track-card right">
-          <!-- Track Text Container -->
-          <img :src="tracks[3].icon" :alt="tracks[3].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[3].title }}</h2>
-            <p class="track-description">{{ tracks[3].description }}</p>
-          </div>
-        </div>
-        <img :src="tracks[3].feet" :alt="tracks[3].title" class="feet" />
-
-        <div class="track-card left">
-          <!-- Track Text Container -->
-          <img :src="tracks[4].icon" :alt="tracks[4].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[4].title }}</h2>
-            <p class="track-description">{{ tracks[4].description }}</p>
+      <div class="tracks-container desktop-view">
+        <div 
+          v-for="(track, index) in tracks" 
+          :key="index" 
+          :class="['track-cloud', `pos-${index}`]"
+        >
+          <img 
+            :src="starBorder" 
+            class="star-border-overlay" 
+            alt="" 
+          />
+          <div class="cloud-content">
+            <div class="text-area">
+              <h2 class="cloud-title">{{ track.title }}</h2>
+              <p class="cloud-desc">{{ track.description }}</p>
+            </div>
+            <div class="image-area">
+              <div class="circle-placeholder">
+                <img :src="track.icon" v-if="track.icon" class="icon-img" />
+                <span v-else class="placeholder-text">Image</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="mobile-carousel mobile-view">
+        
+        <button class="nav-btn prev" @click="prevTrack" aria-label="Previous Track">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#e76f51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="track-cloud mobile-card">
+          <img 
+            :src="starBorder" 
+            class="star-border-overlay" 
+            alt="" 
+          />
+          <div class="cloud-content">
+            <div class="text-area">
+              <h2 class="cloud-title">{{ tracks[currentTrack].title }}</h2>
+              <p class="cloud-desc">{{ tracks[currentTrack].description }}</p>
+            </div>
+            <div class="image-area">
+              <div class="circle-placeholder">
+                <img :src="tracks[currentTrack].icon" v-if="tracks[currentTrack].icon" class="icon-img" />
+                <span v-else class="placeholder-text">Image</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="nav-btn next" @click="nextTrack" aria-label="Next Track">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#e76f51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+      </div>
+
     </div>
   </div>
 </template>
@@ -74,309 +86,274 @@ import appDevLogo from "@/assets/img/icons/appdev-logo.svg";
 import cyberLogo from "@/assets/img/icons/cyber-logo.svg";
 import generalLogo from "@/assets/img/icons/general-logo.svg";
 import mlLogo from "@/assets/img/icons/ml-logo.svg";
-import generalFeet from "@/assets/img/icons/generalFeet.svg";
-import mlFeet from "@/assets/img/icons/mlFeet.svg";
-import quantamFeet from "@/assets/img/icons/quantamFeet.svg";
-import cyberFeet from "@/assets/img/icons/cyberFeet.svg";
+
+import starBorder from "@/assets/img/star-border.png";
 
 export default {
   name: "TracksPage",
   data() {
     return {
+      currentTrack: 0, 
+      starBorder,
       tracks: [
-        {
-          title: "General Track",
-          description:
-            "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
-          icon: generalLogo,
-          feet: generalFeet,
-        },
-        {
-          title: "Machine Learning",
-          description:
-            "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
-          icon: mlLogo,
-          feet: mlFeet,
-        },
-        {
-          title: "Cybersecurity Track",
-          description:
-            "One of our newest tracks! Explore the realm of cybersecurity and understand various aspects of the field through interactive workshops that include discussions of web vulnerabilities, real-world applications of combating security weaknesses, and ethical decision-making.",
-          icon: cyberLogo,
-          feet: cyberFeet,
-        },
-        {
-          title: "Quantum Track",
-          description:
-            "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
-          icon: quantumLogo,
-          feet: quantamFeet,
-        },
-        {
-          title: "App Development Track",
-          description:
-            "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
-          icon: appDevLogo,
-        },
+        {title: "Placeholder1", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
+        { title: "Placeholder2", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
+        { title: "Placeholder3", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null },
+        { title: "Placeholder4", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
+        { title: "Placeholder5", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
+        { title: "Placeholder6", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null },
       ],
     };
   },
+  methods: {
+    nextTrack() {
+      this.currentTrack = (this.currentTrack + 1) % this.tracks.length;
+    },
+    prevTrack() {
+      this.currentTrack = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
+    }
+  }
 };
 </script>
 
 <style scoped>
-.gradient {
-  background: linear-gradient(to bottom, #5d3006, #6e1708);
+/* ================= GLOBAL STYLES ================= */
+.tracks-page {
+  background-color: #050a14;
+  min-height: 90vh;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-family: 'serif';
   display: flex;
   justify-content: center;
-  padding: 4vw 2vw;
+  align-items: center;
+  padding: 0;
 }
 
-
-@media screen and (max-width: 1024px) {
-  .gradient {
-    background: linear-gradient(to bottom, #5d3006, #b94923);
-    display: flex;
-    justify-content: center;
-    padding: 4vw 2vw;
-  }
+.content-wrapper {
+  position: relative;
+  width: 98vw;
+  max-width: 100%; 
+  height: 75vh; 
+  min-height: 700px;
+  z-index: 10;
 }
 
-.tracks-container {
+.center-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  max-width: 90vw;
-  width: 100%;
-  background: #b94923;
-  border-radius: 75px;
-  padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border: 1.3vw solid #ffd978;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: -25rem;
-  z-index: 1000;
+  width: 600px; 
+  z-index: 20;
 }
 
-.title-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8vw;
-  margin-bottom: 2vw;
-  flex-wrap: wrap;
-}
-
-.title {
-  width: 30vw;
-  max-width: 90vw;
-  height: 10vw;
-  margin-bottom: 2vw;
-}
-
-.foot {
-  width: 8vw;
-  max-width: 8vw;
-  height: auto;
-  padding: 2vw;
-}
-
-.tracks-grid {
-  display: flex;
-  gap: 8rem;
-  width: 100%;
-  padding-bottom: 8rem;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: first baseline;
-}
-
-.track-card {
-  display: flex;
-  max-width: 36.5rem;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: first baseline;
-}
-
-.track-text-cont {
-  display: flex;
-  max-width: 36.5rem;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-}
-
-.track-icon {
-  width: 9vw;
-  max-width: 9vw;
-  height: auto;
-}
-
-.track-title {
-  font-size: 2.7rem;
+.main-title {
+  font-size: 6rem;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
   font-weight: bold;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  color: #f8f8f8;
 }
 
-.track-description {
-  font-size: 1.8rem;
-  color: #f8f8f8;
+/* BIGGER PARAGRAPH BELOW TRACKS */
+.main-subtitle {
+  font-size: 1.4rem; 
+  line-height: 1.6;
+  opacity: 1;
+  margin-top: 15px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.track-card.left {
-  flex-direction: column;
+/* ================= SHARED CARD STYLES ================= */
+.track-cloud {
+  background: transparent;
+  padding: 30px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
 }
 
-.track-card.right {
-  flex-direction: column;
-  text-align: right;
-  /* Adjust text alignment for the right side */
+.star-border-overlay {
+  position: absolute;
+  pointer-events: none;
+  object-fit: fill; 
+  z-index: -1;
 }
 
-.feet {
-  display: none;
+.cloud-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 2;
+  width: 100%;
 }
 
-@media (max-width: 796px) {
-  .tracks-container {
-    padding: 10vh 3vw;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    max-width: 95vw;
-    background: url("/assets/img/images/tracks-background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-  }
+.text-area { flex: 1; }
 
-  .gradient {
+.cloud-title { 
+  font-size: 2.4rem; 
+  margin-bottom: 8px; 
+  font-weight: bold; 
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* BIGGER PARAGRAPH INSIDE TRACKS */
+.cloud-desc { 
+  font-size: 1.5rem; 
+  line-height: 1.2; 
+  opacity: 1; 
+  font-weight: 500;
+}
+
+.circle-placeholder {
+  width: 110px; 
+  height: 110px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.icon-img { width: 85%; height: 85%; object-fit: contain; }
+
+/* ================= DESKTOP SPECIFIC ================= */
+.desktop-view { display: block; }
+.mobile-view { display: none; }
+
+.track-cloud {
+  position: absolute; 
+  width: 380px; 
+  min-height: 150px;
+}
+
+/* CHANGED: Specifically targeting desktop view borders to make them smaller 
+   and fit tighter around the content.
+*/
+.desktop-view .star-border-overlay {
+  top: -20px;       /* Reduced from -50px */
+  left: -15px;      /* Reduced from -20px */
+  width: calc(100% + 30px);   /* Reduced from +40px */
+  height: calc(100% + 40px);  /* Reduced from +100px */
+}
+
+/* Screen Fill Positioning */
+.pos-1 { top: 2%; left: 50%; transform: translateX(-50%); }
+.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
+.pos-0 { top: 15%; left: 2%; }
+.pos-2 { top: 15%; right: 2%; }
+.pos-3 { bottom: 15%; left: 2%; }
+.pos-5 { bottom: 15%; right: 2%; }
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 1200px) {
+  .desktop-view { display: none; }
+  .mobile-view { display: flex; }
+
+  .tracks-page {
+    height: auto;
+    min-height: auto;
     padding: 0;
-    background: none;
+    align-items: flex-start;
+    overflow-y: visible;
   }
 
-  .track-icon {
-    width: 28vw;
-    max-width: 28vw;
+  .content-wrapper {
     height: auto;
-  }
-
-  .special-icon {
-    width: 28vw;
-    max-width: 28vw;
-    height: auto;
-    padding-bottom: 6vw;
-  }
-
-  .track-text-cont {
+    min-height: auto;
     display: flex;
-    width: 80vw;
-    text-align: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 30px 0;
   }
 
-  .title {
-    width: 80vw;
-    /* Dynamically scale title width */
-    height: auto;
-    /* Let height adjust automatically */
-    padding-top: 32vw;
+  .center-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    margin-bottom: 15px;
   }
 
-  .feet {
+  .main-title { font-size: 3.5rem; }
+  
+  .main-subtitle { 
+    font-size: 1.5rem; 
+    text-decoration: underline; 
+    text-decoration-color: rgba(255,255,255,0.3);
+  }
+
+  .mobile-carousel {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    align-content: center;
-    width: 80vw;
-    height: auto;
-    justify-items: left;
-
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 0; 
+    position: relative;
   }
 
-  .title-container {
+  .nav-btn {
+    background: #FFE4B5;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8vw;
-    margin-bottom: 2vw;
-    flex-wrap: wrap;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 20;
+    flex-shrink: 0;
+  }
+  
+  .nav-btn svg {
+    width: 20px;
+    height: 20px;
   }
 
-  .track-card.left {
-    flex-direction: row;
+  .mobile-card {
+    position: relative;
+    width: 70%;
+    max-width: 380px; 
+    margin: 0 10px;
+    min-height: 180px; 
+    padding: 30px 20px; 
+    background: rgba(30, 40, 60, 0.95); 
+    border-radius: 40px;
   }
 
-  .track-card.right {
-    flex-direction: row-reverse;
-    text-align: right;
-    /* Adjust text alignment for the right side */
+  /* Keep mobile border size as originally designed */
+  .mobile-card .star-border-overlay {
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
   }
 
-  .tracks-grid {
-    gap: 0rem;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 0;
-    align-items: center;
+  .cloud-title { font-size: 1.9rem; }
+  .cloud-desc { font-size: 1.3rem; }
+  
+  .cloud-content {
+    flex-direction: row; 
+    text-align: left;
   }
 
-  .foot {
-    display: none;
-  }
-
-  .track-card {
-    flex-direction: row;
-    align-content: center;
-    max-width: 95%;
-    height: auto;
-    justify-items: left;
-    gap: 1vw;
-  }
-
-  .track-title {
-    font-size: 1.7em;
-    /* Scale font size dynamically */
-    max-width: 100%;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-  }
-
-  .track-description {
-    font-size: 1em;
-    /* Scale font size for readability */
-    max-width: 85%;
-  }
-}
-
-@media (max-width: 400px) {
-  .feet {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    width: 80vw;
-    height: auto;
-    justify-items: left;
-  }
-
-  .tracks-container {
-    padding: 15vh 3vw;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    max-width: 95vw;
-    background: url("/assets/img/images/tracks-background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
+  .circle-placeholder {
+    width: 90px;
+    height: 90px;
   }
 }
 </style>
