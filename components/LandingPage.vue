@@ -3,8 +3,10 @@
         <img src="@/assets/img/images/mountains_new.svg" class="mountains" />
         <img src="@/assets/img/images/basic marshie (arms down).svg" class="marshie1" />
         <img src="@/assets/img/images/basic marshie (arms up).svg" class="marshie2" />
-        <img src="@/assets/img/images/ufo.svg" class="ufo" />
-        <img src="@/assets/img/images/ufo rays.svg" class="ufo-rays" />
+        <div class="ufo-group">
+            <img src="@/assets/img/images/ufo.svg" class="ufo" />
+            <img src="@/assets/img/images/ufo rays.svg" class="ufo-rays" />
+        </div>
         <img src="@/assets/img/images/text border.svg" class="text-border" />
         <img src="@/assets/img/images/title_and_tagline.svg" class="name" />
         <div class="content-wrapper">
@@ -50,47 +52,47 @@ export default {
 
 .ufo {
     position: absolute;
-    top: 23%;
-    left: 22%;
+    top: 23vh;
+    left: 22vw;
     z-index: 2;
     scale: 1.2;
 }
 
 .ufo-rays {
     position: absolute;
-    top: 37%;
-    left: 25%;
+    top: 37vh;
+    left: 25vw;
     z-index: 1;
     scale: 1.2;
 }
 
 .marshie1 {
     position: absolute;
-    top: 50%;
-    left: 28%;
+    top: 50vh;
+    left: 28vw;
     z-index: 2;
     scale: 1.2;
 }
 
 .marshie2 {
     position: absolute;
-    top: 67%;
-    left: 31%;
+    top: 67vh;
+    left: 31vw;
     z-index: 2;
     scale: 1.2;
 }
 
 .text-border {
     position: absolute;
-    left: 36%;
-    top: 10%;
+    left: 36vw;
+    top: 10vh;
     scale: 1.2;
 }
 
 .name {
     position: absolute;
-    left: 50%;
-    top: 35%;
+    left: 50vw;
+    top: 35vh;
     scale: 1.2;
 }
 
@@ -103,9 +105,8 @@ export default {
     text-align: center;
     color: white;
     z-index: 3;
-    right: 20%;
-    top: 55%;
-    width: 50%;
+    right: 37vw;
+    top: 55vh;
     scale: 0.7;
 }
 
@@ -133,31 +134,68 @@ export default {
 
 @media (max-width: 796px) {
     .register-button {
-        font-size: clamp(2rem, 7.5vw, 8rem);
-        ;
-        padding: calc(2.8vw + 1rem) calc(7.8vw + 2rem);
-        border-radius: 4.5rem;
-        background-color: #F2C042;
+        background-color: #FF6F3F;
+        border: solid;
+        border-color: #E54D1A;
+        border-radius: 20rem;
         letter-spacing: 0.4rem;
+        border-width: 0.5rem;
     }
 
     .content-wrapper {
-        width: 100%;
-        margin-top: calc(300% - 232.5vw);
+        top: 35vh;
+        left: -10vw;
+        scale: 0.6;
     }
 
-    .button-wrapper {
-        padding: 0;
-        width: auto;
+    .text-border {
+        position: absolute;
+        left: -30vw;
+        top: -13vh;
+        scale: 0.8;
     }
 
-    .gradient {
-        background-color: #C4B500;
-        padding-bottom: calc(339% - 239vw);
+    .name {
+        position: absolute;
+        left: 2vw;
+        top: 15vh;
+        scale: 0.8;
+    }
+
+    .ufo {
+        position: absolute;
+        top: 40vh;
+        left: 19vw;
+        z-index: 2;
+        scale: 0.9;
+    }
+
+    .ufo-rays {
+        position: absolute;
+        top: 47vh;
+        left: 25vw;
+        z-index: 1;
+        scale: 0.9;
+    }
+
+    .marshie1 {
+        position: absolute;
+        top: 63vh;
+        left: 37vw;
+        z-index: 2;
+        scale: 0.9;
+    }
+
+    .marshie2 {
+        position: absolute;
+        top: 78vh;
+        left: 45vw;
+        z-index: 2;
+        scale: 0.9;
     }
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
     .content-wrapper {
         width: 100%;
         margin-top: calc(298% - 232.5vw);
@@ -167,5 +205,5 @@ export default {
         background-color: #C4B500;
         padding-bottom: calc(341% - 240vw);
     }
-}
+} */
 </style>
