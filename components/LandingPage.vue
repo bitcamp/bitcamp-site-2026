@@ -1,13 +1,15 @@
 <template>
     <div class="gradient">
         <img src="../assets/img/images/flattened_landing.webp" class="dino-background" alt="landing image" />
-        <div class="content-wrapper">
+        
             <div class="button-wrapper">
                 <a target="_blank" href="https://register.bit.camp" class="register-button">REGISTER</a>
             </div>
+            <div class="message-wrapper">
             <ExplorationMessage />
+            </div>      
         </div>
-    </div>
+    
 </template>
 
 <script lang="ts">
@@ -30,7 +32,7 @@ export default {
     min-height: 135vw;
     height: auto;
     overflow: hidden;
-    background-color: #5E5700;
+    background: linear-gradient(180deg, #010B18, #0D2539);
     background-size: cover;
 }
 
@@ -46,8 +48,23 @@ export default {
     object-fit: cover;
 }
 
-.content-wrapper {
-    position: absolute;
+.message-wrapper {
+    width: 100%;
+        left: 0;
+        right: 0;
+        top:0vw; 
+        display: flex;
+        justify-content: center;
+
+}
+
+.button-wrapper {
+    width: 100%;
+    padding: 0 ;
+    top:30vw;
+    right:auto;
+
+     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,15 +72,11 @@ export default {
     text-align: center;
     color: white;
     z-index: 1;
-    right: 0;
+    right:0;
     top: 50vw;
     width: 48%;
 }
 
-.button-wrapper {
-    width: 100%;
-    padding: 0 0 3vw 3.2vw;
-}
 
 .register-button {
     background-color: #FFB353;
@@ -104,22 +117,29 @@ export default {
         padding: 0;
         width: auto;
     }
-
-    .gradient {
-        background-color: #C4B500;
+     .gradient {
+        background:linear-gradient(160deg, #010B18 0%, #0D2539 100%);
+        background-size: 100% 338px, cover;
+        background-position: center 40%;
         padding-bottom: calc(339% - 239vw);
     }
+
 }
+
+
 
 @media (max-width: 500px) {
     .content-wrapper {
         width: 100%;
         margin-top: calc(298% - 232.5vw);
     }
-
+   
     .gradient {
-        background-color: #C4B500;
+        background:linear-gradient(160deg, #010B18 0%, #0D2539 100%);
+        background-size: 100% 338px, cover;
+        background-position: center 40%;
         padding-bottom: calc(341% - 240vw);
     }
 }
+
 </style>
