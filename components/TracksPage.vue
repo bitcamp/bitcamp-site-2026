@@ -6,25 +6,21 @@
       <div class="center-header">
         <h1 class="main-title">Tracks</h1>
         <p class="main-subtitle">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          In mollis facilisis urna, in pellentesque nisi ultrices non. 
-          Duis vestibulum felis quis magna laoreet pretium. 
-          Aliquam ut pretium massa, a eleifend ligula. Quisque 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          In mollis facilisis urna, in pellentesque nisi ultrices non.
+          Duis vestibulum felis quis magna laoreet pretium.
+          Aliquam ut pretium massa, a eleifend ligula. Quisque
           elementum arcu finibus vestibulum efficitur.
         </p>
       </div>
 
       <div class="tracks-container desktop-view">
-        <div 
-          v-for="(track, index) in tracks" 
-          :key="index" 
+        <div
+          v-for="(track, index) in tracks"
+          :key="index"
           :class="['track-cloud', `pos-${index}`]"
         >
-          <img 
-            :src="starBorder" 
-            class="star-border-overlay" 
-            alt="" 
-          />
+          <img :src="starBorder" class="star-border-overlay" alt="" />
           <div class="cloud-content">
             <div class="text-area">
               <h2 class="cloud-title">{{ track.title }}</h2>
@@ -41,19 +37,20 @@
       </div>
 
       <div class="mobile-carousel mobile-view">
-        
         <button class="nav-btn prev" @click="prevTrack" aria-label="Previous Track">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#e76f51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M19 12H5M5 12L12 19M5 12L12 5"
+              stroke="#e76f51"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </button>
 
         <div class="track-cloud mobile-card">
-          <img 
-            :src="starBorder" 
-            class="star-border-overlay" 
-            alt="" 
-          />
+          <img :src="starBorder" class="star-border-overlay" alt="" />
           <div class="cloud-content">
             <div class="text-area">
               <h2 class="cloud-title">{{ tracks[currentTrack].title }}</h2>
@@ -61,7 +58,11 @@
             </div>
             <div class="image-area">
               <div class="circle-placeholder">
-                <img :src="tracks[currentTrack].icon" v-if="tracks[currentTrack].icon" class="icon-img" />
+                <img
+                  :src="tracks[currentTrack].icon"
+                  v-if="tracks[currentTrack].icon"
+                  class="icon-img"
+                />
                 <span v-else class="placeholder-text">Image</span>
               </div>
             </div>
@@ -70,38 +71,66 @@
 
         <button class="nav-btn next" @click="nextTrack" aria-label="Next Track">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#e76f51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M5 12H19M19 12L12 5M19 12L12 19"
+              stroke="#e76f51"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </button>
-
       </div>
-
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import quantumLogo from "@/assets/img/icons/quantum-logo.svg";
-import appDevLogo from "@/assets/img/icons/appdev-logo.svg";
-import cyberLogo from "@/assets/img/icons/cyber-logo.svg";
-import generalLogo from "@/assets/img/icons/general-logo.svg";
-import mlLogo from "@/assets/img/icons/ml-logo.svg";
-
 import starBorder from "@/assets/img/star-border.png";
 
 export default {
   name: "TracksPage",
   data() {
     return {
-      currentTrack: 0, 
+      currentTrack: 0,
       starBorder,
       tracks: [
-        {title: "Placeholder1", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
-        { title: "Placeholder2", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
-        { title: "Placeholder3", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null },
-        { title: "Placeholder4", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
-        { title: "Placeholder5", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null  },
-        { title: "Placeholder6", description: "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...", icon: null },
+        {
+          title: "Placeholder1",
+          description:
+            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+          icon: null,
+        },
+        {
+          title: "Placeholder2",
+          description:
+            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+          icon: null,
+        },
+        {
+          title: "Placeholder3",
+          description:
+            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+          icon: null,
+        },
+        {
+          title: "Placeholder4",
+          description:
+            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+          icon: null,
+        },
+        {
+          title: "Placeholder5",
+          description:
+            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+          icon: null,
+        },
+        {
+          title: "Placeholder6",
+          description:
+            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+          icon: null,
+        },
       ],
     };
   },
@@ -111,8 +140,8 @@ export default {
     },
     prevTrack() {
       this.currentTrack = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -120,23 +149,21 @@ export default {
 /* ================= GLOBAL STYLES ================= */
 .tracks-page {
   background-color: #050a14;
-  min-height: 90vh;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
   color: white;
-  font-family: 'serif';
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
 }
 
 .content-wrapper {
   position: relative;
   width: 98vw;
-  max-width: 100%; 
-  height: 75vh; 
-  min-height: 700px;
+  max-width: 1600px;
+  height: 90vh;
+  min-height: 800px;
   z-index: 10;
 }
 
@@ -146,24 +173,29 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 600px; 
-  z-index: 20;
+  width: clamp(400px, 50vw, 800px);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-title {
-  font-size: 6rem;
+  font-family: "serif";
+  font-size: clamp(4rem, 8vw, 7.5rem);
   margin: 0;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
 }
 
-/* BIGGER PARAGRAPH BELOW TRACKS */
 .main-subtitle {
-  font-size: 1.4rem; 
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
   line-height: 1.6;
-  opacity: 1;
-  margin-top: 15px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-top: 20px;
+  max-width: 600px;
+  opacity: 0.9;
 }
 
 /* ================= SHARED CARD STYLES ================= */
@@ -177,9 +209,14 @@ export default {
 
 .star-border-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  object-fit: fill; 
+  object-fit: fill;
   z-index: -1;
+  transform: scale(1.1);
 }
 
 .cloud-content {
@@ -191,27 +228,20 @@ export default {
   width: 100%;
 }
 
-.text-area { flex: 1; }
-
-.cloud-title { 
-  font-size: 2.4rem; 
-  margin-bottom: 8px; 
-  font-weight: bold; 
-  line-height: 1.1;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+.cloud-title {
+  font-family: "serif";
+  font-size: 2.2rem;
+  font-weight: bold;
 }
-
-/* BIGGER PARAGRAPH INSIDE TRACKS */
-.cloud-desc { 
-  font-size: 1.5rem; 
-  line-height: 1.2; 
-  opacity: 1; 
-  font-weight: 500;
+.cloud-desc {
+  font-family: "Avenir", Helvetica, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.25;
 }
 
 .circle-placeholder {
-  width: 110px; 
-  height: 110px;
+  width: 100px;
+  height: 100px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.6);
@@ -219,62 +249,96 @@ export default {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
-.icon-img { width: 85%; height: 85%; object-fit: contain; }
-
-/* ================= DESKTOP SPECIFIC ================= */
-.desktop-view { display: block; }
-.mobile-view { display: none; }
+/* ================= DESKTOP VIEW POSITIONS ================= */
+.desktop-view {
+  display: block;
+}
+.mobile-view {
+  display: none;
+}
 
 .track-cloud {
-  position: absolute; 
-  width: 380px; 
+  position: absolute;
+  width: clamp(300px, 22vw, 380px);
   min-height: 150px;
 }
 
-/* CHANGED: Specifically targeting desktop view borders to make them smaller 
-   and fit tighter around the content.
-*/
-.desktop-view .star-border-overlay {
-  top: -20px;       /* Reduced from -50px */
-  left: -15px;      /* Reduced from -20px */
-  width: calc(100% + 30px);   /* Reduced from +40px */
-  height: calc(100% + 40px);  /* Reduced from +100px */
+.pos-0 {
+  top: 15%;
+  left: 10%;
+}
+.pos-1 {
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pos-2 {
+  top: 15%;
+  right: 10%;
 }
 
-/* Screen Fill Positioning */
-.pos-1 { top: 2%; left: 50%; transform: translateX(-50%); }
-.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
-.pos-0 { top: 15%; left: 2%; }
-.pos-2 { top: 15%; right: 2%; }
-.pos-3 { bottom: 15%; left: 2%; }
-.pos-5 { bottom: 15%; right: 2%; }
+.pos-3 {
+  bottom: 15%;
+  left: 10%;
+}
+.pos-4 {
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pos-5 {
+  bottom: 15%;
+  right: 10%;
+}
 
+@media screen and (max-width: 1400px) and (min-width: 1201px) {
+  .track-cloud {
+    width: 280px;
+  }
+  .pos-0,
+  .pos-3 {
+    left: 4%;
+  }
+  .pos-2,
+  .pos-5 {
+    right: 4%;
+  }
+  .main-title {
+    font-size: 7rem;
+  }
+  .main-subtitle {
+    font-size: 1.7rem;
+    max-width: 450px;
+  }
+}
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE VIEW (<= 1200px) ================= */
 @media (max-width: 1200px) {
   .desktop-view { display: none; }
   .mobile-view { display: flex; }
 
+  
   .tracks-page {
+    min-height: unset;      
     height: auto;
-    min-height: auto;
-    padding: 0;
+    padding: 24px 0 16px;   
     align-items: flex-start;
-    overflow-y: visible;
+    justify-content: flex-start;
   }
 
   .content-wrapper {
+    width: 100%;
+    max-width: 100%;
     height: auto;
-    min-height: auto;
+    min-height: unset;      
+    padding: 0;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 30px 0;
   }
 
   .center-header {
@@ -282,78 +346,76 @@ export default {
     top: auto;
     left: auto;
     transform: none;
-    width: 90%;
-    margin-bottom: 15px;
+    width: min(92vw, 760px);
+    margin: 0 auto 20px;
   }
 
-  .main-title { font-size: 3.5rem; }
   
-  .main-subtitle { 
-    font-size: 1.5rem; 
-    text-decoration: underline; 
-    text-decoration-color: rgba(255,255,255,0.3);
+  .main-title {
+    font-size: clamp(4.2rem, 9vw, 6.8rem);
+    line-height: 1.05;
+    white-space: normal;
   }
 
+  .main-subtitle {
+    font-size: clamp(1.35rem, 3.2vw, 2.1rem);
+    line-height: 1.45;
+    max-width: 62ch;
+    margin: 12px auto 0;
+  }
+
+  
   .mobile-carousel {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    margin-top: 0; 
+    justify-content: center;
+    gap: clamp(14px, 3vw, 26px);
+    padding: 0 14px;
+  }
+
+  
+  .mobile-card {
     position: relative;
+    width: min(84vw, 560px);
+    aspect-ratio: 1.9 / 1;
+    max-width: 560px;
+    padding: clamp(28px, 3.6vw, 48px) clamp(18px, 2.8vw, 34px);
+    background: rgba(30, 40, 60, 0.8);
+    border-radius: 40px;
+  }
+
+  .mobile-card .cloud-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+    line-height: 1.35;
+  }
+
+  .mobile-card .circle-placeholder {
+    width: clamp(110px, 22vw, 170px);
+    height: clamp(110px, 22vw, 170px);
   }
 
   .nav-btn {
-    background: #FFE4B5;
+    background: #e3e2e0;
     border: none;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: clamp(50px, 9vw, 70px);
+    height: clamp(50px, 9vw, 70px);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 20;
     flex-shrink: 0;
   }
-  
+
   .nav-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .mobile-card {
-    position: relative;
-    width: 70%;
-    max-width: 380px; 
-    margin: 0 10px;
-    min-height: 180px; 
-    padding: 30px 20px; 
-    background: rgba(30, 40, 60, 0.95); 
-    border-radius: 40px;
-  }
-
-  /* Keep mobile border size as originally designed */
-  .mobile-card .star-border-overlay {
-    top: -20px;
-    left: -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-  }
-
-  .cloud-title { font-size: 1.9rem; }
-  .cloud-desc { font-size: 1.3rem; }
-  
-  .cloud-content {
-    flex-direction: row; 
-    text-align: left;
-  }
-
-  .circle-placeholder {
-    width: 90px;
-    height: 90px;
+    width: clamp(26px, 4.5vw, 46px);
+    height: clamp(26px, 4.5vw, 46px);
   }
 }
 </style>
