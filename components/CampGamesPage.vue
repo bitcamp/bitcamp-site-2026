@@ -30,12 +30,7 @@
             </p>
         </div>
         <div class="team-row-desktop">
-            <div class="team-row-item" v-for="team in teams" :key="'desktop-' + team.name">
-                <div class="team-stack">
-                    <img :src="team.icon" :alt="team.name + ' icon'" class="team-icon" :style="{ height: iconSize + 'px' }" />
-                    <img :src="team.text" :alt="team.name + ' text'" class="team-text" />
-                </div>
-            </div>
+            <img src="assets/img/images/teams.svg" alt="Teams" />
         </div>
         <div class="team-carousel">
             <div class="carousel-container">
@@ -176,6 +171,11 @@ export default {
     box-sizing: border-box;
     background-color: #010B18;
 }
+.team-row-desktop img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 .team-row-item {
     flex: 1;
     max-width: 33%;
@@ -237,8 +237,8 @@ export default {
     z-index: 2;
     border: none;
     border-radius: 50%;
-    width: 9vmax;
-    height: 9vmax;
+    width: 8vmax;
+    height: 8vmax;
     min-width: 40px;
     min-height: 40px;
     cursor: pointer;
