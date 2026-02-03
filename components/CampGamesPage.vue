@@ -150,7 +150,7 @@ export default {
     display: none;
 } */
 .gradient {
-    background-image: url(assets/img/images/marshies-new.webp);
+    /* background-image: url(assets/img/images/marshies-new.webp); */
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 176vh;
@@ -270,7 +270,7 @@ export default {
         display: block;
     }
     .gradient {
-        background-image: url(assets/img/images/Browncavestretched.webp);
+        /* background-image: url(assets/img/images/Browncavestretched.webp); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
