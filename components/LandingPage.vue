@@ -128,7 +128,7 @@ export default {
     
     .gradient {
         background: transparent;
-        min-height: 100vh;
+        min-height: auto;
         padding-bottom: 0;
         flex-direction: column;
         justify-content: flex-start;
@@ -177,7 +177,7 @@ export default {
     
     .gradient {
         background: transparent;
-        min-height: 100vh;
+        min-height: auto;
         padding-bottom: 0;
         flex-direction: column;
         justify-content: flex-start;
