@@ -88,15 +88,17 @@
         </div>
 
         <!-- Footer with input -->
-        <div class="panel_footer">
+        <div class="panel_footer" ref="footerRef">
           <form class="input_form" @submit.prevent="sendMessage">
             <textarea
+              ref="textareaRef"
               v-model="draft"
               class="input_textarea"
               :class="{ filled: draft.trim().length > 0 }"
               placeholder="Type your message"
               @keydown="onInputKeydown"
               @input="autoResizeTextarea"
+              @focus="handleTextareaFocus"
               rows="1"
               alt="Type your message"
             ></textarea>
@@ -141,28 +143,45 @@ const getCurrentTime = (): string => {
 
 const isOpen = ref(false);
 const messagesRef = ref<HTMLElement | null>(null);
+const footerRef = ref<HTMLElement | null>(null);
+const textareaRef = ref<HTMLTextAreaElement | null>(null);
 const messages = ref<Msg[]>([
   {
     role: "bot",
-    text: "Hey there! 👋 I’m BitBot! Feel free to ask me anything about Bitcamp!",
+    text: "Hey there! 👋 I'm BitBot! Feel free to ask me anything about Bitcamp!",
     time: getCurrentTime(),
   },
 ]);
 const draft = ref("");
 
+const lockBody = () => {
+  document.body.style.overflow = "hidden";
+  document.documentElement.style.overflow = "hidden";
+};
+
+const unlockBody = () => {
+  document.body.style.overflow = "";
+  document.documentElement.style.overflow = "";
+};
+
 const openChat = async () => {
   isOpen.value = true;
+  lockBody();
   await nextTick();
   scrollMessagesToBottom();
 };
 
 const closeChat = () => {
   isOpen.value = false;
+  unlockBody();
 };
 
 const scrollMessagesToBottom = () => {
+  // Scroll messages container to bottom
   const el = messagesRef.value;
-  if (el) el.scrollTop = el.scrollHeight;
+  if (el) {
+    el.scrollTop = el.scrollHeight;
+  }
 };
 
 const autoResizeTextarea = (e: Event) => {
@@ -177,9 +196,7 @@ const sendMessage = async () => {
   messages.value.push({ role: "user", text, time: getCurrentTime() });
   draft.value = "";
   await nextTick();
-  const textarea = document.querySelector(
-    ".input_textarea",
-  ) as HTMLTextAreaElement;
+  const textarea = textareaRef.value;
   if (textarea) textarea.style.height = "auto";
   scrollMessagesToBottom();
 
@@ -194,16 +211,7 @@ const sendMessage = async () => {
   await nextTick();
   scrollMessagesToBottom();
 
-  // uncomment me and comment the other block if ur tesintg locally, if pushing return production
-
   try {
-    // FOR PRODUCTION UNCOMMENT ME WHEN TESTING LOCALLY, UNCOMMENT ME WHEN PUSHING TO REPO
-    // const response = await fetch(import.meta.env.VITE_BITBOT_API_URL, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ message: text }),
-    // });
-    // FOR PRODUCTION UNCOMMENT ME WHEN PUSHING TO REPO, COMMENT ME WHEN TESTING LOCALLY
     const response = await fetch("/api/bitbot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -246,6 +254,59 @@ const onInputKeydown = (e: KeyboardEvent) => {
     sendMessage();
   }
 };
+
+// Handle textarea focus - scroll messages up to keep them visible above keyboard
+const handleTextareaFocus = (e?: Event) => {
+  if (e) e.preventDefault?.();
+  requestAnimationFrame(() => {
+    scrollMessagesToBottom();
+  });
+  setTimeout(() => {
+    scrollMessagesToBottom();
+  }, 150);
+};
+
+// Handle visual viewport changes (keyboard open/close on mobile)
+let rafId: number | null = null;
+const setViewportVars = () => {
+  if (!window.visualViewport) return;
+  const vv = window.visualViewport;
+  document.documentElement.style.setProperty(
+    "--app-height",
+    `${vv.height}px`
+  );
+  document.documentElement.style.setProperty(
+    "--app-offset",
+    `${vv.offsetTop}px`
+  );
+};
+
+const handleViewportChange = () => {
+  if (!isOpen.value) return;
+  if (rafId) cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(() => {
+    setViewportVars();
+    scrollMessagesToBottom();
+  });
+};
+
+onMounted(() => {
+  setViewportVars();
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", handleViewportChange);
+    window.visualViewport.addEventListener("scroll", handleViewportChange);
+  }
+  window.addEventListener("resize", handleViewportChange);
+});
+
+onBeforeUnmount(() => {
+  if (window.visualViewport) {
+    window.visualViewport.removeEventListener("resize", handleViewportChange);
+    window.visualViewport.removeEventListener("scroll", handleViewportChange);
+  }
+  window.removeEventListener("resize", handleViewportChange);
+  if (rafId) cancelAnimationFrame(rafId);
+});
 </script>
 
 <style scoped>
@@ -335,7 +396,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
   font-size: 1vmax;
   letter-spacing: 0%;
   opacity: 0.75;
-} /*THIS FONT IS NOT UPLOADED */
+}
 
 .close_button {
   background: rgba(255, 255, 255, 0);
@@ -662,18 +723,25 @@ const onInputKeydown = (e: KeyboardEvent) => {
 
   .chat_panel {
     width: 100vw;
-    height: 100dvh;
+    height: var(--app-height);
     max-width: none;
     max-height: none;
     border-radius: 0;
     position: fixed;
-    top: 0;
+    top: var(--app-offset);
     left: 0;
+    bottom: 0;
     font-size: 4vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overscroll-behavior: none;
+    transition: top 0.15s ease, height 0.15s ease;
   }
 
   .chat_header {
     padding: 4vw;
+    flex-shrink: 0;
   }
 
   .bot_pfp {
@@ -695,9 +763,15 @@ const onInputKeydown = (e: KeyboardEvent) => {
 
   .messages {
     padding: 4vw;
+    padding-bottom: 2vw;
     gap: 3vw;
     font-size: 3.6vw;
-    flex: 1 1 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
   }
 
   .close_button {
@@ -725,6 +799,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
   .msg_usr_pfp {
     width: 10vw;
     height: 10vw;
+    flex-shrink: 0;
   }
 
   .message_time {
@@ -732,7 +807,11 @@ const onInputKeydown = (e: KeyboardEvent) => {
   }
 
   .panel_footer {
-    padding: 4vw;
+    padding: 3vw;
+    flex-shrink: 0;
+    background: #fff;
+    padding-bottom: env(safe-area-inset-bottom);
+    transition: padding-bottom 0.15s ease;
   }
 
   .input_form {
@@ -745,14 +824,22 @@ const onInputKeydown = (e: KeyboardEvent) => {
     width: 100%;
     font-size: 4vw;
     padding: 3vw 4vw;
-    min-height: 10vw;
-    max-height: 50vw;
-    overflow-y: hidden;
+    min-height: 12vw;
+    max-height: 40vw;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .send_button {
+    width: 12vw;
+    height: 12vw;
+    padding: 3vw;
+    flex-shrink: 0;
   }
 
   .chat_icon {
-    width: 12vw;
-    height: 12vw;
+    width: 15vw;
+    height: 15vw;
   }
 }
 </style>
