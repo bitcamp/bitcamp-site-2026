@@ -31,7 +31,10 @@
         </div>
         <div class="team-row-desktop">
             <div class="team-row-item" v-for="team in teams" :key="'desktop-' + team.name">
-                <img :src="team.src" :alt="team.name" />
+                <div class="team-stack">
+                    <img :src="team.icon" :alt="team.name + ' icon'" class="team-icon" :style="{ height: iconSize + 'px' }" />
+                    <img :src="team.text" :alt="team.name + ' text'" class="team-text" />
+                </div>
             </div>
         </div>
         <div class="team-carousel">
@@ -45,7 +48,10 @@
                         :key="team.name"
                         class="carousel-item"
                     >
-                        <img :src="team.src" :alt="team.name" />
+                        <div class="team-stack">
+                            <img :src="team.icon" :alt="team.name + ' icon'" class="team-icon" :style="{ height: iconSize + 'px' }" />
+                            <img :src="team.text" :alt="team.name + ' text'" class="team-text" />
+                        </div>
                     </div>
                 </div>
                 <button class="nav-button nav-button--right" @click="nextTeam">
@@ -58,9 +64,12 @@
 </template>
 
 <script lang="ts">
-import redTeam from '@/assets/img/images/red-team.svg';
-import greenTeam from '@/assets/img/images/green-team.svg';
-import blueTeam from '@/assets/img/images/blue-team.svg';
+import redTeamIcon from '@/assets/img/images/red-marshie.svg';
+import redTeamText from '@/assets/img/images/red-team-card.svg';
+import greenTeamIcon from '@/assets/img/images/green-marshie.svg';
+import greenTeamText from '@/assets/img/images/green-team-card.svg';
+import blueTeamIcon from '@/assets/img/images/blue-marshie.svg';
+import blueTeamText from '@/assets/img/images/blue-team-card.svg';
 
 
 export default {
@@ -70,16 +79,16 @@ export default {
         return {
             currentTeamIndex: 1,
             teams: [
-                { name: 'Red Team', src: redTeam },
-                { name: 'Green Team', src: greenTeam },
-                { name: 'Blue Team', src: blueTeam },
+                { name: 'Red Team', icon: redTeamIcon, text: redTeamText },
+                { name: 'Green Team', icon: greenTeamIcon, text: greenTeamText },
+                { name: 'Blue Team', icon: blueTeamIcon, text: blueTeamText },
             ],
-            
+            iconSize: 200,
         };
     },
     computed: {
         trackStyle() {
-            const ITEM_WIDTH  = 75;   // %
+            const ITEM_WIDTH  = 70;   // %
             const GAP         = 5;    // %
             const ITEM_STEP   = ITEM_WIDTH + GAP;
             const LEFT_OFFSET = (100 - ITEM_WIDTH) / 2; // 12.5
@@ -173,10 +182,23 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 60vh;
 }
-.team-row-item img {
+.team-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
-    height: 70vh;
+}
+.team-icon {
+    width: auto;
+    object-fit: contain;
+}
+.team-text {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
     object-fit: contain;
 }
 .team-carousel {
@@ -198,7 +220,7 @@ export default {
   transition: transform 0.5s ease;
 }
 .carousel-item {
-  flex: 0 0 75%;
+  flex: 0 0 70%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,7 +229,6 @@ export default {
 }
 .carousel-item img {
   width: 100%;
-  height: 70vh;
   object-fit: contain;
 }
 .nav-button {
