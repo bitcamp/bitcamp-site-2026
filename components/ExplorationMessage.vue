@@ -16,6 +16,7 @@ export default {
 
 <style scoped>
 .exploration-container {
+    background: linear-gradient(360deg, #010B18 0%, #201F3A 100%); 
     padding-top: 4rem;
     position: relative;
     width: 100%;
@@ -23,7 +24,6 @@ export default {
     justify-content: center;
 }
 .exploration-message {
-    background-color: transparent; 
     border: none;
     color: white;
     padding: 3rem 2rem;
