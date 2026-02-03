@@ -349,7 +349,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 .Answer_Opened {
   padding: 0px 12px;
   padding-top: 1rem;
-  padding-left: calc(12px + 1rem + 3rem);   
+  padding-left: calc(32px + 1rem + 3rem);   
   text-align: left;
   font-size: 1.4vw;
   overflow-y: auto;
@@ -427,10 +427,15 @@ const sponsors: Sponsor[] = Array(12).fill({
 }
 
 @media (max-width: 768px) {
-  .faq-text-div, .sponsor-text-div {
-    font-size: 5vw;
+  .faq-text-div {
     text-align:left;
     margin-left: 5vw;
+  }
+  .sponsor-text-div {
+    font-size: 5vw;
+  }
+  .faq-text-div {
+    font-size: 5vw;
   }
   .sponsor-logo-container {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -450,7 +455,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
 
   .Question, .Question_Button {
-    font-size: 3vw;
+    font-size: 3.5vw;
   }
 
   .Question_Button {
@@ -469,9 +474,9 @@ const sponsors: Sponsor[] = Array(12).fill({
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
-    padding-left: calc(12px + 1rem + 3rem); 
+    padding-left: calc(2200pxpx + 1rem + 3rem); 
     text-align: left;
-    font-size: 1.4vw;
+    font-size: 3vw;
     overflow-y: auto;
     transition: max-height 0.6s ease-in-out;
     margin-bottom: 2rem;
