@@ -99,37 +99,37 @@ export default {
           title: "General Track",
           description:
             "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
-          icon: null,
+          icon: "/_nuxt/assets/img/icons/general-logo.svg",
         },
         {
           title: "Game Development",
           description:
             "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
-          icon: null,
+          icon: "/_nuxt/assets/img/icons/gamedev_logo.svg",
         },
         {
           title: "App Development",
           description:
             "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
-          icon: null,
+          icon: "/_nuxt/assets/img/icons/appdev-logo.svg",
         },
         {
           title: "Machine Learning",
           description:
             "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
-          icon: null,
+          icon: "/_nuxt/assets/img/icons/ml-logo.svg",
         },
         {
           title: "Data Science",
           description:
             "The Data Science track introduces beginners to working with data through workshops and guided mini-projects. Hackers will explore data cleaning, analysis, and visualization to discover meaning and patterns from data!",
-          icon: null,
+          icon: "/_nuxt/assets/img/icons/datasci_logo.svg",
         },
         {
           title: "Quantum",
           description:
             "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
-          icon: null,
+          icon: "/_nuxt/assets/img/icons/quantum-logo.svg",
         },
       ],
     };
