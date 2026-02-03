@@ -176,7 +176,7 @@ export default {
 }
 .team-row-item img {
     width: 100%;
-    height: auto;
+    height: 70vh;
     object-fit: contain;
 }
 .team-carousel {
@@ -207,7 +207,7 @@ export default {
 }
 .carousel-item img {
   width: 100%;
-  height: auto;
+  height: 70vh;
   object-fit: contain;
 }
 .nav-button {
