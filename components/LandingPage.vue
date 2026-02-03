@@ -1,6 +1,6 @@
 <template>
     <div class="gradient">
-        <img src="../assets/img/images/landing_background.webp" class="background" alt="landing image" />
+        <img src="../assets/img/images/better_landing.webp" class="background" alt="landing image" />
         <div class="content-wrapper">
             <div class="button-wrapper">
                 <a target="_blank" href="https://register.bit.camp" class="register-button">REGISTER</a>
@@ -90,7 +90,7 @@ export default {
 
 @media (max-width: 402px) {
     .background {
-        content: url("../assets/img/images/landing_mobile.webp");
+        content: url("../assets/img/images/better_mobile.webp");
     }
     .register-button {
         border-radius: 5rem;
