@@ -424,6 +424,16 @@ const sponsors: Sponsor[] = Array(12).fill({
     margin-left: 3vw;
     margin-right: 1rem;
   }
+  .Answer_Opened {
+    padding: 0px 12px;
+    padding-top: 1rem;
+    padding-left: calc(23px + 1rem + 3rem); 
+    text-align: left;
+    font-size: 1.4vw;
+    overflow-y: auto;
+    transition: max-height 0.6s ease-in-out;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -474,7 +484,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
-    padding-left: calc(2200pxpx + 1rem + 3rem); 
+    padding-left: calc(27px + 1rem + 3rem); 
     text-align: left;
     font-size: 3vw;
     overflow-y: auto;
