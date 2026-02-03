@@ -11,10 +11,8 @@
         </div>
     
 </template>
-
 <script lang="ts">
 import ExplorationMessage from '~/components/ExplorationMessage.vue';
-
 export default {
     name: 'LandingPage',
     components: {
@@ -22,6 +20,7 @@ export default {
     },
 };
 </script>
+
 
 <style scoped>
 .gradient {
@@ -32,10 +31,15 @@ export default {
     min-height: 135vw;
     height: auto;
     overflow: hidden;
-    background: linear-gradient(180deg, #010B18, #0D2539);
+    background: linear-gradient(
+    180deg,
+    #010B18 0%,
+    #201F3A 50%,
+    #0D2539 100%
+  );
+  
     background-size: cover;
 }
-
 .dino-background {
     position: absolute;
     display: flex;
@@ -47,23 +51,22 @@ export default {
     z-index: 0;
     object-fit: cover;
 }
-
 .message-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-        left: 0;
-        right: 0;
-        top:0vw; 
-        display: flex;
-        justify-content: center;
-
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0; 
 }
-
 .button-wrapper {
     width: 100%;
     padding: 0 ;
     top:30vw;
     right:auto;
-
      position: absolute;
     display: flex;
     flex-direction: column;
@@ -76,8 +79,6 @@ export default {
     top: 50vw;
     width: 48%;
 }
-
-
 .register-button {
     background-color: #FFB353;
     border: none;
@@ -92,54 +93,121 @@ export default {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .register-button:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+<style scoped>
+<style scoped>
+/* ... keep your desktop styles exactly as they are ... */
+
 @media (max-width: 796px) {
     .register-button {
         font-size: clamp(2rem, 7.5vw, 8rem);
-        ;
         padding: calc(2.8vw + 1rem) calc(7.8vw + 2rem);
         border-radius: 4.5rem;
         background-color: #F2C042;
         letter-spacing: 0.4rem;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
     }
-
-    .content-wrapper {
-        width: 100%;
-        margin-top: calc(300% - 232.5vw);
-    }
-
+    
     .button-wrapper {
-        padding: 0;
-        width: auto;
+        position: absolute;
+        top: 35vw; /* Keep button on the dino image */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
     }
-     .gradient {
-        background:linear-gradient(160deg, #010B18 0%, #0D2539 100%);
-        background-size: 100% 338px, cover;
-        background-position: center 40%;
-        padding-bottom: calc(339% - 239vw);
+    
+    .gradient {
+        background: transparent;
+        min-height: 100vh;
+        padding-bottom: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        overflow: visible;
+        display: block; /* Changed from flex */
+    }
+    
+    /* CRITICAL CHANGES HERE */
+    .message-wrapper {
+        position: relative; /* Changed from absolute */
+        top: auto; /* Remove top positioning */
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        margin-top: 80vw; /* This positions it BELOW the dino image */
     }
 
+    .dino-background {
+        display: flex;
+        position: absolute; /* Keep as absolute */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 0;
+    }
 }
-
-
 
 @media (max-width: 500px) {
-    .content-wrapper {
-        width: 100%;
-        margin-top: calc(298% - 232.5vw);
+    .button-wrapper {
+        position: absolute;
+        top: 30vw;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 350px;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
     }
-   
+    
     .gradient {
-        background:linear-gradient(160deg, #010B18 0%, #0D2539 100%);
-        background-size: 100% 338px, cover;
-        background-position: center 40%;
-        padding-bottom: calc(341% - 240vw);
+        background: transparent;
+        min-height: 100vh;
+        padding-bottom: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        overflow: visible;
+        display: block; /* Changed from flex */
+    }
+    
+    /* CRITICAL CHANGES HERE */
+    .message-wrapper {
+        position: relative; /* Changed from absolute */
+        top: auto; /* Remove top positioning */
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        margin-top: 70vw; /* This positions it BELOW the dino image */
+    }
+
+    .dino-background {
+        display: flex;
+        position: absolute; /* Keep as absolute */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 0;
     }
 }
-
 </style>

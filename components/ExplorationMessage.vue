@@ -8,22 +8,20 @@
         </div>
     </div>
 </template>
-
 <script lang="ts">
 export default {
     name: "ExplorationMessage",
 };
 </script>
-<style scoped>
 
+<style scoped>
 .exploration-container {
-    padding-top: 40px;
+    padding-top: 4rem;
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-
 .exploration-message {
     background-color: transparent; 
     border: none;
@@ -35,32 +33,34 @@ export default {
     text-align: center;
     margin: 0 auto; 
 }
-
 .title {
-    color: #FFF9F0;
+    color: #FFF7EB;
     text-align: center;
     font-family: 'Aleo', serif;
-    font-size: clamp(36px, 4.5vw, 46.144px); 
+    font-size: 46.14px;
     font-style: italic;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 100%; 
+    letter-spacing: 0; 
     text-shadow: 0 0 20.82px rgba(255, 249, 240, 1); 
     margin-bottom: 1.5rem;
-    width: clamp(322.893px, 50vw, 800px); 
+    width: 753px;
+    max-width: 90vw;
     margin-left: auto;
     margin-right: auto;
 }
-
 .description {
     color: #FFF7EB; 
     text-align: center;
     font-family: 'Avenir', sans-serif;
-    font-size: clamp(18px, 2vw, 24px); 
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 100%; 
+    letter-spacing: 0; 
     opacity: 0.9;
-    width: clamp(323px, 60vw, 752.48px); 
+    width: 752.4px;
+    max-width: 90vw;
     margin-left: auto;
     margin-right: auto;
 }
@@ -69,97 +69,95 @@ export default {
     .exploration-container {
         padding-top: 0;
         height: auto;
-        position: relative; 
-        top: 9px; 
-
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
-
     .exploration-message {
-        position: relative; 
-        top: 510px; 
-        float: none;
+        background: linear-gradient(180deg, #010B18 0%, #201F3A 50%, #0D2539 100%);
+        padding: 3rem 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
+        justify-content: center;
+        width: 100%; /* FULL WIDTH */
+        margin: 0 auto;
+        border-radius: 0; /* Remove rounded corners for full width */
+        box-shadow: none;
     }
-
     .title {
-        width: 322.8927001953125;
-        height: 86;
-        left: 0.11px;
-        angle: 0 deg;
-        opacity: 1;
-        font-family: Aleo;
+        width: 90%;
+        max-width: 323px;
+        height: auto;
+        font-family: 'Aleo', serif;
         font-weight: 800;
-        font-style: Italic;
-        font-size: 36px;
-        leading-trim: NONE;
-        line-height: 100%;
-        letter-spacing: 0%;
+        font-style: italic;
+        font-size: 36px; 
+        line-height: 110%; 
+        letter-spacing: 0;
         text-align: center;
-
+        margin-bottom: 1.5rem;
     }
-
     .description {
-        width: 323;
-        height: 125;
-        angle: 0 deg;
-        opacity: 1;
-        font-family: Avenir;
+        width: 90%;
+        max-width: 323px; 
+        height: auto;
+        font-family: 'Avenir', sans-serif;
         font-weight: 400;
-        font-style: Roman;
-        font-size: 18px;
-        leading-trim: NONE;
-        line-height: 100%;
-        letter-spacing: 0%;
+        font-style: normal;
+        font-size: 18px; 
+        line-height: 140%; 
+        letter-spacing: 0;
         text-align: center;
-
-
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 500px) {
-     .exploration-container {
+    .exploration-container {
         padding-top: 0;
         height: auto;
-        position: relative; 
-        top: 4px; 
-; 
-
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     .exploration-message {
-        top: 510px; 
+        background: linear-gradient(180deg, #010B18 0%, #201F3A 50%, #0D2539 100%);
+        padding: 2.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* FULL WIDTH */
+        margin: 0 auto;
+        border-radius: 0; /* Remove rounded corners for full width */
+        box-shadow: none;
     }
-
     .title {
-        width: 322.8927001953125;
-        height: 86;
-        left: 0.11px;
-        angle: 0 deg;
-        opacity: 1;
-        font-family: Aleo;
+        width: 90%;
+        max-width: 323px;
+        height: auto;
+        font-family: 'Aleo', serif;
         font-weight: 800;
-        font-style: Italic;
-        font-size: 36px;
-        leading-trim: NONE;
-        line-height: 100%;
-        letter-spacing: 0%;
+        font-style: italic;
+        font-size: 32px; 
+        line-height: 110%;
+        letter-spacing: 0;
         text-align: center;
-
-
+        margin-bottom: 1.5rem;
     }
-
     .description {
-        font-family: Avenir;
-        font-weight: 400;   
-        font-style: Roman;
-        font-size: 18px;
-        leading-trim: NONE;
-        line-height: 100%;
-        letter-spacing: 0%;
+        width: 90%;
+        max-width: 323px;
+        height: auto;
+        font-family: 'Avenir', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px; 
+        line-height: 140%;
+        letter-spacing: 0;
         text-align: center;
-
+        margin: 0 auto;
     }
 }
 </style>
