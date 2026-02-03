@@ -153,8 +153,9 @@ export default {
     background-image: url(assets/img/images/marshies-new.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 176vh;
+    min-height: 176vh;
     background-position: center;
+    padding-bottom: 8vh;
 }
 .team-row-desktop {
     display: flex;
@@ -164,6 +165,7 @@ export default {
     padding: 5vmax 2%;
     width: 100%;
     box-sizing: border-box;
+    background-color: #010B18;
 }
 .team-row-item {
     flex: 1;
@@ -182,6 +184,7 @@ export default {
     justify-content: center;
     align-items: center;
     padding-top: 5vmax;
+    background-color: #010B18;
 }
 .carousel-container {
     overflow: hidden;
