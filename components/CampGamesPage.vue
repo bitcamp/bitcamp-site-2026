@@ -213,8 +213,8 @@ export default {
     z-index: 2;
     border: none;
     border-radius: 50%;
-    width: 5vmax;
-    height: 5vmax;
+    width: 9vmax;
+    height: 9vmax;
     min-width: 40px;
     min-height: 40px;
     cursor: pointer;
@@ -286,6 +286,9 @@ export default {
     } */
     .team-carousel {
         display: flex;
+    }
+    .team-row-desktop {
+        display: none;
     }
 }
 @media screen and (max-width: 700px) {
