@@ -177,7 +177,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: clamp(400px, 50vw, 800px);
+  width: 35vw;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -186,7 +186,7 @@ export default {
 
 .main-title {
   font-family: "Aleo";
-  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-size: clamp(3rem, 6vw, 7.5rem);
   margin: 0;
   line-height: 1;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
@@ -195,7 +195,7 @@ export default {
 
 .main-subtitle {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-size: clamp(1rem, 1.2vw, 1.6rem);
   line-height: 1.6;
   margin-top: 20px;
   max-width: 600px;
@@ -205,7 +205,7 @@ export default {
 /* ================= SHARED CARD STYLES ================= */
 .track-cloud {
   background: transparent;
-  padding: 30px;
+  padding: 1.5vw; 
   z-index: 5;
   display: flex;
   align-items: center;
@@ -227,25 +227,25 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1vw; 
   z-index: 2;
   width: 100%;
 }
 
 .cloud-title {
   font-family: "Aleo";
-  font-size: 2.2rem;
+  font-size: clamp(1.2rem, 1.8vw, 2.2rem);
   font-weight: bold;
 }
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: 1.15rem;
+  font-size: clamp(.8rem, .9vw, 1.15rem); 
   line-height: 1.25;
 }
 
 .circle-placeholder {
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 7vw, 100px); 
+  height: clamp(60px, 7vw, 100px);
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.6);
@@ -266,13 +266,13 @@ export default {
 
 .track-cloud {
   position: absolute;
-  width: clamp(300px, 22vw, 380px);
+  width: 22vw; 
   min-height: 150px;
 }
 
 .pos-0 {
   top: 15%;
-  left: 10%;
+  left: 4%;
 }
 .pos-1 {
   top: 1%;
@@ -281,12 +281,12 @@ export default {
 }
 .pos-2 {
   top: 15%;
-  right: 10%;
+  right: 4%;
 }
 
 .pos-3 {
   bottom: 15%;
-  left: 10%;
+  left: 4%;
 }
 .pos-4 {
   bottom: 1%;
@@ -295,26 +295,26 @@ export default {
 }
 .pos-5 {
   bottom: 15%;
-  right: 10%;
+  right: 4%;
 }
 
 @media screen and (max-width: 1400px) and (min-width: 1201px) {
   .track-cloud {
-    width: 280px;
+    width: 22vw;
   }
   .pos-0,
   .pos-3 {
-    left: 4%;
+    left: 3%;
   }
   .pos-2,
   .pos-5 {
-    right: 4%;
+    right: 3%;
   }
   .main-title {
-    font-size: 7rem;
+    font-size: 6vw;
   }
   .main-subtitle {
-    font-size: 1.7rem;
+    font-size: 1.3vw;
     max-width: 450px;
   }
 }
