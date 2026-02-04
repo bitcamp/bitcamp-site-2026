@@ -263,7 +263,7 @@ export default {
         height: 200vh;
     }
 } */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1000px) {
     #cfg-blurb {
         padding: 5% 10%;
     }
@@ -314,6 +314,9 @@ export default {
     .team-row-desktop {
         display: none;
     }
+    .team-icon {
+        height: 200px !important;
+    }
 }
 @media screen and (max-width: 700px) {
     #cfg-blurb {
@@ -335,4 +338,5 @@ export default {
         font-size: 10px;
     }
 }
+
 </style>
