@@ -185,7 +185,7 @@ export default {
 }
 
 .main-title {
-  font-family: "serif";
+  font-family: "Aleo";
   font-size: clamp(4rem, 8vw, 7.5rem);
   margin: 0;
   line-height: 1;
@@ -233,7 +233,7 @@ export default {
 }
 
 .cloud-title {
-  font-family: "serif";
+  font-family: "Aleo";
   font-size: 2.2rem;
   font-weight: bold;
 }
