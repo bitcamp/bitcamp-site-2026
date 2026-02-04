@@ -104,7 +104,7 @@ export default {
         {
           title: "Game Development",
           description:
-            "Aliens—at least as we imagine them—are a mirror for our own hopes, fears, and curiosity...",
+            "Ever wanted to make a game in a weekend? Join the Game Dev track! Build a game around a surprise theme using any tools or engines you like, attend optional beginner-friendly workshops, collaborate with others, and showcase your creativity by the end of the hackathon!",
           icon: "/_nuxt/assets/img/icons/gamedev_logo.svg",
         },
         {
@@ -239,7 +239,7 @@ export default {
 }
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(.8rem, .9vw, 1.15rem); 
+  font-size: clamp(.8rem, .9vw, 1.35rem); 
   line-height: 1.25;
 }
 
