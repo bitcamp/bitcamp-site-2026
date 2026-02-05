@@ -6,11 +6,7 @@
       <div class="center-header">
         <h1 class="main-title">Tracks</h1>
         <p class="main-subtitle">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          In mollis facilisis urna, in pellentesque nisi ultrices non.
-          Duis vestibulum felis quis magna laoreet pretium.
-          Aliquam ut pretium massa, a eleifend ligula. Quisque
-          elementum arcu finibus vestibulum efficitur.
+          Discover more with tracks at Bitcamp! Dive deep into a topic or expand your horizons across many!
         </p>
       </div>
 
@@ -187,7 +183,7 @@ export default {
 
 .main-subtitle {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: clamp(0.9rem, 1vw, 1.4rem);
+  font-size: clamp(0.9rem, 1vw, 2rem);
   line-height: 1.5;
   margin-top: 20px;
   max-width: 500px;
@@ -197,7 +193,7 @@ export default {
 /* ================= SHARED CARD STYLES ================= */
 .track-cloud {
   background: transparent;
-  padding: 1.5vw; 
+  padding: 2vw; 
   z-index: 5;
   display: flex;
   align-items: center;
@@ -231,7 +227,7 @@ export default {
 }
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(.75rem, .85vw, 1.1rem); 
+  font-size: clamp(.75rem, .85vw, 1.2rem); 
   line-height: 1.25;
 }
 
@@ -269,9 +265,9 @@ export default {
 /* Adjusted positions to push them further out. 
    Using smaller top/bottom % for outer cards to avoid the center.
 */
-.pos-0 { top: 12%; left: 3%; }
+.pos-0 { top: 15%; left: 3%; }
 .pos-1 { top: 2%; left: 50%; transform: translateX(-50%); }
-.pos-2 { top: 12%; right: 3%; }
+.pos-2 { top: 15%; right: 3%; }
 .pos-3 { bottom: 12%; left: 3%; }
 .pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
 .pos-5 { bottom: 12%; right: 3%; }
@@ -317,7 +313,7 @@ export default {
   }
 
   .main-subtitle {
-    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-size: clamp(1rem, 3vw, 2rem);
     margin-top: 12px;
   }
 
