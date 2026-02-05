@@ -97,8 +97,7 @@ export default {
       tracks: [
         {
           title: "General Track",
-          description:
-            "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
+          description: "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
           icon: "/_nuxt/assets/img/icons/general_logo.svg",
         },
         {
@@ -109,26 +108,22 @@ export default {
         },
         {
           title: "App Development",
-          description:
-            "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
+          description: "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
           icon: "/_nuxt/assets/img/icons/appdev_logo.svg",
         },
         {
           title: "Machine Learning",
-          description:
-            "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
+          description: "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
           icon: "/_nuxt/assets/img/icons/ml_logo.svg",
         },
         {
           title: "Data Science",
-          description:
-            "The Data Science track introduces beginners to working with data through workshops and guided mini-projects. Hackers will explore data cleaning, analysis, and visualization to discover meaning and patterns from data!",
+          description: "The Data Science track introduces beginners to working with data through workshops and guided mini-projects. Hackers will explore data cleaning, analysis, and visualization to discover meaning and patterns from data!",
           icon: "/_nuxt/assets/img/icons/datasci_logo.svg",
         },
         {
           title: "Quantum",
-          description:
-            "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
+          description: "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
           icon: "/_nuxt/assets/img/icons/quantum_logo.svg",
         },
       ],
@@ -162,13 +157,10 @@ export default {
 
 .content-wrapper {
   position: relative;
-  width: 98vw;
-  max-width: 1600px;
-  height: 90vh;
-  min-height: 800px;
+  width: 100%;
+  max-width: 1800px; /* Expanded for ultra-wide screens */
+  height: 100vh;
   z-index: 10;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .center-header {
@@ -177,7 +169,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 35vw;
+  width: 30vw; /* Narrowed to allow cards more space */
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -186,7 +178,7 @@ export default {
 
 .main-title {
   font-family: "Aleo";
-  font-size: clamp(3rem, 6vw, 7.5rem);
+  font-size: clamp(3rem, 5vw, 6.5rem);
   margin: 0;
   line-height: 1;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
@@ -195,10 +187,10 @@ export default {
 
 .main-subtitle {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: clamp(1rem, 1.2vw, 1.6rem);
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 1vw, 1.4rem);
+  line-height: 1.5;
   margin-top: 20px;
-  max-width: 600px;
+  max-width: 500px;
   opacity: 0.9;
 }
 
@@ -227,28 +219,28 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1vw; 
+  gap: 1.5vw; 
   z-index: 2;
   width: 100%;
 }
 
 .cloud-title {
   font-family: "Aleo";
-  font-size: clamp(1.2rem, 1.8vw, 2.2rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.8rem);
   font-weight: bold;
 }
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(.8rem, .9vw, 1.35rem); 
+  font-size: clamp(.75rem, .85vw, 1.1rem); 
   line-height: 1.25;
 }
 
 .circle-placeholder {
-  width: clamp(60px, 7vw, 100px); 
-  height: clamp(60px, 7vw, 100px);
+  width: clamp(45px, 4.5vw, 80px); 
+  height: clamp(45px, 4.5vw, 80px);
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,71 +258,35 @@ export default {
 
 .track-cloud {
   position: absolute;
+  /* Reduced width from 28vw to 22vw to prevent center overlap */
   width: 22vw; 
-  min-height: 150px;
+  aspect-ratio: 2 / 1;
+  height: auto;
+  max-width: 380px;  
+  max-height: 180px; 
 }
 
-.pos-0 {
-  top: 15%;
-  left: 4%;
-}
-.pos-1 {
-  top: 1%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.pos-2 {
-  top: 15%;
-  right: 4%;
-}
-
-.pos-3 {
-  bottom: 15%;
-  left: 4%;
-}
-.pos-4 {
-  bottom: 1%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.pos-5 {
-  bottom: 15%;
-  right: 4%;
-}
-
-@media screen and (max-width: 1400px) and (min-width: 1201px) {
-  .track-cloud {
-    width: 22vw;
-  }
-  .pos-0,
-  .pos-3 {
-    left: 3%;
-  }
-  .pos-2,
-  .pos-5 {
-    right: 3%;
-  }
-  .main-title {
-    font-size: 6vw;
-  }
-  .main-subtitle {
-    font-size: 1.3vw;
-    max-width: 450px;
-  }
-}
+/* Adjusted positions to push them further out. 
+   Using smaller top/bottom % for outer cards to avoid the center.
+*/
+.pos-0 { top: 12%; left: 3%; }
+.pos-1 { top: 2%; left: 50%; transform: translateX(-50%); }
+.pos-2 { top: 12%; right: 3%; }
+.pos-3 { bottom: 12%; left: 3%; }
+.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
+.pos-5 { bottom: 12%; right: 3%; }
 
 /* ================= MOBILE VIEW (<= 1200px) ================= */
 @media (max-width: 1200px) {
   .desktop-view { display: none; }
   .mobile-view { display: flex; }
 
-  
   .tracks-page {
-    min-height: unset;      
+    min-height: auto;      
     height: auto;
-    padding: 24px 0 16px;   
-    align-items: flex-start;
-    justify-content: flex-start;
+    padding: 40px 0 60px;   
+    align-items: center;
+    justify-content: center;
   }
 
   .content-wrapper {
@@ -339,7 +295,8 @@ export default {
     height: auto;
     min-height: unset;      
     padding: 0;
-
+    margin-top: 10px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -350,76 +307,101 @@ export default {
     top: auto;
     left: auto;
     transform: none;
-    width: min(92vw, 760px);
-    margin: 0 auto 20px;
+    width: min(90vw, 760px);
+    margin: 20px auto 40px; 
   }
 
-  
   .main-title {
-    font-size: clamp(4.2rem, 9vw, 6.8rem);
-    line-height: 1.05;
+    font-size: clamp(3rem, 10vw, 6rem);
     white-space: normal;
   }
 
   .main-subtitle {
-    font-size: clamp(1.35rem, 3.2vw, 2.1rem);
-    line-height: 1.45;
-    max-width: 62ch;
-    margin: 12px auto 0;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    margin-top: 12px;
   }
 
-  
   .mobile-carousel {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: clamp(14px, 3vw, 26px);
-    padding: 0 14px;
+    justify-content: space-evenly;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
-  
   .mobile-card {
     position: relative;
-    width: min(84vw, 560px);
-    aspect-ratio: 1.9 / 1;
-    max-width: 560px;
-    padding: clamp(28px, 3.6vw, 48px) clamp(18px, 2.8vw, 34px);
+    width: clamp(280px, 75vw, 650px);
+    aspect-ratio: 1.8 / 1; 
+    height: auto; 
+    padding: clamp(25px, 4vw, 40px); 
     background: rgba(30, 40, 60, 0.8);
     border-radius: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden; 
   }
 
   .mobile-card .cloud-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 5vw, 3rem); 
+    margin-bottom: 10px;
   }
 
   .mobile-card .cloud-desc {
-    font-size: clamp(1.05rem, 2.4vw, 1.55rem);
-    line-height: 1.35;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem); 
+    line-height: 1.45; 
+  }
+
+  .mobile-card .cloud-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+  }
+
+  .mobile-card .text-area {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mobile-card .image-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .mobile-card .circle-placeholder {
-    width: clamp(110px, 22vw, 170px);
-    height: clamp(110px, 22vw, 170px);
+    width: clamp(70px, 15vw, 100px); 
+    height: clamp(70px, 15vw, 100px);
+    border-width: clamp(3px, 0.8vw, 6px);
   }
 
   .nav-btn {
     background: #e3e2e0;
     border: none;
     border-radius: 50%;
-    width: clamp(50px, 9vw, 70px);
-    height: clamp(50px, 9vw, 70px);
+    width: clamp(45px, 8vw, 60px);
+    height: clamp(45px, 8vw, 60px);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     flex-shrink: 0;
+    z-index: 10;
   }
 
   .nav-btn svg {
-    width: clamp(26px, 4.5vw, 46px);
-    height: clamp(26px, 4.5vw, 46px);
+    width: 60%;
+    height: 60%;
   }
 }
 </style>
