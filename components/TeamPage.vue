@@ -6,20 +6,25 @@
                 <img class="header_image_mv" src="../assets/img/images/our_team_mv.svg" alt="lebron" />
             </div>
             <div class="mid_content_container">
-                <div class="team_image">
-                    <img class="team_photo" src="../assets/img/images/team_pic.webp" alt="lebron" />
+                <div class="vertical">
+                <div class="small_poloroid_top">
+                    <img class="small_photo" src="../assets/img/images/place_holder.jpeg" alt="lebron" />
                 </div>
-                <div class="message">
-                    <div class="message_text">
-                        We're the co-executive directors of Bitcamp 2025, and we're so excited to be working with this
-                        amazing team to lead Bitcamp into a new decade of hackathon culture. Each and every single one
-                        of
-                        our 82 organizers plays an integral part in making Bitcamp happen, and we can't wait to see
-                        these
-                        brilliant minds bring Bitcamp 2025 to life and make it possible for hackers like you to Unearth
-                        Your
-                        Potential!
-                        <br><br> - Anjali Samavedam and Sharvari Tirodkar
+                <div class="small_poloroid_bottom">
+                    <img class="small_photo" src="../assets/img/images/place_holder.jpeg" alt="lebron" />
+                </div>
+                </div>
+                <div class="big_poloroid">
+                    <img class="team_photo" src="../assets/img/images/gang.png" alt="lebron" />
+                    <div class="caption_box">
+                        <div class="polo_box">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis facilisis urna, in pellentesque 
+                        nisi ultrices non. Duis vestibulum felis quis magna laoreet pretium. Aliquam ut pretium massa, a 
+                        eleifend ligula. Quisque elementum arcu finibus vestibulum efficitur.
+                        </div>
+                        <div class="meet">
+                            Meet the Team
+                        </div>
                     </div>
                 </div>
 
@@ -64,6 +69,22 @@ export default {
     margin-top: 10%;
 }
 
+.meet {
+    width: 23vw;
+    aspect-ratio: 10/2.5;
+    background-color: #FF6F3F;
+    border: 0.3rem solid #E54D1A;
+    text-align: center;
+    font-size: 1.7cqi;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3cqi;
+    font-family: Avenir;
+    font-weight: 500;
+    font-style: Bold;
+}
+
 .header_image {
     display: flex;
     margin-right: auto;
@@ -77,17 +98,105 @@ export default {
 .mid_content_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    gap: 8%;
+    width: 85%;
 }
 
 .team_image {
-    /* margin-inline: 7.5%; */
-    width: 83%
+    width: 83%;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    row-gap: 0;
+}
+
+.small_poloroid_top {
+    width: 23vw;
+    height: auto;
+    aspect-ratio: 13/16;
+    display: flex;
+    position: relative;
+    left: 6vw;
+    top: -9vh;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 8.5%;
+    object-fit: cover;
+    object-position: center;
+    margin:0;
+    rotate: -4deg;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.small_poloroid_bottom {
+    width: 23vw;
+    height: auto;
+    aspect-ratio: 13/16;
+    position: relative;
+    left: 0.5vw;
+    top: -5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 8.5%;
+    margin:0;
+    rotate: 6deg;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.big_poloroid {
+    width: 50vw;
+    aspect-ratio: 20/12.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2.5%;
+    rotate: 2deg;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
 }
 
 .team_photo {
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2%;
+    overflow: hidden;
+}
+
+.small_photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding-bottom: 2%;
+    overflow: hidden;
+}
+
+.polo_box {
+    width: 100%;
+    font-family: Avenir;
+    font-weight: 500;
+    color: #000000;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-style: Medium;
+    font-size: 1.2cqi;
+    line-height: 1.4;
+    
+}
+
+.caption_box {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
 .message {
@@ -119,27 +228,9 @@ export default {
 }
 
 .meet_team_image {
-    width: 70%;
+    width: 40%;
     display: flex;
     margin-left: 5%;
-}
-
-@media screen and (max-width: 1110px) {
-    .message_text {
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 925px) {
-    .message_text {
-        font-size: 13px;
-    }
-}
-
-@media screen and (max-width: 790px) {
-    .message_text {
-        font-size: 12px;
-    }
 }
 
 @media screen and (max-width: 750px) {
@@ -159,8 +250,39 @@ export default {
         height: auto;
     }
 
+    .vertical{
+        flex-direction: row;
+        width:110%;
+        justify-content: center;
+        gap: 5%;
+    }
+
+    .big_poloroid{
+        width: 105%;
+        padding: 5%;
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .small_poloroid_top{
+        width: 50vw;
+        left: 0;
+        top: 1vh;
+        padding: 4%;
+        rotate: -5deg;
+        z-index: 99999;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    }
+    .small_poloroid_bottom{
+        width: 50vw;
+        padding: 4%;
+        left: 0;
+        top: 0;
+        z-index: 99999;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
     .mid_content_container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
@@ -186,31 +308,5 @@ export default {
         width: 80%;
     }
 
-    .message_text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-top: 10%;
-        font-size: 20px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .message_text {
-        font-size: 18px;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .message_text {
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 370px) {
-    .message_text {
-        font-size: 14px;
-    }
 }
 </style>
