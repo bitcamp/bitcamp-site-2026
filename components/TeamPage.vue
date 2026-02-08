@@ -1,10 +1,6 @@
 <template>
     <div id="roster" class="gradient">
         <div class="page_container">
-            <div class="page_header">
-                <img class="header_image" src="../assets/img/images/our_team_img.svg" alt="lebron" />
-                <img class="header_image_mv" src="../assets/img/images/our_team_mv.svg" alt="lebron" />
-            </div>
             <div class="mid_content_container">
                 <div class="vertical">
                 <div class="small_poloroid_top">
@@ -34,9 +30,6 @@
                 </div>
 
             </div>
-            <a href="/roster" target="_blank" class="bottom_button_container">
-                <img class="meet_team_image" src="../assets/img/images/meet_team_button.svg" alt="lebron" />
-            </a>
 
         </div>
     </div>
@@ -52,27 +45,99 @@ export default {
 .gradient {
     position: relative;
     overflow: hidden;
-    min-height: 120vh;
+    min-height: 140vh;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
 
     background-color: #03072A;
 
+    /* Dense star clusters created with radial gradients - focused on right side */
     background-image:
-      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.7) 0, transparent 100%),
-      radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.6) 0, transparent 100%),
-      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.8) 0, transparent 100%);
+      /* Cluster 1 - Top Right */
+      radial-gradient(3px 3px at 76% 10%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 79% 8%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 73% 12%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 82% 11%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 77% 6%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 75% 14%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 81% 13%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 78% 9%, rgba(255,255,255,0.8) 0, transparent 100%),
+      
+      /* Cluster 2 - Upper Right */
+      radial-gradient(3px 3px at 88% 25%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 91% 23%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 85% 27%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 93% 26%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 89% 21%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 87% 29%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 92% 28%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 90% 24%, rgba(255,255,255,0.8) 0, transparent 100%),
+      
+      /* Cluster 3 - Middle Upper Right */
+      radial-gradient(3px 3px at 80% 38%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 83% 36%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 77% 40%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 86% 39%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 81% 34%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 79% 42%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 41%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 82% 37%, rgba(255,255,255,0.8) 0, transparent 100%),
+      
+      /* Cluster 4 - Middle Right */
+      radial-gradient(3px 3px at 92% 48%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 95% 46%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 89% 50%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 97% 49%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 93% 44%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 91% 52%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 96% 51%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 94% 47%, rgba(255,255,255,0.8) 0, transparent 100%),
+      
+      /* Cluster 5 - Middle Lower Right */
+      radial-gradient(3px 3px at 74% 60%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 77% 58%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 71% 62%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 80% 61%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 75% 56%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 73% 64%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 79% 63%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 76% 59%, rgba(255,255,255,0.8) 0, transparent 100%),
+      
+      /* Cluster 6 - Lower Right */
+      radial-gradient(3px 3px at 86% 72%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 89% 70%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 83% 74%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 92% 73%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 87% 68%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 85% 76%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 91% 75%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 88% 71%, rgba(255,255,255,0.8) 0, transparent 100%),
+      
+      /* Cluster 7 - Bottom Right */
+      radial-gradient(3px 3px at 78% 85%, rgba(255,255,255,0.95) 0, transparent 100%),
+      radial-gradient(2.5px 2.5px at 81% 83%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 75% 87%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 84% 86%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 79% 81%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(2px 2px at 77% 89%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 83% 88%, rgba(255,255,255,0.75) 0, transparent 100%),
+      radial-gradient(2px 2px at 80% 84%, rgba(255,255,255,0.8) 0, transparent 100%),
 
-    background-size: 250px 250px;
-    background-repeat: repeat;
+      /* Cluster 8 - Far Right Upper */
+      radial-gradient(2.5px 2.5px at 96% 15%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 98% 13%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 94% 17%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 97% 16%, rgba(255,255,255,0.75) 0, transparent 100%),
+      
+      /* Cluster 9 - Far Right Lower */
+      radial-gradient(2.5px 2.5px at 94% 92%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(2px 2px at 96% 90%, rgba(255,255,255,0.85) 0, transparent 100%),
+      radial-gradient(2px 2px at 92% 94%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1.5px 1.5px at 95% 93%, rgba(255,255,255,0.75) 0, transparent 100%);
 
-     background-color: #03072A !important;
-    background-image:
-      radial-gradient(2px 2px at 10% 20%, red 0, transparent 100%),
-      radial-gradient(2px 2px at 30% 70%, red 0, transparent 100%),
-      radial-gradient(2px 2px at 50% 40%, red 0, transparent 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .gradient::after {
@@ -156,6 +221,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 10%;
     gap: 8%;
     width: 85%;
 }                     
@@ -310,7 +376,7 @@ export default {
     .gradient::after {
         display: none;
     }
-    
+
     .page_header {
         display: block;
     }
