@@ -14,6 +14,10 @@
                     <img class="small_photo" src="../assets/img/images/place_holder.jpeg" alt="lebron" />
                 </div>
                 </div>
+                <div class="second_vertical">
+                    <div class="team_text">
+                        <img class ="orbit" src="../assets/img/icons/our-team.png" alt="lebron" />
+                    </div>
                 <div class="big_poloroid">
                     <img class="team_photo" src="../assets/img/images/gang.png" alt="lebron" />
                     <div class="caption_box">
@@ -26,6 +30,7 @@
                             Meet the Team
                         </div>
                     </div>
+                </div>
                 </div>
 
             </div>
@@ -51,6 +56,18 @@ export default {
     background-position: center;
     /* height: 176vh; */
     /* height: 100vh; */
+}
+.title{
+    position: relative;
+}
+
+
+.orbit {
+    width:70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6%;
 }
 
 .page_container {
@@ -101,10 +118,26 @@ export default {
     align-items: center;
     gap: 8%;
     width: 85%;
-}
+}                     
 
 .team_image {
     width: 83%;
+}
+
+.team_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.second_vertical {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .vertical {
@@ -204,7 +237,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 55%;
+    width: 55%; 
     display: flex;
     flex-wrap: wrap;
     align-content: center;
