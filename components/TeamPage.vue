@@ -50,13 +50,52 @@ export default {
 
 <style scoped>
 .gradient {
-    background-image: url(assets/img/images/purplecaves.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    /* height: 176vh; */
-    /* height: 100vh; */
+    position: relative;
+    overflow: hidden;
+    min-height: 120vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+
+    background-color: #03072A;
+
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.9) 0, transparent 100%),
+      radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.8) 0, transparent 100%),
+      radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.7) 0, transparent 100%),
+      radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.6) 0, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.8) 0, transparent 100%);
+
+    background-size: 250px 250px;
+    background-repeat: repeat;
+
+     background-color: #03072A !important;
+    background-image:
+      radial-gradient(2px 2px at 10% 20%, red 0, transparent 100%),
+      radial-gradient(2px 2px at 30% 70%, red 0, transparent 100%),
+      radial-gradient(2px 2px at 50% 40%, red 0, transparent 100%);
 }
+
+.gradient::after {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: -90vw;
+    transform: translateY(-50%);
+
+    width: 160vw;
+    height: 260vh;
+
+    background-image: url("@/assets/img/blue-planet.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+
 .title{
     position: relative;
 }
@@ -74,7 +113,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    position: relative;
+    z-index: 2;
     margin-top: 4rem;
 }
 
@@ -267,6 +307,10 @@ export default {
 }
 
 @media screen and (max-width: 750px) {
+    .gradient::after {
+        display: none;
+    }
+    
     .page_header {
         display: block;
     }
@@ -294,6 +338,14 @@ export default {
         width: 105%;
         padding: 5%;
         box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .polo_box {
+        font-size: 2.1cqi;
+    }
+    .orbit {
+        width: 110%;
+        margin-top: 10%;
     }
 
     .small_poloroid_top{
