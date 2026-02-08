@@ -7,6 +7,7 @@
         <h1 class="main-title">Tracks</h1>
         <p class="main-subtitle">
           Discover more with tracks at Bitcamp! Dive deep into a topic or expand your horizons across many!
+          
         </p>
       </div>
 
@@ -154,9 +155,12 @@ export default {
 .content-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1800px; /* Expanded for ultra-wide screens */
+  max-width: 1800px;
   height: 100vh;
   z-index: 10;
+
+  
+  padding-inline: clamp(48px, 6vw, 120px);
 }
 
 .center-header {
@@ -184,6 +188,7 @@ export default {
 .main-subtitle {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: clamp(0.9rem, 1vw, 2rem);
+  font-size: clamp(0.9rem, 1vw, 2rem);
   line-height: 1.5;
   margin-top: 20px;
   max-width: 500px;
@@ -193,6 +198,7 @@ export default {
 /* ================= SHARED CARD STYLES ================= */
 .track-cloud {
   background: transparent;
+  padding: 2vw; 
   padding: 2vw; 
   z-index: 5;
   display: flex;
@@ -227,6 +233,7 @@ export default {
 }
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
+  font-size: clamp(.75rem, .85vw, 1.2rem); 
   font-size: clamp(.75rem, .85vw, 1.2rem); 
   line-height: 1.25;
 }
@@ -265,12 +272,13 @@ export default {
 /* Adjusted positions to push them further out. 
    Using smaller top/bottom % for outer cards to avoid the center.
 */
-.pos-0 { top: 15%; left: 3%; }
+.pos-0 { top: 12%; left: max(3%, 40px); }
 .pos-1 { top: 2%; left: 50%; transform: translateX(-50%); }
-.pos-2 { top: 15%; right: 3%; }
-.pos-3 { bottom: 12%; left: 3%; }
+.pos-2 { top: 12%; right: max(3%, 40px); }
+
+.pos-3 { bottom: 12%; left: max(3%, 40px); }
 .pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
-.pos-5 { bottom: 12%; right: 3%; }
+.pos-5 { bottom: 12%; right: max(3%, 40px); }
 
 /* ================= MOBILE VIEW (<= 1200px) ================= */
 @media (max-width: 1200px) {
@@ -278,9 +286,9 @@ export default {
   .mobile-view { display: flex; }
 
   .tracks-page {
-    min-height: auto;      
+    min-height: auto;
     height: auto;
-    padding: 40px 0 60px;   
+    padding: 40px 0 60px;
     align-items: center;
     justify-content: center;
   }
@@ -289,7 +297,7 @@ export default {
     width: 100%;
     max-width: 100%;
     height: auto;
-    min-height: unset;      
+    min-height: unset;
     padding: 0;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -303,101 +311,144 @@ export default {
     top: auto;
     left: auto;
     transform: none;
-    width: min(90vw, 760px);
-    margin: 20px auto 40px; 
+    width: min(92vw, 760px);
+    margin: 20px auto 34px;
   }
 
   .main-title {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(2.6rem, 10vw, 5.5rem);
     white-space: normal;
   }
 
   .main-subtitle {
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 3vw, 1.7rem);
     margin-top: 12px;
   }
 
   .mobile-carousel {
+    --pad: 12px;
+    --gap: clamp(10px, 3vw, 16px);
+    --btn: clamp(42px, 12vw, 58px);
+
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: var(--btn) auto var(--btn);
+    column-gap: var(--gap);
     align-items: center;
-    justify-content: space-evenly;
-    padding: 0 10px;
+
+    padding: 0 var(--pad);
     box-sizing: border-box;
-  }
-
-  .mobile-card {
-    position: relative;
-    width: clamp(280px, 75vw, 650px);
-    aspect-ratio: 1.8 / 1; 
-    height: auto; 
-    padding: clamp(25px, 4vw, 40px); 
-    background: rgba(30, 40, 60, 0.8);
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    overflow: hidden; 
-  }
-
-  .mobile-card .cloud-title {
-    font-size: clamp(1.8rem, 5vw, 3rem); 
-    margin-bottom: 10px;
-  }
-
-  .mobile-card .cloud-desc {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem); 
-    line-height: 1.45; 
-  }
-
-  .mobile-card .cloud-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; 
-    width: 100%;
-    height: 100%;
-    gap: 20px;
-  }
-
-  .mobile-card .text-area {
-    flex: 1;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .mobile-card .image-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .mobile-card .circle-placeholder {
-    width: clamp(70px, 15vw, 100px); 
-    height: clamp(70px, 15vw, 100px);
-    border-width: clamp(3px, 0.8vw, 6px);
+    margin: 0 auto;
+    justify-content: center; /* centers the 3 items as a group */
   }
 
   .nav-btn {
     background: #e3e2e0;
     border: none;
     border-radius: 50%;
-    width: clamp(45px, 8vw, 60px);
-    height: clamp(45px, 8vw, 60px);
+    width: var(--btn);
+    height: var(--btn);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    flex-shrink: 0;
     z-index: 10;
+    position: static;
+    transform: none;
   }
 
-  .nav-btn svg {
-    width: 60%;
-    height: 60%;
+  .nav-btn.prev { justify-self: start;margin-left: 7px; }
+  .nav-btn.next { justify-self: end;margin-right: 7px; }
+
+  .nav-btn svg { width: 60%; height: 60%; }
+
+  .mobile-card {
+    position: relative;
+    justify-self: center;
+
+    /* ✅ never overflow: card width = viewport minus arrows/gaps/padding */
+    width: min(
+      420px,
+      calc(100vw - (2 * var(--pad) + 2 * var(--btn) + 2 * var(--gap)))
+    );
+
+    padding: clamp(16px, 3.6vw, 24px);
+    background: rgba(30, 40, 60, 0.8);
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    container-type: inline-size;
+  }
+
+  .mobile-card .cloud-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .mobile-card .text-area {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mobile-card .cloud-title {
+    font-size: clamp(1rem, 6cqi, 1.7rem);
+    line-height: 1.05;
+    margin: 0 0 8px 0;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.7rem, 3.6cqi, 1rem);
+    line-height: 1.25;
+    margin: 0;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .mobile-card .image-area {
+    flex: 0 0 26%;
+    width: 50%;
+    max-width: 50%;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-card .icon-img {
+    /* grows as screen grows, but stays within sane limits */
+    width: clamp(70px, 14vw, 140px);
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .mobile-card .circle-placeholder {
+    border: none;
+    background: transparent;
   }
 }
 </style>
