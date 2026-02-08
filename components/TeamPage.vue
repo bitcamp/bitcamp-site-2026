@@ -48,93 +48,7 @@ export default {
     min-height: 140vh;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-
     background-color: #03072A;
-
-    /* Dense star clusters created with radial gradients - focused on right side */
-    background-image:
-      /* Cluster 1 - Top Right */
-      radial-gradient(3px 3px at 76% 10%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 79% 8%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 73% 12%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 82% 11%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 77% 6%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 75% 14%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 81% 13%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 78% 9%, rgba(255,255,255,0.8) 0, transparent 100%),
-      
-      /* Cluster 2 - Upper Right */
-      radial-gradient(3px 3px at 88% 25%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 91% 23%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 85% 27%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 93% 26%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 89% 21%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 87% 29%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 92% 28%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 90% 24%, rgba(255,255,255,0.8) 0, transparent 100%),
-      
-      /* Cluster 3 - Middle Upper Right */
-      radial-gradient(3px 3px at 80% 38%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 83% 36%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 77% 40%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 86% 39%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 81% 34%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 79% 42%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 85% 41%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 82% 37%, rgba(255,255,255,0.8) 0, transparent 100%),
-      
-      /* Cluster 4 - Middle Right */
-      radial-gradient(3px 3px at 92% 48%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 95% 46%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 89% 50%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 97% 49%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 93% 44%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 91% 52%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 96% 51%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 94% 47%, rgba(255,255,255,0.8) 0, transparent 100%),
-      
-      /* Cluster 5 - Middle Lower Right */
-      radial-gradient(3px 3px at 74% 60%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 77% 58%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 71% 62%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 80% 61%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 75% 56%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 73% 64%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 79% 63%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 76% 59%, rgba(255,255,255,0.8) 0, transparent 100%),
-      
-      /* Cluster 6 - Lower Right */
-      radial-gradient(3px 3px at 86% 72%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 89% 70%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 83% 74%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 92% 73%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 87% 68%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 85% 76%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 91% 75%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 88% 71%, rgba(255,255,255,0.8) 0, transparent 100%),
-      
-      /* Cluster 7 - Bottom Right */
-      radial-gradient(3px 3px at 78% 85%, rgba(255,255,255,0.95) 0, transparent 100%),
-      radial-gradient(2.5px 2.5px at 81% 83%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 75% 87%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 84% 86%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 79% 81%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(2px 2px at 77% 89%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 83% 88%, rgba(255,255,255,0.75) 0, transparent 100%),
-      radial-gradient(2px 2px at 80% 84%, rgba(255,255,255,0.8) 0, transparent 100%),
-
-      /* Cluster 8 - Far Right Upper */
-      radial-gradient(2.5px 2.5px at 96% 15%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 98% 13%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 94% 17%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 97% 16%, rgba(255,255,255,0.75) 0, transparent 100%),
-      
-      /* Cluster 9 - Far Right Lower */
-      radial-gradient(2.5px 2.5px at 94% 92%, rgba(255,255,255,0.9) 0, transparent 100%),
-      radial-gradient(2px 2px at 96% 90%, rgba(255,255,255,0.85) 0, transparent 100%),
-      radial-gradient(2px 2px at 92% 94%, rgba(255,255,255,0.8) 0, transparent 100%),
-      radial-gradient(1.5px 1.5px at 95% 93%, rgba(255,255,255,0.75) 0, transparent 100%);
-
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -145,7 +59,7 @@ export default {
     position: absolute;
 
     top: 50%;
-    left: -90vw;
+    left: -120vw;
     transform: translateY(-50%);
 
     width: 160vw;
@@ -372,9 +286,38 @@ export default {
     margin-left: 5%;
 }
 
-@media screen and (max-width: 750px) {
+
+@media screen and (max-width: 1300px) {
+    .gradient {
+        min-height: 140vh;
+    }
+    .small_poloroid_top {
+        top: -2vh;
+    }
+    .small_poloroid_bottom {
+        top: 3vh;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .gradient {
+        min-height: 130vh;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .gradient {
+        min-height: 120vh;
+    }
+}
+
+@media screen and (max-width: 850px) {
     .gradient::after {
         display: none;
+    }
+
+    .gradient {
+        min-height: 130vh;
     }
 
     .page_header {
@@ -417,7 +360,7 @@ export default {
     .small_poloroid_top{
         width: 50vw;
         left: 0;
-        top: 1vh;
+        top: -4vh;
         padding: 4%;
         rotate: -5deg;
         z-index: 99999;
@@ -427,9 +370,13 @@ export default {
         width: 50vw;
         padding: 4%;
         left: 0;
-        top: 0;
+        top: -2vh;
         z-index: 99999;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    }
+    
+    .mid_content_container {
+        margin-top: 4%;
     }
 
     .mid_content_container {
@@ -457,6 +404,51 @@ export default {
         justify-content: center;
         align-items: center;
         width: 80%;
+    }
+    .meet {
+        font-size: 2.1cqi;
+    }   
+
+    @media screen and (max-width: 700px) {
+        .gradient {
+            min-height: 190vh;
+        }
+         .small_poloroid_top {
+            top: -2vh;
+        }
+        .small_poloroid_bottom {
+            top: 3vh;
+        }
+    }
+    @media screen and (max-width: 650px) {
+        .gradient {
+            min-height: 170vh;
+        }
+    }
+    @media screen and (max-width: 550px) {
+        .gradient {
+            min-height: 150vh;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .gradient {
+            min-height: 130vh;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .gradient {
+            min-height: 120vh;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .gradient {
+            min-height: 110vh;
+        }
+    }
+    @media screen and (max-width: 350px) {
+        .gradient {
+            min-height: 0vh;
+        }
     }
 
 }
