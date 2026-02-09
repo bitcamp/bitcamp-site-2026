@@ -24,12 +24,12 @@
           <a href="#roster" class="page-type">Our Team</a>
         </li>
 
-        <li class="page page-logo">
-        <a href="/">
-        <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
-        <!-- <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" /> -->
-        </a>
-      </li>
+        <li v-if="bigScreen" class="page page-logo">
+          <a href="/">
+          <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
+          <!-- <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" /> -->
+          </a>
+        </li>
 
         <li class="page">
           <a href="#schedule" class="page-type">Schedule</a>
@@ -598,18 +598,38 @@ nav {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width:1050px){
   .mobile-nav-mountains {
-    bottom: -170px;
+    bottom: 0;
+  }
+  .nav-pages li a {
+    font-size: 4rem;
+  }
+  .mobile-socials {
+    padding-top: 6px;
+  }
+  .socials-row img {
+    width: 60px;
+    height: 60px;
   }
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 900px) {
+  .mobile-nav-mountains {
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 840px){
   .mobile-nav-mountains {
     bottom: -90px;
   }
   .mobile-socials {
     padding-top: 0;
+  }
+  .socials-row img {
+    width: 50px;
+    height: 50px;
   }
 
 }
@@ -641,7 +661,12 @@ nav {
     font-size: 4rem;
   }
   .mobile-socials {
-    padding-top: 3rem;
+    padding-top: 2rem;
+  }
+  .socials-row img {
+    width: 35px;
+    height: 35px;
   }
 }
+
 </style>
