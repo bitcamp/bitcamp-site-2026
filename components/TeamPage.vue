@@ -4,10 +4,10 @@
             <div class="mid_content_container">
                 <div class="vertical">
                 <div class="small_poloroid_top">
-                    <img class="small_photo" src="../assets/img/images/place_holder.jpeg" alt="lebron" />
+                    <img class="small_photo" src="../assets/img/images/organizer_photo_regular.jpg" alt="lebron" />
                 </div>
                 <div class="small_poloroid_bottom">
-                    <img class="small_photo" src="../assets/img/images/place_holder.jpeg" alt="lebron" />
+                    <img class="small_photo" src="../assets/img/images/organizer_photo_silly.jpg" alt="lebron" />
                 </div>
                 </div>
                 <div class="second_vertical">
@@ -179,7 +179,7 @@ export default {
     flex-direction: column;
     align-items: center;
     background-color: white;
-    padding: 8.5%;
+    padding: 8.5% 8.5% 1% 8.5%;
     object-fit: cover;
     object-position: center;
     margin:0;
@@ -198,7 +198,7 @@ export default {
     flex-direction: column;
     align-items: center;
     background-color: white;
-    padding: 8.5%;
+    padding: 8.5% 8.5% 4% 8.5%;
     margin:0;
     rotate: 6deg;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -224,8 +224,8 @@ export default {
 }
 
 .small_photo {
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: 110%;
+    aspect-ratio: 1.15/1;
     padding-bottom: 2%;
     overflow: hidden;
 }
