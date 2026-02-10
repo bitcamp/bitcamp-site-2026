@@ -89,23 +89,23 @@ export default {
     border-width: clamp(0.2rem, 0.25vw, 0.4rem);
 }
 
-@media (max-width: 402px) {
+@media (max-width: 796px) {
     .background {
         content: url("../assets/img/images/better_mobile.webp");
     }
     .register-button {
         border-radius: 5rem;
         letter-spacing: 0.25rem;
-        font-size: clamp(1.1rem, 4vw, 1.9rem);
-        padding: clamp(0.6rem, 3vw, 1.2rem)
-             clamp(1.6rem, 6vw, 1.7rem);
-        border-width: clamp(0.18rem, 0.4vw, 0.2rem);
+        font-size: 4vw;
+        padding: 3vw;
+        border-width: 0.7vw;
     }
 
     .content-wrapper {
         top: 21%;
         right: 54%;
         transform: translateY(-60%);
+        position: absolute;
     }
 
     .gradient {
