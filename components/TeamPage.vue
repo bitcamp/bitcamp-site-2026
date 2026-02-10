@@ -45,7 +45,7 @@ export default {
 .gradient {
     position: relative;
     overflow: hidden;
-    min-height: 140vh;
+    height: 115dvh;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     background-color: #03072A;
@@ -65,10 +65,10 @@ export default {
     width: 160vw;
     height: 260vh;
 
-    background-image: url("@/assets/img/blue-planet.webp");
+    /* background-image: url("@/assets/img/blue-planet.webp");
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: left center;
+    background-position: left center; */
 
     z-index: 0;
     pointer-events: none;
@@ -85,7 +85,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 6%;
+    margin-top: 5%;
 }
 
 .page_container {
@@ -287,9 +287,9 @@ export default {
 }
 
 
-@media screen and (max-width: 1300px) {
+/* @media screen and (max-width: 1300px) {
     .gradient {
-        min-height: 140vh;
+        min-height: 110vh;
     }
     .small_poloroid_top {
         top: -2vh;
@@ -309,15 +309,16 @@ export default {
     .gradient {
         min-height: 120vh;
     }
-}
+} */
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1100px) {
     .gradient::after {
         display: none;
     }
 
     .gradient {
-        min-height: 130vh;
+        max-height: 140dvh;
+        height: 97dvh;
     }
 
     .page_header {
@@ -341,6 +342,7 @@ export default {
         width:110%;
         justify-content: center;
         gap: 5%;
+        margin-top: 8%;
     }
 
     .big_poloroid{
@@ -354,7 +356,7 @@ export default {
     }
     .orbit {
         width: 110%;
-        margin-top: 10%;
+        margin-top: 5%;
     }
 
     .small_poloroid_top{
@@ -373,10 +375,6 @@ export default {
         top: -2vh;
         z-index: 99999;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-    }
-    
-    .mid_content_container {
-        margin-top: 4%;
     }
 
     .mid_content_container {
@@ -409,7 +407,7 @@ export default {
         font-size: 2.1cqi;
     }   
 
-    @media screen and (max-width: 700px) {
+    /* @media screen and (max-width: 700px) {
         .gradient {
             min-height: 190vh;
         }
@@ -449,7 +447,29 @@ export default {
         .gradient {
             min-height: 0vh;
         }
+    } */
+
+
+@media screen and (min-width: 700px) {
+    .gradient {
+        max-height: 145dvh;
+        height: 150dvh;
     }
+}
+
+@media screen and (min-width: 500px) {
+    .gradient {
+        max-height: 160dvh;
+        height: 150dvh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .gradient {
+        max-height: 160dvh;
+        height: 150dvh;
+    }
+}
 
 }
 </style>
