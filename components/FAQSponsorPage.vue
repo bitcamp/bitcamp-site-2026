@@ -22,6 +22,7 @@
           <h1>Sponsors</h1>
         </div>
       </div>
+      <!--
       <div class="sponsor-logo-container">
         <a 
           v-for="(sponsor, i) in sponsors" 
@@ -33,6 +34,7 @@
           <img :src="sponsor.image" :alt="sponsor.name">
         </a>
       </div>
+      -->
     </div>
   </div>
 </template>
@@ -128,7 +130,7 @@ function toggleButton(question: string) {
 }
 
 const sponsors: Sponsor[] = Array(12).fill({
-  name: "Sponsor",
+  name: "",
   image: "",
   amount: -1,
   url: ""
