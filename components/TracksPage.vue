@@ -11,26 +11,108 @@
       </div>
 
       <div class="tracks-container desktop-view">
-        <div
-          v-for="(track, index) in tracks"
-          :key="index"
-          :class="['track-cloud', `pos-${index}`]"
-        >
-          <img :src="starBorder" class="star-border-overlay" alt="" />
-          <div class="cloud-content">
-            <div class="text-area">
-              <h2 class="cloud-title">{{ track.title }}</h2>
-              <p class="cloud-desc">{{ track.description }}</p>
-            </div>
-            <div class="image-area">
-              <div class="circle-placeholder">
-                <img :src="track.icon" v-if="track.icon" class="icon-img" />
-                <span v-else class="placeholder-text">Image</span>
-              </div>
-            </div>
-          </div>
+  <!-- pos-0 -->
+  <div class="track-cloud pos-0">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[0].title }}</h2>
+        <p class="cloud-desc">{{ tracks[0].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[0].icon" v-if="tracks[0].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- pos-1 -->
+  <div class="track-cloud pos-1">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[1].title }}</h2>
+        <p class="cloud-desc">{{ tracks[1].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[1].icon" v-if="tracks[1].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pos-2 -->
+  <div class="track-cloud pos-2">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[2].title }}</h2>
+        <p class="cloud-desc">{{ tracks[2].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[2].icon" v-if="tracks[2].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pos-3 -->
+  <div class="track-cloud pos-3">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[3].title }}</h2>
+        <p class="cloud-desc">{{ tracks[3].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[3].icon" v-if="tracks[3].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pos-4 -->
+  <div class="track-cloud pos-4">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[4].title }}</h2>
+        <p class="cloud-desc">{{ tracks[4].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[4].icon" v-if="tracks[4].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pos-5 -->
+  <div class="track-cloud pos-5">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[5].title }}</h2>
+        <p class="cloud-desc">{{ tracks[5].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[5].icon" v-if="tracks[5].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       <div class="mobile-carousel mobile-view">
         <button class="nav-btn prev" @click="prevTrack" aria-label="Previous Track">
@@ -267,13 +349,13 @@ export default {
   max-height: 180px;
 }
 
-.pos-0 { top: 12%; left: max(3%, 40px); }
-.pos-1 { top: 2%; left: 50%; transform: translateX(-50%); }
-.pos-2 { top: 12%; right: max(3%, 40px); }
+.pos-0 { top: 12%; left: max(3%, 40px); padding: 10px;}
+.pos-1 { top: 2%; left: 50%; transform: translateX(-50%);padding: 10px;}
+.pos-2 { top: 12%; right: max(3%, 40px); padding: 10px;}
 
-.pos-3 { bottom: 12%; left: max(3%, 40px); }
-.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
-.pos-5 { bottom: 12%; right: max(3%, 40px); }
+.pos-3 { bottom: 12%; left: max(3%, 40px);padding: 10px; }
+.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); padding: 10px;}
+.pos-5 { bottom: 12%; right: max(3%, 40px); padding: 10px;}
 
 /* ================= MOBILE VIEW (<= 1200px) ================= */
 @media (max-width: 1200px) {
