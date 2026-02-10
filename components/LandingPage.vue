@@ -88,7 +88,7 @@ export default {
     border-width: clamp(0.2rem, 0.25vw, 0.4rem);
 }
 
-@media (max-width: 402px) {
+@media (max-width: 796px) {
     .background {
         content: url("../assets/img/images/better_mobile.webp");
     }
