@@ -520,11 +520,6 @@ export default {
     display: block;
     clear: both;
   }
-}
-
-
-@media (max-width: 1400px) {
-  
   .mobile-card .text-area {
     width: 70% !important;
     flex: 1 1 70% !important;
