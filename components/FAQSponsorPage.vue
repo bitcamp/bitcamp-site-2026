@@ -247,6 +247,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 
 .sponsor-text-div {
   font-size: 2vw;
+  margin-bottom: 5vh;
   margin-left: 4.21875vw;
   z-index: 2;
   color: #FFF7EB;
