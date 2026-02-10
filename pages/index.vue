@@ -4,7 +4,7 @@
       <BitBot />
       <Navbar />
       <LandingPage />
-      <div class="transition0"></div>
+      <!-- <div class="transition0"></div> -->
       <TracksPage />
       <CampGamesPage />
       <div class="transition1"></div>

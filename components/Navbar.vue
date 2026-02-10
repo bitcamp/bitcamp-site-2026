@@ -2,12 +2,6 @@
   <header>
     <nav>
       <div class="non-pages">
-        <div id="logo-container">
-          <a tag="img" href="/">
-            <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
-            <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" />
-          </a>
-        </div>
         <div class="hamburgerContainer">
           <button class="hamburger hamburger--spin" type="button" style="color: #ffffff"
             :class="{ 'is-active': showDropdown }" @click="toggleDropdown">
@@ -29,6 +23,14 @@
         <li class="page">
           <a href="#roster" class="page-type">Our Team</a>
         </li>
+
+        <li v-if="bigScreen" class="page page-logo">
+          <a href="/">
+          <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
+          <!-- <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" /> -->
+          </a>
+        </li>
+
         <li class="page">
           <a href="#schedule" class="page-type">Schedule</a>
         </li>
@@ -38,6 +40,27 @@
         <li class="page">
           <a href="#sponsors" class="page-type">Sponsors</a>
         </li>
+
+       <li v-if="!bigScreen" class="page mobile-socials">
+        <div class="socials-row">
+          <a href="https://instagram.com/bitcamp" target="_blank" aria-label="Instagram">
+            <img src="../assets/img/icons/tabler-icon-brand-instagram.svg" alt="" />
+          </a>
+
+          <a href="https://www.tiktok.com/@bitcamp_umd" target="_blank" aria-label="TikTok">
+            <img src="../assets/img/icons/tabler-icon-brand-tiktok.svg" alt="" />
+          </a>
+
+          <a href="https://x.com/bitcmp" target="_blank" aria-label="X">
+            <img src="../assets/img/icons/tabler-icon-brand-x.svg" alt="" />
+          </a>
+
+          <a href="https://www.facebook.com/bitcmp" target="_blank" aria-label="Facebook">
+            <img src="../assets/img/icons/tabler-icon-brand-facebook.svg" alt="" />
+          </a>
+        </div>
+      </li>
+
 
         <template v-if="bigScreen">
           <a id="mlh-trust-badge" style="
@@ -50,17 +73,20 @@
                 top: -30px;
                 margin-top: -1.5rem;
                 position: absolute;
-                right: -10vw;
+                right: -5vw;
               "
-            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2025-season&utm_content=yellow"
+            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
             target="_blank">
-            <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2025/mlh-trust-badge-2025-yellow.svg"
+            <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
               alt="Major League Hacking 2025 Hackathon Season" style="width:100%">
           </a>
         </template>
       </ul>
     </nav>
   </header>
+
+  <div v-if="showDropdown && !bigScreen" class="mobile-nav-bg" aria-hidden="true"></div>
+  <div v-if="showDropdown && !bigScreen" class="mobile-nav-mountains" aria-hidden="true"></div>
 
   <div>
     <slot />
@@ -81,7 +107,7 @@ const bigScreen = ref(false);
 
 onMounted(() => {
   const startSize = window.innerWidth;
-  if (startSize > 992) {
+  if (startSize > 1200) {
     bigScreen.value = true;
   } else {
     bigScreen.value = false;
@@ -98,7 +124,7 @@ onUnmounted(() => {
 function onresize() {
   const screenSize = window.innerWidth;
 
-  if (screenSize <= 992) {
+  if (screenSize <= 1200) {
     bigScreen.value = false;
   } else {
     bigScreen.value = true;
@@ -123,16 +149,17 @@ $bitcamp: var(--color-bitcamp);
 $mango: var(--color-mango);
 
 header {
-  z-index: 100000; // should be higher than everything else
+  z-index: 100000; 
   position: fixed;
   border: 0;
-  width: 80%;
+  width: 90%;
   left: 45%;
   transform: translateX(-50%);
-  background-color: #FFEAC7;
+  background-color: transparent;
   border-radius: 50px;
   justify-content: center;
   margin-top: 30px;
+  padding: 0 2vw;
 }
 
 nav {
@@ -150,23 +177,24 @@ nav {
 }
 
 #logo-with-text {
-  max-height: 100%;
-  max-width: 100%;
+  height: 42px;
+  max-width: auto;
   object-fit: cover;
-  margin-left: 20px;
+  margin-left: 0;
 }
 
-#logo-image {
-  display: none;
-}
+// #logo-image {
+//   display: none;
+// }
 
 .page-type {
-  color: #FF6F3F;
+  color: #FFFFFFB2;
   font-family: Aleo;
-  font-size: 14px;
+  font-size: 1.4vw;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  white-space: nowrap;
 }
 
 .page-type:hover {
@@ -175,9 +203,11 @@ nav {
 
 .nav-pages {
   display: flex;
-  margin-left: 10vw;
+  margin-left: 0;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
+  width: 100% 
 }
 
 .nav-pages li {
@@ -193,7 +223,8 @@ nav {
 
 .nav-pages li a {
   text-decoration: none;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
+  color: #D3D3D3;
 }
 
 .divider-large-screen {
@@ -292,7 +323,7 @@ nav {
   width: auto;
 }
 
-@media only screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   header {
     padding: 1.5%;
     background-color: transparent;
@@ -326,43 +357,45 @@ nav {
     position: relative;
   }
 
-  #logo-image {
-    display: flex;
-    max-width: 100%;
-    width: 70px;
-    min-width: 70px;
-    height: 70px;
-    min-height: 70px;
-  }
+  // #logo-image {
+  //   display: flex;
+  //   max-width: 100%;
+  //   width: 70px;
+  //   min-width: 70px;
+  //   height: 70px;
+  //   min-height: 70px;
+  // }
+
+  
 
   .nav-pages {
-    margin-left: 0;
-    width: 20%;
-    min-width: 150px;
-    font-size: 32px;
-    background-color: #FFEAC7;
-    position: absolute;
-    right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     flex-direction: column;
-    align-self: flex-start;
-    margin-top: 50px;
-    padding-left: 20px;
-    border-radius: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 6vh 5vw 5vw 6vw; 
+    background: transparent;
+    z-index: 100001;
+    row-gap: 2.2rem;
 
   }
 
   .nav-pages li {
-    margin-top: 1vw;
-    width: 100%;
+    margin-top: 1.4rem;
+    margin: 0;
+    width: auto;
 
   }
 
   .nav-pages li a {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 100%;
     text-align: left;
   }
@@ -410,6 +443,34 @@ nav {
     display: none;
   }
 
+  .mobile-nav-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/img/images/navbar_mv_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 99999;
+  }
+
+  .mobile-nav-mountains {
+    position: fixed;
+    bottom: -260px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/img/images/mountains_navbar.svg');
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: 100000;
+    pointer-events: none;
+  }
+
   .hamburger {
     padding: 25px 15px;
     display: inline-block;
@@ -424,6 +485,8 @@ nav {
     border: 0;
     margin: 0;
     overflow: visible;
+    position: relative;
+    z-index: 100002; 
   }
 
   .hamburger:hover {
@@ -437,7 +500,7 @@ nav {
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: #ffffff;
+    background-color: #D3D3D3;
   }
 
   .hamburger-box {
@@ -480,9 +543,6 @@ nav {
     bottom: -10px;
   }
 
-  /*
-      * Spin
-      */
   .hamburger--spin .hamburger-inner {
     transition-duration: 0.22s;
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -515,5 +575,98 @@ nav {
     transition: bottom 0.1s ease-out,
       transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
+  .mobile-socials {
+    padding-top: 0;
+  }
+
+  .socials-row {
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .socials-row img {
+    width: 42px;
+    height: 42px;
+    opacity: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .socials-row a:hover img {
+    transform: translateY(-2px);
+  }
 }
+
+@media screen and (max-width:1050px){
+  .mobile-nav-mountains {
+    bottom: 0;
+  }
+  .nav-pages li a {
+    font-size: 4rem;
+  }
+  .mobile-socials {
+    padding-top: 6px;
+  }
+  .socials-row img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .mobile-nav-mountains {
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 840px){
+  .mobile-nav-mountains {
+    bottom: -90px;
+  }
+  .mobile-socials {
+    padding-top: 0;
+  }
+  .socials-row img {
+    width: 50px;
+    height: 50px;
+  }
+
+}
+
+@media screen and (max-width: 740px) {
+  .mobile-nav-mountains {
+    bottom: -70px;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .mobile-nav-mountains {
+    bottom: -50px;
+  }
+  .nav-pages li a {
+    font-size: 3.5rem;
+  }
+  .mobile-socials {
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .mobile-nav-mountains {
+    bottom: 0;
+  }
+  .nav-pages li a {
+    font-size: 4rem;
+  }
+  .mobile-socials {
+    padding-top: 2rem;
+  }
+  .socials-row img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
 </style>

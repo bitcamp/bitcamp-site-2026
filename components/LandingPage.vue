@@ -5,6 +5,7 @@
             <div class="button-wrapper">
                 <a target="_blank" href="https://register.bit.camp" class="register-button">REGISTER</a>
             </div>
+            <!-- <ExplorationMessage /> -->
         </div>
     </div>
 </template>
