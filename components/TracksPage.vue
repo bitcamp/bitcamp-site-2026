@@ -12,7 +12,7 @@
 
       <div class="tracks-container desktop-view">
   <!-- pos-0 -->
-  <div class="track-cloud pos-0">
+  <div class="track-cloud pos-0", style="margin-left: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -46,7 +46,7 @@
   </div>
 
   <!-- pos-2 -->
-  <div class="track-cloud pos-2">
+  <div class="track-cloud pos-2", style="margin-right: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -63,7 +63,7 @@
   </div>
 
   <!-- pos-3 -->
-  <div class="track-cloud pos-3">
+  <div class="track-cloud pos-3", style="margin-left: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -97,7 +97,7 @@
   </div>
 
   <!-- pos-5 -->
-  <div class="track-cloud pos-5">
+  <div class="track-cloud pos-5", style="margin-right: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -279,10 +279,12 @@ export default {
 /* ================= SHARED CARD STYLES ================= */
 .track-cloud {
   background: transparent;
-  padding: 2vw;
+  /* padding: 3vw; */
   z-index: 5;
   display: flex;
   align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 .star-border-overlay {
@@ -297,12 +299,11 @@ export default {
   transform: scale(1.1);
 }
 
-/* Default Desktop flex behavior */
 .cloud-content {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1.5vw;
+  /* gap: 1vw; */
   z-index: 2;
   width: 100%;
 }
@@ -310,12 +311,15 @@ export default {
 .cloud-title {
   font-family: "Aleo";
   font-size: clamp(1.1rem, 1.4vw, 1.8rem);
+  margin-left: 1rem;
+  margin-top: 1rem;
   font-weight: bold;
 }
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(.75rem, .85vw, 1.2rem);
+  font-size: clamp(.75rem, .85vw, 1rem);
   line-height: 1.25;
+  margin-left: 1rem;
 }
 
 .circle-placeholder {
@@ -357,8 +361,8 @@ export default {
 .pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); padding: 10px;}
 .pos-5 { bottom: 12%; right: max(3%, 40px); padding: 10px;}
 
-/* ================= MOBILE VIEW (<= 1200px) ================= */
-@media (max-width: 1200px) {
+/* ================= MOBILE VIEW (<= 1300px) ================= */
+@media (max-width: 1400px) {
   .desktop-view { display: none; }
   .mobile-view { display: flex; }
 
@@ -398,8 +402,8 @@ export default {
   }
 
   .main-subtitle {
-    font-size: clamp(1rem, 3vw, 1.7rem);
-    margin-top: 12px;
+    font-size: clamp(1rem, 3vw, 2rem);
+    margin-top: 20px;
   }
 
   .mobile-carousel {
@@ -441,31 +445,30 @@ export default {
   .mobile-card {
     position: relative;
     justify-self: center;
-    width: min(420px, calc(100vw - (2 * var(--pad) + 2 * var(--btn) + 2 * var(--gap))));
     padding: clamp(16px, 3.6vw, 24px);
     background: rgba(30, 40, 60, 0.8);
     border-radius: 32px;
-    overflow: hidden;
 
-    
-    display: block !important;
-    height: auto !important;
-    aspect-ratio: unset !important;
-    max-height: none !important;
-  }
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
+    height: 100%;
+    aspect-ratio: unset;
+    overflow: clip;
+    box-sizing: border-box;
+}
 
   .mobile-card .cloud-content {
-   
     display: flex !important;
     flex-direction: row;
     align-items: flex-start;
     gap: 12px;
     position: static;
     padding: 0;
+    font-size: 1.3rem;
   }
 
   .mobile-card .image-area {
-    
     position: absolute;
     right: clamp(8px, 3.5vw, 18px);
     bottom: clamp(5px, 3vw, 12px);
@@ -475,11 +478,9 @@ export default {
     display: block;
     z-index: 5;
     order: 2;
-    
   }
-
   
-  .mobile-card .circle-placeholder {
+  /* .mobile-card .circle-placeholder {
     width: 100%;
     height: 100%;
     border: none;
@@ -490,7 +491,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
+  } */
 
   
   .mobile-card .text-area {
@@ -510,14 +511,9 @@ export default {
   }
 
   .mobile-card .cloud-desc {
-    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
-    line-height: 1.35;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
     margin: 0;
-    hyphens: auto;
-    
-    overflow-wrap: anywhere; 
   }
-  
   
   .mobile-card .cloud-content::after {
     content: "";
@@ -527,7 +523,7 @@ export default {
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   
   .mobile-card .text-area {
     width: 70% !important;
@@ -539,7 +535,58 @@ export default {
     width: 30% !important;
     flex: 0 0 30% !important;
     box-sizing: border-box;
-    margin: 0 0 0 8px;
+    margin-right: -20px;
+    margin-bottom: -10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+  }
+}
+
+@media (max-width: 580px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.7rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1.15rem);
+  }
+  .mobile-card .image-area {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+  .mobile-card .image-area {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.3rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 0.8rem);
+  }
+  .mobile-card .image-area {
+    margin-right: 30px;
+    margin-bottom: -10px;
   }
 }
 </style>
