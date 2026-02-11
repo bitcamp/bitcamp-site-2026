@@ -21,6 +21,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: -2rem;
 }
 
 .exploration-message {
@@ -53,6 +54,30 @@ export default {
   line-height: 140%;
   letter-spacing: 0;
   opacity: 0.9;
+}
+
+@media (max-width: 1380px) {
+  .exploration-container {
+    margin-bottom: -3rem;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .description {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1380px) {
+  .exploration-container {
+    margin-bottom: -3rem;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .description {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 796px) {

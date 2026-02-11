@@ -224,7 +224,7 @@ export default {
 <style scoped>
 /* ================= GLOBAL STYLES ================= */
 .tracks-page {
-  background-color: #050a14;
+  /* background-color: #010B18; */
   min-height: 100vh;
   position: relative;
   overflow: hidden;

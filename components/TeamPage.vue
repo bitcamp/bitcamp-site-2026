@@ -45,10 +45,10 @@ export default {
 .gradient {
     position: relative;
     overflow: hidden;
-    height: 115dvh;
+    height: 155dvh;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    background-color: #03072A;
+    background: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;

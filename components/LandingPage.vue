@@ -33,10 +33,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 75vw;
+  min-height: 80vw;
   height: auto;
   overflow: hidden;
-  background-color: #0d2539;
+  background: linear-gradient(
+  180deg,
+  #201F3A 70%,
+  #060118 100%
+);
   width: 100%;
   aspect-ratio: 16 / 9;
 }

@@ -146,7 +146,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 .content-wrapper {
   width: 100%;
   margin: 0 auto;
-  background-color: #03072A;
+  background:transparent;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #000;  
@@ -159,7 +159,6 @@ const sponsors: Sponsor[] = Array(12).fill({
     left: clamp(-2200px, -250vw, -300px);
     width: clamp(1000px, 400vw, 4000px);
     height: clamp(800px, 200vh, 2000px);
-    background-image: url('../assets/img/faq/blue-planet.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -180,13 +179,13 @@ const sponsors: Sponsor[] = Array(12).fill({
     top: -40vh;
     width: 40vw;
     height: 70vh;
-    background-image: url('../assets/img/faq/green-planet.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 1;
+    // background-image: url('../assets/img/faq/green-planet.webp');
+    // background-size: contain;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // z-index: 0;
+    // pointer-events: none;
+    // opacity: 1;
 
     @media (max-width: 768px) {
       display: none;

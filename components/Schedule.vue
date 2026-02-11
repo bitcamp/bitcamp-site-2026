@@ -353,7 +353,7 @@
   @import '../assets/css/schedule.scss';
 
   .whole-component {
-    background: #010B18;
+    // background: #010B18;
   }
 
   #schedule-header {

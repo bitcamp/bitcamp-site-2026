@@ -113,7 +113,7 @@ export default {
 <style scoped>
 .cfg-top {
   padding: 5% 0;
-  background-color: #010b18;
+  /* background-color: #010B18; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -240,7 +240,7 @@ export default {
   justify-content: center;
   align-items: center;
   padding-top: 5vmax;
-  background-color: #010b18;
+  /* background-color: #010B18; */
 }
 .carousel-container {
   overflow: hidden;

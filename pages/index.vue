@@ -4,11 +4,11 @@
       <BitBot />
       <Navbar />
       <LandingPage />
-      <!-- <div class="transition0"></div> -->
+      <div class="transition0"></div>
       <TracksPage />
       <CampGamesPage />
-      <div class="transition1"></div>
       <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
+      <div class="transition1"></div>
       <TeamPage />
       <FAQSponsorPage />
       <FooterContent />
@@ -142,6 +142,7 @@ export default {
   min-height: 100vh;
   background-size: 100% auto;
   background-repeat: no-repeat;
+  background-color: #010B18;
 }
 
 .LandingPage,
@@ -167,7 +168,7 @@ export default {
   /* Controls overlap with Landing Page */
   height: 50%;
   /* Adjust height as needed */
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -178,18 +179,18 @@ export default {
   bottom: 0;
   height: 33%;
   /* Adjust height as needed */
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Schedule {
+/* .Schedule {
   background: linear-gradient(to bottom, #31055a 0%, #2b0542 8%, #580000 100%);
-}
+} */
 .transition0 {
-  background-image: linear-gradient(#1f470c, #5d3007);
+  background-image: linear-gradient(#060118, #010B18);
   height: 4vw;
 }
 
@@ -202,7 +203,7 @@ export default {
 }
 
 .transition1 {
-  background-image: linear-gradient(#500001, #34045a);
+  background-color: #010B18;
   height: 4vw;
 }
 </style>
