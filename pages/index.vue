@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper" ref="el">
     <div class="app-container">
+      <div class="red-planet"></div>
+      <div class="blue-planet"></div>
+      <div class="green-planet-bg"></div>
       <BitBot />
       <Navbar />
       <LandingPage />
@@ -143,7 +146,49 @@ export default {
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-color: #010B18;
+  position: relative;
+  z-index: 1;
 }
+
+.red-planet {
+  position: absolute;
+  right: -800px;
+  top: 2000px;
+  width: 80%;
+  height: 80%;
+  background-image: url('../assets/img/images/red-planet.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.blue-planet {
+  position: absolute;
+  left: -1550px;
+  top: 3010px;
+  width: 150%;
+  height: 150%;
+  background-image: url('../assets/img/images/blue-planet.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.green-planet-bg {
+  position: absolute;
+  right: -50px;
+  bottom: 1900px;
+  width: 500px;
+  height: 500px;
+  background-image: url('../assets/img/images/green-planet.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index:0;
+  pointer-events: none;
+}
+
 
 .LandingPage,
 .TracksPage,
@@ -196,6 +241,17 @@ export default {
   z-index: 10;
 } */
 
+@media (max-width: 1050px) {
+  .blue-planet {
+    display: none;
+  }
+  .red-planet {
+    display: none;
+  }
+  .green-planet-bg {
+    display: none;
+  }
+}
 @media (max-width: 796px) {
   .transition0 {
     width: 100%;
