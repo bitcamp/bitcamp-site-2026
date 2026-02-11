@@ -29,17 +29,17 @@
 </template>
 
 <script lang="ts">
-import anoushka from '/assets/img/images/headshots/anoushkaarora.jpg';
-import sneha from 'assets/img/images/headshots/snehabalur.jpg';
-import jim from '/assets/img/images/headshots/jamesbarry.jpg';
-import anshu from '/assets/img/images/headshots/anshuchandrasekhar.jpg';
-import shreya from '/assets/img/images/headshots/shreyagavarapattu.jpg';
-import naomi from '/assets/img/images/headshots/naomikaul.jpg';
-import tiffany from '/assets/img/images/headshots/tiffanyliu.jpg';
-import ben from '/assets/img/images/headshots/benjaminlosey.jpg';
-import charis from '/assets/img/images/headshots/chariswang.jpg';
-import ryan from '/assets/img/images/headshots/ryanzhao.jpg';
-import jessica from '/assets/img/images/headshots/jessicazhou.jpg';
+import anoushka from '/assets/img/images/headshots/anoushkaarora.webp';
+import sneha from 'assets/img/images/headshots/snehabalur.webp';
+import jim from '/assets/img/images/headshots/jamesbarry.webp';
+import anshu from '/assets/img/images/headshots/anshuchandrasekhar.webp';
+import shreya from '/assets/img/images/headshots/shreyagavarapattu.webp';
+import naomi from '/assets/img/images/headshots/naomikaul.webp';
+import tiffany from '/assets/img/images/headshots/tiffanyliu.webp';
+import ben from '/assets/img/images/headshots/benjaminlosey.webp';
+import charis from '/assets/img/images/headshots/chariswang.webp';
+import ryan from '/assets/img/images/headshots/ryanzhao.webp';
+import jessica from '/assets/img/images/headshots/jessicazhou.webp';
 
 export default {
     name: 'HomePage',

@@ -21,13 +21,13 @@
 </template>
 
 <script lang="ts">
-import rishi from '../assets/img/images/headshots/rishiagarwal.jpg';
-import saharsh from '../assets/img/images/headshots/saharashmaloo2.jpg';
-import nikita from '../assets/img/images/headshots/nikitaarya.jpg';
-import melanie from '../assets/img/images/headshots/melaniechen.jpg';
-import aditri from '../assets/img/images/headshots/aditrigadigi.jpg';
-import jennifer from '../assets/img/images/headshots/jenniferli.jpg';
-import bhavini from '../assets/img/images/headshots/bhavinipandey.jpg';
+import rishi from '../assets/img/images/headshots/rishiagarwal.webp';
+import saharsh from '../assets/img/images/headshots/saharashmaloo2.webp';
+import nikita from '../assets/img/images/headshots/nikitaarya.webp';
+import melanie from '../assets/img/images/headshots/melaniechen.webp';
+import aditri from '../assets/img/images/headshots/aditrigadigi.webp';
+import jennifer from '../assets/img/images/headshots/jenniferli.webp';
+import bhavini from '../assets/img/images/headshots/bhavinipandey.webp';
 
 export default {
     name: 'HomePage',

@@ -1,382 +1,587 @@
 <template>
-  <div id="tracks" class="tracks-page gradient">
-    <div class="tracks-container">
-      <div class="title-container">
-        <img src="@/assets/img/icons/foot-1.svg" class="foot" />
-        <img src="@/assets/img/icons/foot-2.svg" class="foot" />
-        <img src="@/assets/img/icons/TRACKS (1).svg" class="title" />
-        <img src="@/assets/img/icons/foot-3.svg" class="foot" />
-        <img src="@/assets/img/icons/foot-4.svg" class="foot" />
+  <div id="tracks" class="tracks-page">
+    <div class="stars-overlay"></div>
+
+    <div class="content-wrapper">
+      <div class="center-header">
+        <h1 class="main-title">Tracks</h1>
+        <p class="main-subtitle">
+          Discover more with tracks at Bitcamp! Dive deep into a topic or expand your horizons across many!
+        </p>
       </div>
 
-      <div class="tracks-grid">
-        <div class="track-card left">
-          <!-- Track Text Container -->
-          <img :src="tracks[0].icon" :alt="tracks[0].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[0].title }}</h2>
-            <p class="track-description">{{ tracks[0].description }}</p>
-          </div>
+      <div class="tracks-container desktop-view">
+  <!-- pos-0 -->
+  <div class="track-cloud pos-0" style="margin-left: 50px;">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[0].title }}</h2>
+        <p class="cloud-desc">{{ tracks[0].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[0].icon" v-if="tracks[0].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
         </div>
-        <img :src="tracks[0].feet" :alt="tracks[0].title" class="feet" />
+      </div>
+    </div>
+  </div>
 
-        <div class="track-card right">
-          <!-- Track Text Container -->
-          <img :src="tracks[1].icon" :alt="tracks[1].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[1].title }}</h2>
-            <p class="track-description">{{ tracks[1].description }}</p>
-          </div>
+  <!-- pos-1 -->
+  <div class="track-cloud pos-1">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[1].title }}</h2>
+        <p class="cloud-desc">{{ tracks[1].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[1].icon" v-if="tracks[1].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
         </div>
-        <img :src="tracks[1].feet" :alt="tracks[1].title" class="feet" />
+      </div>
+    </div>
+  </div>
 
-        <div class="track-card left">
-          <!-- Track Text Container -->
-          <img :src="tracks[2].icon" :alt="tracks[2].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[2].title }}</h2>
-            <p class="track-description">{{ tracks[2].description }}</p>
-          </div>
+  <!-- pos-2 -->
+  <div class="track-cloud pos-2" style="margin-right: 50px;">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[2].title }}</h2>
+        <p class="cloud-desc">{{ tracks[2].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[2].icon" v-if="tracks[2].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
         </div>
-        <img :src="tracks[2].feet" :alt="tracks[2].title" class="feet" />
+      </div>
+    </div>
+  </div>
 
-        <div class="track-card right">
-          <!-- Track Text Container -->
-          <img :src="tracks[3].icon" :alt="tracks[3].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[3].title }}</h2>
-            <p class="track-description">{{ tracks[3].description }}</p>
-          </div>
+  <!-- pos-3 -->
+  <div class="track-cloud pos-3" style="margin-left: 50px;">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[3].title }}</h2>
+        <p class="cloud-desc">{{ tracks[3].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[3].icon" v-if="tracks[3].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
         </div>
-        <img :src="tracks[3].feet" :alt="tracks[3].title" class="feet" />
+      </div>
+    </div>
+  </div>
 
-        <div class="track-card left">
-          <!-- Track Text Container -->
-          <img :src="tracks[4].icon" :alt="tracks[4].title" class="track-icon" />
-
-          <div class="track-text-cont">
-            <h2 class="track-title">{{ tracks[4].title }}</h2>
-            <p class="track-description">{{ tracks[4].description }}</p>
-          </div>
+  <!-- pos-4 -->
+  <div class="track-cloud pos-4">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[4].title }}</h2>
+        <p class="cloud-desc">{{ tracks[4].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[4].icon" v-if="tracks[4].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pos-5 -->
+  <div class="track-cloud pos-5" style="margin-right: 50px;">
+    <img :src="starBorder" class="star-border-overlay" alt="" />
+    <div class="cloud-content">
+      <div class="text-area">
+        <h2 class="cloud-title">{{ tracks[5].title }}</h2>
+        <p class="cloud-desc">{{ tracks[5].description }}</p>
+      </div>
+      <div class="image-area">
+        <div class="circle-placeholder">
+          <img :src="tracks[5].icon" v-if="tracks[5].icon" class="icon-img" />
+          <span v-else class="placeholder-text">Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="mobile-carousel mobile-view">
+        <button class="nav-btn prev" @click="prevTrack" aria-label="Previous Track">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19 12H5M5 12L12 19M5 12L12 5"
+              stroke="#e76f51"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div class="track-cloud mobile-card">
+          <img :src="starBorder" class="star-border-overlay" alt="" />
+          
+          <div class="cloud-content">
+            <div class="image-area">
+              <div class="circle-placeholder">
+                <img
+                  :src="tracks[currentTrack].icon"
+                  v-if="tracks[currentTrack].icon"
+                  class="icon-img"
+                />
+                <span v-else class="placeholder-text">Image</span>
+              </div>
+            </div>
+            
+            <div class="text-area">
+              <h2 class="cloud-title">{{ tracks[currentTrack].title }}</h2>
+              <p class="cloud-desc">{{ tracks[currentTrack].description }}</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <button class="nav-btn next" @click="nextTrack" aria-label="Next Track">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5 12H19M19 12L12 5M19 12L12 19"
+              stroke="#e76f51"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import quantumLogo from "@/assets/img/icons/quantum-logo.svg";
-import appDevLogo from "@/assets/img/icons/appdev-logo.svg";
-import cyberLogo from "@/assets/img/icons/cyber-logo.svg";
-import generalLogo from "@/assets/img/icons/general-logo.svg";
-import mlLogo from "@/assets/img/icons/ml-logo.svg";
-import generalFeet from "@/assets/img/icons/generalFeet.svg";
-import mlFeet from "@/assets/img/icons/mlFeet.svg";
-import quantamFeet from "@/assets/img/icons/quantamFeet.svg";
-import cyberFeet from "@/assets/img/icons/cyberFeet.svg";
+import starBorder from "@/assets/img/star-border.png";
 
 export default {
   name: "TracksPage",
   data() {
     return {
+      currentTrack: 0,
+      starBorder,
       tracks: [
         {
           title: "General Track",
+          description: "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
+          icon: "/_nuxt/assets/img/icons/general_logo.svg",
+        },
+        {
+          title: "Game Development",
           description:
-            "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
-          icon: generalLogo,
-          feet: generalFeet,
+            "Ever wanted to make a game in a weekend? Join the Game Dev track! Build a game around a surprise theme using any tools or engines you like, attend optional beginner-friendly workshops, collaborate with others, and showcase your creativity by the end of the hackathon!",
+          icon: "/_nuxt/assets/img/icons/gamedev_logo.svg",
+        },
+        {
+          title: "App Development",
+          description: "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
+          icon: "/_nuxt/assets/img/icons/appdev_logo.svg",
         },
         {
           title: "Machine Learning",
-          description:
-            "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
-          icon: mlLogo,
-          feet: mlFeet,
+          description: "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
+          icon: "/_nuxt/assets/img/icons/ml_logo.svg",
         },
         {
-          title: "Cybersecurity Track",
-          description:
-            "One of our newest tracks! Explore the realm of cybersecurity and understand various aspects of the field through interactive workshops that include discussions of web vulnerabilities, real-world applications of combating security weaknesses, and ethical decision-making.",
-          icon: cyberLogo,
-          feet: cyberFeet,
+          title: "Data Science",
+          description: "The Data Science track introduces beginners to working with data through workshops and guided mini-projects. Hackers will explore data cleaning, analysis, and visualization to discover meaning and patterns from data!",
+          icon: "/_nuxt/assets/img/icons/datasci_logo.svg",
         },
         {
-          title: "Quantum Track",
-          description:
-            "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
-          icon: quantumLogo,
-          feet: quantamFeet,
-        },
-        {
-          title: "App Development Track",
-          description:
-            "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
-          icon: appDevLogo,
+          title: "Quantum",
+          description: "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
+          icon: "/_nuxt/assets/img/icons/quantum_logo.svg",
         },
       ],
     };
+  },
+  methods: {
+    nextTrack() {
+      this.currentTrack = (this.currentTrack + 1) % this.tracks.length;
+    },
+    prevTrack() {
+      this.currentTrack = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
+    },
   },
 };
 </script>
 
 <style scoped>
-.gradient {
-  background: linear-gradient(to bottom, #5d3006, #6e1708);
+/* ================= GLOBAL STYLES ================= */
+.tracks-page {
+  /* background-color: #010B18; */
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+  color: white;
   display: flex;
   justify-content: center;
-  padding: 4vw 2vw;
+  align-items: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
-
-@media screen and (max-width: 1024px) {
-  .gradient {
-    background: linear-gradient(to bottom, #5d3006, #b94923);
-    display: flex;
-    justify-content: center;
-    padding: 4vw 2vw;
-  }
-}
-
-.tracks-container {
-  text-align: center;
-  max-width: 90vw;
+.content-wrapper {
+  position: relative;
   width: 100%;
-  background: #b94923;
-  border-radius: 75px;
-  padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border: 1.3vw solid #ffd978;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: -25rem;
-  z-index: 1000;
+  max-width: 1800px;
+  height: 100vh;
+  z-index: 10;
+  padding-inline: clamp(48px, 6vw, 120px);
 }
 
-.title-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8vw;
-  margin-bottom: 2vw;
-  flex-wrap: wrap;
-}
-
-.title {
+.center-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   width: 30vw;
-  max-width: 90vw;
-  height: 10vw;
-  margin-bottom: 2vw;
-}
-
-.foot {
-  width: 8vw;
-  max-width: 8vw;
-  height: auto;
-  padding: 2vw;
-}
-
-.tracks-grid {
+  z-index: 1;
   display: flex;
-  gap: 8rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  font-family: "Aleo";
+  font-size: clamp(3rem, 5vw, 6.5rem);
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+}
+
+.main-subtitle {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: clamp(0.9rem, 1vw, 2rem);
+  line-height: 1.5;
+  margin-top: 20px;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+/* ================= SHARED CARD STYLES ================= */
+.track-cloud {
+  /* background: transparent; */
+  /* padding: 3vw; */
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.star-border-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding-bottom: 8rem;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: first baseline;
+  height: 100%;
+  pointer-events: none;
+  object-fit: fill;
+  z-index: -1;
+  transform: scale(1.1);
 }
 
-.track-card {
+.cloud-content {
+  position: relative;
   display: flex;
-  max-width: 36.5rem;
-  text-align: center;
-  flex-direction: column;
   align-items: center;
-  justify-content: first baseline;
+  /* gap: 1vw; */
+  z-index: 2;
+  width: 100%;
 }
 
-.track-text-cont {
-  display: flex;
-  max-width: 36.5rem;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-}
-
-.track-icon {
-  width: 9vw;
-  max-width: 9vw;
-  height: auto;
-}
-
-.track-title {
-  font-size: 2.7rem;
-  font-weight: bold;
+.cloud-title {
+  font-family: "Aleo";
+  font-size: clamp(1.1rem, 1.4vw, 1.8rem);
+  margin-left: 1rem;
   margin-top: 1rem;
-  margin-bottom: 3rem;
-  color: #f8f8f8;
+  font-weight: bold;
+}
+.cloud-desc {
+  font-family: "Avenir", Helvetica, sans-serif;
+  font-size: clamp(.75rem, .85vw, 1rem);
+  line-height: 1.25;
+  margin-left: 1rem;
 }
 
-.track-description {
-  font-size: 1.8rem;
-  color: #f8f8f8;
+.circle-placeholder {
+  width: clamp(100px, 4.5vw, 100px);
+  height: clamp(100px, 4.5vw, 100px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  border: 4px solid rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  
 }
 
-.track-card.left {
-  flex-direction: column;
+.desktop-view .circle-placeholder{
+ margin-top: 100px; 
 }
 
-.track-card.right {
-  flex-direction: column;
-  text-align: right;
-  /* Adjust text alignment for the right side */
+/* ================= DESKTOP VIEW POSITIONS ================= */
+.desktop-view { display: block; }
+.mobile-view { display: none; }
+
+.track-cloud {
+  position: absolute;
+  width: 22vw;
+  aspect-ratio: 2 / 1;
+  height: auto;
+  max-width: 380px;
+  max-height: 180px;
 }
 
-.feet {
-  display: none;
-}
+.pos-0 { top: 12%; left: max(3%, 40px); padding: 10px;}
+.pos-1 { top: 2%; left: 50%; transform: translateX(-50%);padding: 10px;}
+.pos-2 { top: 12%; right: max(3%, 40px); padding: 10px;}
 
-@media (max-width: 796px) {
-  .tracks-container {
-    padding: 10vh 3vw;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    max-width: 95vw;
-    background: url("/assets/img/images/tracks-background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
+.pos-3 { bottom: 12%; left: max(3%, 40px);padding: 10px; }
+.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); padding: 10px;}
+.pos-5 { bottom: 12%; right: max(3%, 40px); padding: 10px;}
+
+/* ================= MOBILE VIEW (<= 1300px) ================= */
+@media (max-width: 1400px) {
+  .desktop-view { display: none; }
+  .mobile-view { display: flex; }
+
+  .tracks-page {
+    min-height: auto;
+    height: auto;
+    padding: 40px 0 0;
+    align-items: center;
+    justify-content: center;
   }
 
-  .gradient {
+  .content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: unset;
     padding: 0;
-    background: none;
-  }
-
-  .track-icon {
-    width: 28vw;
-    max-width: 28vw;
-    height: auto;
-  }
-
-  .special-icon {
-    width: 28vw;
-    max-width: 28vw;
-    height: auto;
-    padding-bottom: 6vw;
-  }
-
-  .track-text-cont {
+    margin-top: 10px;
+    margin-bottom: 20px;
     display: flex;
-    width: 80vw;
-    text-align: center;
     flex-direction: column;
     align-items: center;
   }
 
-  .title {
-    width: 80vw;
-    /* Dynamically scale title width */
-    height: auto;
-    /* Let height adjust automatically */
-    padding-top: 32vw;
+  .center-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: min(92vw, 760px);
+    margin: 20px auto 34px;
   }
 
-  .feet {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    width: 80vw;
-    height: auto;
-    justify-items: left;
-
+  .main-title {
+    font-size: clamp(2.6rem, 10vw, 5.5rem);
+    white-space: normal;
   }
 
-  .title-container {
+  .main-subtitle {
+    font-size: clamp(1rem, 3vw, 2rem);
+    margin-top: 20px;
+  }
+
+  .mobile-carousel {
+    --pad: 12px;
+    --gap: clamp(10px, 3vw, 16px);
+    --btn: clamp(42px, 12vw, 58px);
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: var(--btn) auto var(--btn);
+    column-gap: var(--gap);
+    align-items: center;
+    padding: 0 var(--pad);
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    background: #e3e2e0;
+    border: none;
+    border-radius: 50%;
+    width: var(--btn);
+    height: var(--btn);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8vw;
-    margin-bottom: 2vw;
-    flex-wrap: wrap;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10;
   }
 
-  .track-card.left {
+  .nav-btn.prev { justify-self: start; margin-left: 7px; }
+  .nav-btn.next { justify-self: end; margin-right: 7px; }
+  .nav-btn svg { width: 60%; height: 60%; }
+
+  /* ================= MOBILE CARD FIXES ================= */
+
+  .mobile-card {
+    position: relative;
+    justify-self: center;
+    padding: clamp(16px, 3.6vw, 24px);
+    background: rgba(30, 40, 60, 0.8);
+    border-radius: 32px;
+
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
+    height: 100%;
+    aspect-ratio: unset;
+    overflow: clip;
+    box-sizing: border-box;
+}
+
+  .mobile-card .cloud-content {
+    display: flex !important;
     flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    position: static;
+    padding: 0;
+    font-size: 1.3rem;
   }
 
-  .track-card.right {
-    flex-direction: row-reverse;
-    text-align: right;
-    /* Adjust text alignment for the right side */
+  .mobile-card .image-area {
+    position: absolute;
+    right: clamp(8px, 3.5vw, 18px);
+    bottom: clamp(5px, 3vw, 12px);
+    margin: 0;
+    width: clamp(75px, 22vw, 250px);
+    height: clamp(75, 22vw, 250px);
+    display: block;
+    z-index: 5;
+    order: 2;
+  }
+  
+  /* .mobile-card .circle-placeholder {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
   }
 
-  .tracks-grid {
-    gap: 0rem;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 0;
-    align-items: center;
+  .mobile-card .icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  } */
+
+  
+  .mobile-card .text-area {
+    display: block; 
+    flex: 1 1 70%;
+    width: 70%;
+    padding: 0;
+    order: 1;
+    
+    padding-right: clamp(90px, 28vw, 150px);
   }
 
-  .foot {
-    display: none;
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    line-height: 1.1;
+    margin: 0 0 8px 0;
   }
 
-  .track-card {
-    flex-direction: row;
-    align-content: center;
-    max-width: 95%;
-    height: auto;
-    justify-items: left;
-    gap: 1vw;
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    margin: 0;
+  }
+  
+  .mobile-card .cloud-content::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .mobile-card .text-area {
+    width: 70% !important;
+    flex: 1 1 70% !important;
+    box-sizing: border-box;
   }
 
-  .track-title {
-    font-size: 1.7em;
-    /* Scale font size dynamically */
-    max-width: 100%;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+  .mobile-card .image-area {
+    width: 30% !important;
+    flex: 0 0 30% !important;
+    box-sizing: border-box;
+    margin-right: -20px;
+    margin-bottom: -10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
   }
 
-  .track-description {
-    font-size: 1em;
-    /* Scale font size for readability */
-    max-width: 85%;
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+  }
+}
+
+@media (max-width: 580px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.7rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1.15rem);
+  }
+  .mobile-card .image-area {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+  .mobile-card .image-area {
+    margin-right: 20px;
   }
 }
 
 @media (max-width: 400px) {
-  .feet {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    width: 80vw;
-    height: auto;
-    justify-items: left;
+  .mobile-card .cloud-title {
+    font-size: clamp(1.2rem, 5vw, 1.3rem);
   }
 
-  .tracks-container {
-    padding: 15vh 3vw;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    max-width: 95vw;
-    background: url("/assets/img/images/tracks-background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
+  .mobile-card .cloud-desc {
+    font-size: clamp(0.85rem, 3.5vw, 0.8rem);
+  }
+  .mobile-card .image-area {
+    margin-right: 30px;
+    margin-bottom: -10px;
   }
 }
 </style>

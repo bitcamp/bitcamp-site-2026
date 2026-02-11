@@ -1,0 +1,8 @@
+[build]
+command = "npm run build"
+publish = "dist"
+
+[[redirects]]
+from = "/api/bitbot/*"
+to = "/.netlify/functions/bitbot/:splat"
+status = 200

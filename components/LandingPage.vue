@@ -1,125 +1,143 @@
 <template>
-    <div class="gradient">
-        <img src="../assets/img/images/flattened_landing.webp" class="dino-background" alt="landing image" />
-        <div class="content-wrapper">
-            <div class="button-wrapper">
-                <a target="_blank" href="https://register.bit.camp" class="register-button">REGISTER</a>
-            </div>
-            <ExplorationMessage />
-        </div>
+  <div class="gradient">
+    <img
+      src="../assets/img/images/better_landing.webp"
+      class="background"
+      alt="landing image"
+    />
+    <div class="content-wrapper">
+      <div class="button-wrapper">
+        <a
+          target="_blank"
+          href="https://register.bit.camp"
+          class="register-button"
+          >REGISTER</a
+        >
+      </div>
     </div>
+    <div class="message-wrapper">
+      <ExplorationMessage />
+    </div>
+  </div>
 </template>
-
 <script lang="ts">
-import ExplorationMessage from '~/components/ExplorationMessage.vue';
-
 export default {
-    name: 'LandingPage',
-    components: {
-        ExplorationMessage,
-    },
+  name: "LandingPage",
+  components: {},
 };
 </script>
 
 <style scoped>
 .gradient {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 135vw;
-    height: auto;
-    overflow: hidden;
-    background-color: #5E5700;
-    background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vw;
+  height: auto;
+  overflow: hidden;
+  background: linear-gradient(
+  180deg,
+  #201F3A 70%,
+  #060118 100%
+);
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
-.dino-background {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: 0;
-    object-fit: cover;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  object-fit: cover;
 }
 
-.content-wrapper {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    z-index: 1;
-    right: 0;
-    top: 50vw;
-    width: 48%;
+.message-wrapper {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
 }
 
 .button-wrapper {
-    width: 100%;
-    padding: 0 0 3vw 3.2vw;
+  position: absolute;
+  top: 51%;
+  right: 38%;
+  transform: translateY(-60%);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 .register-button {
-    background-color: #FFB353;
-    border: none;
-    border-radius: 2.5rem;
-    color: #4F2525;
-    font-family: Aleo, sans-serif;
-    font-size: 3.4rem;
-    font-weight: bold;
-    padding: 1.7rem 4.8rem;
-    letter-spacing: 0.2rem;
-    margin-bottom: 10%;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.register-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ff6f3f;
+  border-radius: 5rem;
+  border-style: solid;
+  border-color: #e54d1a;
+  color: white;
+  font-family: Aleo, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  margin-bottom: 40%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1.8vw;
+  padding: 0.8vw 2.5vw;
+  border-width: 0.25vw;
 }
 
 @media (max-width: 796px) {
-    .register-button {
-        font-size: clamp(2rem, 7.5vw, 8rem);
-        ;
-        padding: calc(2.8vw + 1rem) calc(7.8vw + 2rem);
-        border-radius: 4.5rem;
-        background-color: #F2C042;
-        letter-spacing: 0.4rem;
-    }
+  .background {
+    content: url("../assets/img/images/better_mobile.webp");
+  }
 
-    .content-wrapper {
-        width: 100%;
-        margin-top: calc(300% - 232.5vw);
-    }
+  .register-button {
+    border-radius: 5rem;
+    letter-spacing: 0.25rem;
+    font-size: 4vw;
+    border-width: 0.7vw;
+    margin-top: 43vw;
+    margin-right: 40vw;
+  }
 
-    .button-wrapper {
-        padding: 0;
-        width: auto;
-    }
+  .gradient {
+    aspect-ratio: 9 / 16;
+    background: transparent;
+    min-height: auto;
+    position: relative;
+    overflow: visible;
+    display: block;
+    background: linear-gradient(180deg,#201F3A 70%,#060118 100%);
+  }
 
-    .gradient {
-        background-color: #C4B500;
-        padding-bottom: calc(339% - 239vw);
-    }
+  .button-wrapper {
+    top: 30vw;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .message-wrapper {
+    position: relative;
+    /* top: auto; */
+    height: auto;
+    z-index: 1;
+    margin-top: 250vw;
+  }
 }
 
 @media (max-width: 500px) {
-    .content-wrapper {
-        width: 100%;
-        margin-top: calc(298% - 232.5vw);
-    }
-
-    .gradient {
-        background-color: #C4B500;
-        padding-bottom: calc(341% - 240vw);
-    }
+  .button-wrapper {
+    width: 90%;
+    max-width: 350px;
+  }
 }
 </style>

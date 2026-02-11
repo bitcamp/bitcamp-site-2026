@@ -3,12 +3,7 @@
 <template>
     <div class="whole-component">
         <div id="schedule-header">
-            <img
-                src="../assets/img/images/Schedule.svg"
-                alt=""
-                class="schedule-icon"
-            />
-            <img class="schedule_mv" src="../assets/img/images/Schedule_mv.svg" alt="" />
+            <h3 class="glow">Schedule</h3>
         </div>
         <div id="schedule" class="section" :style="styles">
         <!-- FULL SCHEDULE -->
@@ -36,6 +31,10 @@
             and hence need an additional element to act as the background cover over the event elements -->
             <span class="left-cover"></span>
             <div class="event-list-container">
+              <!-- Coming Soon Message (shows when no events) -->
+              <div v-if="!dataLoaded || Object.keys(schedule).length === 0" class="coming-soon-inline">
+                <h2>Coming Soon</h2>
+              </div>
             <div class="event-list" :style="{}">
                 <span
                 v-for="(_, idx) in selectedDay.times"
@@ -81,6 +80,29 @@
                 </div>
             </div>
             </div>
+            <!-- Category Legend -->
+            <div class="category-legend">
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #FFAF3F;"></span>
+                <span class="legend-label">General</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #009051;"></span>
+                <span class="legend-label">Events</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #EC5156;"></span>
+                <span class="legend-label">Workshops</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #528CA5;"></span>
+                <span class="legend-label">Sponsor Event</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #6A166F;"></span>
+                <span class="legend-label">Food</span>
+              </div>
+            </div>
         </div>
         </div>
     </div>
@@ -93,6 +115,7 @@
   </template>
   
   <script setup lang="ts">
+  import { ref, onMounted } from 'vue';
   import { ModalsContainer } from 'vue-final-modal';
   import type { ParsedEvent, CalculatedEvent } from '../types/event';
   
@@ -174,7 +197,8 @@
    * @returns list of events in sorted order by start time
    */
   async function fetchRawEvents(): Promise<ParsedEvent[]> {
-    const eventsRes = await fetch('https://api.bit.camp/schedule');
+    // CHANGE BACKEND URL WHEN DEPLOYING TO api.bit.camp/schedule!!!!!
+    const eventsRes = await fetch('https://api.alpha.bit.camp/schedule');
     const events = await eventsRes.json();
   
     return events.map((event: any): ParsedEvent => ({
@@ -267,7 +291,7 @@
       return acc;
     }, {} as BareAllSchedule);
   
-    // get max concurrence for each day
+    // get max concurrence for each day and calculate sub-columns for overlapping events
     for (const [dateTime, data] of Object.entries(schedule)) {
       const timeWindows = allTimeWindows.get(parseInt(dateTime));
       if (timeWindows) {
@@ -329,96 +353,31 @@
   @import '../assets/css/schedule.scss';
 
   .whole-component {
-    background: linear-gradient(
-        to bottom,
-        #31055A 0%,
-        #2B0542 8%,
-        #570101 100%
-    );
+    // background: #010B18;
   }
 
   #schedule-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     width: 100%;
-  }
-  .schedule-icon {
-    display: flex;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .schedule_mv {
-    display: none;
-}
+    max-width: 150rem;
+    margin: 0 auto;
+    padding-top: 5rem;
+    padding-right: 5rem;
+    padding-left: 2.5rem;
 
-
-@media screen and (min-width: 850px) {
-
-    .schedule-icon {
-        display: none;
-    }
-
-    .schedule_mv {
-        margin: auto;
-        display: block;
-        width: 90rem;
-        height: auto;
-    }
-}
-
-@media screen and (min-width: 656px) and (max-width: 849px) {
-
-    .schedule-icon {
-        display: none;
-    }
-
-    .schedule_mv {
-        margin: auto;
-        display: block;
-        width: 70rem;
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 655px) {
-    .schedule-icon {
-        display: none;
-    }
-
-    .schedule_mv {
-        margin: auto;
-        display: block;
-        width: 45rem;
-        height: auto;
+    h3 {
+      font-family: 'Aleo', serif;
+      font-weight: 600;
+      font-size: 8rem;
+      color: white;
+      margin: 0;
+      text-shadow: 0 0 20px #FFF7EB;
     }
 }
 
   #schedule {
-    
-    /* width */
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-      opacity: 0.8;
-    }
-  
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: rgba(241, 241, 241, 0.557);
-    }
-  
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #ffffffb3;
-      border-radius: 999px;
-    }
-  
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ffff;
-    }
-  
     position: relative;
     height: 100%;
     display: flex;
@@ -426,15 +385,36 @@
     width: 100%;
     max-width: 150rem;
     margin: 0 auto;
-  
-    // remove default padding and margin
+    padding: 2.5rem;
+
     * {
       padding: 0;
       margin: 0;
     }
-  
-    padding: 2.5rem;
-  
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+      opacity: 0.8;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: rgba(241, 241, 241, 0.557);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #ffffffb3;
+      border-radius: 999px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffff;
+    }
+
     .schedule-container {
       position: relative;
       border-radius: 10px;
@@ -442,17 +422,9 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-  
-      &::after {
-        content: '';
-        position: absolute;
-        top: 4.8rem;
-        right: 0;
-        left: 0;
-        width: 100%;
-        height: 15px;
-        z-index: 2;
-      }
+      backdrop-filter: blur(12.5px);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #d5d8dc;
     }
   
     .schedule-icon {
@@ -469,193 +441,340 @@
     }
   
     .event-list-container {
-      background: #A5502E;
+      background: rgba(179, 185, 192, 0.15);
       position: relative;
       overflow-x: auto;
       overflow-y: auto;
       height: 100%;
       padding-bottom: 3rem;
+      flex: 1;
       @media screen and (max-width: 1024px) {
-        height: 80%;
-        border-radius: 10px;
+        flex: 0 1 auto;
+        min-height: 300px;
         padding-bottom: 1rem;
       }
     }
   
     .left-cover {
       position: absolute;
-      background: #A5502E;
-      border-right: 2px solid white;
+      background: rgba(255, 255, 255, 0.8);
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
       width: 9rem;
       left: 0;
-      top: 0;
-      bottom: 0;
-      height: 100%;
+      top: 74px;
+      bottom: 55px;
       z-index: 2;
-  
-      box-shadow: 0 0 1rem 0.5rem rgba(66, 56, 16, 0.1);
-  
+
       @media screen and (max-width: 1024px) {
         width: 9rem;
-        height: 85%;
+        top: 60px;
+        bottom: 50px;
       }
     }
     .event-list {
       padding-top: 1rem;
       display: grid;
-      grid-template-columns: [time] 10rem repeat(auto-fit, minmax(15rem, 1fr));
-      column-gap: 0.2rem;
+      grid-template-columns: [time] 10rem repeat(auto-fit, minmax(20rem, 1fr));
+      column-gap: 0.5rem;
       position: relative;
       // change grid-row height with the white hour-line bar layout
       grid-auto-rows: 2.1rem;
       min-width: 100%;
-      width: fit-content;
+      width: 100%;
+      height: 100%;
   
       padding-right: 1rem;
   
       @media screen and (max-width: 767.8px) {
-        grid-template-columns: [time] 10rem repeat(auto-fit, minmax(8rem, 1fr));
+        grid-template-columns: [time] 10rem repeat(auto-fit, minmax(12rem, 1fr));
       }
   
       .bar {
         position: absolute;
-        background: white;
-        height: 2px;
-        width: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        height: 1px;
+        width: calc(100% - 9rem);
+        left: 9rem;
         z-index: 0;
       }
       .time-container {
         position: sticky;
         left: 0.5rem;
         grid-column: time;
-        font-family: 'Aleo';
+        font-family: 'Avenir';
         z-index: 2;
-  
+        font-weight: 500;
+        font-size: 20px;
+        color: #000;
+        text-align: center;
+
         p {
+          color: #000;
           max-width: 8rem;
           width: 100%;
-          padding: 0 1rem 0 1rem;
+          padding: 0 1rem;
           position: absolute;
           top: 0;
           transform: translateY(-50%);
           text-align: center;
+          margin: 0;
+
+          @media screen and (max-width: 767.8px) {
+            font-size: 14px;
+          }
         }
       }
       .event-container {
         font-size: 1.1rem;
-        min-width: 15rem;
+        min-width: 0;
         border-radius: 10px;
-        padding: 0.75rem;
+        padding: 0.5rem;
         margin: 0.15rem;
         overflow: hidden;
         z-index: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
-  
         cursor: pointer;
-  
+        transition: all 0.2s ease;
+        border-width: 1px;
+        border-style: solid;
+        color: white;
+
         @media screen and (max-width: 767.8px) {
           padding: 0.5rem;
-          min-width: 8rem;
         }
-  
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
         p {
+          margin: 0;
           margin-bottom: 0.2rem;
         }
-  
-        span {
-          background: hsla(0, 0%, 0%, 0.25);
-          padding: 0.4rem 0.8rem;
-          border-radius: 10px;
-          flex-grow: 0;
-        }
+
         .name {
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 2;
+          line-clamp: 2;
           -webkit-box-orient: vertical;
-  
-          font-family: 'Aleo';
-          font-weight: bold;
+          font-family: 'Avenir';
+          font-weight: 700;
+          font-size: 10px;
+        }
+
+        > p:last-child {
+          font-weight: 400;
+          font-size: 10px;
+          opacity: 0.95;
+        }
+
+        &.main-event {
+          background-color: $COLOR_MAIN_EVENT;
+          border-color: $COLOR_MAIN_EVENT_BORDER;
+        }
+
+        &.workshop-event {
+          background-color: $COLOR_WORKSHOP;
+          border-color: $COLOR_WORKSHOP_BORDER;
+        }
+
+        &.mini-event {
+          background-color: $COLOR_MINI_EVENT;
+          border-color: $COLOR_MINI_EVENT_BORDER;
+        }
+
+        &.sponsor-event {
+          background-color: $COLOR_SPONSOR;
+          border-color: $COLOR_SPONSOR_BORDER;
+        }
+
+        &.food-event {
+          background-color: $COLOR_FOOD;
+          border-color: $COLOR_FOOD_BORDER;
         }
       }
-  
-      .main-event {
-        background-color: $COLOR_MAIN_EVENT;
-      }
-  
-      .workshop-event {
-        background-color: $COLOR_WORKSHOP;
-        border-color: $COLOR_WORKSHOP_BORDER;
-      }
-  
-      .mini-event {
-        background-color: $COLOR_MINI_EVENT;
-        border-color: $COLOR_MINI_EVENT_BORDER;
-      }
-  
-      .sponsor-event {
-        background-color: $COLOR_SPONSOR;
-        border-color: $COLOR_SPONSOR_BORDER;
-      }
-  
-      .food-event {
-        background-color: $COLOR_FOOD;
-        border-color: $COLOR_FOOD_BORDER;
+    }
+
+    .coming-soon-inline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      
+      h2 {
+        font-size: 2.5rem;
+        color: black;
+        font-family: 'Aleo', serif;
+        
+        @media screen and (max-width: 768px) {
+          font-size: 2rem;
+        }
       }
     }
   
     .dates {
-      background: #EBDEBE;
+      background: rgba(255, 255, 255, 0.8);
       font-family: 'Aleo';
       display: flex;
-      justify-content: stretch;
-      position: sticky;
+      justify-content: center;
+      align-items: center;
+      position: relative;
       z-index: 3;
-      left: 0;
-      top: 0;
-  
+      gap: 60px;
+      padding: 20px 60px;
+      min-height: 74px;
+      border-bottom: 1px solid #d5d8dc;
+      flex-wrap: wrap;
+
       @media screen and (max-width: 767.8px) {
-        background: none;
+        background: rgba(255, 255, 255, 0.8);
+        gap: 20px;
+        padding: 15px 20px;
+        min-height: 74px;
       }
-  
+
       button {
-        background: none;
+        background: transparent;
         border: none;
         cursor: pointer;
-        color: #B94923;
-        font-weight: bold;
-        padding: 2rem;
-        height: 100%;
-        width: 100%;
-        transition: background 0.1s;
+        color: #010B18;
+        font-weight: 600;
+        padding: 5px 15px;
+        height: auto;
+        width: auto;
+        transition: all 0.2s;
+        border-radius: 10px;
+        white-space: nowrap;
+        font-family: 'Aleo', sans-serif;
+        font-size: 20px;
+        position: relative;
+
         &.active {
-          text-decoration: underline;
-          text-decoration-thickness: 0.2rem;
-          text-underline-offset: 0.2rem;
-          background-color: #B94923;
-          color: #EBDEBE;
+          background-color: #FF6F3F;
+          color: #FFFFFF;
 
           @media screen and (max-width: 767.8px) {
-            background: #B94923;
-            color: #EBDEBE;
+            background: #FF6F3F;
+            color: #FFFFFF;
           }
         }
-  
-        &:hover {
-          background: #B94923;
-          color: #EBDEBE;
+
+        &:hover:not(.active) {
+          background: rgba(255, 111, 63, 0.1);
         }
-  
+
+        // Separator between tabs
+        &:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          right: -30px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 34px;
+          background: #d5d8dc;
+
+          @media screen and (max-width: 767.8px) {
+            right: -10px;
+            height: 20px;
+          }
+        }
+
         @media screen and (max-width: 767.8px) {
-          background: #EBDEBE;
-          color: #B94923;
-          border-radius: 10px 10px 0 0;
-          padding: 1rem;
-          padding-top: 1.5rem;
+          font-size: 14px;
+          padding: 5px 10px;
+        }
+      }
+    }
+
+    .category-legend {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      font-family: 'Aleo';
+      border-top: 1px solid #d5d8dc;
+      z-index: 2;
+
+      @media screen and (max-width: 767.8px) {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1rem 0;
+        padding: 1rem;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        @media screen and (max-width: 767.8px) {
+          justify-content: center;
+        }
+
+        &:nth-child(1) {
+          @media screen and (max-width: 767.8px) {
+            grid-column: 1 / 3;
+          }
+        }
+
+        &:nth-child(2) {
+          @media screen and (max-width: 767.8px) {
+            grid-column: 3 / 5;
+          }
+        }
+
+        &:nth-child(3) {
+          @media screen and (max-width: 767.8px) {
+            grid-column: 5 / 7;
+          }
+        }
+
+        &:nth-child(4) {
+          @media screen and (max-width: 767.8px) {
+            grid-column: 2 / 4;
+          }
+        }
+
+        &:nth-child(5) {
+          @media screen and (max-width: 767.8px) {
+            grid-column: 4 / 6;
+          }
+        }
+
+        .legend-color {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          display: inline-block;
+          flex-shrink: 0;
+        }
+
+        .legend-label {
+          font-size: 18px;
+          color: #010b18;
+          font-weight: 500;
+          white-space: nowrap;
+          font-family: 'Avenir', sans-serif;
+
+          @media screen and (max-width: 767.8px) {
+            font-size: 2.25rem;
+          }
         }
       }
     }

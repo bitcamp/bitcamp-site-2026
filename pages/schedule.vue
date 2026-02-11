@@ -10,15 +10,15 @@
     meta: [
       {
         name: 'description',
-        content: 'Schedule for Bitcamp 2025',
+        content: 'Schedule for Bitcamp 2026',
       },
       {
         property: 'og:title',
-        content: 'Bitcamp 2025',
+        content: 'Bitcamp 2026',
       },
       {
         property: 'og:site_name',
-        content: 'Bitcamp 2025',
+        content: 'Bitcamp 2026',
       },
       {
         property: 'og:url',
@@ -43,7 +43,7 @@
       },
       {
         property: 'twitter:title',
-        content: 'Bitcamp 2025',
+        content: 'Bitcamp 2026',
       },
       {
         property: 'twitter:description',
