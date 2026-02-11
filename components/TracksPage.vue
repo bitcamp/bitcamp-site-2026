@@ -12,7 +12,7 @@
 
       <div class="tracks-container desktop-view">
   <!-- pos-0 -->
-  <div class="track-cloud pos-0", style="margin-left: 50px;">
+  <div class="track-cloud pos-0" style="margin-left: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -46,7 +46,7 @@
   </div>
 
   <!-- pos-2 -->
-  <div class="track-cloud pos-2", style="margin-right: 50px;">
+  <div class="track-cloud pos-2" style="margin-right: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -63,7 +63,7 @@
   </div>
 
   <!-- pos-3 -->
-  <div class="track-cloud pos-3", style="margin-left: 50px;">
+  <div class="track-cloud pos-3" style="margin-left: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
@@ -97,7 +97,7 @@
   </div>
 
   <!-- pos-5 -->
-  <div class="track-cloud pos-5", style="margin-right: 50px;">
+  <div class="track-cloud pos-5" style="margin-right: 50px;">
     <img :src="starBorder" class="star-border-overlay" alt="" />
     <div class="cloud-content">
       <div class="text-area">
