@@ -8,7 +8,7 @@
       <TracksPage />
       <CampGamesPage />
       <div class="transition1"></div>
-      <Schedule :styles="{ height: '80svh', minHeight: '60rem' }" />
+      <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
       <TeamPage />
       <FAQSponsorPage />
       <FooterContent />
