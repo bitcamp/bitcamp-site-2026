@@ -14,9 +14,9 @@
           >REGISTER</a
         >
       </div>
-      <div class="message-wrapper">
-        <ExplorationMessage />
-      </div>
+    </div>
+    <div class="message-wrapper">
+      <ExplorationMessage />
     </div>
   </div>
 </template>
@@ -53,14 +53,11 @@ export default {
 
 .message-wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 0;
+  z-index: 1;
 }
 
 .button-wrapper {
@@ -88,9 +85,9 @@ export default {
   margin-bottom: 10%;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  font-size: clamp(1.3rem, 1.8vw, 2.8rem);
-  padding: clamp(0.4rem, 0.8vw, 1.1rem) clamp(1.3rem, 2.5vw, 3.5rem);
-  border-width: clamp(0.2rem, 0.25vw, 0.4rem);
+  font-size: 1.8vw;
+  padding: 0.8vw 2.5vw;
+  border-width: 0.25vw;
 }
 
 @media (max-width: 796px) {

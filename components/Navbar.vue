@@ -3,8 +3,13 @@
     <nav>
       <div class="non-pages">
         <div class="hamburgerContainer">
-          <button class="hamburger hamburger--spin" type="button" style="color: #ffffff"
-            :class="{ 'is-active': showDropdown }" @click="toggleDropdown">
+          <button
+            class="hamburger hamburger--spin"
+            type="button"
+            style="color: #ffffff"
+            :class="{ 'is-active': showDropdown }"
+            @click="toggleDropdown"
+          >
             <span class="hamburger-box">
               <span class="hamburger-inner"></span>
             </span>
@@ -26,8 +31,11 @@
 
         <li v-if="bigScreen" class="page page-logo">
           <a href="/">
-          <img id="logo-with-text" src="~/public/bitcamp-brand/logos/logotype.png" />
-          <!-- <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" /> -->
+            <img
+              id="logo-with-text"
+              src="~/public/bitcamp-brand/logos/logotype.png"
+            />
+            <!-- <img id="logo-image" src="~/public/bitcamp-brand/logos/bitcamp.png" /> -->
           </a>
         </li>
 
@@ -41,52 +49,86 @@
           <a href="#sponsors" class="page-type">Sponsors</a>
         </li>
 
-       <li v-if="!bigScreen" class="page mobile-socials">
-        <div class="socials-row">
-          <a href="https://instagram.com/bitcamp" target="_blank" aria-label="Instagram">
-            <img src="../assets/img/icons/tabler-icon-brand-instagram.svg" alt="" />
-          </a>
+        <li v-if="!bigScreen" class="page mobile-socials">
+          <div class="socials-row">
+            <a
+              href="https://instagram.com/bitcamp"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <img
+                src="../assets/img/icons/tabler-icon-brand-instagram.svg"
+                alt=""
+              />
+            </a>
 
-          <a href="https://www.tiktok.com/@bitcamp_umd" target="_blank" aria-label="TikTok">
-            <img src="../assets/img/icons/tabler-icon-brand-tiktok.svg" alt="" />
-          </a>
+            <a
+              href="https://www.tiktok.com/@bitcamp_umd"
+              target="_blank"
+              aria-label="TikTok"
+            >
+              <img
+                src="../assets/img/icons/tabler-icon-brand-tiktok.svg"
+                alt=""
+              />
+            </a>
 
-          <a href="https://x.com/bitcmp" target="_blank" aria-label="X">
-            <img src="../assets/img/icons/tabler-icon-brand-x.svg" alt="" />
-          </a>
+            <a href="https://x.com/bitcmp" target="_blank" aria-label="X">
+              <img src="../assets/img/icons/tabler-icon-brand-x.svg" alt="" />
+            </a>
 
-          <a href="https://www.facebook.com/bitcmp" target="_blank" aria-label="Facebook">
-            <img src="../assets/img/icons/tabler-icon-brand-facebook.svg" alt="" />
-          </a>
-        </div>
-      </li>
-
+            <a
+              href="https://www.facebook.com/bitcmp"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <img
+                src="../assets/img/icons/tabler-icon-brand-facebook.svg"
+                alt=""
+              />
+            </a>
+          </div>
+        </li>
 
         <template v-if="bigScreen">
-          <a id="mlh-trust-badge" style="
-                display: block;
-                height: 32px;
-                width: 32px;
-                max-width: 100px;
-                min-width: 60px;
-                width: 10%;
-                top: -30px;
-                margin-top: -1.5rem;
-                position: absolute;
-                right: -5vw;
-              "
+          <a
+            id="mlh-trust-badge"
+            style="
+              display: block;
+              height: 32px;
+              width: 32px;
+              max-width: 100px;
+              min-width: 60px;
+              width: 10%;
+              top: -30px;
+              margin-top: -1.5rem;
+              position: absolute;
+              right: -5vw;
+            "
             href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
-            target="_blank">
-            <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
-              alt="Major League Hacking 2025 Hackathon Season" style="width:100%">
+            target="_blank"
+          >
+            <img
+              src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
+              alt="Major League Hacking 2025 Hackathon Season"
+              style="width: 100%"
+            />
           </a>
         </template>
       </ul>
     </nav>
   </header>
 
-  <div v-if="showDropdown && !bigScreen" class="mobile-nav-bg" aria-hidden="true"></div>
-  <div v-if="showDropdown && !bigScreen" class="mobile-nav-mountains" aria-hidden="true"></div>
+  <div
+    v-if="showDropdown && !bigScreen"
+    class="mobile-nav-bg"
+    aria-hidden="true"
+  ></div>
+  <div
+    v-if="showDropdown && !bigScreen"
+    class="mobile-nav-mountains"
+    aria-hidden="true"
+  ></div>
 
   <div>
     <slot />
@@ -95,12 +137,12 @@
 
 <script lang="ts">
 export default {
-  name: 'NavbarComponent',
+  name: "NavbarComponent",
 };
 </script>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 const showDropdown = ref(false);
 const bigScreen = ref(false);
@@ -112,13 +154,13 @@ onMounted(() => {
   } else {
     bigScreen.value = false;
   }
-  window.addEventListener('resize', onresize);
-  window.addEventListener('scroll', setColorAndOpacity);
+  window.addEventListener("resize", onresize);
+  window.addEventListener("scroll", setColorAndOpacity);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', onresize);
-  window.removeEventListener('scroll', setColorAndOpacity);
+  window.removeEventListener("resize", onresize);
+  window.removeEventListener("scroll", setColorAndOpacity);
 });
 
 function onresize() {
@@ -135,7 +177,7 @@ function onresize() {
 }
 
 function setColorAndOpacity() {
-  var header = document.getElementsByTagName('header')[0];
+  var header = document.getElementsByTagName("header")[0];
 }
 
 function toggleDropdown() {
@@ -149,7 +191,7 @@ $bitcamp: var(--color-bitcamp);
 $mango: var(--color-mango);
 
 header {
-  z-index: 100000; 
+  z-index: 100000;
   position: fixed;
   border: 0;
   width: 90%;
@@ -160,12 +202,24 @@ header {
   justify-content: center;
   margin-top: 30px;
   padding: 0 2vw;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -50vw;
+    width: 200vw;
+    height: calc(100% + 30px);
+    background-color: #010b18;
+    z-index: -1;
+  }
 }
 
 nav {
   position: relative;
   margin: 0vw;
   font-family: Aleo;
+  // background-color: #0d2539;
 }
 
 #logo-container {
@@ -188,7 +242,7 @@ nav {
 // }
 
 .page-type {
-  color: #FFFFFFB2;
+  color: #ffffffb2;
   font-family: Aleo;
   font-size: 1.4vw;
   font-style: normal;
@@ -207,7 +261,7 @@ nav {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 100% 
+  width: 100%;
 }
 
 .nav-pages li {
@@ -224,7 +278,7 @@ nav {
 .nav-pages li a {
   text-decoration: none;
   font-size: 1.4vw;
-  color: #D3D3D3;
+  color: #d3d3d3;
 }
 
 .divider-large-screen {
@@ -299,7 +353,7 @@ nav {
   text-decoration: none !important;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -331,8 +385,11 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     position: fixed;
-  }
 
+    &::before {
+      display: none;
+    }
+  }
 
   nav {
     display: flex;
@@ -366,8 +423,6 @@ nav {
   //   min-height: 70px;
   // }
 
-  
-
   .nav-pages {
     position: fixed;
     top: 0;
@@ -378,18 +433,16 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 6vh 5vw 5vw 6vw; 
+    padding: 6vh 5vw 5vw 6vw;
     background: transparent;
     z-index: 100001;
     row-gap: 2.2rem;
-
   }
 
   .nav-pages li {
     margin-top: 1.4rem;
     margin: 0;
     width: auto;
-
   }
 
   .nav-pages li a {
@@ -449,7 +502,7 @@ nav {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/img/images/navbar_mv_bg.webp');
+    background-image: url("../assets/img/images/navbar_mv_bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -463,7 +516,7 @@ nav {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/img/images/mountains_navbar.svg');
+    background-image: url("../assets/img/images/mountains_navbar.svg");
     background-size: contain;
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -486,7 +539,7 @@ nav {
     margin: 0;
     overflow: visible;
     position: relative;
-    z-index: 100002; 
+    z-index: 100002;
   }
 
   .hamburger:hover {
@@ -500,7 +553,7 @@ nav {
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
   }
 
   .hamburger-box {
@@ -531,7 +584,7 @@ nav {
 
   .hamburger-inner::before,
   .hamburger-inner::after {
-    content: '';
+    content: "";
     display: block;
   }
 
@@ -598,7 +651,7 @@ nav {
   }
 }
 
-@media screen and (max-width:1050px){
+@media screen and (max-width: 1050px) {
   .mobile-nav-mountains {
     bottom: 0;
   }
@@ -620,7 +673,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 840px){
+@media screen and (max-width: 840px) {
   .mobile-nav-mountains {
     bottom: -90px;
   }
@@ -631,14 +684,12 @@ nav {
     width: 50px;
     height: 50px;
   }
-
 }
 
 @media screen and (max-width: 740px) {
   .mobile-nav-mountains {
     bottom: -70px;
   }
-  
 }
 
 @media screen and (max-width: 600px) {
@@ -668,5 +719,4 @@ nav {
     height: 35px;
   }
 }
-
 </style>
