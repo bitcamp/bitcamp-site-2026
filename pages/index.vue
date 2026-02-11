@@ -8,7 +8,6 @@
       <TracksPage />
       <CampGamesPage />
       <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
-      <div class="transition1"></div>
       <TeamPage />
       <div class="transition1"></div>
       <FAQSponsorPage />

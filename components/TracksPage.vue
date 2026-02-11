@@ -369,7 +369,7 @@ export default {
   .tracks-page {
     min-height: auto;
     height: auto;
-    padding: 40px 0 60px;
+    padding: 40px 0 0;
     align-items: center;
     justify-content: center;
   }

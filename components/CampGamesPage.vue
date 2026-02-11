@@ -112,7 +112,7 @@ export default {
 
 <style scoped>
 .cfg-top {
-  padding: 5% 0;
+  /* padding: 5% 0; */
   /* background-color: #010B18; */
   display: flex;
   align-items: center;
@@ -164,6 +164,7 @@ export default {
 @media screen and (max-width: 1024px) {
   .cfg-top {
     display: block;
+    padding: 0;
   }
 
   .cfg-content {
@@ -239,7 +240,7 @@ export default {
   display: none;
   justify-content: center;
   align-items: center;
-  padding-top: 5vmax;
+  /* padding-top: 5vmax; */
   /* background-color: #010B18; */
 }
 .carousel-container {
@@ -319,7 +320,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1270px) {
   #cfg-blurb-first,
   #cfg-blurb-second {
     font-size: 16px;
