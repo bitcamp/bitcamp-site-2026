@@ -5,7 +5,7 @@
       <Navbar />
       <LandingPage />
       <!-- <div class="transition0"></div> -->
-      <!-- <TracksPage /> -->
+      <TracksPage />
       <CampGamesPage />
       <div class="transition1"></div>
       <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
