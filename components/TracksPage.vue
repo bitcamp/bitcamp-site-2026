@@ -225,7 +225,7 @@ export default {
 /* ================= GLOBAL STYLES ================= */
 .tracks-page {
   /* background-color: #010B18; */
-  min-height: 100vh;
+  min-height: auto;
   position: relative;
   overflow: hidden;
   color: white;
@@ -372,7 +372,6 @@ export default {
     padding: 40px 0 60px;
     align-items: center;
     justify-content: center;
-    margin-top: 4vh;
   }
 
   .content-wrapper {
