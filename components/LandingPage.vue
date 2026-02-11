@@ -39,7 +39,7 @@ export default {
   background: linear-gradient(
   180deg,
   #201F3A 70%,
-  #060118 100%
+  #010B18 100%
 );
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -115,7 +115,7 @@ export default {
     position: relative;
     overflow: visible;
     display: block;
-    background: linear-gradient(180deg,#201F3A 70%,#060118 100%);
+    background: linear-gradient(180deg,#201F3A 70%,#010B18 100%);
   }
 
   .button-wrapper {

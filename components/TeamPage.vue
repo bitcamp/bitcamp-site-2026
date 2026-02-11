@@ -18,9 +18,12 @@
                     <img class="team_photo" src="../assets/img/images/gang.png" alt="lebron" />
                     <div class="caption_box">
                         <div class="polo_box">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis facilisis urna, in pellentesque 
-                        nisi ultrices non. Duis vestibulum felis quis magna laoreet pretium. Aliquam ut pretium massa, a 
-                        eleifend ligula. Quisque elementum arcu finibus vestibulum efficitur.
+                        We’re the co-executive directors of Bitcamp 2026, and we’re over the moon to be 
+                        working with this stellar team to lead Bitcamp into a new frontier of hackathon culture. 
+                        Every one of our 83 organizers is an essential part of this mission, helping to make Bitcamp 
+                        2026 a universe of creativity and innovation. We can’t wait to see these brilliant minds
+                        guide hackers like you as you Explore the Unknown and discover what’s possible! 
+                        - Saloni and Neha
                         </div>
                         <div class="meet">
                             Meet the Team
