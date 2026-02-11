@@ -146,7 +146,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 .content-wrapper {
   width: 100%;
   margin: 0 auto;
-  background:transparent;
+  // background:transparent;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #000;  
@@ -264,7 +264,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   overflow-y: visible;
   z-index: 10;
   text-align: center;
-  min-height: 72vh;
+  min-height: auto;
   margin-bottom: 0;
 }
 

@@ -86,7 +86,7 @@ export default {
   font-family: Aleo, sans-serif;
   font-weight: bold;
   letter-spacing: 0.2rem;
-  margin-bottom: 10%;
+  margin-bottom: 40%;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   font-size: 1.8vw;
@@ -103,8 +103,9 @@ export default {
     border-radius: 5rem;
     letter-spacing: 0.25rem;
     font-size: 4vw;
-    padding: 3vw;
     border-width: 0.7vw;
+    margin-top: 43vw;
+    margin-right: 40vw;
   }
 
   .gradient {
@@ -114,6 +115,7 @@ export default {
     position: relative;
     overflow: visible;
     display: block;
+    background: linear-gradient(180deg,#201F3A 70%,#060118 100%);
   }
 
   .button-wrapper {
@@ -125,10 +127,10 @@ export default {
 
   .message-wrapper {
     position: relative;
-    top: auto;
+    /* top: auto; */
     height: auto;
     z-index: 1;
-    margin-top: 70vw;
+    margin-top: 250vw;
   }
 }
 

@@ -62,14 +62,14 @@ export default {
 .footer-container {
   width: 100%;
   position: relative;
-  background-color: #010B18;
+  /* background-color: #010B18; */
 }
 
 .footer-background {
   position: relative;
   width: 100%;
   overflow: visible;
-  background-color: #010B18;
+  /* background-color: #010B18; */
   aspect-ratio: 1442 / 813;
 }
 
@@ -88,6 +88,7 @@ export default {
   object-fit: cover;
   object-position: center top;
   z-index: 0;
+  margin-top: 100px
 }
 
 .footer-content {
@@ -109,6 +110,7 @@ export default {
 .bitcamp-logo {
   width: calc(5rem + 15vw);
   padding-left: 0.2vw;
+  margin-top:200px;
 }
 
 .links-section {
@@ -203,7 +205,7 @@ export default {
     padding-top: 2.5rem;
   }
 
-  .logo-section::before {
+  /* .logo-section::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -213,7 +215,7 @@ export default {
     width: 90vw;
     background: #FFFFFF;
     opacity: 0.5;
-  }
+  } */
 
   .bitcamp-logo {
     width: calc(10rem + 20vw);

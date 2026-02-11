@@ -278,7 +278,7 @@ export default {
 
 /* ================= SHARED CARD STYLES ================= */
 .track-cloud {
-  background: transparent;
+  /* background: transparent; */
   /* padding: 3vw; */
   z-index: 5;
   display: flex;
@@ -372,6 +372,7 @@ export default {
     padding: 40px 0 60px;
     align-items: center;
     justify-content: center;
+    margin-top: 4vh;
   }
 
   .content-wrapper {

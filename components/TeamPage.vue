@@ -45,10 +45,10 @@ export default {
 .gradient {
     position: relative;
     overflow: hidden;
-    height: 155dvh;
+    height: auto;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    background: transparent;
+    /* background: transparent; */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -318,7 +318,7 @@ export default {
 
     .gradient {
         max-height: 140dvh;
-        height: 97dvh;
+        height: auto;
     }
 
     .page_header {
@@ -453,21 +453,21 @@ export default {
 @media screen and (min-width: 700px) {
     .gradient {
         max-height: 145dvh;
-        height: 150dvh;
+        height: auto;
     }
 }
 
 @media screen and (min-width: 500px) {
     .gradient {
         max-height: 160dvh;
-        height: 150dvh;
+        height: auto;
     }
 }
 
 @media screen and (min-width: 1000px) {
     .gradient {
         max-height: 160dvh;
-        height: 150dvh;
+        height: auto;
     }
 }
 

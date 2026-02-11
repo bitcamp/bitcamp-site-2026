@@ -82,18 +82,23 @@ export default {
 
 @media (max-width: 796px) {
   .exploration-message {
-    padding: 0 1.5rem;
-    max-width: 360px;
+    max-width: 550px;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 38px;
     line-height: 120%;
   }
 
   .description {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 150%;
+  }
+}
+
+@media (max-width: 450px) {
+  .exploration-message {
+    max-width: 300px;
   }
 }
 </style>

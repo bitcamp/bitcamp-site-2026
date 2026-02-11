@@ -10,6 +10,7 @@
       <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
       <div class="transition1"></div>
       <TeamPage />
+      <div class="transition1"></div>
       <FAQSponsorPage />
       <FooterContent />
     </div>
@@ -189,16 +190,26 @@ export default {
 /* .Schedule {
   background: linear-gradient(to bottom, #31055a 0%, #2b0542 8%, #580000 100%);
 } */
-.transition0 {
-  background-image: linear-gradient(#060118, #010B18);
-  height: 4vw;
-}
+/* .transition0 {
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  z-index: 10;
+} */
 
 @media (max-width: 796px) {
   .transition0 {
-    background-image: linear-gradient(#9a9c00, #b94923);
-    height: 10vw;
-    z-index: 100000;
+    width: 100%;
+    height: 2px;
+    background-color: #D3D3D3;
+    opacity: 40%;
+    z-index: 10;
+    margin-left: 10%;
+    width: 80%;
+  }
+  .transition1 {
+    background-color: #010B18;
+    height: 4vw;
   }
 }
 
