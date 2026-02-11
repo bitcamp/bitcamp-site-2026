@@ -1,117 +1,119 @@
 <template>
   <div class="wrapper" ref="el">
     <div class="app-container">
+      <div class="red-planet"></div>
+      <div class="blue-planet"></div>
+      <div class="green-planet-bg"></div>
       <BitBot />
       <Navbar />
       <LandingPage />
       <div class="transition0"></div>
       <TracksPage />
       <CampGamesPage />
-      <div class="transition1"></div>
-      <TeamPage />
       <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
+      <TeamPage />
+      <div class="transition1"></div>
       <FAQSponsorPage />
       <FooterContent />
     </div>
   </div>
 </template>
 
-
 <script lang="ts" setup>
 useHead({
-  title: 'Bitcamp',
+  title: "Bitcamp",
   meta: [
     {
-      name: 'description',
+      name: "description",
       content:
         "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
     },
     {
-      property: 'og:title',
-      content: 'Bitcamp 2025',
+      property: "og:title",
+      content: "Bitcamp 2025",
     },
     {
-      property: 'og:site_name',
-      content: 'Bitcamp 2025',
+      property: "og:site_name",
+      content: "Bitcamp 2025",
     },
     {
-      property: 'og:url',
-      content: 'https://bit.camp/',
+      property: "og:url",
+      content: "https://bit.camp/",
     },
     {
-      property: 'og:description',
+      property: "og:description",
       content:
         "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
     },
     {
-      property: 'og:type',
-      content: 'website',
+      property: "og:type",
+      content: "website",
     },
     {
-      property: 'twitter:card',
-      content: 'summary',
+      property: "twitter:card",
+      content: "summary",
     },
     {
-      property: 'twitter:url',
-      content: 'https://bit.camp/',
+      property: "twitter:url",
+      content: "https://bit.camp/",
     },
     {
-      property: 'twitter:title',
-      content: 'Bitcamp 2025',
+      property: "twitter:title",
+      content: "Bitcamp 2025",
     },
     {
-      property: 'twitter:description',
+      property: "twitter:description",
       content:
         "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
     },
     {
-      name: 'msapplication-TileColor',
-      content: '#ff6f3f',
+      name: "msapplication-TileColor",
+      content: "#ff6f3f",
     },
     {
-      name: 'msapplication-config',
-      content: '/bitcamp-brand/favicons/browserconfig.xml',
+      name: "msapplication-config",
+      content: "/bitcamp-brand/favicons/browserconfig.xml",
     },
     {
-      name: 'theme-color',
-      content: '#ffffff',
+      name: "theme-color",
+      content: "#ffffff",
     },
   ],
   link: [
     {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/bitcamp-brand/favicons/favicon-32x32.png',
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      href: "/bitcamp-brand/favicons/favicon-32x32.png",
     },
     {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      href: '/bitcamp-brand/favicons/favicon-16x16.png',
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      href: "/bitcamp-brand/favicons/favicon-16x16.png",
     },
     {
-      rel: 'manifest',
-      href: '/bitcamp-brand/favicons/site.webmanifest',
+      rel: "manifest",
+      href: "/bitcamp-brand/favicons/site.webmanifest",
     },
     {
-      rel: 'mask-icon',
-      href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-      color: '#ff6f3f',
+      rel: "mask-icon",
+      href: "/bitcamp-brand/favicons/safari-pinned-tab.svg",
+      color: "#ff6f3f",
     },
     {
-      rel: 'shortcut icon',
-      href: '/bitcamp-brand/favicons/favicon.ico',
+      rel: "shortcut icon",
+      href: "/bitcamp-brand/favicons/favicon.ico",
     },
   ],
 });
 </script>
 <script lang="ts">
-import BitBot from '~/components/BitBot.vue';
+import BitBot from "~/components/BitBot.vue";
 
 // import { Break } from '#build/components';
-import Navbar from '~/components/Navbar.vue';
-import Schedule from '~/components/Schedule.vue';
+import Navbar from "~/components/Navbar.vue";
+import Schedule from "~/components/Schedule.vue";
 // import Break from '../components/Break.vue';
 // import CampGamesPage from '../components/CampGamesPage.vue';
 // import FAQSponsorPage from '../components/FAQSponsorPage.vue';
@@ -121,7 +123,7 @@ import Schedule from '~/components/Schedule.vue';
 // import TracksPage from '../components/TracksPage.vue';
 
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
   components: { BitBot, Navbar, Schedule },
 };
@@ -143,7 +145,50 @@ export default {
   min-height: 100vh;
   background-size: 100% auto;
   background-repeat: no-repeat;
+  background-color: #010B18;
+  position: relative;
+  z-index: 1;
 }
+
+.red-planet {
+  position: absolute;
+  right: -800px;
+  top: 2000px;
+  width: 80%;
+  height: 80%;
+  background-image: url('../assets/img/images/red-planet.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.blue-planet {
+  position: absolute;
+  left: -1550px;
+  top: 3010px;
+  width: 150%;
+  height: 150%;
+  background-image: url('../assets/img/images/blue-planet.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.green-planet-bg {
+  position: absolute;
+  right: -50px;
+  bottom: 1900px;
+  width: 500px;
+  height: 500px;
+  background-image: url('../assets/img/images/green-planet.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index:0;
+  pointer-events: none;
+}
+
 
 .LandingPage,
 .TracksPage,
@@ -168,7 +213,7 @@ export default {
   /* Controls overlap with Landing Page */
   height: 50%;
   /* Adjust height as needed */
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -179,36 +224,52 @@ export default {
   bottom: 0;
   height: 33%;
   /* Adjust height as needed */
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Schedule {
-  background: linear-gradient(
-    to bottom,
-    #31055A 0%,
-    #2B0542 8%,
-    #580000 100%
-  );
-}
-.transition0 {
-  background-image: linear-gradient(#1f470c, #5d3007);
-  height: 4vw;
-}
+/* .Schedule {
+  background: linear-gradient(to bottom, #31055a 0%, #2b0542 8%, #580000 100%);
+} */
+/* .transition0 {
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  z-index: 10;
+} */
 
+@media (max-width: 1050px) {
+  .blue-planet {
+    display: none;
+  }
+  .red-planet {
+    display: none;
+  }
+  .green-planet-bg {
+    display: none;
+  }
+}
 @media (max-width: 796px) {
   .transition0 {
-    background-image: linear-gradient(#9a9c00, #b94923);
-    height: 10vw;
-    z-index: 100000;
+    width: 100%;
+    height: 2px;
+    background-color: #D3D3D3;
+    opacity: 40%;
+    z-index: 10;
+    margin-left: 10%;
+    width: 80%;
+  }
+  .transition1 {
+    background-color: #010B18;
+    height: 4vw;
   }
 }
 
 .transition1 {
-  background-image: linear-gradient(#500001, #34045A);
+  background-color: #010B18;
   height: 4vw;
 }
 </style>

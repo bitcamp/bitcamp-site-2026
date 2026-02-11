@@ -1,32 +1,35 @@
 <template>
     <div id="roster" class="gradient">
         <div class="page_container">
-            <div class="page_header">
-                <img class="header_image" src="../assets/img/images/our_team_img.svg" alt="lebron" />
-                <img class="header_image_mv" src="../assets/img/images/our_team_mv.svg" alt="lebron" />
-            </div>
             <div class="mid_content_container">
-                <div class="team_image">
-                    <img class="team_photo" src="../assets/img/images/team_pic.webp" alt="lebron" />
+                <div class="vertical">
+                <div class="small_poloroid_top">
+                    <img class="small_photo" src="../assets/img/images/organizer_photo_regular.jpg" alt="lebron" />
                 </div>
-                <div class="message">
-                    <div class="message_text">
-                        We're the co-executive directors of Bitcamp 2025, and we're so excited to be working with this
-                        amazing team to lead Bitcamp into a new decade of hackathon culture. Each and every single one
-                        of
-                        our 82 organizers plays an integral part in making Bitcamp happen, and we can't wait to see
-                        these
-                        brilliant minds bring Bitcamp 2025 to life and make it possible for hackers like you to Unearth
-                        Your
-                        Potential!
-                        <br><br> - Anjali Samavedam and Sharvari Tirodkar
+                <div class="small_poloroid_bottom">
+                    <img class="small_photo" src="../assets/img/images/organizer_photo_silly.jpg" alt="lebron" />
+                </div>
+                </div>
+                <div class="second_vertical">
+                    <div class="team_text">
+                        <img class ="orbit" src="../assets/img/icons/our-team.png" alt="lebron" />
                     </div>
+                <div class="big_poloroid">
+                    <img class="team_photo" src="../assets/img/images/gang.png" alt="lebron" />
+                    <div class="caption_box">
+                        <div class="polo_box">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis facilisis urna, in pellentesque 
+                        nisi ultrices non. Duis vestibulum felis quis magna laoreet pretium. Aliquam ut pretium massa, a 
+                        eleifend ligula. Quisque elementum arcu finibus vestibulum efficitur.
+                        </div>
+                        <div class="meet">
+                            Meet the Team
+                        </div>
+                    </div>
+                </div>
                 </div>
 
             </div>
-            <a href="/roster" target="_blank" class="bottom_button_container">
-                <img class="meet_team_image" src="../assets/img/images/meet_team_button.svg" alt="lebron" />
-            </a>
 
         </div>
     </div>
@@ -40,19 +43,57 @@ export default {
 
 <style scoped>
 .gradient {
-    background-image: url(assets/img/images/purplecaves.webp);
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    /* background: transparent; */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    /* height: 176vh; */
-    /* height: 100vh; */
+    background-attachment: fixed;
+}
+
+.gradient::after {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: -120vw;
+    transform: translateY(-50%);
+
+    width: 160vw;
+    height: 260vh;
+
+    /* background-image: url("@/assets/img/blue-planet.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center; */
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.title{
+    position: relative;
+}
+
+
+.orbit {
+    width:70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
 }
 
 .page_container {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    position: relative;
+    z-index: 2;
     margin-top: 4rem;
 }
 
@@ -62,6 +103,22 @@ export default {
     align-items: center;
     width: 100%;
     margin-top: 10%;
+}
+
+.meet {
+    width: 23vw;
+    aspect-ratio: 10/2.5;
+    background-color: #FF6F3F;
+    border: 0.3rem solid #E54D1A;
+    text-align: center;
+    font-size: 1.7cqi;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3cqi;
+    font-family: Avenir;
+    font-weight: 500;
+    font-style: Bold;
 }
 
 .header_image {
@@ -77,17 +134,122 @@ export default {
 .mid_content_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
+    align-items: center;
+    margin-top: 10%;
+    gap: 8%;
+    width: 85%;
+}                     
 
 .team_image {
-    /* margin-inline: 7.5%; */
-    width: 83%
+    width: 83%;
+}
+
+.team_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.second_vertical {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    row-gap: 0;
+}
+
+.small_poloroid_top {
+    width: 23vw;
+    height: auto;
+    aspect-ratio: 13/16;
+    display: flex;
+    position: relative;
+    left: 6vw;
+    top: -9vh;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 8.5% 8.5% 1% 8.5%;
+    object-fit: cover;
+    object-position: center;
+    margin:0;
+    rotate: -4deg;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.small_poloroid_bottom {
+    width: 23vw;
+    height: auto;
+    aspect-ratio: 13/16;
+    position: relative;
+    left: 0.5vw;
+    top: -5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 8.5% 8.5% 4% 8.5%;
+    margin:0;
+    rotate: 6deg;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.big_poloroid {
+    width: 50vw;
+    aspect-ratio: 20/12.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2.5%;
+    rotate: 2deg;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
 }
 
 .team_photo {
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2%;
+    overflow: hidden;
+}
+
+.small_photo {
+    width: 110%;
+    aspect-ratio: 1.15/1;
+    padding-bottom: 2%;
+    overflow: hidden;
+}
+
+.polo_box {
+    width: 100%;
+    font-family: Avenir;
+    font-weight: 500;
+    color: #000000;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-style: Medium;
+    font-size: 1.2cqi;
+    line-height: 1.4;
+    
+}
+
+.caption_box {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
 .message {
@@ -95,7 +257,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 55%;
+    width: 55%; 
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -119,30 +281,46 @@ export default {
 }
 
 .meet_team_image {
-    width: 70%;
+    width: 40%;
     display: flex;
     margin-left: 5%;
 }
 
-@media screen and (max-width: 1110px) {
-    .message_text {
-        font-size: 15px;
+
+/* @media screen and (max-width: 1300px) {
+    .gradient {
+        min-height: 110vh;
+    }
+    .small_poloroid_top {
+        top: -2vh;
+    }
+    .small_poloroid_bottom {
+        top: 3vh;
     }
 }
 
-@media screen and (max-width: 925px) {
-    .message_text {
-        font-size: 13px;
+@media screen and (max-width: 1150px) {
+    .gradient {
+        min-height: 130vh;
     }
 }
 
-@media screen and (max-width: 790px) {
-    .message_text {
-        font-size: 12px;
+@media screen and (max-width: 1050px) {
+    .gradient {
+        min-height: 120vh;
     }
-}
+} */
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1100px) {
+    .gradient::after {
+        display: none;
+    }
+
+    .gradient {
+        max-height: 140dvh;
+        height: auto;
+    }
+
     .page_header {
         display: block;
     }
@@ -159,8 +337,48 @@ export default {
         height: auto;
     }
 
+    .vertical{
+        flex-direction: row;
+        width:110%;
+        justify-content: center;
+        gap: 5%;
+        margin-top: 8%;
+    }
+
+    .big_poloroid{
+        width: 105%;
+        padding: 5%;
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .polo_box {
+        font-size: 2.1cqi;
+    }
+    .orbit {
+        width: 110%;
+        margin-top: 5%;
+    }
+
+    .small_poloroid_top{
+        width: 50vw;
+        left: 0;
+        top: -4vh;
+        padding: 4%;
+        rotate: -5deg;
+        z-index: 99999;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    }
+    .small_poloroid_bottom{
+        width: 50vw;
+        padding: 4%;
+        left: 0;
+        top: -2vh;
+        z-index: 99999;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
     .mid_content_container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
@@ -185,32 +403,73 @@ export default {
         align-items: center;
         width: 80%;
     }
+    .meet {
+        font-size: 2.1cqi;
+    }   
 
-    .message_text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-top: 10%;
-        font-size: 20px;
+    /* @media screen and (max-width: 700px) {
+        .gradient {
+            min-height: 190vh;
+        }
+         .small_poloroid_top {
+            top: -2vh;
+        }
+        .small_poloroid_bottom {
+            top: 3vh;
+        }
+    }
+    @media screen and (max-width: 650px) {
+        .gradient {
+            min-height: 170vh;
+        }
+    }
+    @media screen and (max-width: 550px) {
+        .gradient {
+            min-height: 150vh;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .gradient {
+            min-height: 130vh;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .gradient {
+            min-height: 120vh;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .gradient {
+            min-height: 110vh;
+        }
+    }
+    @media screen and (max-width: 350px) {
+        .gradient {
+            min-height: 0vh;
+        }
+    } */
+
+
+@media screen and (min-width: 700px) {
+    .gradient {
+        max-height: 145dvh;
+        height: auto;
     }
 }
 
-@media screen and (max-width: 600px) {
-    .message_text {
-        font-size: 18px;
+@media screen and (min-width: 500px) {
+    .gradient {
+        max-height: 160dvh;
+        height: auto;
     }
 }
 
-@media screen and (max-width: 450px) {
-    .message_text {
-        font-size: 16px;
+@media screen and (min-width: 1000px) {
+    .gradient {
+        max-height: 160dvh;
+        height: auto;
     }
 }
 
-@media screen and (max-width: 370px) {
-    .message_text {
-        font-size: 14px;
-    }
 }
 </style>
