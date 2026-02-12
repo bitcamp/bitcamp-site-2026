@@ -398,6 +398,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   line-height: 1.3;
   font-weight: bold;
   color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
   height: 6vw;
   width: 100%;
