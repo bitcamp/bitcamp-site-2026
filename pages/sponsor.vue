@@ -32,9 +32,7 @@
             hackers are passionate about using their skills to collaboratively
             solve multi-disciplinary problems. This year, we’re excited to
             continue offering our popular tracks in
-            <b
-              >Machine Learning, Quantum, App Development, Game Development, and
-              Data Science</b
+            <b>Machine Learning, Quantum, App Development, Game Development, and Data Science</b
             >, giving hackers the chance to deepen their knowledge and tackle
             challenges in these growing fields. All hackers are challenged to
             learn new skills including project management and user- friendly
@@ -332,7 +330,7 @@
             <div class="Rtable-cell Rtable-cell-blank"></div>
             <div class="Rtable-cell Rtable-cell-blank"></div>
             <div class="Rtable-cell Rtable-cell-blank"></div>
-
+              
             <ProspectusMisc
               :perk="'Add-Ons'"
               :price="''"
@@ -907,9 +905,10 @@ h2 {
       top: 0;
       right: 0;
       transform: translateY(-50%) translateX(35px);
+      
     }
     .tooltips::after {
-      max-height: 13vh;
+      max-height: 13vh; 
       overflow-y: auto;
       box-sizing: border-box;
     }
