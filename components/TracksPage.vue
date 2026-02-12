@@ -248,7 +248,7 @@ export default {
 
 .cloud-title {
   font-family: "Aleo";
-  font-size: clamp(1.1rem, 1.4vw, 1.8rem);
+  font-size: clamp(1.4rem, 1.8vw, 2.2rem);
   margin-left: 1rem;
   margin-top: 1rem;
   font-weight: bold;
@@ -256,14 +256,14 @@ export default {
 
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(0.75rem, 0.85vw, 1rem);
+  font-size: clamp(0.85rem, 1vw, 1.15rem);
   line-height: 1.25;
   margin-left: 1rem;
 }
 
 .circle-placeholder {
-  width: clamp(100px, 4.5vw, 100px);
-  height: clamp(100px, 4.5vw, 100px);
+  width: 115px;
+  height: 115px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   border: 4px solid rgb(255, 255, 255);
@@ -294,11 +294,11 @@ export default {
 
 .track-cloud {
   position: absolute;
-  width: 22vw;
+  width: 26vw;
   aspect-ratio: 2 / 1;
   height: auto;
-  max-width: 380px;
-  max-height: 180px;
+  max-width: 450px;
+  max-height: 220px;
 }
 
 .pos-0 {
@@ -345,6 +345,7 @@ export default {
 .carousel-container {
   overflow: hidden;
   width: 100%;
+  max-width: 750px;
   margin: 0 auto;
   position: relative;
 }
@@ -369,7 +370,7 @@ export default {
   width: 100%;
   background: rgba(30, 40, 60, 0.8);
   border-radius: 24px;
-  padding: clamp(20px, 4vw, 32px);
+  padding: 28px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -391,13 +392,13 @@ export default {
 }
 
 .card-text .cloud-title {
-  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  font-size: 1.8rem;
   margin: 0 0 8px 0;
   margin-left: 0;
 }
 
 .card-text .cloud-desc {
-  font-size: clamp(1rem, 4vw, 1.25rem);
+  font-size: 1.1rem;
   line-height: 1.4;
   margin: 0;
   margin-left: 0;
@@ -413,8 +414,8 @@ export default {
 }
 
 .card-inner .circle-placeholder {
-  width: clamp(90px, 25vw, 140px);
-  height: clamp(90px, 25vw, 140px);
+  width: 140px;
+  height: 140px;
   border: none;
   background: transparent;
 }
