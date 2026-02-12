@@ -6,161 +6,73 @@
       <div class="center-header">
         <h1 class="main-title">Tracks</h1>
         <p class="main-subtitle">
-          Discover more with tracks at Bitcamp! Dive deep into a topic or expand your horizons across many!
+          Discover more with tracks at Bitcamp! Dive deep into a topic or expand
+          your horizons across many!
         </p>
       </div>
 
       <div class="tracks-container desktop-view">
-  <!-- pos-0 -->
-  <div class="track-cloud pos-0" style="margin-left: 50px;">
-    <img :src="starBorder" class="star-border-overlay" alt="" />
-    <div class="cloud-content">
-      <div class="text-area">
-        <h2 class="cloud-title">{{ tracks[0].title }}</h2>
-        <p class="cloud-desc">{{ tracks[0].description }}</p>
-      </div>
-      <div class="image-area">
-        <div class="circle-placeholder">
-          <img :src="tracks[0].icon" v-if="tracks[0].icon" class="icon-img" />
-          <span v-else class="placeholder-text">Image</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pos-1 -->
-  <div class="track-cloud pos-1">
-    <img :src="starBorder" class="star-border-overlay" alt="" />
-    <div class="cloud-content">
-      <div class="text-area">
-        <h2 class="cloud-title">{{ tracks[1].title }}</h2>
-        <p class="cloud-desc">{{ tracks[1].description }}</p>
-      </div>
-      <div class="image-area">
-        <div class="circle-placeholder">
-          <img :src="tracks[1].icon" v-if="tracks[1].icon" class="icon-img" />
-          <span v-else class="placeholder-text">Image</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pos-2 -->
-  <div class="track-cloud pos-2" style="margin-right: 50px;">
-    <img :src="starBorder" class="star-border-overlay" alt="" />
-    <div class="cloud-content">
-      <div class="text-area">
-        <h2 class="cloud-title">{{ tracks[2].title }}</h2>
-        <p class="cloud-desc">{{ tracks[2].description }}</p>
-      </div>
-      <div class="image-area">
-        <div class="circle-placeholder">
-          <img :src="tracks[2].icon" v-if="tracks[2].icon" class="icon-img" />
-          <span v-else class="placeholder-text">Image</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pos-3 -->
-  <div class="track-cloud pos-3" style="margin-left: 50px;">
-    <img :src="starBorder" class="star-border-overlay" alt="" />
-    <div class="cloud-content">
-      <div class="text-area">
-        <h2 class="cloud-title">{{ tracks[3].title }}</h2>
-        <p class="cloud-desc">{{ tracks[3].description }}</p>
-      </div>
-      <div class="image-area">
-        <div class="circle-placeholder">
-          <img :src="tracks[3].icon" v-if="tracks[3].icon" class="icon-img" />
-          <span v-else class="placeholder-text">Image</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pos-4 -->
-  <div class="track-cloud pos-4">
-    <img :src="starBorder" class="star-border-overlay" alt="" />
-    <div class="cloud-content">
-      <div class="text-area">
-        <h2 class="cloud-title">{{ tracks[4].title }}</h2>
-        <p class="cloud-desc">{{ tracks[4].description }}</p>
-      </div>
-      <div class="image-area">
-        <div class="circle-placeholder">
-          <img :src="tracks[4].icon" v-if="tracks[4].icon" class="icon-img" />
-          <span v-else class="placeholder-text">Image</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pos-5 -->
-  <div class="track-cloud pos-5" style="margin-right: 50px;">
-    <img :src="starBorder" class="star-border-overlay" alt="" />
-    <div class="cloud-content">
-      <div class="text-area">
-        <h2 class="cloud-title">{{ tracks[5].title }}</h2>
-        <p class="cloud-desc">{{ tracks[5].description }}</p>
-      </div>
-      <div class="image-area">
-        <div class="circle-placeholder">
-          <img :src="tracks[5].icon" v-if="tracks[5].icon" class="icon-img" />
-          <span v-else class="placeholder-text">Image</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <div class="mobile-carousel mobile-view">
-        <button class="nav-btn prev" @click="prevTrack" aria-label="Previous Track">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M19 12H5M5 12L12 19M5 12L12 5"
-              stroke="#e76f51"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-
-        <div class="track-cloud mobile-card">
+        <div
+          v-for="(track, index) in tracks"
+          :key="track.title"
+          class="track-cloud"
+          :class="'pos-' + index"
+          :style="positionMargin(index)"
+        >
           <img :src="starBorder" class="star-border-overlay" alt="" />
-          
           <div class="cloud-content">
+            <div class="text-area">
+              <h2 class="cloud-title">{{ track.title }}</h2>
+              <p class="cloud-desc">{{ track.description }}</p>
+            </div>
             <div class="image-area">
               <div class="circle-placeholder">
-                <img
-                  :src="tracks[currentTrack].icon"
-                  v-if="tracks[currentTrack].icon"
-                  class="icon-img"
-                />
+                <img :src="track.icon" v-if="track.icon" class="icon-img" />
                 <span v-else class="placeholder-text">Image</span>
               </div>
             </div>
-            
-            <div class="text-area">
-              <h2 class="cloud-title">{{ tracks[currentTrack].title }}</h2>
-              <p class="cloud-desc">{{ tracks[currentTrack].description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-carousel mobile-view">
+        <div class="carousel-container">
+          <button class="nav-button nav-button--left" @click="prevTrack">
+            <img src="assets/img/icons/left-arrow.svg" alt="Left Arrow" />
+          </button>
+
+          <div class="carousel-track" :style="trackStyle">
+            <div
+              v-for="(track, index) in tracks"
+              :key="track.title"
+              class="carousel-item"
+            >
+              <div class="track-card">
+                <img :src="starBorder" class="star-border-overlay" alt="" />
+                <div class="card-inner">
+                  <div class="card-text">
+                    <h2 class="cloud-title">{{ track.title }}</h2>
+                    <p class="cloud-desc">{{ track.description }}</p>
+                  </div>
+                  <div class="card-icon">
+                    <div class="circle-placeholder">
+                      <img
+                        :src="track.icon"
+                        v-if="track.icon"
+                        class="icon-img"
+                      />
+                      <span v-else class="placeholder-text">Image</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-        </div>
 
-        <button class="nav-btn next" @click="nextTrack" aria-label="Next Track">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M5 12H19M19 12L12 5M19 12L12 19"
-              stroke="#e76f51"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+          <button class="nav-button nav-button--right" @click="nextTrack">
+            <img src="assets/img/icons/right-arrow.svg" alt="Right Arrow" />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -168,24 +80,25 @@
 
 <script lang="ts">
 import starBorder from "@/assets/img/star-border.png";
-import generalLogo from '@/assets/img/icons/general_logo.svg';
-import gamedevLogo from '@/assets/img/icons/gamedev_logo.svg';
-import appdevLogo from '@/assets/img/icons/appdev_logo.svg';
-import mlLogo from '@/assets/img/icons/ml_logo.svg';
-import datasciLogo from '@/assets/img/icons/datasci_logo.svg';
-import quantumLogo from '@/assets/img/icons/quantum_logo.svg';
-
+import generalLogo from "@/assets/img/icons/general_logo.svg";
+import gamedevLogo from "@/assets/img/icons/gamedev_logo.svg";
+import appdevLogo from "@/assets/img/icons/appdev_logo.svg";
+import mlLogo from "@/assets/img/icons/ml_logo.svg";
+import datasciLogo from "@/assets/img/icons/datasci_logo.svg";
+import quantumLogo from "@/assets/img/icons/quantum_logo.svg";
 
 export default {
   name: "TracksPage",
+
   data() {
     return {
-      currentTrack: 0,
+      currentTrackIndex: 0,
       starBorder,
       tracks: [
         {
           title: "General Track",
-          description: "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
+          description:
+            "For any and all hackers! Build the perfect hack using hardware, software, and collaboration with other tech-lovers, design thinkers, and students - all skill and experience levels are welcome!",
           icon: generalLogo,
         },
         {
@@ -196,42 +109,64 @@ export default {
         },
         {
           title: "App Development",
-          description: "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
+          description:
+            "Ever wondered how to turn your innovative app idea into a reality? Ready to turn your concepts into cutting-edge applications? Join the App Dev track - we'll introduce you to different aspects of development including the software development life cycle, development tools such as Flutter, and full-stack development through access to exclusive workshops and mentors as you work on your hack!",
           icon: appdevLogo,
         },
         {
           title: "Machine Learning",
-          description: "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you’ll have a portfolio-ready project to showcase!",
+          description:
+            "If you are amazed by AI breakthroughs like ChatGPT and driven to create something just as impactful, then this is your track! Dive into hands-on workshops where you'll learn to build and deploy machine learning models, gain proficiency in essential ML techniques, and discuss innovations reshaping the AI landscape. By the end of this track, you'll have a portfolio-ready project to showcase!",
           icon: mlLogo,
         },
         {
           title: "Data Science",
-          description: "The Data Science track introduces beginners to working with data through workshops and guided mini-projects. Hackers will explore data cleaning, analysis, and visualization to discover meaning and patterns from data!",
+          description:
+            "The Data Science track introduces beginners to working with data through workshops and guided mini-projects. Hackers will explore data cleaning, analysis, and visualization to discover meaning and patterns from data!",
           icon: datasciLogo,
         },
         {
           title: "Quantum",
-          description: "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
+          description:
+            "Hackers will delve into the field of quantum computing with exclusive mentors, sponsors, and workshops! Hackers will use their knowledge of Python and other computing skills on educational and interactive Quantum Track activities. If you've been a previous participant of the Quantum track, there will be new, challenging prompts for you to tackle!",
           icon: quantumLogo,
         },
       ],
     };
   },
+
+  computed: {
+    trackStyle() {
+      const ITEM_WIDTH = 80;
+      const GAP = 4;
+      const ITEM_STEP = ITEM_WIDTH + GAP;
+      const LEFT_OFFSET = (100 - ITEM_WIDTH) / 2;
+
+      const translateX = LEFT_OFFSET - this.currentTrackIndex * ITEM_STEP;
+      return { transform: `translateX(${translateX}%)` };
+    },
+  },
+
   methods: {
     nextTrack() {
-      this.currentTrack = (this.currentTrack + 1) % this.tracks.length;
+      this.currentTrackIndex =
+        (this.currentTrackIndex + 1) % this.tracks.length;
     },
     prevTrack() {
-      this.currentTrack = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
+      this.currentTrackIndex =
+        (this.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
+    },
+    positionMargin(index: number) {
+      if (index === 0 || index === 3) return { marginLeft: "50px" };
+      if (index === 2 || index === 5) return { marginRight: "50px" };
+      return {};
     },
   },
 };
 </script>
 
 <style scoped>
-/* ================= GLOBAL STYLES ================= */
 .tracks-page {
-  /* background-color: #010B18; */
   min-height: auto;
   position: relative;
   overflow: hidden;
@@ -283,10 +218,7 @@ export default {
   opacity: 0.9;
 }
 
-/* ================= SHARED CARD STYLES ================= */
 .track-cloud {
-  /* background: transparent; */
-  /* padding: 3vw; */
   z-index: 5;
   display: flex;
   align-items: center;
@@ -310,7 +242,6 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  /* gap: 1vw; */
   z-index: 2;
   width: 100%;
 }
@@ -322,9 +253,10 @@ export default {
   margin-top: 1rem;
   font-weight: bold;
 }
+
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(.75rem, .85vw, 1rem);
+  font-size: clamp(0.75rem, 0.85vw, 1rem);
   line-height: 1.25;
   margin-left: 1rem;
 }
@@ -340,16 +272,25 @@ export default {
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  
 }
 
-.desktop-view .circle-placeholder{
- margin-top: 100px; 
+.icon-img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
-/* ================= DESKTOP VIEW POSITIONS ================= */
-.desktop-view { display: block; }
-.mobile-view { display: none; }
+.desktop-view .circle-placeholder {
+  margin-top: 100px;
+}
+
+.desktop-view {
+  display: block;
+}
+
+.mobile-view {
+  display: none;
+}
 
 .track-cloud {
   position: absolute;
@@ -360,25 +301,176 @@ export default {
   max-height: 180px;
 }
 
-.pos-0 { top: 12%; left: max(3%, 40px); padding: 10px;}
-.pos-1 { top: 2%; left: 50%; transform: translateX(-50%);padding: 10px;}
-.pos-2 { top: 12%; right: max(3%, 40px); padding: 10px;}
+.pos-0 {
+  top: 12%;
+  left: max(3%, 40px);
+  padding: 10px;
+}
+.pos-1 {
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+}
+.pos-2 {
+  top: 12%;
+  right: max(3%, 40px);
+  padding: 10px;
+}
+.pos-3 {
+  bottom: 12%;
+  left: max(3%, 40px);
+  padding: 10px;
+}
+.pos-4 {
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+}
+.pos-5 {
+  bottom: 12%;
+  right: max(3%, 40px);
+  padding: 10px;
+}
 
-.pos-3 { bottom: 12%; left: max(3%, 40px);padding: 10px; }
-.pos-4 { bottom: 2%; left: 50%; transform: translateX(-50%); padding: 10px;}
-.pos-5 { bottom: 12%; right: max(3%, 40px); padding: 10px;}
+.track-carousel {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
 
-/* ================= MOBILE VIEW (<= 1300px) ================= */
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 4%;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 80%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vmax 0;
+}
+
+.track-card {
+  position: relative;
+  width: 100%;
+  background: rgba(30, 40, 60, 0.8);
+  border-radius: 24px;
+  padding: clamp(20px, 4vw, 32px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.card-text {
+  flex: 1 1 0%;
+  min-width: 0;
+  text-align: left;
+}
+
+.card-text .cloud-title {
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  margin: 0 0 8px 0;
+  margin-left: 0;
+}
+
+.card-text .cloud-desc {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  line-height: 1.4;
+  margin: 0;
+  margin-left: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.card-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner .circle-placeholder {
+  width: clamp(90px, 25vw, 140px);
+  height: clamp(90px, 25vw, 140px);
+  border: none;
+  background: transparent;
+}
+
+.card-inner .icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav-button {
+  position: absolute;
+  top: 35%;
+  z-index: 2;
+  border: none;
+  border-radius: 50%;
+  width: 8vmax;
+  height: 8vmax;
+  min-width: 40px;
+  min-height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+.nav-button img {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.nav-button:active img {
+  filter: drop-shadow(0 0 6px #f98f37) drop-shadow(0 0 14px #f98f37);
+  transform: scale(0.85);
+}
+.nav-button--left {
+  left: 1%;
+}
+.nav-button--right {
+  right: 1%;
+}
+
 @media (max-width: 1400px) {
-  .desktop-view { display: none; }
-  .mobile-view { display: flex; }
+  .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    display: flex;
+  }
 
   .tracks-page {
     min-height: auto;
     height: auto;
     padding: 40px 0 0;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
   }
 
   .content-wrapper {
@@ -411,184 +503,6 @@ export default {
   .main-subtitle {
     font-size: clamp(1rem, 3vw, 2rem);
     margin-top: 20px;
-  }
-
-  .mobile-carousel {
-    --pad: 12px;
-    --gap: clamp(10px, 3vw, 16px);
-    --btn: clamp(42px, 12vw, 58px);
-
-    width: 100%;
-    display: grid;
-    grid-template-columns: var(--btn) auto var(--btn);
-    column-gap: var(--gap);
-    align-items: center;
-    padding: 0 var(--pad);
-    box-sizing: border-box;
-    margin: 0 auto;
-    justify-content: center;
-  }
-
-  .nav-btn {
-    background: #e3e2e0;
-    border: none;
-    border-radius: 50%;
-    width: var(--btn);
-    height: var(--btn);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 10;
-  }
-
-  .nav-btn.prev { justify-self: start; margin-left: 7px; }
-  .nav-btn.next { justify-self: end; margin-right: 7px; }
-  .nav-btn svg { width: 60%; height: 60%; }
-
-  /* ================= MOBILE CARD FIXES ================= */
-
-  .mobile-card {
-    position: relative;
-    justify-self: center;
-    padding: clamp(16px, 3.6vw, 24px);
-    background: rgba(30, 40, 60, 0.8);
-    border-radius: 32px;
-
-    width: 100%;
-    max-width: 420px;
-    min-width: 0;
-    height: 100%;
-    aspect-ratio: unset;
-    overflow: clip;
-    box-sizing: border-box;
-}
-
-  .mobile-card .cloud-content {
-    display: flex !important;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 12px;
-    position: static;
-    padding: 0;
-    font-size: 1.3rem;
-  }
-
-  .mobile-card .image-area {
-    position: absolute;
-    right: clamp(8px, 3.5vw, 18px);
-    bottom: clamp(5px, 3vw, 12px);
-    margin: 0;
-    width: clamp(75px, 22vw, 250px);
-    height: clamp(75, 22vw, 250px);
-    display: block;
-    z-index: 5;
-    order: 2;
-  }
-  
-  /* .mobile-card .circle-placeholder {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
-  }
-
-  .mobile-card .icon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  } */
-
-  
-  .mobile-card .text-area {
-    display: block; 
-    flex: 1 1 70%;
-    width: 70%;
-    padding: 0;
-    order: 1;
-    
-    padding-right: clamp(90px, 28vw, 150px);
-  }
-
-  .mobile-card .cloud-title {
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
-    line-height: 1.1;
-    margin: 0 0 8px 0;
-  }
-
-  .mobile-card .cloud-desc {
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
-    margin: 0;
-  }
-  
-  .mobile-card .cloud-content::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-  .mobile-card .text-area {
-    width: 70% !important;
-    flex: 1 1 70% !important;
-    box-sizing: border-box;
-  }
-
-  .mobile-card .image-area {
-    width: 30% !important;
-    flex: 0 0 30% !important;
-    box-sizing: border-box;
-    margin-right: -20px;
-    margin-bottom: -10px;
-  }
-}
-
-@media (max-width: 700px) {
-  .mobile-card .cloud-title {
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
-  }
-
-  .mobile-card .cloud-desc {
-    font-size: clamp(0.85rem, 3.5vw, 1.05rem);
-  }
-}
-
-@media (max-width: 580px) {
-  .mobile-card .cloud-title {
-    font-size: clamp(1.2rem, 5vw, 1.7rem);
-  }
-
-  .mobile-card .cloud-desc {
-    font-size: clamp(0.85rem, 3.5vw, 1.15rem);
-  }
-  .mobile-card .image-area {
-    margin-right: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mobile-card .cloud-title {
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
-  }
-
-  .mobile-card .cloud-desc {
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
-  }
-  .mobile-card .image-area {
-    margin-right: 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  .mobile-card .cloud-title {
-    font-size: clamp(1.2rem, 5vw, 1.3rem);
-  }
-
-  .mobile-card .cloud-desc {
-    font-size: clamp(0.85rem, 3.5vw, 0.8rem);
-  }
-  .mobile-card .image-area {
-    margin-right: 30px;
-    margin-bottom: -10px;
   }
 }
 </style>
