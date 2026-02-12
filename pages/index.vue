@@ -273,20 +273,20 @@ export default {
   .transition0 {
     width: 100%;
     height: 2px;
-    background-color: #d3d3d3;
+    /* background-color: #d3d3d3; */
     opacity: 40%;
     z-index: 10;
     margin-left: 10%;
     width: 80%;
   }
   .transition1 {
-    background-color: #010b18;
+    /* background-color: #010b18; */
     height: 4vw;
   }
 }
 
 .transition1 {
-  background-color: #010b18;
+  /* background-color: #010b18; */
   height: 4vw;
 }
 </style>
