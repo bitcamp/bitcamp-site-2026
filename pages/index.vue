@@ -4,7 +4,7 @@
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
       <div class="green-planet-bg"></div>
-      <BitBot />
+      <!-- <BitBot /> -->
       <Navbar />
       <LandingPage />
       <div class="transition0"></div>
@@ -145,7 +145,7 @@ export default {
   min-height: 100vh;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  background-color: #010B18;
+  background-color: #010b18;
   position: relative;
   z-index: 1;
 }
@@ -156,7 +156,7 @@ export default {
   top: 2000px;
   width: 80%;
   height: 80%;
-  background-image: url('../assets/img/images/red-planet.webp');
+  background-image: url("../assets/img/images/red-planet.webp");
   background-size: contain;
   background-repeat: no-repeat;
   z-index: -1;
@@ -169,7 +169,7 @@ export default {
   top: 3010px;
   width: 150%;
   height: 150%;
-  background-image: url('../assets/img/images/blue-planet.webp');
+  background-image: url("../assets/img/images/blue-planet.webp");
   background-size: contain;
   background-repeat: no-repeat;
   z-index: -1;
@@ -182,13 +182,12 @@ export default {
   bottom: 1900px;
   width: 500px;
   height: 500px;
-  background-image: url('../assets/img/images/green-planet.webp');
+  background-image: url("../assets/img/images/green-planet.webp");
   background-size: contain;
   background-repeat: no-repeat;
-  z-index:0;
+  z-index: 0;
   pointer-events: none;
 }
-
 
 .LandingPage,
 .TracksPage,
@@ -256,20 +255,20 @@ export default {
   .transition0 {
     width: 100%;
     height: 2px;
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
     opacity: 40%;
     z-index: 10;
     margin-left: 10%;
     width: 80%;
   }
   .transition1 {
-    background-color: #010B18;
+    background-color: #010b18;
     height: 4vw;
   }
 }
 
 .transition1 {
-  background-color: #010B18;
+  background-color: #010b18;
   height: 4vw;
 }
 </style>
