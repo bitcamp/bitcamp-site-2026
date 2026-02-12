@@ -6,13 +6,32 @@
       </div>
       <div class="faq-contents">
         <div class="Question_Wrapper">
-          <div v-for="(questions, i) in [questions_left, questions_right]" :key="i" class="Question_Column">
-            <div v-for="(faq, i) in questions" :key="i" class="Question" :faq="faq">
-              <button class="Question_Button" :class="{ opened: faq.question === currentOpenedQuestion }"
-                @click="toggleButton(faq.question)">
+          <div
+            v-for="(questions, i) in [questions_left, questions_right]"
+            :key="i"
+            class="Question_Column"
+          >
+            <div
+              v-for="(faq, i) in questions"
+              :key="i"
+              class="Question"
+              :faq="faq"
+            >
+              <button
+                class="Question_Button"
+                :class="{ opened: faq.question === currentOpenedQuestion }"
+                @click="toggleButton(faq.question)"
+              >
                 {{ faq.question }}
               </button>
-              <div :class="faq.question === currentOpenedQuestion ? 'Answer_Opened' : 'Answer'" v-html="faq.answer"></div>
+              <div
+                :class="
+                  faq.question === currentOpenedQuestion
+                    ? 'Answer_Opened'
+                    : 'Answer'
+                "
+                v-html="faq.answer"
+              ></div>
             </div>
           </div>
         </div>
@@ -40,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
 interface FAQ {
   question: string;
@@ -56,69 +75,88 @@ interface Sponsor {
 
 const questions = ref<FAQ[]>([
   {
-    question: 'What is Bitcamp?',
-    answer: "Bitcamp is a hackathon that values participant experience and mentorship over competitiveness and points. Come to have fun with your friends, learn something new, eat s'mores, and have a generally awesome time. We have all sorts of crazy activities planned for you...come find out the rest!",
+    question: "What is Bitcamp?",
+    answer:
+      "Bitcamp is a hackathon that values participant experience and mentorship over competitiveness and points. Come to have fun with your friends, learn something new, eat s'mores, and have a generally awesome time. We have all sorts of crazy activities planned for you...come find out the rest!",
   },
   {
     question: "What's a hackathon?",
-    answer: "A hackathon is a creative marathon all about building something cool. Students are encouraged to come up with an idea, form teams, and then build out that idea (typically through programming!) into a product in 36 hours. We want you to take something you love (sports, art, camping, anything!) and combine it with technology to make something awesome. It's a great time to push the envelope and learn some new skills.",
+    answer:
+      "A hackathon is a creative marathon all about building something cool. Students are encouraged to come up with an idea, form teams, and then build out that idea (typically through programming!) into a product in 36 hours. We want you to take something you love (sports, art, camping, anything!) and combine it with technology to make something awesome. It's a great time to push the envelope and learn some new skills.",
   },
   {
-    question: 'Do I have to be experienced to attend?',
-    answer: 'No prior experience is required to attend Bitcamp. Exciting workshops and helpful mentors will give you the resources to help you build your dream project. Just come with your head and a willingness to learn!',
+    question: "Do I have to be experienced to attend?",
+    answer:
+      "No prior experience is required to attend Bitcamp. Exciting workshops and helpful mentors will give you the resources to help you build your dream project. Just come with your head and a willingness to learn!",
   },
   {
     question: "Is it okay if I don't have an idea or team?",
-    answer: 'No idea? No team? No problem! There will be dedicated events during Bitcamp for idea creation and team formations.',
+    answer:
+      "No idea? No team? No problem! There will be dedicated events during Bitcamp for idea creation and team formations.",
   },
   {
     question: "Can I attend if I'm a minor (under 18)?",
-    answer: 'Yes! Minors can attend with a chaperone, and can apply <a class="link" href="https://register.bit.camp" target="_blank">here</a>!',
+    answer:
+      'Yes! Minors can attend with a chaperone, and can apply <a class="link" href="https://register.bit.camp" target="_blank">here</a>!',
   },
   {
     question: "Can I attend if I don't want to participate in hacking?",
-    answer: "Although Bitcamp is a hackathon, there is no requirement to hack if you don't want to. If hacking isn't your thing, you can still participate in our exciting workshops and fun mini-events.",
+    answer:
+      "Although Bitcamp is a hackathon, there is no requirement to hack if you don't want to. If hacking isn't your thing, you can still participate in our exciting workshops and fun mini-events.",
   },
   {
-    question: 'How else can I get involved?',
-    answer: "We'd love to get you on our volunteering or mentoring teams! If you'd like to help, please register as a <a class='link' href='https://register.bit.camp/mentor' target='_blank'>mentor</a> or <a class='link' href='https://register.bit.camp/volunteer' target='_blank'>volunteer</a>. Also, be sure to follow us on Facebook and Twitter for updates!",
+    question: "How else can I get involved?",
+    answer:
+      "We'd love to get you on our volunteering or mentoring teams! If you'd like to help, please register as a <a class='link' href='https://register.bit.camp/mentor' target='_blank'>mentor</a> or <a class='link' href='https://register.bit.camp/volunteer' target='_blank'>volunteer</a>. Also, be sure to follow us on Facebook and Twitter for updates!",
   },
   {
-    question: 'How do I join a team?',
-    answer: "Projects are submitted by teams to DevPost. You don't need to finalize your team until project submissions are due during the event. You may work individually or in a team of up to four campers. Don't have a team in mind? No problem! Bitcamp will kick off with an optional team formation event.",
+    question: "How do I join a team?",
+    answer:
+      "Projects are submitted by teams to DevPost. You don't need to finalize your team until project submissions are due during the event. You may work individually or in a team of up to four campers. Don't have a team in mind? No problem! Bitcamp will kick off with an optional team formation event.",
   },
   {
-    question: 'How competitive is the application process?',
-    answer: 'It’s not competitive at all! The application process primarily serves as a way for us to verify application details as they come in. Unless you receive any contact from us (other than the confirmation email), we’ll see you by the campfire!',
+    question: "How competitive is the application process?",
+    answer:
+      "It’s not competitive at all! The application process primarily serves as a way for us to verify application details as they come in. Unless you receive any contact from us (other than the confirmation email), we’ll see you by the campfire!",
   },
   {
-    question: 'Who can apply to Bitcamp?',
-    answer: 'Any college student, high school student, or middle school student is more than welcome to apply to Bitcamp!',
+    question: "Who can apply to Bitcamp?",
+    answer:
+      "Any college student, high school student, or middle school student is more than welcome to apply to Bitcamp!",
   },
   {
-    question: 'Is Bitcamp free to attend?',
-    answer: 'Yes! There is no cost to attend Bitcamp.',
+    question: "Is Bitcamp free to attend?",
+    answer: "Yes! There is no cost to attend Bitcamp.",
   },
   {
-    question: 'Can people not registered for Bitcamp attend?',
-    answer: 'People not registered for Bitcamp will not be allowed entrance to the hackathon.',
+    question: "Can people not registered for Bitcamp attend?",
+    answer:
+      "People not registered for Bitcamp will not be allowed entrance to the hackathon.",
   },
   {
-    question: 'What have people made in the past at Bitcamp?',
-    answer: 'From Augmented Reality Human-Scale Pong to a research paper detailing vulnerabilities in Google\'s reCaptcha system, the projects at Bitcamp span across all categories and interests. You can check out all of the amazing submissions at the <a class="link" href="https://bitcamp2024.devpost.com/project-gallery"> Bitcamp 2024 Devpost!</a>',
+    question: "What have people made in the past at Bitcamp?",
+    answer:
+      'From Augmented Reality Human-Scale Pong to a research paper detailing vulnerabilities in Google\'s reCaptcha system, the projects at Bitcamp span across all categories and interests. You can check out all of the amazing submissions at the <a class="link" target="_blank" href="https://bitcamp2025.devpost.com/project-gallery"> Bitcamp 2025 Devpost!</a>',
   },
   {
-    question: 'What hardware is provided at Bitcamp?',
-    answer: 'Arduinos, sensors (ultrasonic, photoresistors, thermistors), inputs (buttons, switches), outputs (LEDs, piezo speakers, 7-segment displays, micro servo motors), passive components (resistors, capacitors, diodes), and wiring.',
+    question: "What hardware is provided at Bitcamp?",
+    answer:
+      "Arduinos, sensors (ultrasonic, photoresistors, thermistors), inputs (buttons, switches), outputs (LEDs, piezo speakers, 7-segment displays, micro servo motors), passive components (resistors, capacitors, diodes), and wiring.",
   },
   {
     question: "Does Bitcamp provide travel accomodations or reimbursement?",
-    answer: "Due to an unforeseen amount of applications and a limited budget, we unfortunately have closed our reimbursement application process from further interest. However, we will be evaluating reimbursement requests on a case-by-case basis during the weekend of Bitcamp.",
-  }, 
+    answer:
+      "Due to an unforeseen amount of applications and a limited budget, we unfortunately have closed our reimbursement application process from further interest. However, we will be evaluating reimbursement requests on a case-by-case basis during the weekend of Bitcamp.",
+  },
 ]);
 
-const questions_left = questions.value.slice(0, Math.ceil(questions.value.length / 2));
-const questions_right = questions.value.slice(Math.ceil(questions.value.length / 2));
+const questions_left = questions.value.slice(
+  0,
+  Math.ceil(questions.value.length / 2),
+);
+const questions_right = questions.value.slice(
+  Math.ceil(questions.value.length / 2),
+);
 const currentOpenedQuestion = ref<string | null>(null);
 
 function toggleButton(question: string) {
@@ -133,7 +171,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   name: "",
   image: "",
   amount: -1,
-  url: ""
+  url: "",
 });
 </script>
 
@@ -149,13 +187,13 @@ const sponsors: Sponsor[] = Array(12).fill({
   // background:transparent;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid #000;  
+  border-top: 1px solid #000;
   text-align: left;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    top: clamp(-1000px, -110vh, -500px); 
+    top: clamp(-1000px, -110vh, -500px);
     left: clamp(-2200px, -250vw, -300px);
     width: clamp(1000px, 400vw, 4000px);
     height: clamp(800px, 200vh, 2000px);
@@ -169,11 +207,10 @@ const sponsors: Sponsor[] = Array(12).fill({
     @media (max-width: 768px) {
       display: none;
     }
-
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 0%;
     top: -40vh;
@@ -190,7 +227,6 @@ const sponsors: Sponsor[] = Array(12).fill({
     @media (max-width: 768px) {
       display: none;
     }
-
   }
 }
 
@@ -199,9 +235,9 @@ const sponsors: Sponsor[] = Array(12).fill({
   font-size: 2vw;
   margin-left: 4.21875vw;
   z-index: 2;
-  color: #FFF7EB;
+  color: #fff7eb;
   position: relative;
-  text-shadow: 0 0 20px #FFF7EB;
+  text-shadow: 0 0 20px #fff7eb;
 }
 
 .sponsor-logo-container {
@@ -216,16 +252,16 @@ const sponsors: Sponsor[] = Array(12).fill({
 
 .sponsor-card {
   aspect-ratio: 16 / 10;
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: 'Avenir';
+  font-family: "Avenir";
   font-weight: 600;
   font-size: 2vw;
-  color: #1A2E33;
+  color: #1a2e33;
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 2rem;
@@ -238,7 +274,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
 
   &:hover {
-    background-color: #BEBEBE;
+    background-color: #bebebe;
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(255, 247, 235, 0.3);
   }
@@ -249,14 +285,14 @@ const sponsors: Sponsor[] = Array(12).fill({
   margin-bottom: 5vh;
   margin-left: 4.21875vw;
   z-index: 2;
-  color: #FFF7EB;
+  color: #fff7eb;
   position: relative;
-  text-shadow: 0 0 20px #FFF7EB;
+  text-shadow: 0 0 20px #fff7eb;
 }
 
 .faq-contents {
   position: relative;
-  font-family: 'Avenir';
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 500;
   border-radius: 15px;
@@ -291,7 +327,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   padding-bottom: 2px;
   padding-left: 10px;
   border-radius: 12px;
-  font-family: 'Avenir';
+  font-family: "Avenir";
   font-style: normal;
   font-weight: 500;
   color: white;
@@ -310,7 +346,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   background: transparent;
   padding: 3rem 12px 2.8rem;
   text-align: left;
-  font-family: 'Avenir';
+  font-family: "Avenir";
   font-size: 1.6vw;
   line-height: 1.3;
   font-weight: bold;
@@ -326,16 +362,21 @@ const sponsors: Sponsor[] = Array(12).fill({
     min-height: 3rem;
     max-width: 10rem;
     max-height: 10rem;
+    //   width: 4rem;
+    //   height: 4rem;
     margin-top: 1rem;
     margin-right: 1rem;
+    align-items: end;
+    transform-origin: center;
     transform: rotateZ(0deg);
-    transition: content 0.6s ease;
-    flex-shrink: 0;
+    transition: all 0.4s ease-out;
   }
 
-  &.opened::before {
-    transform: scale(0.75);
-    content: url(../assets/img/icons/minus.png);
+  &.opened {
+    &::before {
+      transform-origin: center;
+      transform: rotateZ(90deg);
+    }
   }
 }
 
@@ -351,7 +392,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 .Answer_Opened {
   padding: 0px 12px;
   padding-top: 1rem;
-  padding-left: calc(32px + 1rem + 3rem);   
+  padding-left: calc(32px + 1rem + 3rem);
   text-align: left;
   font-size: 1.4vw;
   overflow-y: auto;
@@ -360,9 +401,10 @@ const sponsors: Sponsor[] = Array(12).fill({
 }
 
 @media (max-width: 768px) {
-  .faq-text-div, .sponsor-text-div {
+  .faq-text-div,
+  .sponsor-text-div {
     font-size: 5vw;
-    text-align:left;
+    text-align: left;
     margin-left: 5vw;
   }
   .sponsor-logo-container {
@@ -382,7 +424,8 @@ const sponsors: Sponsor[] = Array(12).fill({
     min-width: 100%;
   }
 
-  .Question, .Question_Button {
+  .Question,
+  .Question_Button {
     font-size: 3vw;
   }
 
@@ -395,14 +438,15 @@ const sponsors: Sponsor[] = Array(12).fill({
     }
   }
 
-  .Answer, .Answer_Opened {
+  .Answer,
+  .Answer_Opened {
     height: 100%;
     font-size: 2.5vw;
   }
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
-    padding-left: calc(12px + 1rem + 3rem); 
+    padding-left: calc(12px + 1rem + 3rem);
     text-align: left;
     font-size: 1.4vw;
     overflow-y: auto;
@@ -429,7 +473,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
-    padding-left: calc(23px + 1rem + 3rem); 
+    padding-left: calc(23px + 1rem + 3rem);
     text-align: left;
     font-size: 1.4vw;
     overflow-y: auto;
@@ -440,7 +484,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 
 @media (max-width: 768px) {
   .faq-text-div {
-    text-align:left;
+    text-align: left;
     margin-left: 5vw;
   }
   .sponsor-text-div {
@@ -466,7 +510,8 @@ const sponsors: Sponsor[] = Array(12).fill({
     min-width: 100%;
   }
 
-  .Question, .Question_Button {
+  .Question,
+  .Question_Button {
     font-size: 3.5vw;
   }
 
@@ -479,14 +524,15 @@ const sponsors: Sponsor[] = Array(12).fill({
     }
   }
 
-  .Answer, .Answer_Opened {
+  .Answer,
+  .Answer_Opened {
     height: 100%;
     font-size: 2.5vw;
   }
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
-    padding-left: calc(27px + 1rem + 3rem); 
+    padding-left: calc(27px + 1rem + 3rem);
     text-align: left;
     font-size: 3vw;
     overflow-y: auto;
@@ -505,7 +551,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 
 <style lang="scss">
 a.link {
-  color: #FF6F3F;
+  color: #ff6f3f;
   text-decoration: underline;
 }
 
