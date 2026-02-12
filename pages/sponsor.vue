@@ -32,7 +32,7 @@
             hackers are passionate about using their skills to collaboratively
             solve multi-disciplinary problems. This year, we’re excited to
             continue offering our popular tracks in
-            <b>Machine Learning, Quantum, App Development, and Cybersecurity</b
+            <b>Machine Learning, Quantum, App Development, Game Development, and Data Science</b
             >, giving hackers the chance to deepen their knowledge and tackle
             challenges in these growing fields. All hackers are challenged to
             learn new skills including project management and user- friendly
