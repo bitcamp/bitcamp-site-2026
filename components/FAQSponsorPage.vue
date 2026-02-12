@@ -409,20 +409,17 @@ const sponsors: Sponsor[] = Array(12).fill({
     min-height: 3rem;
     max-width: 10rem;
     max-height: 10rem;
-    //   width: 4rem;
-    //   height: 4rem;
     margin-top: 1rem;
     margin-right: 1rem;
-    align-items: end;
     transform-origin: center;
-    transform: rotateZ(0deg);
-    transition: all 0.4s ease-out;
+    opacity: 1;
+    transition: opacity 0.3s ease-out, transform 0.4s ease-out;
   }
 
   &.opened {
     &::before {
       transform-origin: center;
-      transform: rotateZ(90deg);
+      transform: rotateZ(45deg);
     }
   }
 }
