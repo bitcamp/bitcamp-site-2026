@@ -264,19 +264,19 @@ export default {
 .circle-placeholder {
   width: 115px;
   height: 115px;
-  background: rgba(255, 255, 255, 0.05);
+  background: none;
   border-radius: 50%;
-  border: 4px solid rgb(255, 255, 255);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .icon-img {
-  width: 80%;
-  height: 80%;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
 }
 
