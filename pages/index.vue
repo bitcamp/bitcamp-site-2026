@@ -179,7 +179,7 @@ export default {
 .green-planet-bg {
   position: absolute;
   right: -50px;
-  bottom: 1900px;
+  bottom: 25%;
   width: 500px;
   height: 500px;
   background-image: url("../assets/img/images/green-planet.webp");
@@ -240,7 +240,25 @@ export default {
   z-index: 10;
 } */
 
-@media (max-width: 1050px) {
+@media (max-width: 1300px) {
+  .blue-planet {
+    left: -1250px;
+    top: 2410px;
+  }
+  .red-planet {
+    right: -700px;
+    top: 1700px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .green-planet-bg {
+    right: -50px;
+    bottom: 24%;
+  }
+}
+
+@media (max-width: 1100px) {
   .blue-planet {
     display: none;
   }
