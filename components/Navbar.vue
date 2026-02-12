@@ -19,14 +19,29 @@
 
       <ul v-if="showDropdown || bigScreen" class="nav-pages">
         <li class="page">
-          <a href="#tracks" class="page-type">Tracks</a>
+          <a
+            href="#tracks"
+            class="page-type"
+            @click.prevent="scrollTo('tracks')"
+            >Tracks</a
+          >
         </li>
 
         <li class="page">
-          <a href="#campfire-games" class="page-type">Campfire Games</a>
+          <a
+            href="#campfire-games"
+            class="page-type"
+            @click.prevent="scrollTo('campfire-games')"
+            >Campfire Games</a
+          >
         </li>
         <li class="page">
-          <a href="#roster" class="page-type">Our Team</a>
+          <a
+            href="#roster"
+            class="page-type"
+            @click.prevent="scrollTo('roster')"
+            >Our Team</a
+          >
         </li>
 
         <li v-if="bigScreen" class="page page-logo">
@@ -40,13 +55,25 @@
         </li>
 
         <li class="page">
-          <a href="#schedule" class="page-type">Schedule</a>
+          <a
+            href="#schedule"
+            class="page-type"
+            @click.prevent="scrollTo('schedule')"
+            >Schedule</a
+          >
         </li>
         <li class="page">
-          <a href="#faq" class="page-type">FAQ</a>
+          <a href="#faq" class="page-type" @click.prevent="scrollTo('faq')"
+            >FAQ</a
+          >
         </li>
         <li class="page">
-          <a href="#sponsors" class="page-type">Sponsors</a>
+          <a
+            href="#sponsors"
+            class="page-type"
+            @click.prevent="scrollTo('sponsors')"
+            >Sponsors</a
+          >
         </li>
 
         <li v-if="!bigScreen" class="page mobile-socials">
@@ -178,6 +205,21 @@ function onresize() {
 
 function setColorAndOpacity() {
   var header = document.getElementsByTagName("header")[0];
+}
+
+function scrollTo(id: string) {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  const wrapper = document.querySelector(".wrapper") as HTMLElement | null;
+  if (wrapper) {
+    const targetTop = target.getBoundingClientRect().top + wrapper.scrollTop;
+    wrapper.scrollTo({ top: targetTop, behavior: "smooth" });
+  } else {
+    target.scrollIntoView({ behavior: "smooth" });
+  }
+
+  showDropdown.value = false;
 }
 
 function toggleDropdown() {
