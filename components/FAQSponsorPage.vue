@@ -41,19 +41,26 @@
           <h1>Sponsors</h1>
         </div>
       </div>
-      <!--
-      <div class="sponsor-logo-container">
-        <a 
-          v-for="(sponsor, i) in sponsors" 
-          :key="i" 
-          :href="sponsor.url" 
+
+      <!-- <div class="sponsor-logo-container">
+        <a
+          v-for="(sponsor, i) in sponsors"
+          :key="i"
+          :href="sponsor.url"
           target="_blank"
           class="sponsor-card"
         >
-          <img :src="sponsor.image" :alt="sponsor.name">
+          <img :src="sponsor.image" :alt="sponsor.name" />
         </a>
+      </div> -->
+      <div class="button-wrapper">
+        <a
+          target="_blank"
+          href="https://bit.camp/sponsor"
+          class="sponsor-button"
+          >BECOME A SPONSOR</a
+        >
       </div>
-      -->
     </div>
   </div>
 </template>
@@ -280,6 +287,46 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  // position: absolute;
+  // top: 48%;
+  // right: 38%;
+  // transform: translateY(-50%);
+  // width: auto;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // z-index: 1;
+}
+
+.sponsor-button {
+  background-color: #ff6f3f;
+  border-radius: 5rem;
+  border-style: solid;
+  border-color: #e54d1a;
+  color: white;
+  font-family: Aleo, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  // margin-bottom: 40%;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  font-size: 1.4vw;
+  padding: 0.6vw 2vw;
+  border-width: 0.2vw;
+}
+
+.sponsor-button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 111, 63, 0.5);
+  background-color: #ff8a5c;
+}
+
 .sponsor-text-div {
   font-size: 2vw;
   margin-bottom: 5vh;
@@ -470,6 +517,13 @@ const sponsors: Sponsor[] = Array(12).fill({
     margin-left: 3vw;
     margin-right: 1rem;
   }
+
+  .sponsor-button {
+    font-size: 2vw;
+    padding: 0.8vw 2.5vw;
+    border-width: 0.3vw;
+  }
+
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
@@ -492,6 +546,15 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
   .faq-text-div {
     font-size: 5vw;
+  }
+
+  .sponsor-button {
+    border-radius: 5rem;
+    letter-spacing: 0.25rem;
+    font-size: 4vw;
+    border-width: 0.7vw;
+    // margin-top: 43vw;
+    // margin-right: 40vw;
   }
   .sponsor-logo-container {
     grid-template-columns: repeat(2, 1fr) !important;
