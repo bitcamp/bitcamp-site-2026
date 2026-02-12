@@ -622,6 +622,7 @@ nav {
     transition-property: transform;
     transition-duration: 0.15s;
     transition-timing-function: ease;
+    box-shadow: 0 0 0 1.5px #000000;
   }
 
   .hamburger-inner::before,
