@@ -151,9 +151,35 @@ const questions = ref<FAQ[]>([
       "Arduinos, sensors (ultrasonic, photoresistors, thermistors), inputs (buttons, switches), outputs (LEDs, piezo speakers, 7-segment displays, micro servo motors), passive components (resistors, capacitors, diodes), and wiring.",
   },
   {
-    question: "Does Bitcamp provide travel accomodations or reimbursement?",
+    question:
+      "Is travel reimbursement guaranteed, and will I be fully reimbursed?",
     answer:
-      "Due to an unforeseen amount of applications and a limited budget, we unfortunately have closed our reimbursement application process from further interest. However, we will be evaluating reimbursement requests on a case-by-case basis during the weekend of Bitcamp.",
+      "Due to a limited budget, we’re unable to guarantee reimbursement, nor can we guarantee full reimbursement on travel expenses. Please do not depend on the travel reimbursement when planning your trip.",
+  },
+  {
+    question: "Where can I access the reimbursement application?",
+    answer:
+      "We will be sending out the application for travel reimbursement through email for those who expressed interest in the Bitcamp registration form.",
+  },
+  {
+    question: "What kind of transportation is eligible for reimbursement?",
+    answer:
+      "We will consider reimbursing public transportation, rideshare, and interstate transportation (train/plane). However, it is important to note that due to a limited budget, public transportation is encouraged and is most likely to be reimbursed!",
+  },
+  {
+    question: "When will I hear back about my reimbursement status?",
+    answer:
+      "You will hear back within 3-4 business days regarding your reimbursement decision.",
+  },
+  {
+    question: "How will I receive my reimbursement?",
+    answer:
+      "Reimbursements will be provided at the event, and hackers must be present in person to receive the reimbursement.",
+  },
+  {
+    question: "Have other travel questions?",
+    answer:
+      'Contact <a class="link" href="mailto:travel@bit.camp">travel@bit.camp</a>!',
   },
 ]);
 
