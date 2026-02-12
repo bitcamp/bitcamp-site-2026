@@ -36,11 +36,7 @@ export default {
   min-height: 80vw;
   height: auto;
   overflow: hidden;
-  background: linear-gradient(
-  180deg,
-  #201F3A 70%,
-  #010B18 100%
-);
+  background: linear-gradient(180deg, #201f3a 70%, #010b18 100%);
   width: 100%;
   aspect-ratio: 16 / 9;
 }
@@ -66,9 +62,9 @@ export default {
 
 .button-wrapper {
   position: absolute;
-  top: 51%;
+  top: 48%;
   right: 38%;
-  transform: translateY(-60%);
+  transform: translateY(-50%);
   width: auto;
   display: flex;
   flex-direction: column;
@@ -88,10 +84,17 @@ export default {
   letter-spacing: 0.2rem;
   margin-bottom: 40%;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-size: 1.8vw;
-  padding: 0.8vw 2.5vw;
-  border-width: 0.25vw;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  font-size: 1.4vw;
+  padding: 0.6vw 2vw;
+  border-width: 0.2vw;
+}
+
+.register-button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 111, 63, 0.5);
+  background-color: #ff8a5c;
 }
 
 @media (max-width: 796px) {
@@ -115,7 +118,7 @@ export default {
     position: relative;
     overflow: visible;
     display: block;
-    background: linear-gradient(180deg,#201F3A 70%,#010B18 100%);
+    background: linear-gradient(180deg, #201f3a 70%, #010b18 100%);
   }
 
   .button-wrapper {
