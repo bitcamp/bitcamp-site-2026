@@ -41,19 +41,26 @@
           <h1>Sponsors</h1>
         </div>
       </div>
-      <!--
-      <div class="sponsor-logo-container">
-        <a 
-          v-for="(sponsor, i) in sponsors" 
-          :key="i" 
-          :href="sponsor.url" 
+
+      <!-- <div class="sponsor-logo-container">
+        <a
+          v-for="(sponsor, i) in sponsors"
+          :key="i"
+          :href="sponsor.url"
           target="_blank"
           class="sponsor-card"
         >
-          <img :src="sponsor.image" :alt="sponsor.name">
+          <img :src="sponsor.image" :alt="sponsor.name" />
         </a>
+      </div> -->
+      <div class="button-wrapper">
+        <a
+          target="_blank"
+          href="https://bit.camp/sponsor"
+          class="sponsor-button"
+          >BECOME A SPONSOR</a
+        >
       </div>
-      -->
     </div>
   </div>
 </template>
@@ -144,9 +151,35 @@ const questions = ref<FAQ[]>([
       "Arduinos, sensors (ultrasonic, photoresistors, thermistors), inputs (buttons, switches), outputs (LEDs, piezo speakers, 7-segment displays, micro servo motors), passive components (resistors, capacitors, diodes), and wiring.",
   },
   {
-    question: "Does Bitcamp provide travel accomodations or reimbursement?",
+    question:
+      "Is travel reimbursement guaranteed, and will I be fully reimbursed?",
     answer:
-      "Due to an unforeseen amount of applications and a limited budget, we unfortunately have closed our reimbursement application process from further interest. However, we will be evaluating reimbursement requests on a case-by-case basis during the weekend of Bitcamp.",
+      "Due to a limited budget, we’re unable to guarantee reimbursement, nor can we guarantee full reimbursement on travel expenses. Please do not depend on the travel reimbursement when planning your trip.",
+  },
+  {
+    question: "Where can I access the reimbursement application?",
+    answer:
+      "We will be sending out the application for travel reimbursement through email for those who expressed interest in the Bitcamp registration form.",
+  },
+  {
+    question: "What kind of transportation is eligible for reimbursement?",
+    answer:
+      "We will consider reimbursing public transportation, rideshare, and interstate transportation (train/plane). However, it is important to note that due to a limited budget, public transportation is encouraged and is most likely to be reimbursed!",
+  },
+  {
+    question: "When will I hear back about my reimbursement status?",
+    answer:
+      "You will hear back within 3-4 business days regarding your reimbursement decision.",
+  },
+  {
+    question: "How will I receive my reimbursement?",
+    answer:
+      "Reimbursements will be provided at the event, and hackers must be present in person to receive the reimbursement.",
+  },
+  {
+    question: "Have other travel questions?",
+    answer:
+      'Contact <a class="link" href="mailto:travel@bit.camp">travel@bit.camp</a>!',
   },
 ]);
 
@@ -280,6 +313,46 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  // position: absolute;
+  // top: 48%;
+  // right: 38%;
+  // transform: translateY(-50%);
+  // width: auto;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // z-index: 1;
+}
+
+.sponsor-button {
+  background-color: #ff6f3f;
+  border-radius: 5rem;
+  border-style: solid;
+  border-color: #e54d1a;
+  color: white;
+  font-family: Aleo, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  // margin-bottom: 40%;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  font-size: 1.4vw;
+  padding: 0.6vw 2vw;
+  border-width: 0.2vw;
+}
+
+.sponsor-button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 111, 63, 0.5);
+  background-color: #ff8a5c;
+}
+
 .sponsor-text-div {
   font-size: 2vw;
   margin-bottom: 5vh;
@@ -351,6 +424,7 @@ const sponsors: Sponsor[] = Array(12).fill({
   line-height: 1.3;
   font-weight: bold;
   color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
   height: 6vw;
   width: 100%;
@@ -362,20 +436,17 @@ const sponsors: Sponsor[] = Array(12).fill({
     min-height: 3rem;
     max-width: 10rem;
     max-height: 10rem;
-    //   width: 4rem;
-    //   height: 4rem;
     margin-top: 1rem;
     margin-right: 1rem;
-    align-items: end;
     transform-origin: center;
-    transform: rotateZ(0deg);
-    transition: all 0.4s ease-out;
+    opacity: 1;
+    transition: opacity 0.3s ease-out, transform 0.4s ease-out;
   }
 
   &.opened {
     &::before {
       transform-origin: center;
-      transform: rotateZ(90deg);
+      transform: rotateZ(45deg);
     }
   }
 }
@@ -470,6 +541,13 @@ const sponsors: Sponsor[] = Array(12).fill({
     margin-left: 3vw;
     margin-right: 1rem;
   }
+
+  .sponsor-button {
+    font-size: 2vw;
+    padding: 0.8vw 2.5vw;
+    border-width: 0.3vw;
+  }
+
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
@@ -492,6 +570,15 @@ const sponsors: Sponsor[] = Array(12).fill({
   }
   .faq-text-div {
     font-size: 5vw;
+  }
+
+  .sponsor-button {
+    border-radius: 5rem;
+    letter-spacing: 0.25rem;
+    font-size: 4vw;
+    border-width: 0.7vw;
+    // margin-top: 43vw;
+    // margin-right: 40vw;
   }
   .sponsor-logo-container {
     grid-template-columns: repeat(2, 1fr) !important;

@@ -8,51 +8,50 @@
             <span>Home</span>
           </a>
           <h1>
-            <strong class="SupportTitle"> help support </strong> Bitcamp 2025!
+            <strong class="SupportTitle"> Help Support </strong> Bitcamp 2026!
           </h1>
           <br />
           <p>Hello Potential Sponsor!</p>
           <p>
             Bitcamp, hosted annually at the University of Maryland, is one of
             the largest collegiate hackathons on the East Coast, bringing
-            together thousands of students each year. This year kicks off a new
-            era and marks our <b>11th anniversary</b>! Over the past decade,
-            Bitcamp has become a thriving hub of creativity and technical
-            exploration, uniting over <b>10,000</b> passionate hackers who have
-            developed more than <b>1,350</b> innovative projects. As we look
-            back on a decade of breakthroughs, we're excited to continue pushing
-            boundaries and fostering the next generation of tech leaders. We
-            can't wait to host over <b>1,000</b> attendees at Bitcamp 2025
-            <b> in person </b> at the University of Maryland from
-            <b>April 11th to 13th</b>.
+            together thousands of students each year. This year marks Bitcamp’s
+            <b>12 year anniversary!</b> Over the past decade, Bitcamp has become
+            a thriving hub of creativity and technical exploration, uniting over
+            <b>11,000</b> passionate hackers who have developed more than
+            <b>1,500</b>
+            innovative projects. As we look back on a decade of breakthroughs,
+            we’re excited to continue pushing boundaries and fostering the next
+            generation of tech leaders. We can’t wait to host over
+            <b>1,000</b> attendees at Bitcamp 2026 <b>in person</b> at the
+            University of Maryland from <b>April 10th to 12th</b>.
           </p>
           <p>
             Bitcamp is a melting pot of creativity; a great place to connect
-            with a diverse group of the nation's brightest innovators. Our
+            with a diverse group of the nation’s brightest innovators. Our
             hackers are passionate about using their skills to collaboratively
-            solve multi-disciplinary problems. Last year, we introduced an
-            <b>App Development</b> track to introduce hackers to the software
-            development life cycle and a new <b>Cybersecurity</b> track to
-            facilitate discussions of web vulnerabilities. Our popular
-            <b> Machine Learning </b> and <b> Quantum </b> tracks will be
-            returning this year as well. All hackers are also challenged to
-            learn new skills including project management and user-friendly
+            solve multi-disciplinary problems. This year, we’re excited to
+            continue offering our popular tracks in
+            <b>Machine Learning, Quantum, App Development, Game Development, and Data Science</b
+            >, giving hackers the chance to deepen their knowledge and tackle
+            challenges in these growing fields. All hackers are challenged to
+            learn new skills including project management and user- friendly
             design.
           </p>
           <p>
-            During Bitcamp 2024, we made some unforgettable memories with over
+            During Bitcamp 2025, we made some unforgettable memories with over
             2,000 hackers who registered to attend the event and saw some
-            incredible talent in the 158 projects that were submitted. Check out
-            the amazing array of hacks at:
+            incredible talent in the 231 projects that were submitted. Check out
+            the innovative hacks at:
             <b
-              ><a href="https://bitcamp2024.devpost.com/project-gallery"
-                >https://bitcamp2024.devpost.com/project-gallery</a
+              ><a href="https://bitcamp2025.devpost.com/project-gallery"
+                >https://bitcamp2025.devpost.com/project-gallery</a
               ></b
             >!
           </p>
           <p>
             Bitcamp offers a prime opportunity for recruitment and tech
-            mentorship. By sponsoring Bitcamp, you’ll boost brand visibility,
+            mentorship. By sponsoring Bitcamp, you'll boost brand visibility,
             connect with emerging top talent, and cultivate innovation within
             the tech community. Additionally, Bitcamp is a 501(c)(3) non-profit
             organization. All donations made to Bitcamp will be fully
@@ -62,9 +61,9 @@
             We invite you to review the various tiers of sponsorship below. More
             detailed information regarding each individual perk can be accessed
             on our website by visiting
-            <a href="https://bit.camp/sponsor">bit.camp/sponsor</a>. If you're
-            interested in becoming an official sponsor for Bitcamp 2025, our
-            biggest event yet, we'd love to chat! You can reach us at
+            <b><a href="https://bit.camp/sponsor">bit.camp/sponsor</a></b
+            >. If you’re interested in becoming an official sponsor for Bitcamp
+            2026, our biggest event yet, we’d love to chat! You can reach us at
             <b><a href="mailto:sponsorship@bit.camp">sponsorship@bit.camp</a></b
             >.
           </p>
@@ -121,13 +120,14 @@
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="[
                 '$2,000',
-                '$3,000',
-                '$5,000',
-                '$7,000',
+                '$3,500',
+                '$5,500',
+                '$7,500',
                 '$10,000',
-                '$16,000',
+                '$15,000',
               ]"
               :header="'first-row Rtable-category-cell-full'"
+              :description="''"
             />
             <ProspectusEmptyRow :categoryName="'General'" />
             <ProspectusRow
@@ -162,17 +162,17 @@
               :description="'A panel discussion is another great way for sponsors to interact with our hackers. This includes a moderated discussion on a topic and questions curated by our team (which will be provided to company representatives beforehand), as well as an open Q&A session at the end for hackers to ask our panelists. We recommend ideally 1 person to be on the panel from each eligible company but will allow max 2 people.'"
             />
             <ProspectusRow
-              :categoryName="'Closing Ceremony Talk'"
+              :categoryName="'Closing Ceremony Talks'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', '', '5 min', '8 min', '12 min']"
-              :description="'This is a great opportunity for a company to give an inspiring and motivating talk to our hackers. This could be about an experience, something related to our hackathon’s theme, or anything realistically.'"
+              :description="'This is a great opportunity for a company to give an inspiring and motivating talk to our hackers. This could be about an experience, something related to our hackathon’s theme, a motivational company message, or anything realistically.'"
             />
             <ProspectusRow
               :categoryName="'Sponsored Side Event'"
               :subText="'(Limited Slots)'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', '', '', '30 min', '60 min']"
-              :description="'A tech talk/workshop is an excellent way for sponsors to interact with our hackers and can be on any topic of your choice. Past workshops have covered a range of topics from cybersecurity to web development to machine learning. These will be done in person with the option to make it as interactive as desired. If companies need help choosing a topic for their workshop or event, they can connect with our Workshops team once they have committed to a tier.'"
+              :description="'A workshop/tech talk is an excellent way for sponsors to interact with our hackers and can be on any topic of your choice. Past workshops have covered a range of topics from cybersecurity to web development to machine learning. These will be done in person with the option to make it as interactive as desired. If companies need help choosing a topic for their workshop or event, they can connect with our Workshops team once they have committed to a tier.'"
             />
             <ProspectusRow
               :categoryName="'Branded Mini Game'"
@@ -184,7 +184,7 @@
               :categoryName="'Provide Additional Prize'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', '', '', '', 'check-w']"
-              :description="'Providing prizes is a powerful perk that can help companies reach out to their target hacker population, be it those interested in a specific field or those that have a specific skillset. This year, our Tera-level sponsor can provide 2 prizes to ensure they get as much outreach as possible and are successful in identifying talent at the hackathon.'"
+              :description="'Providing prizes is a powerful perk that can help companies reach out to their target hacker population, be it those interested in a specific field or those with a specific skillset. This year, our Peta-level sponsor can provide 2 prizes to ensure they get as much outreach as possible and are successful in identifying talent at the hackathon.'"
             />
             <ProspectusEmptyRow :categoryName="'Recruiting'" />
             <ProspectusRow
@@ -201,7 +201,7 @@
               :description="'Sponsors have their own in-person booth in our event location. The booth is your “home base” for the event, from which you can post or distribute marketing materials, interact with hackers, and make your presence felt at Bitcamp! '"
             />
             <ProspectusRow
-              :categoryName="'Access to Hacker Contact Info'"
+              :categoryName="'Access to Hacker Contact Information'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="[
                 '',
@@ -211,40 +211,40 @@
                 'check-w',
                 'check-w',
               ]"
-              :description="'With this perk, sponsors will be provided with contact information that hackers provide to directly message with/reach out to after Bitcamp has occurred. This is information that we will provide to sponsors after the event.'"
+              :description="'With this perk, hacker-provided contact information will be shared with sponsors to directly message/reach out to hackers after Bitcamp has occurred. This will be provided to sponsors after the event.'"
             />
             <ProspectusRow
               :categoryName="'Recruiters Present'"
-              :subText="'(active recruitment)'"
+              :subText="'(Active Recruitment)'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', 'check-w', 'check-w', 'check-w', 'check-w']"
-              :description="'You are welcome to have recruiters and recruiting materials at your booth at Bitcamp, where you will be able to interact with all of our hackers. You may bring as many representatives as you’d like (we recommend 3-4). There will be a “Sponsorship Fair” during which hackers will be encouraged to visit your open booths.'"
+              :description="'You are welcome to have recruiters and recruiting materials at your booth at Bitcamp, where you will be able to interact with all of our hackers. You may bring as many representatives as you’d like (we recommend 3-4). Hackers will be encouraged to visit your open booths throughout the “Sponsorship Fair” occurring at Bitcamp.'"
             />
             <ProspectusRow
               :categoryName="'Access to Resumes'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
-              :args="['', '', '', 'check-w', 'check-w', 'check-w']"
-              :description="'With this perk, we provide a database of all of our registrants’ resumes to our sponsors following the event (before if we are able to do so logistically). This will [ideally be in a Google Drive format but can be changed due to certain company restrictions.'"
+              :args="['', '', 'check-w', 'check-w', 'check-w', 'check-w']"
+              :description="'With this perk, we provide a database of all of our registrants’ resumes to our sponsors following the event (before if we are able to do so logistically). This will ideally be in a Google Drive format but can be changed due to certain company restrictions.'"
             />
             <ProspectusRow
               :categoryName="'Bootcamp Sponsorship Fair'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
-              :args="['', '', '', '', 'check-w', 'check-w']"
-              :description="'We’ve started a new tradition of a hype event before Bitcamp takes place, where hackers can come together, meet each other, and get a glimpse of what Bitcamp is and for the first time ever, we will be including a sponsorship fair as part of the event! This is a unique opportunity for you to be one of the first sponsors to interact with prospective hackers even before the hackathon takes place and gives you a chance to have a personalized interaction with hackers and begin recruiting early!'"
+              :args="['', '', '', 'check-w', 'check-w', 'check-w']"
+              :description="'Over the years, we have developed a tradition of a hype event 2-3 weeks before Bitcamp takes place, where hackers can come together, meet each other, and get a glimpse of what Bitcamp is. We will be including a sponsorship fair as part of the event! This is a unique opportunity for you to be one of the first sponsors to interact with prospective hackers even before the hackathon takes place. This perk gives you a chance to have a personalized interaction with hackers and begin recruiting early!'"
             />
             <ProspectusRow
-              :categoryName="'Recruitment Event Shoutout'"
-              :subText="'(on social media)'"
+              :categoryName="'Recruitment Shoutout'"
+              :subText="'(On Social Media)'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', '', '', '1 event', '2 events']"
-              :description="'Any recruitment event or information session you hope to advertise from the moment you choose to sponsor Bitcamp to when the event takes place, we will advertise on our Bitcamp social media account. Based on the tier at which you sponsor, we will advertise up to 2 recruitment events (Tera) through LinkedIn and Email to all registered hackers!'"
+              :description="'Any recruitment event or information session you hope to advertise from the moment you choose to sponsor Bitcamp to when the event takes place will be advertised on our Bitcamp social media account. Based on the tier at which you sponsor, we will advertise up to 2 recruitment events (Peta) through LinkedIn and Email to all registered hackers!'"
             />
 
             <ProspectusBottomRow
               :categoryName="'Pre-Event Email to All Hackers'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', '', '', '', 'check-w']"
-              :description="'Around 2-3 days before the event itself, we will allow sponsors with this perk to email all of our registrants up to that point to encourage participants to keep an eye out for your company’s booth and activities during the event. The message would be sent by the Bitcamp Team on behalf of your organization/company, but we will leave the content of the email up to you! '"
+              :description="'Roughly 2-3 days before the event itself, we will allow sponsors with this perk to email all of our registrants up to that point with a message of your choice. Take this opportunity to encourage participants to keep an eye out for your company’s booth and activities during the event! The message would be sent by the Bitcamp Team on behalf of your organization/company, but we will leave the content of the email up to you!'"
             />
             <ProspectusEmptyRow :categoryName="'Marketing'" />
             <ProspectusRow
@@ -271,7 +271,7 @@
                 'check-w',
                 'check-w',
               ]"
-              :description="'Sponsors are able to distribute marketing materials to our hackers in their virtual and in-person booths. This can include any type of virtual swag (ex: promo codes), informational materials (ex: pamphlets, flyers, or videos), or physical swag (ex: T-shirts, masks).'"
+              :description="'Sponsors are able to distribute marketing materials to our hackers at their booths. This can include any type of virtual swag (ex: promo codes), informational materials (ex: pamphlets, flyers, or videos), or physical swag (ex: T-shirts, keychains).'"
             />
             <ProspectusRow
               :categoryName="'Social Media Shoutout'"
@@ -291,11 +291,11 @@
               :categoryName="'&quot;Cohosted By&quot;'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="['', '', '', '', '', 'check-w']"
-              :description="'Tera-level sponsors will be given special recognition in our marketing materials as a co-host. '"
+              :description="'Peta-level sponsors will be given special recognition in our marketing materials as a co-host.'"
             />
 
             <ProspectusEmptyRow :categoryName="'Restricted Add-Ons'" />
-            <ProspectusBottomRow
+            <ProspectusRow
               :categoryName="'Custom Sponsor Marketing Video'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="[
@@ -306,7 +306,13 @@
                 '2 min check-w',
                 '4 min check-w',
               ]"
-              :description="'This add-on is open to Giga and Tera sponsors, who will be given special recognition in our marketing materials as a co-host. '"
+              :description="'Giga-level sponsors are eligible to opt in for a 2-minute custom marketing video for $350. This perk is included for the Tera and Peta-level sponsors. It is the perfect chance for your company to get exposure among past and prospective hackers! Bitcamp social media accounts will promote your company using the custom marketing video, and you will have access to the video for your own use.'"
+            />
+            <ProspectusBottomRow
+              :categoryName="'Sponsored Side Event'"
+              :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
+              :args="['', '', '30 min ($1,500)', '30 min ($1,500)', '', '']"
+              :description="'Mega and Giga-tier sponsors are eligible to opt in for a 30-minute side event for $1,500. A tech talk/workshop is an excellent way for sponsors to interact with our hackers and can be on any topic of your choice.'"
             />
 
             <div class="Rtable-cell Rtable-cell-blank"></div>
@@ -324,24 +330,24 @@
             <div class="Rtable-cell Rtable-cell-blank"></div>
             <div class="Rtable-cell Rtable-cell-blank"></div>
             <div class="Rtable-cell Rtable-cell-blank"></div>
-
+              
             <ProspectusMisc
-              :perk="'Additional Add-Ons'"
+              :perk="'Add-Ons'"
+              :price="''"
               :type="'head'"
               :bolded="true"
-              :description="'If you’re already sponsoring a tier that allows you to provide a prize, then you have the opportunity to sponsor an additional prize through this perk. Sponsoring prizes is an excellent chance to interact with hackers and attract talent with the specific skillset or interests that you’re looking for and sponsoring an additional prize is a great way to expand your search.'"
             />
             <ProspectusMisc
               :perk="'Sponsoring Additional Prizes'"
               :price="'$1,000'"
               :type="'bottom'"
               :bolded="false"
-              :description="'This add-on is open to all sponsors and is the perfect chance for your company to get exposure among past and prospective hackers. Hop on the Bitcamp Podcast, share what you love about your company, and get students interested!'"
+              :description="'If you’re already sponsoring a tier that allows you to provide a prize, then you have the opportunity to sponsor an additional prize through this perk. Sponsoring prizes is an excellent chance to interact with hackers and attract talent with the specific skillset or interests that you’re looking for and sponsoring an additional prize is a great way to expand your search.'"
             />
           </div>
           <hr class="divider" />
-          <section class="ConnectSection">
-            <h2>Connect</h2>
+          <section class="ContactSection">
+            <h2>Contact</h2>
             <div>
               <img src="../assets/img/icons/globe.svg" alt="Bitcamp Homepage" />
               <a href="https://bit.camp">https://bit.camp</a>
@@ -517,10 +523,6 @@ h2 {
   font-weight: bold;
   font-size: 44px;
   color: var(--color-primary);
-}
-
-h2 {
-  text-transform: lowercase;
 }
 
 /* Home link
@@ -826,21 +828,27 @@ h2 {
     }
   }
 
-  /* Connect Section
+  /* Contact Section
   =================================== */
-  .ConnectSection a {
+
+  .ContactSection a {
     text-decoration: none;
     color: var(--color-light-text);
   }
 
-  .ConnectSection a:hover {
+  .ContactSection a:hover {
     text-decoration: underline;
   }
 
-  .ConnectSection img {
+  .ContactSection img {
     margin-right: 0.75em;
     width: 1em;
     line-height: 0;
+  }
+
+  .ContactSection div {
+    width: fit-content;
+    margin: 0 auto;
   }
 
   .tooltips {
@@ -886,6 +894,7 @@ h2 {
   @media screen and (max-width: 1000px) {
     .Rtable-grid {
       overflow-x: auto;
+      overflow-y: hidden;
     }
   }
 
@@ -896,6 +905,12 @@ h2 {
       top: 0;
       right: 0;
       transform: translateY(-50%) translateX(35px);
+      
+    }
+    .tooltips::after {
+      max-height: 13vh; 
+      overflow-y: auto;
+      box-sizing: border-box;
     }
   }
 }

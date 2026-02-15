@@ -68,7 +68,6 @@ a {
 
 /* animations */
 @keyframes floatie-bob {
-
   0%,
   100% {
     transform: translateY(1vw);

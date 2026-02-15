@@ -1,5 +1,20 @@
 <template>
   <div class="gradient">
+    <div class="stars-container">
+      <div
+        v-for="star in stars"
+        :key="star.id"
+        class="star"
+        :style="{
+          left: star.x + '%',
+          top: star.y + '%',
+          width: star.size + 'px',
+          height: star.size + 'px',
+          animationDelay: star.delay + 's',
+          animationDuration: star.duration + 's',
+        }"
+      ></div>
+    </div>
     <img
       src="../assets/img/images/better_landing.webp"
       class="background"
@@ -27,6 +42,17 @@ export default {
 };
 </script>
 
+<script setup lang="ts">
+const stars = Array.from({ length: 80 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 60,
+  size: Math.random() * 2.5 + 1,
+  delay: Math.random() * 5,
+  duration: Math.random() * 3 + 2,
+}));
+</script>
+
 <style scoped>
 .gradient {
   position: relative;
@@ -39,6 +65,36 @@ export default {
   background: linear-gradient(180deg, #201f3a 70%, #010b18 100%);
   width: 100%;
   aspect-ratio: 16 / 9;
+}
+
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: twinkle ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.15;
+    transform: scale(0.8);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  }
 }
 
 .background {
