@@ -19,7 +19,7 @@
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
       <div class="green-planet-bg"></div>
-      <!-- <BitBot /> -->
+      <BitBot />
       <Navbar />
       <LandingPage />
       <div class="transition0"></div>
