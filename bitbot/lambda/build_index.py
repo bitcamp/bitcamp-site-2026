@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_MODE = "sleeper_site"
+BOT_MODE = "main_website"
 client = OpenAI()
 
 dataset = []
