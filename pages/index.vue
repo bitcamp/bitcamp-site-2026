@@ -25,7 +25,7 @@
       <div class="transition0"></div>
       <TracksPage />
       <CampGamesPage />
-      <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" />
+      <!-- <Schedule :styles="{ height: '80vh', minHeight: '60rem' }" /> -->
       <TeamPage />
       <div class="transition1"></div>
       <FAQSponsorPage />
