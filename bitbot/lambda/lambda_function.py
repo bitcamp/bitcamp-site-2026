@@ -3,8 +3,7 @@ from bitbot import receive
 
 
 def lambda_handler(event, context):
-    http_method = event.get("requestContext", {}).get(
-        "http", {}).get("method", "")
+    http_method = event.get("requestContext", {}).get("http", {}).get("method", "")
     if not http_method:
         http_method = event.get("httpMethod", "")
 
@@ -14,9 +13,9 @@ def lambda_handler(event, context):
             "headers": {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Methods": "POST, OPTIONS"
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
             },
-            "body": ""
+            "body": "",
         }
 
     try:
@@ -28,9 +27,9 @@ def lambda_handler(event, context):
                 "statusCode": 400,
                 "headers": {
                     "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                "body": json.dumps({"error": "No message provided"})
+                "body": json.dumps({"error": "No message provided"}),
             }
 
         bot_reply = receive(user_message)
@@ -39,9 +38,9 @@ def lambda_handler(event, context):
             "statusCode": 200,
             "headers": {
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
-            "body": json.dumps({"reply": bot_reply})
+            "body": json.dumps({"reply": bot_reply}),
         }
 
     except Exception as e:
@@ -49,7 +48,7 @@ def lambda_handler(event, context):
             "statusCode": 500,
             "headers": {
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
-            "body": json.dumps({"error": str(e)})
+            "body": json.dumps({"error": str(e)}),
         }
