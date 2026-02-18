@@ -29,7 +29,7 @@
           <div class="big_poloroid">
             <img
               class="team_photo"
-              src="../assets/img/images/gang.png"
+              src="../assets/img/images/dir_2026.JPG"
               alt="lebron"
             />
             <div class="caption_box">
@@ -234,10 +234,11 @@ export default {
 }
 
 .team_photo {
-  height: 100%;
+  height: auto;
   width: 100%;
   padding-bottom: 2%;
   overflow: hidden;
+  object-fit: cover;
 }
 
 .small_photo {
@@ -406,7 +407,6 @@ export default {
   }
 
   .team_photo {
-    width: 100%;
     display: flex;
     /* margin-left: 25%; */
   }
