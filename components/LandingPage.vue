@@ -135,15 +135,15 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   border-style: solid;
   border-color: #e54d1a;
   color: white;
-  font-family: Aleo, sans-serif;
+  font-family: Avenir;
   font-weight: bold;
   letter-spacing: 0.2rem;
   margin-bottom: 40%;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease,
     background-color 0.25s ease;
-  font-size: 1.4vw;
-  padding: 0.6vw 2vw;
+  font-size: 3rem;
+  padding: 0.6rem 2rem;
   border-width: 0.2vw;
 }
 
