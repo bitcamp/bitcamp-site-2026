@@ -306,11 +306,11 @@ const sponsors: Sponsor[] = [
 .sponsor-logo-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2vw;
-  padding: 3rem;
+  gap: 1.5rem;
+  padding: 2rem 3vw;
   margin-bottom: 5vh;
-  margin-left: 3vw;
-  margin-right: 3.5vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .sponsor-card {
@@ -494,9 +494,7 @@ const sponsors: Sponsor[] = [
   .sponsor-logo-container {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    padding: 1.5rem;
-    margin-left: 3vw;
-    margin-right: 1rem;
+    padding: 1.5rem 3vw;
   }
 
   .sponsor-button {
@@ -526,11 +524,9 @@ const sponsors: Sponsor[] = [
   }
 
   .sponsor-logo-container {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    padding: 1.5rem;
-    margin-left: 3vw;
-    margin-right: 1rem;
+    padding: 1rem 4vw;
   }
 
   .sponsor-card {
@@ -578,6 +574,19 @@ const sponsors: Sponsor[] = [
     overflow-y: auto;
     transition: max-height 0.6s ease-in-out;
     margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-logo-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 4vw;
+  }
+
+  .sponsor-card {
+    padding: 0.5rem;
+    font-size: 3vw;
   }
 }
 
