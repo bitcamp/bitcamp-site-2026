@@ -21,15 +21,15 @@
         >
           <img :src="starBorder" class="star-border-overlay" alt="" />
           <div class="cloud-content">
-            <div class="text-area">
-              <h2 class="cloud-title">{{ track.title }}</h2>
-              <p class="cloud-desc">{{ track.description }}</p>
-            </div>
-            <div class="image-area">
+            <div class="icon-area">
               <div class="circle-placeholder">
                 <img :src="track.icon" v-if="track.icon" class="icon-img" />
                 <span v-else class="placeholder-text">Image</span>
               </div>
+            </div>
+            <div class="text-area">
+              <h2 class="cloud-title">{{ track.title }}</h2>
+              <p class="cloud-desc">{{ track.description }}</p>
             </div>
           </div>
         </div>
@@ -79,6 +79,7 @@
 </template>
 
 <script lang="ts">
+import gsap from "gsap";
 import starBorder from "@/assets/img/star-border.png";
 import generalLogo from "@/assets/img/icons/general_logo.svg";
 import gamedevLogo from "@/assets/img/icons/gamedev_logo.svg";
@@ -94,6 +95,10 @@ export default {
     return {
       currentTrackIndex: 0,
       starBorder,
+      cloudX: [] as ReturnType<typeof gsap.quickTo>[],
+      cloudY: [] as ReturnType<typeof gsap.quickTo>[],
+      onPointerMove: null as ((e: PointerEvent) => void) | null,
+      onPointerLeave: null as (() => void) | null,
       tracks: [
         {
           title: "General Track",
@@ -135,19 +140,84 @@ export default {
     };
   },
 
+  mounted() {
+    this.initMouseFollow();
+    gsap.fromTo(
+      this.$el.querySelector(".main-title"),
+      { rotation: -75, y: -80, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: this.$el.querySelector(".center-header"),
+          start: "top 85%",
+          once: true,
+        },
+        rotation: 0,
+        y: 0,
+        opacity: 1,
+        ease: "bounce.out",
+        duration: 1.5,
+      },
+    );
+  },
+
+  beforeUnmount() {
+    this.destroyMouseFollow();
+  },
+
   computed: {
     trackStyle() {
       const ITEM_WIDTH = 80;
       const GAP = 4;
       const ITEM_STEP = ITEM_WIDTH + GAP;
       const LEFT_OFFSET = (100 - ITEM_WIDTH) / 2;
-
       const translateX = LEFT_OFFSET - this.currentTrackIndex * ITEM_STEP;
       return { transform: `translateX(${translateX}%)` };
     },
   },
 
   methods: {
+    initMouseFollow() {
+      const clouds = this.$el.querySelectorAll(".desktop-view .track-cloud");
+      if (!clouds.length) return;
+
+      clouds.forEach((cloud: HTMLElement, i: number) => {
+        const qx = gsap.quickTo(cloud, "x", { duration: 0.6, ease: "power3" });
+        const qy = gsap.quickTo(cloud, "y", { duration: 0.6, ease: "power3" });
+
+        gsap.to(cloud, {
+          yPercent: -5,
+          duration: 1 + (i % 3) * 0.5,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          delay: i * 0.3,
+        });
+
+        cloud.addEventListener("pointermove", (e: PointerEvent) => {
+          const rect = cloud.getBoundingClientRect();
+          const nx = (e.clientX - rect.left) / rect.width;
+          const ny = (e.clientY - rect.top) / rect.height;
+
+          qx(gsap.utils.interpolate(-20, 20, nx));
+          qy(gsap.utils.interpolate(-20, 20, ny));
+        });
+
+        cloud.addEventListener("pointerleave", () => {
+          qx(0);
+          qy(0);
+        });
+      });
+    },
+
+    destroyMouseFollow() {
+      const wrapper = this.$el?.querySelector(".content-wrapper");
+      if (!wrapper) return;
+      if (this.onPointerMove)
+        wrapper.removeEventListener("pointermove", this.onPointerMove);
+      if (this.onPointerLeave)
+        wrapper.removeEventListener("pointerleave", this.onPointerLeave);
+    },
+
     nextTrack() {
       this.currentTrackIndex =
         (this.currentTrackIndex + 1) % this.tracks.length;
@@ -168,7 +238,7 @@ export default {
 <style scoped>
 .tracks-page {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
   color: white;
   display: flex;
   justify-content: center;
@@ -226,23 +296,34 @@ export default {
   transform: scale(1.1);
 }
 
-.cloud-title {
-  font-family: "Aleo";
-  font-size: clamp(1.4rem, 1.8vw, 2.2rem);
-  font-weight: bold;
-  margin: 1rem 0 0 1rem;
+.desktop-view {
+  display: block;
 }
 
-.cloud-desc {
-  font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(0.85rem, 1vw, 1.15rem);
-  line-height: 1.25;
-  margin-left: 1rem;
+.track-cloud {
+  position: absolute;
+  width: 26vw;
+  max-width: 400px;
+  z-index: 5;
+  padding: 10px;
+}
+
+.cloud-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+}
+
+.icon-area {
+  margin-top: -50px;
 }
 
 .circle-placeholder {
-  width: 115px;
-  height: 115px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -251,37 +332,28 @@ export default {
 }
 
 .icon-img {
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
 }
 
-.desktop-view {
-  display: block;
+.text-area {
+  text-align: center;
+  padding: 0 1rem 0.5rem;
 }
 
-.desktop-view .circle-placeholder {
-  margin-top: 100px;
+.cloud-title {
+  font-family: "Aleo";
+  font-size: clamp(1.6rem, 2vw, 2.5rem);
+  font-weight: bold;
+  margin: 0.5rem 0 0.4rem;
 }
 
-.track-cloud {
-  position: absolute;
-  width: 26vw;
-  max-width: 450px;
-  max-height: 220px;
-  aspect-ratio: 2 / 1;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-.cloud-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  width: 100%;
+.cloud-desc {
+  font-family: "Avenir", Helvetica, sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+  line-height: 1.35;
+  margin: 0;
 }
 
 .pos-0 {
