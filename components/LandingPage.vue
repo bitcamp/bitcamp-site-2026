@@ -142,9 +142,9 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease,
     background-color 0.25s ease;
-  font-size: 3rem;
-  padding: 0.6rem 2rem;
-  border-width: 0.2vw;
+  font-size: 2vw;
+  padding: 0.03em 0.65em;
+  border-width: 3px;
 }
 
 .register-button:hover {
@@ -162,16 +162,14 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
     border-radius: 5rem;
     letter-spacing: 0.25rem;
     font-size: 4vw;
-    border-width: 0.7vw;
+    border-width: 4px;
     margin-top: 43vw;
     margin-right: 40vw;
   }
 
   .gradient {
     aspect-ratio: 9 / 16;
-    background: transparent;
     min-height: auto;
-    position: relative;
     overflow: visible;
     display: block;
     background: linear-gradient(180deg, #201f3a 70%, #010b18 100%);
@@ -186,7 +184,6 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
 
   .message-wrapper {
     position: relative;
-    /* top: auto; */
     height: auto;
     z-index: 1;
     margin-top: 250vw;

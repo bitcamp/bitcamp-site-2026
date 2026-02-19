@@ -203,9 +203,7 @@ function onresize() {
   setColorAndOpacity();
 }
 
-function setColorAndOpacity() {
-  var header = document.getElementsByTagName("header")[0];
-}
+function setColorAndOpacity() {}
 
 function scrollTo(id: string) {
   const target = document.getElementById(id);
@@ -295,7 +293,7 @@ nav {
   z-index: 3;
 
   &.page {
-    margin-top: 4px;
+    margin-top: 0.25rem;
   }
 }
 
@@ -533,7 +531,7 @@ nav {
     font-size: 4rem;
   }
   .mobile-socials {
-    padding-top: 6px;
+    padding-top: 0.375rem;
   }
   .socials-row img {
     width: 60px;
