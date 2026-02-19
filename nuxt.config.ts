@@ -1,6 +1,10 @@
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
+  devServer: {
+    host: "0.0.0.0",
+  },
+
   modules: ["motion-v/nuxt"],
 
   ssr: false,

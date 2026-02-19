@@ -263,10 +263,10 @@ const sponsors: Sponsor[] = [
   &::after {
     content: "";
     position: absolute;
-    top: clamp(-1000px, -110vh, -500px);
-    left: clamp(-2200px, -250vw, -300px);
-    width: clamp(1000px, 400vw, 4000px);
-    height: clamp(800px, 200vh, 2000px);
+    top: -110vh;
+    left: -250vw;
+    width: 400vw;
+    height: 200vh;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
