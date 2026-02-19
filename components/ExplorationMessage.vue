@@ -112,7 +112,7 @@ onUnmounted(() => {
   font-style: italic;
   font-weight: 800;
   line-height: 110%;
-  letter-spacing: 0;
+  /* letter-spacing: 0; */
   text-shadow: 0 0 20.82px rgba(255, 249, 240, 1);
   margin-bottom: 1rem;
 }
@@ -125,7 +125,7 @@ onUnmounted(() => {
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-  letter-spacing: 0;
+  /* letter-spacing: 0; */
   opacity: 0.9;
 }
 

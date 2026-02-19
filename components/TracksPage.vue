@@ -11,7 +11,7 @@
         </p>
       </div>
 
-      <div class="tracks-container desktop-view">
+      <div class="desktop-view">
         <div
           v-for="(track, index) in tracks"
           :key="track.title"
@@ -35,43 +35,33 @@
         </div>
       </div>
 
-      <div class="track-carousel mobile-view">
-        <div class="carousel-container">
-          <button class="nav-button nav-button--left" @click="prevTrack">
-            <img src="assets/img/icons/left-arrow.svg" alt="Left Arrow" />
-          </button>
-
-          <div class="carousel-track" :style="trackStyle">
-            <div
-              v-for="(track, index) in tracks"
-              :key="track.title"
-              class="carousel-item"
-            >
-              <div class="track-card">
-                <img :src="starBorder" class="star-border-overlay" alt="" />
-                <div class="card-inner">
-                  <div class="card-text">
-                    <h2 class="cloud-title">{{ track.title }}</h2>
-                    <p class="cloud-desc">{{ track.description }}</p>
-                  </div>
-                  <div class="card-icon">
-                    <div class="circle-placeholder">
-                      <img
-                        :src="track.icon"
-                        v-if="track.icon"
-                        class="icon-img"
-                      />
-                      <span v-else class="placeholder-text">Image</span>
-                    </div>
+      <div class="mobile-view">
+        <div class="mobile-grid">
+          <div
+            v-for="(track, index) in tracks"
+            :key="track.title"
+            class="mobile-card mobile-card--open"
+            :class="'mobile-card--' + index"
+          >
+            <div class="mobile-card-glow"></div>
+            <img :src="starBorder" class="star-border-overlay" alt="" />
+            <div class="mobile-card-content">
+              <div class="mobile-card-header">
+                <div class="icon-area">
+                  <div class="circle-placeholder">
+                    <img :src="track.icon" v-if="track.icon" class="icon-img" />
+                    <span v-else class="placeholder-text">Image</span>
                   </div>
                 </div>
+                <div class="mobile-card-title-group">
+                  <h2 class="cloud-title">{{ track.title }}</h2>
+                </div>
+              </div>
+              <div class="mobile-card-body">
+                <p class="cloud-desc">{{ track.description }}</p>
               </div>
             </div>
           </div>
-
-          <button class="nav-button nav-button--right" @click="nextTrack">
-            <img src="assets/img/icons/right-arrow.svg" alt="Right Arrow" />
-          </button>
         </div>
       </div>
     </div>
@@ -94,6 +84,7 @@ export default {
   data() {
     return {
       currentTrackIndex: 0,
+      openTrackIndex: -1,
       starBorder,
       cloudX: [] as ReturnType<typeof gsap.quickTo>[],
       cloudY: [] as ReturnType<typeof gsap.quickTo>[],
@@ -251,7 +242,7 @@ export default {
   max-width: 1800px;
   height: 100vh;
   z-index: 10;
-  padding-inline: clamp(48px, 6vw, 120px);
+  padding-inline: 5vw;
 }
 
 .center-header {
@@ -269,7 +260,7 @@ export default {
 
 .main-title {
   font-family: "Aleo";
-  font-size: clamp(3rem, 5vw, 6.5rem);
+  font-size: 5vw;
   margin: 0;
   line-height: 1;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
@@ -278,7 +269,7 @@ export default {
 
 .main-subtitle {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: clamp(0.9rem, 1vw, 2rem);
+  font-size: 1.1vw;
   line-height: 1.5;
   margin-top: 20px;
   max-width: 500px;
@@ -302,8 +293,8 @@ export default {
 
 .track-cloud {
   position: absolute;
-  width: 26vw;
-  max-width: 400px;
+  width: 24vw;
+  max-width: 380px;
   z-index: 5;
   padding: 10px;
 }
@@ -344,171 +335,234 @@ export default {
 
 .cloud-title {
   font-family: "Aleo";
-  font-size: clamp(1.6rem, 2vw, 2.5rem);
+  font-size: 1.8vw;
   font-weight: bold;
   margin: 0.5rem 0 0.4rem;
 }
 
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+  font-size: 1vw;
   line-height: 1.35;
   margin: 0;
 }
 
 .pos-0 {
-  top: 12%;
-  left: max(3%, 40px);
+  top: 15%;
+  left: max(5%, 40px);
 }
 .pos-1 {
-  top: 2%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
 .pos-2 {
-  top: 12%;
-  right: max(3%, 40px);
+  top: 15%;
+  right: max(5%, 40px);
 }
 .pos-3 {
-  bottom: 12%;
-  left: max(3%, 40px);
+  bottom: 15%;
+  left: max(5%, 40px);
 }
 .pos-4 {
-  bottom: 2%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
 .pos-5 {
-  bottom: 12%;
-  right: max(3%, 40px);
+  bottom: 15%;
+  right: max(5%, 40px);
 }
 
 .mobile-view {
   display: none;
 }
 
-.track-carousel {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  max-width: 750px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.carousel-track {
+.mobile-grid {
   display: flex;
-  gap: 4%;
-  transition: transform 0.5s ease;
-}
-
-.carousel-item {
-  flex: 0 0 80%;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 3vmax 0;
+  gap: 14px;
+  padding: 0 14px;
+  width: 100%;
 }
 
-.track-card {
+.mobile-card {
   position: relative;
   width: 100%;
-  background: rgba(30, 40, 60, 0.8);
-  border-radius: 24px;
-  padding: 28px;
-  overflow: hidden;
+  padding: 4px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
 
-.card-inner {
+.mobile-card:active {
+  transform: scale(0.98);
+}
+
+.mobile-card-glow {
+  position: absolute;
+  top: -1px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: var(--card-accent);
+  border-radius: 0 0 50% 50%;
+  filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 3;
+}
+
+.mobile-card--open .mobile-card-glow {
+  opacity: 1;
+}
+
+.mobile-card .star-border-overlay {
+  transform: scale(1.04);
+  opacity: 0.6;
+  border-radius: 16px;
+}
+
+.mobile-card-content {
   position: relative;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  width: 100%;
 }
 
-.card-text {
+.mobile-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+}
+
+.mobile-card .icon-area {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.mobile-card .circle-placeholder {
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+}
+
+.mobile-card .icon-img {
+  width: 58px;
+  height: 58px;
+  filter: drop-shadow(0 0 8px var(--card-accent));
+  transition: filter 0.3s ease;
+}
+
+.mobile-card--open .icon-img {
+  filter: drop-shadow(0 0 14px var(--card-accent));
+}
+
+.mobile-card-title-group {
   flex: 1;
   min-width: 0;
 }
 
-.card-text .cloud-title {
-  font-size: 1.8rem;
-  margin: 0 0 8px;
-}
-
-.card-text .cloud-desc {
-  font-size: 1.1rem;
-  line-height: 1.4;
+.mobile-card .cloud-title {
+  font-family: "Aleo";
+  font-size: 17px;
+  font-weight: bold;
   margin: 0;
-  overflow-wrap: break-word;
+  text-align: left;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 24px rgba(180, 200, 255, 0.12);
 }
 
-.card-icon {
-  flex-shrink: 0;
+.mobile-card-orbit {
   display: flex;
+  gap: 5px;
+  margin-top: 6px;
   align-items: center;
-  justify-content: center;
 }
 
-.card-inner .circle-placeholder {
-  width: 140px;
-  height: 140px;
-}
-
-.card-inner .icon-img {
-  width: 100%;
-  height: 100%;
-}
-
-.nav-button {
-  position: absolute;
-  top: 35%;
-  z-index: 2;
-  border: none;
+.orbit-dot {
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  width: 8vmax;
-  height: 8vmax;
-  min-width: 40px;
-  min-height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
+  background: var(--card-accent);
+  opacity: 0.6;
+  animation: orbit-pulse 2.5s ease-in-out infinite;
 }
 
-.nav-button img {
-  width: 100%;
-  height: 100%;
-  transition: filter 0.15s ease, transform 0.15s ease;
+.orbit-dot:nth-child(2) {
+  opacity: 0.4;
+  width: 3px;
+  height: 3px;
+  animation-delay: 0.4s;
 }
 
-.nav-button:active img {
-  filter: drop-shadow(0 0 6px #f98f37) drop-shadow(0 0 14px #f98f37);
-  transform: scale(0.85);
+.orbit-dot:nth-child(3) {
+  opacity: 0.2;
+  width: 2px;
+  height: 2px;
+  animation-delay: 0.8s;
 }
 
-.nav-button--left {
-  left: 1%;
+.mobile-card-body {
+  padding: 0 14px 18px;
 }
-.nav-button--right {
-  right: 1%;
+
+.mobile-card .cloud-desc {
+  font-family: "Avenir", Helvetica, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin: 0;
+  border-top: 1px solid rgba(100, 130, 220, 0.1);
+  padding-top: 12px;
 }
 
 @media (max-width: 1400px) {
+  .pos-0 {
+    top: 23%;
+    left: max(5%, 40px);
+  }
+  .pos-2 {
+    top: 20%;
+    right: max(5%, 40px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1800px;
+    height: 85vh;
+    z-index: 10;
+    padding-inline: 5vw;
+  }
+
+  .pos-0 {
+    top: 25%;
+    left: max(5%, 40px);
+  }
+  .pos-2 {
+    top: 25%;
+    right: max(5%, 40px);
+  }
+}
+
+@media (max-width: 796px) {
   .desktop-view {
     display: none;
   }
+
   .mobile-view {
     display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .tracks-page {
@@ -519,7 +573,7 @@ export default {
     height: auto;
     padding: 0;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -530,18 +584,24 @@ export default {
     top: auto;
     left: auto;
     transform: none;
-    width: min(92vw, 760px);
-    margin: 20px auto 34px;
+    width: 88vw;
+    max-width: 760px;
+    margin: 20px auto 32px;
   }
 
   .main-title {
-    font-size: clamp(2.6rem, 10vw, 5.5rem);
+    font-size: 11vw;
     white-space: normal;
+    text-shadow: 0 0 40px rgba(140, 170, 255, 0.35),
+      0 0 80px rgba(80, 110, 220, 0.15);
   }
 
   .main-subtitle {
-    font-size: clamp(1rem, 3vw, 2rem);
-    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.55;
+    margin-top: 14px;
+    max-width: 300px;
+    color: rgba(170, 190, 235, 0.7);
   }
 }
 </style>
