@@ -310,7 +310,9 @@ const sponsors: Sponsor[] = [
   padding: 2rem 3vw;
   margin-bottom: 5vh;
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .sponsor-card {
@@ -329,6 +331,7 @@ const sponsors: Sponsor[] = [
   transition: all 0.3s ease;
   padding: 2rem;
   cursor: pointer;
+  min-width: 0;
 
   img {
     width: 100%;
