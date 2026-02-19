@@ -145,6 +145,18 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   font-size: 2vw;
   padding: 0.03em 0.65em;
   border-width: 3px;
+  animation: button-enter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+}
+
+@keyframes button-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.75) translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .register-button:hover {

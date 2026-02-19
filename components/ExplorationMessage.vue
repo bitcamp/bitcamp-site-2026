@@ -1,5 +1,5 @@
 <template>
-  <div class="exploration-container">
+  <div class="exploration-container" ref="containerRef">
     <div class="exploration-message">
       <h1 class="title"><i>Bitcamp is a place for exploration.</i></h1>
       <p class="description">
@@ -14,6 +14,79 @@
 export default {
   name: "ExplorationMessage",
 };
+</script>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+const containerRef = ref<HTMLElement | null>(null);
+
+let titleSplit: SplitText | null = null;
+let descSplit: SplitText | null = null;
+let titleAnim: gsap.core.Tween | null = null;
+let descAnim: gsap.core.Tween | null = null;
+
+function setup() {
+  titleAnim && titleAnim.revert();
+  descAnim && descAnim.revert();
+  titleSplit && titleSplit.revert();
+  descSplit && descSplit.revert();
+
+  if (!containerRef.value) return;
+
+  const scroller = document.querySelector(".wrapper") ?? window;
+  ScrollTrigger.defaults({ scroller });
+
+  const titleEl = containerRef.value.querySelector(".title")!;
+  const descEl = containerRef.value.querySelector(".description")!;
+
+  titleSplit = SplitText.create(titleEl, { type: "chars,words,lines" });
+  descSplit = SplitText.create(descEl, { type: "chars,words,lines" });
+
+  titleAnim = gsap.from(titleSplit.lines, {
+    rotationX: -100,
+    transformOrigin: "50% 50% -160px",
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3",
+    stagger: 0.25,
+    scrollTrigger: {
+      trigger: titleEl,
+      start: "top 85%",
+    },
+  });
+
+  descAnim = gsap.from(descSplit.lines, {
+    rotationX: -100,
+    transformOrigin: "50% 50% -160px",
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3",
+    stagger: 0.25,
+    scrollTrigger: {
+      trigger: descEl,
+      start: "top 90%",
+    },
+  });
+}
+
+onMounted(() => {
+  setup();
+  window.addEventListener("resize", setup);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", setup);
+  titleAnim && titleAnim.revert();
+  descAnim && descAnim.revert();
+  titleSplit && titleSplit.revert();
+  descSplit && descSplit.revert();
+});
 </script>
 
 <style scoped>

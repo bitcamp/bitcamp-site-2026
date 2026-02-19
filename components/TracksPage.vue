@@ -167,15 +167,12 @@ export default {
 
 <style scoped>
 .tracks-page {
-  min-height: auto;
   position: relative;
   overflow: hidden;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1px;
-  padding-bottom: 1px;
 }
 
 .content-wrapper {
@@ -218,18 +215,9 @@ export default {
   opacity: 0.9;
 }
 
-.track-cloud {
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
-}
-
 .star-border-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -238,20 +226,11 @@ export default {
   transform: scale(1.1);
 }
 
-.cloud-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  width: 100%;
-}
-
 .cloud-title {
   font-family: "Aleo";
   font-size: clamp(1.4rem, 1.8vw, 2.2rem);
-  margin-left: 1rem;
-  margin-top: 1rem;
   font-weight: bold;
+  margin: 1rem 0 0 1rem;
 }
 
 .cloud-desc {
@@ -264,14 +243,11 @@ export default {
 .circle-placeholder {
   width: 115px;
   height: 115px;
-  background: none;
   border-radius: 50%;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  overflow: visible;
 }
 
 .icon-img {
@@ -280,58 +256,63 @@ export default {
   object-fit: contain;
 }
 
-.desktop-view .circle-placeholder {
-  margin-top: 100px;
-}
-
 .desktop-view {
   display: block;
 }
 
-.mobile-view {
-  display: none;
+.desktop-view .circle-placeholder {
+  margin-top: 100px;
 }
 
 .track-cloud {
   position: absolute;
   width: 26vw;
-  aspect-ratio: 2 / 1;
-  height: auto;
   max-width: 450px;
   max-height: 220px;
+  aspect-ratio: 2 / 1;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.cloud-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
 }
 
 .pos-0 {
   top: 12%;
   left: max(3%, 40px);
-  padding: 10px;
 }
 .pos-1 {
   top: 2%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px;
 }
 .pos-2 {
   top: 12%;
   right: max(3%, 40px);
-  padding: 10px;
 }
 .pos-3 {
   bottom: 12%;
   left: max(3%, 40px);
-  padding: 10px;
 }
 .pos-4 {
   bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px;
 }
 .pos-5 {
   bottom: 12%;
   right: max(3%, 40px);
-  padding: 10px;
+}
+
+.mobile-view {
+  display: none;
 }
 
 .track-carousel {
@@ -358,7 +339,6 @@ export default {
 
 .carousel-item {
   flex: 0 0 80%;
-  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,7 +351,6 @@ export default {
   background: rgba(30, 40, 60, 0.8);
   border-radius: 24px;
   padding: 28px;
-  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -379,35 +358,29 @@ export default {
   position: relative;
   z-index: 2;
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 16px;
-  min-width: 0;
 }
 
 .card-text {
-  flex: 1 1 0%;
+  flex: 1;
   min-width: 0;
-  text-align: left;
 }
 
 .card-text .cloud-title {
   font-size: 1.8rem;
-  margin: 0 0 8px 0;
-  margin-left: 0;
+  margin: 0 0 8px;
 }
 
 .card-text .cloud-desc {
   font-size: 1.1rem;
   line-height: 1.4;
   margin: 0;
-  margin-left: 0;
   overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
 .card-icon {
-  flex: 0 0 auto;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -416,14 +389,11 @@ export default {
 .card-inner .circle-placeholder {
   width: 140px;
   height: 140px;
-  border: none;
-  background: transparent;
 }
 
 .card-inner .icon-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
 }
 
 .nav-button {
@@ -442,15 +412,18 @@ export default {
   justify-content: center;
   background: none;
 }
+
 .nav-button img {
   width: 100%;
   height: 100%;
   transition: filter 0.15s ease, transform 0.15s ease;
 }
+
 .nav-button:active img {
   filter: drop-shadow(0 0 6px #f98f37) drop-shadow(0 0 14px #f98f37);
   transform: scale(0.85);
 }
+
 .nav-button--left {
   left: 1%;
 }
@@ -462,23 +435,16 @@ export default {
   .desktop-view {
     display: none;
   }
-
   .mobile-view {
     display: flex;
   }
 
   .tracks-page {
-    min-height: auto;
-    height: auto;
     padding: 40px 0 0;
-    overflow: hidden;
   }
 
   .content-wrapper {
-    width: 100%;
-    max-width: 100%;
     height: auto;
-    min-height: unset;
     padding: 0;
     margin-top: 10px;
     margin-bottom: 20px;
