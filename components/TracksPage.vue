@@ -236,6 +236,10 @@ export default {
   align-items: center;
 }
 
+.star-border-overlay {
+  opacity: 0.8;
+}
+
 .content-wrapper {
   position: relative;
   width: 100%;
@@ -292,6 +296,13 @@ export default {
 }
 
 .track-cloud {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 20, 55, 0.7) 0%,
+    rgba(8, 10, 30, 0.85) 100%
+  );
+  border: 1px solid rgba(100, 130, 220, 0.1);
+  border-radius: 120px;
   position: absolute;
   width: 24vw;
   max-width: 380px;
@@ -388,6 +399,12 @@ export default {
 }
 
 .mobile-card {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 20, 55, 0.7) 0%,
+    rgba(8, 10, 30, 0.85) 100%
+  );
+  border: 1px solid rgba(100, 130, 220, 0.1);
   position: relative;
   width: 100%;
   padding: 4px;
