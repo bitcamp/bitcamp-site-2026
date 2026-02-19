@@ -40,10 +40,9 @@
           <div
             v-for="(track, index) in tracks"
             :key="track.title"
-            class="mobile-card mobile-card--open"
+            class="mobile-card"
             :class="'mobile-card--' + index"
           >
-            <div class="mobile-card-glow"></div>
             <img :src="starBorder" class="star-border-overlay" alt="" />
             <div class="mobile-card-content">
               <div class="mobile-card-header">
@@ -408,7 +407,6 @@ export default {
   position: relative;
   width: 100%;
   padding: 4px;
-  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   border-radius: 16px;
   backdrop-filter: blur(10px);
@@ -417,24 +415,6 @@ export default {
 
 .mobile-card:active {
   transform: scale(0.98);
-}
-
-.mobile-card-glow {
-  position: absolute;
-  top: -1px;
-  left: 15%;
-  right: 15%;
-  height: 2px;
-  background: var(--card-accent);
-  border-radius: 0 0 50% 50%;
-  filter: blur(6px);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  z-index: 3;
-}
-
-.mobile-card--open .mobile-card-glow {
-  opacity: 1;
 }
 
 .mobile-card .star-border-overlay {
@@ -476,10 +456,6 @@ export default {
   height: 58px;
   filter: drop-shadow(0 0 8px var(--card-accent));
   transition: filter 0.3s ease;
-}
-
-.mobile-card--open .icon-img {
-  filter: drop-shadow(0 0 14px var(--card-accent));
 }
 
 .mobile-card-title-group {
