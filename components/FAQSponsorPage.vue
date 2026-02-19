@@ -124,7 +124,7 @@ const questions = ref<FAQ[]>([
   {
     question: "How competitive is the application process?",
     answer:
-      "It’s not competitive at all! The application process primarily serves as a way for us to verify application details as they come in. Unless you receive any contact from us (other than the confirmation email), we’ll see you by the campfire!",
+      "It's not competitive at all! The application process primarily serves as a way for us to verify application details as they come in. Unless you receive any contact from us (other than the confirmation email), we'll see you by the campfire!",
   },
   {
     question: "Who can apply to Bitcamp?",
@@ -154,7 +154,7 @@ const questions = ref<FAQ[]>([
     question:
       "Is travel reimbursement guaranteed, and will I be fully reimbursed?",
     answer:
-      "Due to a limited budget, we’re unable to guarantee reimbursement, nor can we guarantee full reimbursement on travel expenses. Please do not depend on the travel reimbursement when planning your trip.",
+      "Due to a limited budget, we're unable to guarantee reimbursement, nor can we guarantee full reimbursement on travel expenses. Please do not depend on the travel reimbursement when planning your trip.",
   },
   {
     question: "Where can I access the reimbursement application?",
@@ -255,7 +255,6 @@ const sponsors: Sponsor[] = [
 .content-wrapper {
   width: 100%;
   margin: 0 auto;
-  // background:transparent;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #000;
@@ -287,13 +286,6 @@ const sponsors: Sponsor[] = [
     top: -40vh;
     width: 40vw;
     height: 70vh;
-    // background-image: url('../assets/img/faq/green-planet.webp');
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // z-index: 0;
-    // pointer-events: none;
-    // opacity: 1;
 
     @media (max-width: 768px) {
       display: none;
@@ -354,16 +346,6 @@ const sponsors: Sponsor[] = [
 .button-wrapper {
   display: flex;
   justify-content: center;
-  // position: absolute;
-  // top: 48%;
-  // right: 38%;
-  // transform: translateY(-50%);
-  // width: auto;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
-  // z-index: 1;
 }
 
 .sponsor-button {
@@ -375,7 +357,6 @@ const sponsors: Sponsor[] = [
   font-family: Aleo, sans-serif;
   font-weight: bold;
   letter-spacing: 0.2rem;
-  // margin-bottom: 40%;
   margin-bottom: 2rem;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease,
@@ -509,68 +490,6 @@ const sponsors: Sponsor[] = [
   margin-bottom: 2rem;
 }
 
-@media (max-width: 768px) {
-  .faq-text-div,
-  .sponsor-text-div {
-    font-size: 5vw;
-    text-align: left;
-    margin-left: 5vw;
-  }
-  .sponsor-logo-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    padding: 1.5rem;
-    margin-left: 3vw;
-    margin-right: 3vw;
-  }
-
-  .sponsor-card {
-    font-size: 4vw;
-    padding: 1rem;
-  }
-
-  .Question_Column {
-    min-width: 100%;
-  }
-
-  .Question,
-  .Question_Button {
-    font-size: 3vw;
-  }
-
-  .Question_Button {
-    height: 10vw;
-    padding: 2rem 12px 1.75rem;
-    &::before {
-      min-width: 4rem;
-      min-height: 4rem;
-    }
-  }
-
-  .Answer,
-  .Answer_Opened {
-    height: 100%;
-    font-size: 2.5vw;
-  }
-  .Answer_Opened {
-    padding: 0px 12px;
-    padding-top: 1rem;
-    padding-left: calc(12px + 1rem + 3rem);
-    text-align: left;
-    font-size: 1.4vw;
-    overflow-y: auto;
-    transition: max-height 0.6s ease-in-out;
-    margin-bottom: 2rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .Question_Button::before {
-    min-width: 4rem;
-    min-height: 4rem;
-  }
-}
-
 @media (max-width: 1024px) {
   .sponsor-logo-container {
     grid-template-columns: repeat(3, 1fr);
@@ -599,25 +518,13 @@ const sponsors: Sponsor[] = [
 }
 
 @media (max-width: 768px) {
-  .faq-text-div {
+  .faq-text-div,
+  .sponsor-text-div {
+    font-size: 5vw;
     text-align: left;
     margin-left: 5vw;
   }
-  .sponsor-text-div {
-    font-size: 5vw;
-  }
-  .faq-text-div {
-    font-size: 5vw;
-  }
 
-  .sponsor-button {
-    border-radius: 5rem;
-    letter-spacing: 0.25rem;
-    font-size: 4vw;
-    border-width: 0.7vw;
-    // margin-top: 43vw;
-    // margin-right: 40vw;
-  }
   .sponsor-logo-container {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem;
@@ -629,6 +536,13 @@ const sponsors: Sponsor[] = [
   .sponsor-card {
     font-size: 4vw;
     padding: 1rem;
+  }
+
+  .sponsor-button {
+    border-radius: 5rem;
+    letter-spacing: 0.25rem;
+    font-size: 4vw;
+    border-width: 0.7vw;
   }
 
   .Question_Column {
@@ -654,6 +568,7 @@ const sponsors: Sponsor[] = [
     height: 100%;
     font-size: 2.5vw;
   }
+
   .Answer_Opened {
     padding: 0px 12px;
     padding-top: 1rem;
