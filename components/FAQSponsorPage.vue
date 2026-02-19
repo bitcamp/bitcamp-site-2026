@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <!-- <div class="sponsor-logo-container">
+      <div class="sponsor-logo-container">
         <a
           v-for="(sponsor, i) in sponsors"
           :key="i"
@@ -52,7 +52,7 @@
         >
           <img :src="sponsor.image" :alt="sponsor.name" />
         </a>
-      </div> -->
+      </div>
       <div class="button-wrapper">
         <a
           target="_blank"
@@ -200,12 +200,50 @@ function toggleButton(question: string) {
   }
 }
 
-const sponsors: Sponsor[] = Array(12).fill({
-  name: "",
-  image: "",
-  amount: -1,
-  url: "",
-});
+const sponsors: Sponsor[] = [
+  {
+    name: "Peraton",
+    image: "/img/logos/Peraton.svg",
+    amount: -1,
+    url: "https://www.peraton.com/",
+  },
+  {
+    name: "Capital One",
+    image: "/img/logos/CapitalOne.svg",
+    amount: -1,
+    url: "https://www.capitalone.com/",
+  },
+  {
+    name: "Bloomberg",
+    image: "/img/logos/Bloomberg.svg",
+    amount: -1,
+    url: "https://www.bloomberg.com/",
+  },
+  {
+    name: "A. James Clark School of Engineering",
+    image: "/img/logos/ClarkSchool.svg",
+    amount: -1,
+    url: "https://eng.umd.edu/",
+  },
+  {
+    name: "College of Computer, Mathematical, and Natural Sciences",
+    image: "/img/logos/CMNS.svg",
+    amount: -1,
+    url: "https://cmns.umd.edu/",
+  },
+  {
+    name: "College of Computer, Mathematical, and Natural Sciences",
+    image: "/img/logos/DepartmentOfCS.svg",
+    amount: -1,
+    url: "https://www.cs.umd.edu/",
+  },
+  {
+    name: "University of Maryland Institute for Advanced Computer Studies",
+    image: "/img/logos/UMIACS.svg",
+    amount: -1,
+    url: "https://www.umiacs.umd.edu/",
+  },
+];
 </script>
 
 <style scoped lang="scss">
@@ -285,7 +323,7 @@ const sponsors: Sponsor[] = Array(12).fill({
 
 .sponsor-card {
   aspect-ratio: 16 / 10;
-  background-color: #d3d3d3;
+  background-color: #a7a7a7;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -301,8 +339,8 @@ const sponsors: Sponsor[] = Array(12).fill({
   cursor: pointer;
 
   img {
-    max-width: 80%;
-    max-height: 80%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
