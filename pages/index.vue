@@ -208,7 +208,21 @@ export default {
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--float-distance));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .red-planet {
+  --float-distance: -380px;
+  will-change: transform;
   position: absolute;
   right: -800px;
   top: 2000px;
@@ -219,9 +233,11 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   pointer-events: none;
+  animation: float 25s infinite ease-in-out;
 }
 
 .blue-planet {
+  --float-distance: -300px;
   position: absolute;
   left: -1550px;
   top: 3010px;
@@ -232,9 +248,11 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   pointer-events: none;
+  animation: float 35s infinite ease-in-out;
 }
 
 .green-planet-bg {
+  --float-distance: -120px;
   position: absolute;
   right: -50px;
   bottom: 25%;
@@ -245,6 +263,7 @@ export default {
   background-repeat: no-repeat;
   z-index: 0;
   pointer-events: none;
+  animation: float 60s infinite ease-in-out;
 }
 
 .LandingPage,
