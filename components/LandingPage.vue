@@ -142,8 +142,8 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease,
     background-color 0.25s ease;
-  font-size: 2vw;
-  padding: 0.03em 0.65em;
+  font-size: 1.7vw;
+  padding: 0.3em 0.9em;
   border-width: 3px;
   animation: button-enter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
 }
@@ -172,6 +172,7 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
 
   .register-button {
     border-radius: 5rem;
+    padding: 0.1em 0.9em;
     letter-spacing: 0.25rem;
     font-size: 4vw;
     border-width: 4px;
