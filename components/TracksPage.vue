@@ -360,28 +360,34 @@ export default {
 .pos-0 {
   top: 15%;
   left: max(5%, 40px);
+  box-shadow: 0 0 100px rgba(227, 78, 37, 0.5);
 }
 .pos-1 {
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 0 100px rgba(228, 147, 47, 0.5);
 }
 .pos-2 {
   top: 15%;
   right: max(5%, 40px);
+  box-shadow: 0 0 100px rgba(201, 51, 139, 0.5);
 }
 .pos-3 {
   bottom: 15%;
   left: max(5%, 40px);
+  box-shadow: 0 0 100px rgba(175, 48, 186, 0.5);
 }
 .pos-4 {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 0 100px rgba(46, 129, 170, 0.5);
 }
 .pos-5 {
   bottom: 15%;
   right: max(5%, 40px);
+  box-shadow: 0 0 100px rgba(50, 156, 61, 0.5);
 }
 
 .mobile-view {
