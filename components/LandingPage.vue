@@ -16,7 +16,7 @@
       ></div>
     </div>
     <img
-      src="../assets/img/images/better_landing.webp"
+      src="../assets/img/images/hero_space.svg"
       class="background"
       alt="landing image"
     />

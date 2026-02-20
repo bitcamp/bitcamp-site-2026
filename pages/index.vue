@@ -457,8 +457,8 @@ export default {
 }
 
 .moving-box {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
   z-index: 10;
   background-size: contain;
