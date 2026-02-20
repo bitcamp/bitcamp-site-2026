@@ -55,9 +55,73 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent, onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default defineComponent({
   name: "PastEventsGrid",
-};
+  setup() {
+    onMounted(() => {
+      gsap.from(".small_poloroid_top", {
+        x: () => -window.innerWidth * 0.6,
+        y: () => -window.innerHeight * 0.8,
+        rotation: -45,
+        scale: 0.4,
+        scrollTrigger: {
+          trigger: "#roster",
+          start: "top bottom",
+          end: "top top",
+          scrub: 1,
+          once: true,
+        },
+      });
+
+      gsap.from(".small_poloroid_bottom", {
+        x: () => window.innerWidth * 0.5,
+        y: () => window.innerHeight * 0.6,
+        rotation: 35,
+        scale: 0.4,
+        scrollTrigger: {
+          trigger: "#roster",
+          start: "top bottom",
+          end: "top top",
+          scrub: 1.4,
+          once: true,
+        },
+      });
+
+      gsap.from(".big_poloroid", {
+        x: () => window.innerWidth * 0.3,
+        y: () => window.innerHeight,
+        rotation: -12,
+        scale: 0.5,
+        scrollTrigger: {
+          trigger: "#roster",
+          start: "top 80%",
+          end: "top top",
+          scrub: 1.8,
+          once: true,
+        },
+      });
+
+      gsap.from(".orbit", {
+        opacity: 0,
+        scale: 0.3,
+        rotation: -180,
+        scrollTrigger: {
+          trigger: "#roster",
+          start: "top 90%",
+          end: "top 30%",
+          scrub: 1,
+          once: true,
+        },
+      });
+    });
+  },
+});
 </script>
 
 <style scoped>

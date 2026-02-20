@@ -233,7 +233,6 @@ export default {
   object-fit: contain;
 }
 
-/* ── Carousel (mobile only) ── */
 .team-carousel {
   display: none;
   position: relative;
@@ -252,7 +251,6 @@ export default {
   transition: transform 0.5s ease;
 }
 
-/* Slides wider than 1/3 so track overflows and can slide */
 .carousel-slide {
   flex: 0 0 60vw;
   display: flex;
@@ -389,7 +387,7 @@ export default {
 
   .cfg-content {
     padding-left: 0;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .cfg-title {
