@@ -30,6 +30,18 @@
       <div class="transition1"></div>
       <FAQSponsorPage />
       <FooterContent />
+
+      <div class="marker-layer">
+        <div class="marker-container initial">
+          <div class="moving-box"></div>
+        </div>
+
+        <div class="marker-container second"><div class="marker"></div></div>
+        <div class="marker-container third"><div class="marker"></div></div>
+        <div class="marker-container fourth"><div class="marker"></div></div>
+        <div class="marker-container fifth"><div class="marker"></div></div>
+        <div class="marker-container sixth"><div class="marker"></div></div>
+      </div>
     </div>
   </div>
 </template>
@@ -286,10 +298,7 @@ export default {
 
 .TracksPage {
   top: 25%;
-  /* Controls overlap with Landing Page */
   height: 50%;
-  /* Adjust height as needed */
-  /* background-color: lightgreen; */
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -299,12 +308,77 @@ export default {
 .CampGamesPage {
   bottom: 0;
   height: 33%;
-  /* Adjust height as needed */
-  /* background-color: lightcoral; */
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.marker-layer {
+  position: absolute;
+  inset: 0;
+  height: var(--page-height);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.marker-container {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  outline: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.moving-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  z-index: 10;
+  background-image: url("https://assets.codepen.io/16327/flair-26.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.initial {
+  left: 85%;
+  top: 3%;
+}
+
+.second {
+  left: 10%;
+  top: 25%;
+}
+
+.third {
+  right: 10%;
+  top: 45%;
+}
+
+.fourth {
+  left: 20%;
+  top: 65%;
+}
+
+.fifth {
+  left: 60%;
+  top: 80%;
+}
+
+.sixth {
+  left: 15%;
+  top: 95%;
 }
 
 /* .Schedule {
@@ -347,6 +421,10 @@ export default {
   }
 }
 @media (max-width: 796px) {
+  .marker-layer {
+    visibility: hidden;
+    pointer-events: none;
+  }
   .transition0 {
     width: 100%;
     height: 2px;

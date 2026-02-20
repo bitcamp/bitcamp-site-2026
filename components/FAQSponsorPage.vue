@@ -537,23 +537,29 @@ onUnmounted(() => {
   cursor: pointer;
 
   &::before {
-    content: url(../assets/img/icons/plus.svg);
+    content: "";
     min-width: 3rem;
     min-height: 3rem;
-    max-width: 10rem;
-    max-height: 10rem;
     margin-top: 1rem;
     margin-right: 1rem;
-    transform-origin: center;
-    opacity: 1;
+
+    display: inline-block;
+    transform-origin: 50% 50%;
+    transform: translateY(-4px);
+
+    background-color: #fff7eb;
+
+    -webkit-mask: url("../assets/img/icons/faq_star.svg") no-repeat center /
+      contain;
+    mask: url("../assets/img/icons/faq_star.svg") no-repeat center / contain;
+
+    filter: drop-shadow(0 0 10px #fff7eb);
+
     transition: opacity 0.3s ease-out, transform 0.4s ease-out;
   }
 
-  &.opened {
-    &::before {
-      transform-origin: center;
-      transform: rotateZ(45deg);
-    }
+  &.opened::before {
+    transform: translateY(-4px) rotateZ(45deg);
   }
 }
 
@@ -635,6 +641,7 @@ onUnmounted(() => {
   .Question,
   .Question_Button {
     font-size: 3.5vw;
+    padding-bottom: 15px;
   }
 
   .Question_Button {
