@@ -330,7 +330,6 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid #000;
   text-align: left;
 
   &::after {
