@@ -355,7 +355,7 @@ export default {
   height: 100%;
   pointer-events: none;
   object-fit: fill;
-  z-index: -1;
+  z-index: 2;
   transform: scale(1.1);
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" ref="el">
-    <div class="app-container">
+    <div class="app-container" :style="pageHeightStyle">
       <div class="stars-container">
         <div
           v-for="star in stars"
@@ -33,7 +33,10 @@
 
       <div class="marker-layer">
         <div class="marker-container initial">
-          <div class="moving-box"></div>
+          <div
+            class="moving-box"
+            :style="{ backgroundImage: `url(${floatingMarshie})` }"
+          ></div>
         </div>
 
         <div class="marker-container second"><div class="marker"></div></div>
@@ -47,6 +50,107 @@
 </template>
 
 <script lang="ts" setup>
+import floatingMarshie from "@/assets/img/images/floating_marshie.svg";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { onMounted, onUnmounted, nextTick, computed } from "vue";
+
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+ScrollTrigger.defaults({
+  scroller: ".wrapper",
+});
+
+const pageHeightStyle = computed(() => ({
+  "--page-height": `${pageHeight}px`,
+}));
+
+let ctx: gsap.Context | null = null;
+
+function createTimeline() {
+  ctx?.revert();
+
+  ctx = gsap.context(() => {
+    const box = document.querySelector(".moving-box") as HTMLElement;
+    const layer = document.querySelector(".marker-layer") as HTMLElement;
+    if (!box || !layer) return;
+
+    gsap.set(box, { x: 0, y: 0 });
+
+    const layerRect = layer.getBoundingClientRect();
+
+    const startRect = box.getBoundingClientRect();
+    const start = {
+      x: startRect.left + startRect.width / 2 - layerRect.left,
+      y: startRect.top + startRect.height / 2 - layerRect.top,
+    };
+
+    const containers = gsap.utils.toArray<HTMLElement>(
+      ".marker-container:not(.initial)",
+    );
+
+    const points = containers.map((container) => {
+      const r = container.getBoundingClientRect();
+      const target = {
+        x: r.left + r.width / 2 - layerRect.left,
+        y: r.top + r.height / 2 - layerRect.top,
+      };
+
+      return {
+        x: target.x - start.x,
+        y: target.y - start.y,
+      };
+    });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".marker-layer",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(box, {
+        ease: "none",
+        motionPath: {
+          path: points,
+          curviness: 1.5,
+        },
+      });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".marker-layer",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+      .to(
+        box,
+        {
+          ease: "none",
+          motionPath: { path: points, curviness: 1.5 },
+        },
+        0,
+      )
+      .to(
+        box,
+        {
+          ease: "none",
+          rotation: 1080,
+          transformOrigin: "50% 50%",
+        },
+        0,
+      );
+  });
+
+  ScrollTrigger.refresh();
+}
 const pageHeight = 8000;
 const stars = Array.from({ length: 500 }, (_, i) => ({
   id: i,
@@ -147,6 +251,18 @@ useHead({
     },
   ],
 });
+
+onMounted(async () => {
+  await nextTick();
+  createTimeline();
+
+  window.addEventListener("resize", createTimeline);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", createTimeline);
+  ctx?.revert();
+});
 </script>
 <script lang="ts">
 import BitBot from "~/components/BitBot.vue";
@@ -164,7 +280,6 @@ import Schedule from "~/components/Schedule.vue";
 
 export default {
   name: "HomePage",
-  // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
   components: { BitBot, Navbar, Schedule },
 };
 </script>
@@ -187,7 +302,7 @@ export default {
   background-repeat: no-repeat;
   background-color: #010b18;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .stars-container {
@@ -288,7 +403,7 @@ export default {
 .LandingPage {
   top: 0;
   height: 33%;
-  /* Adjust height as needed */
+
   background-color: lightblue;
   z-index: 1;
   display: flex;
@@ -319,14 +434,15 @@ export default {
   inset: 0;
   height: var(--page-height);
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .marker-container {
   position: absolute;
   width: 140px;
   height: 140px;
-  border: 2px dashed rgba(255, 255, 255, 0.25);
+  /* border: 2px dashed rgba(255, 255, 255, 0.25); */
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -337,17 +453,17 @@ export default {
   width: 100px;
   height: 100px;
   border-radius: 10px;
-  outline: 2px solid rgba(255, 255, 255, 0.25);
+  /* outline: 2px solid rgba(255, 255, 255, 0.25); */
 }
 
 .moving-box {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 10px;
   z-index: 10;
-  background-image: url("https://assets.codepen.io/16327/flair-26.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   background-color: transparent;
 }
 
@@ -428,20 +544,17 @@ export default {
   .transition0 {
     width: 100%;
     height: 2px;
-    /* background-color: #d3d3d3; */
     opacity: 40%;
     z-index: 10;
     margin-left: 10%;
     width: 80%;
   }
   .transition1 {
-    /* background-color: #010b18; */
     height: 4vw;
   }
 }
 
 .transition1 {
-  /* background-color: #010b18; */
   height: 4vw;
 }
 </style>
