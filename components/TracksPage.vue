@@ -69,6 +69,7 @@
 
 <script lang="ts">
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import starBorder from "@/assets/img/star-border.png";
 import generalLogo from "@/assets/img/icons/general_logo.svg";
 import gamedevLogo from "@/assets/img/icons/gamedev_logo.svg";
@@ -77,11 +78,15 @@ import mlLogo from "@/assets/img/icons/ml_logo.svg";
 import datasciLogo from "@/assets/img/icons/datasci_logo.svg";
 import quantumLogo from "@/assets/img/icons/quantum_logo.svg";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
   name: "TracksPage",
 
   data() {
     return {
+      onResize: null as (() => void) | null,
+      mobileCardTriggers: [] as ScrollTrigger[],
       currentTrackIndex: 0,
       openTrackIndex: -1,
       starBorder,
@@ -132,6 +137,7 @@ export default {
 
   mounted() {
     this.initMouseFollow();
+
     gsap.fromTo(
       this.$el.querySelector(".main-title"),
       { rotation: -75, y: -80, opacity: 0 },
@@ -148,9 +154,16 @@ export default {
         duration: 1.5,
       },
     );
+
+    this.setupMobileCards();
+
+    this.onResize = () => this.setupMobileCards();
+    window.addEventListener("resize", this.onResize);
   },
 
   beforeUnmount() {
+    if (this.onResize) window.removeEventListener("resize", this.onResize);
+    this.killMobileCards();
     this.destroyMouseFollow();
   },
 
@@ -166,6 +179,62 @@ export default {
   },
 
   methods: {
+    setupMobileCards() {
+      const isMobile = !window.matchMedia("(min-width: 797px)").matches;
+
+      if (!isMobile) {
+        this.killMobileCards();
+        return;
+      }
+
+      this.killMobileCards();
+
+      const scroller =
+        (document.querySelector(".wrapper") as Element) ?? window;
+
+      const cards = Array.from(
+        this.$el.querySelectorAll(".mobile-card"),
+      ) as gsap.TweenTarget[];
+
+      if (!cards.length) return;
+
+      cards.forEach((card) => {
+        gsap.set(card, { opacity: 0, y: 24 });
+
+        const tween = gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          ease: "power3.out",
+          paused: true,
+        });
+
+        const st = ScrollTrigger.create({
+          trigger: card as Element,
+          scroller,
+          start: "top 90%",
+          once: true,
+          onEnter: () => tween.play(),
+        });
+
+        this.mobileCardTriggers.push(st);
+      });
+
+      ScrollTrigger.refresh();
+    },
+
+    killMobileCards() {
+      this.mobileCardTriggers.forEach((t) => t.kill());
+      this.mobileCardTriggers = [];
+
+      const cards = Array.from(
+        this.$el.querySelectorAll(".mobile-card"),
+      ) as gsap.TweenTarget[];
+
+      gsap.killTweensOf(cards);
+      gsap.set(cards, { clearProps: "opacity,transform" });
+    },
+
     initMouseFollow() {
       const clouds = this.$el.querySelectorAll(".desktop-view .track-cloud");
       if (!clouds.length) return;
