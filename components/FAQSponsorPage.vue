@@ -538,8 +538,8 @@ onUnmounted(() => {
 
   &::before {
     content: "";
-    min-width: 3rem;
-    min-height: 3rem;
+    width: 3rem;
+    height: 3rem;
     margin-top: 1rem;
     margin-right: 1rem;
 
@@ -553,7 +553,7 @@ onUnmounted(() => {
       contain;
     mask: url("../assets/img/icons/faq_star.svg") no-repeat center / contain;
 
-    filter: drop-shadow(0 0 10px #fff7eb);
+    filter: drop-shadow(0 0 6px #fff7eb);
 
     transition: opacity 0.3s ease-out, transform 0.4s ease-out;
   }
@@ -648,8 +648,8 @@ onUnmounted(() => {
     height: 10vw;
     padding: 2rem 12px 1.75rem;
     &::before {
-      min-width: 4rem;
-      min-height: 4rem;
+      width: 3rem;
+      height: 3rem;
     }
   }
 
@@ -686,8 +686,8 @@ onUnmounted(() => {
 
 @media (min-width: 1200px) {
   .Question_Button::before {
-    min-width: 4rem;
-    min-height: 4rem;
+    width: 3rem;
+    height: 3rem;
   }
 }
 </style>
