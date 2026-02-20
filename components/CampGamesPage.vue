@@ -28,25 +28,29 @@
       </div>
 
       <div class="team-row-desktop">
-        <img src="assets/img/images/teams.svg" alt="Teams" />
+        <div v-for="(team, index) in teams" :key="team.name" class="team-stack">
+          <img :src="team.icon" :alt="team.name + ' icon'" class="team-icon" />
+          <img :src="team.text" :alt="team.name + ' text'" class="team-text" />
+        </div>
       </div>
+
       <div class="team-carousel">
-        <div class="carousel-container">
-          <button class="nav-button nav-button--left" @click="prevTeam">
-            <img src="assets/img/icons/left-arrow.svg" alt="Left Arrow" />
-          </button>
+        <button class="nav-button nav-button--left" @click="prevTeam">
+          <img src="assets/img/icons/left-arrow.svg" alt="Left Arrow" />
+        </button>
+        <div class="carousel-viewport">
           <div class="carousel-track" :style="trackStyle">
             <div
               v-for="(team, index) in teams"
               :key="team.name"
-              class="carousel-item"
+              class="carousel-slide"
+              :class="{ active: index === currentTeamIndex }"
             >
               <div class="team-stack">
                 <img
                   :src="team.icon"
                   :alt="team.name + ' icon'"
                   class="team-icon"
-                  :style="{ height: iconSize + 'px' }"
                 />
                 <img
                   :src="team.text"
@@ -56,10 +60,10 @@
               </div>
             </div>
           </div>
-          <button class="nav-button nav-button--right" @click="nextTeam">
-            <img src="assets/img/icons/right-arrow.svg" alt="Right Arrow" />
-          </button>
         </div>
+        <button class="nav-button nav-button--right" @click="nextTeam">
+          <img src="assets/img/icons/right-arrow.svg" alt="Right Arrow" />
+        </button>
       </div>
     </div>
   </div>
@@ -67,7 +71,6 @@
 
 <script lang="ts">
 import gsap from "gsap";
-
 import redTeamIcon from "@/assets/img/images/red-marshie.svg";
 import redTeamText from "@/assets/img/images/red-team-card.svg";
 import greenTeamIcon from "@/assets/img/images/green-marshie.svg";
@@ -86,20 +89,19 @@ export default {
         { name: "Green Team", icon: greenTeamIcon, text: greenTeamText },
         { name: "Blue Team", icon: blueTeamIcon, text: blueTeamText },
       ],
-      iconSize: 200,
     };
   },
+
   computed: {
     trackStyle() {
-      const ITEM_WIDTH = 70; // %
-      const GAP = 5; // %
-      const ITEM_STEP = ITEM_WIDTH + GAP;
-      const LEFT_OFFSET = (100 - ITEM_WIDTH) / 2; // 12.5
-
-      const translateX = LEFT_OFFSET - this.currentTeamIndex * ITEM_STEP;
-      return { transform: `translateX(${translateX}%)` };
+      const slideWidth = 60; // vw
+      const offset = 50 - (this.currentTeamIndex * slideWidth + slideWidth / 2);
+      return {
+        transform: `translateX(${offset}vw)`,
+      };
     },
   },
+
   methods: {
     nextTeam() {
       this.currentTeamIndex = (this.currentTeamIndex + 1) % this.teams.length;
@@ -109,8 +111,8 @@ export default {
         (this.currentTeamIndex - 1 + this.teams.length) % this.teams.length;
     },
   },
+
   mounted() {
-    // Float animation on marshies
     const icons = this.$el.querySelectorAll(".team-icon");
     icons.forEach((icon: HTMLElement, i: number) => {
       gsap.to(icon, {
@@ -123,7 +125,6 @@ export default {
       });
     });
 
-    // Scroll-triggered fade-in for sections
     const sections = [
       ".cfg-title",
       ".cfg-box",
@@ -199,13 +200,16 @@ export default {
 
 #cfg-blurb-second {
   font-weight: 300;
+  margin-bottom: 10rem;
   margin-top: 2rem;
 }
 
 .team-row-desktop {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  gap: 4rem;
+  padding: 2rem 5%;
 }
 
 .team-stack {
@@ -218,6 +222,7 @@ export default {
 
 .team-icon {
   width: auto;
+  height: 300px;
   object-fit: contain;
 }
 
@@ -228,37 +233,55 @@ export default {
   object-fit: contain;
 }
 
+/* ── Carousel (mobile only) ── */
 .team-carousel {
   display: none;
-  justify-content: center;
+  position: relative;
   align-items: center;
+  width: 100%;
 }
 
-.carousel-container {
-  overflow: hidden;
+.carousel-viewport {
   width: 100%;
-  margin: 0 auto;
-  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
 }
 
 .carousel-track {
   display: flex;
-  gap: 5%;
   transition: transform 0.5s ease;
 }
 
-.carousel-item {
-  flex: 0 0 70%;
+/* Slides wider than 1/3 so track overflows and can slide */
+.carousel-slide {
+  flex: 0 0 60vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 4vmax;
-  padding-bottom: 4vmax;
+  padding: 2vmax 0;
+  opacity: 0.4;
+  transform: scale(0.75);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow: visible;
 }
 
-.carousel-item img {
-  width: 100%;
-  object-fit: contain;
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.carousel-slide .team-stack {
+  align-items: center;
+}
+
+.carousel-slide .team-icon {
+  height: 200px;
+}
+
+.carousel-slide .team-text {
+  width: 90vw;
+  max-width: 250px;
 }
 
 .nav-button {
@@ -297,30 +320,68 @@ export default {
   right: 1%;
 }
 
-@media screen and (max-width: 1270px) {
-  #cfg-blurb-first,
-  #cfg-blurb-second {
-    font-size: 16px;
+@media screen and (max-width: 1400px) {
+  .team-icon {
+    height: 250px;
   }
 
-  .cfg-title {
-    width: 125%;
-  }
-
-  .team-carousel {
-    display: flex;
+  .team-text {
+    max-width: 300px;
   }
 
   .team-row-desktop {
-    display: none;
+    gap: 2rem;
   }
 
-  .team-icon {
-    height: 200px !important;
+  #cfg-blurb-first,
+  #cfg-blurb-second {
+    font-size: 1.8rem;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
+  .team-row-desktop {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 4rem;
+  }
+
+  .team-stack {
+    width: calc(50% - 2rem);
+  }
+
+  .team-stack:last-child {
+    width: calc(50% - 2rem);
+  }
+
+  .team-icon {
+    height: 220px;
+  }
+
+  .team-text {
+    max-width: 280px;
+  }
+
+  #cfg-blurb-first,
+  #cfg-blurb-second {
+    font-size: 1.5rem;
+  }
+
+  .cfg-box {
+    padding-right: 30%;
+  }
+}
+
+@media screen and (max-width: 796px) {
+  #cfg-blurb-first,
+  #cfg-blurb-second {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+
+  #cfg-blurb-second {
+    margin-bottom: 5rem;
+  }
+
   .cfg-top {
     display: block;
     padding: 0;
@@ -332,25 +393,27 @@ export default {
   }
 
   .cfg-title {
-    width: 150%;
+    width: clamp(110%, 30vw, 150%);
     max-width: none;
   }
 
   .cfg-box {
     width: 80%;
     margin: 0 auto;
+    padding-right: 0;
     align-items: center;
   }
-}
 
-@media screen and (max-width: 515px) {
-  #cfg-blurb-first,
-  #cfg-blurb-second {
-    font-size: 14px;
+  .team-carousel {
+    display: flex;
   }
 
-  .cfg-title {
-    width: 110%;
+  .team-row-desktop {
+    display: none;
+  }
+
+  .team-icon {
+    height: 250px;
   }
 }
 </style>
