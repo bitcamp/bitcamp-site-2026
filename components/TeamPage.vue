@@ -293,6 +293,7 @@ export default defineComponent({
   align-items: center;
   background-color: white;
   padding: 2.5%;
+  overflow: hidden;
   rotate: 2deg;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
 }

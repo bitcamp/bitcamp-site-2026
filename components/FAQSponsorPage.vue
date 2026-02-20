@@ -1,5 +1,5 @@
 <template>
-  <div id="faq" class="section">
+  <div id="faq" class="section" ref="containerRef">
     <div class="content-wrapper">
       <div class="faq-text-div">
         <h1>Frequently asked questions</h1>
@@ -66,7 +66,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface FAQ {
   question: string;
@@ -244,6 +247,76 @@ const sponsors: Sponsor[] = [
     url: "https://www.umiacs.umd.edu/",
   },
 ];
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+const containerRef = ref<HTMLElement | null>(null);
+
+let ctx: gsap.Context | null = null;
+
+function setup() {
+  if (!containerRef.value) return;
+
+  ctx?.revert();
+  ctx = gsap.context(() => {
+    const scroller = (document.querySelector(".wrapper") as Element) ?? window;
+    ScrollTrigger.defaults({ scroller });
+
+    const questions = gsap.utils.toArray<HTMLElement>(".Question");
+
+    questions.forEach((q) => {
+      const btn = q.querySelector<HTMLElement>(".Question_Button");
+      if (!btn) return;
+
+      const split = new SplitText(btn, {
+        type: "lines",
+        linesClass: "faq-line",
+      });
+
+      gsap.set(q, { opacity: 0, y: 30 });
+      gsap.set(split.lines, {
+        opacity: 0,
+        rotationX: -90,
+        transformOrigin: "50% 50% -120px",
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: q,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.to(q, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0).to(
+        split.lines,
+        {
+          opacity: 1,
+          rotationX: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: 0.08,
+        },
+        0,
+      );
+
+      ScrollTrigger.addEventListener("refreshInit", () => {
+        split.revert();
+      });
+    });
+  }, containerRef.value);
+}
+
+onMounted(async () => {
+  await nextTick();
+  setup();
+  window.addEventListener("resize", setup);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", setup);
+  ctx?.revert();
+});
 </script>
 
 <style scoped lang="scss">
