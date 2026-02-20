@@ -205,6 +205,24 @@ function toggleButton(question: string) {
 
 const sponsors: Sponsor[] = [
   {
+    name: "Department of Computer Science",
+    image: "/img/logos/DepartmentOfCS.svg",
+    amount: -1,
+    url: "https://www.cs.umd.edu/",
+  },
+  {
+    name: "College of Computer, Mathematical, and Natural Sciences",
+    image: "/img/logos/CMNS.svg",
+    amount: -1,
+    url: "https://cmns.umd.edu/",
+  },
+  {
+    name: "University of Maryland Institute for Advanced Computer Studies",
+    image: "/img/logos/UMIACS.svg",
+    amount: -1,
+    url: "https://www.umiacs.umd.edu/",
+  },
+  {
     name: "Peraton",
     image: "/img/logos/Peraton.svg",
     amount: -1,
@@ -229,22 +247,16 @@ const sponsors: Sponsor[] = [
     url: "https://eng.umd.edu/",
   },
   {
-    name: "College of Computer, Mathematical, and Natural Sciences",
-    image: "/img/logos/CMNS.svg",
+    name: "Ionq",
+    image: "/img/logos/ionq.svg",
     amount: -1,
-    url: "https://cmns.umd.edu/",
+    url: "https://www.ionq.com/",
   },
   {
-    name: "College of Computer, Mathematical, and Natural Sciences",
-    image: "/img/logos/DepartmentOfCS.svg",
+    name: "Cipher Tech Solutions",
+    image: "/img/logos/cipher_tech.svg",
     amount: -1,
-    url: "https://www.cs.umd.edu/",
-  },
-  {
-    name: "University of Maryland Institute for Advanced Computer Studies",
-    image: "/img/logos/UMIACS.svg",
-    amount: -1,
-    url: "https://www.umiacs.umd.edu/",
+    url: "https://www.ciphertechsolutions.com/",
   },
 ];
 
@@ -429,7 +441,7 @@ onUnmounted(() => {
   border-style: solid;
   border-color: #e54d1a;
   color: white;
-  font-family: Aleo, sans-serif;
+
   font-weight: bold;
   letter-spacing: 0.2rem;
   margin-bottom: 2rem;
