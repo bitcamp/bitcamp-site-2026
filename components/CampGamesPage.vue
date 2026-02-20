@@ -66,6 +66,8 @@
 </template>
 
 <script lang="ts">
+import gsap from "gsap";
+
 import redTeamIcon from "@/assets/img/images/red-marshie.svg";
 import redTeamText from "@/assets/img/images/red-team-card.svg";
 import greenTeamIcon from "@/assets/img/images/green-marshie.svg";
@@ -107,13 +109,56 @@ export default {
         (this.currentTeamIndex - 1 + this.teams.length) % this.teams.length;
     },
   },
+  mounted() {
+    // Float animation on marshies
+    const icons = this.$el.querySelectorAll(".team-icon");
+    icons.forEach((icon: HTMLElement, i: number) => {
+      gsap.to(icon, {
+        yPercent: -8,
+        duration: 1.2 + (i % 3) * 0.4,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: i * 0.3,
+      });
+    });
+
+    // Scroll-triggered fade-in for sections
+    const sections = [
+      ".cfg-title",
+      ".cfg-box",
+      ".team-row-desktop",
+      ".team-carousel",
+    ];
+    sections.forEach((sel) => {
+      const el = this.$el.querySelector(sel);
+      if (!el) return;
+      gsap.fromTo(
+        el,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
+    });
+  },
+
+  beforeUnmount() {
+    gsap.killTweensOf(this.$el.querySelectorAll(".team-icon"));
+  },
 };
 </script>
 
 <style scoped>
 .cfg-top {
-  /* padding: 5% 0; */
-  /* background-color: #010B18; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -157,8 +202,122 @@ export default {
   margin-top: 2rem;
 }
 
-.vertical-img-container {
+.team-row-desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.team-icon {
+  width: auto;
+  object-fit: contain;
+}
+
+.team-text {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: contain;
+}
+
+.team-carousel {
   display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 5%;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4vmax;
+  padding-bottom: 4vmax;
+}
+
+.carousel-item img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.nav-button {
+  position: absolute;
+  top: 35%;
+  z-index: 2;
+  border: none;
+  border-radius: 50%;
+  width: 8vmax;
+  height: 8vmax;
+  min-width: 40px;
+  min-height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.nav-button img {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.nav-button:active img {
+  filter: drop-shadow(0 0 6px #f98f37) drop-shadow(0 0 14px #f98f37);
+  transform: scale(0.85);
+}
+
+.nav-button--left {
+  left: 1%;
+}
+
+.nav-button--right {
+  right: 1%;
+}
+
+@media screen and (max-width: 1270px) {
+  #cfg-blurb-first,
+  #cfg-blurb-second {
+    font-size: 16px;
+  }
+
+  .cfg-title {
+    width: 125%;
+  }
+
+  .team-carousel {
+    display: flex;
+  }
+
+  .team-row-desktop {
+    display: none;
+  }
+
+  .team-icon {
+    height: 200px !important;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -184,184 +343,6 @@ export default {
   }
 }
 
-.gradient {
-  /* background-image: url(assets/img/images/marshies-new.webp); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 176vh;
-  background-position: center;
-  padding-bottom: 8vh;
-}
-.team-row-desktop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center;
-  gap: 3%;
-  padding: 5vmax 2%;
-  width: 100%;
-  box-sizing: border-box; */
-  /* background-color: #010b18; */
-}
-
-.team-row-desktop img {
-  /* width: 100%;
-  height: auto;
-  object-fit: contain; */
-}
-.team-row-item {
-  flex: 1;
-  max-width: 33%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
-}
-.team-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-}
-.team-icon {
-  width: auto;
-  object-fit: contain;
-}
-.team-text {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  object-fit: contain;
-}
-.team-carousel {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  /* padding-top: 5vmax; */
-  /* background-color: #010B18; */
-}
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-.carousel-track {
-  display: flex;
-  gap: 5%;
-  transition: transform 0.5s ease;
-}
-.carousel-item {
-  flex: 0 0 70%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 4vmax;
-  padding-bottom: 4vmax;
-}
-.carousel-item img {
-  width: 100%;
-  object-fit: contain;
-}
-.nav-button {
-  position: absolute;
-  top: 35%;
-  z-index: 2;
-  border: none;
-  border-radius: 50%;
-  width: 8vmax;
-  height: 8vmax;
-  min-width: 40px;
-  min-height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-}
-.nav-button img {
-  width: 100%;
-  height: 100%;
-  transition: filter 0.15s ease, transform 0.15s ease;
-}
-.nav-button:active img {
-  filter: drop-shadow(0 0 6px #f98f37) drop-shadow(0 0 14px #f98f37);
-  transform: scale(0.85);
-}
-.nav-button--left {
-  left: 1%;
-}
-.nav-button--right {
-  right: 1%;
-}
-/* @media screen and (width:1024px) and (height: 1366px) {
-    .gradient {
-        height: 200vh;
-    }
-} */
-@media screen and (max-width: 1000px) {
-  #cfg-blurb {
-    padding: 5% 10%;
-  }
-  .cfg-box {
-    border-width: 12px;
-    border-radius: 50px;
-  }
-  .dino-skeleton {
-    visibility: hidden;
-    width: 0px;
-  }
-  .marshie-skeleton {
-    visibility: hidden;
-    width: 0px;
-  }
-}
-
-@media screen and (max-width: 1270px) {
-  #cfg-blurb-first,
-  #cfg-blurb-second {
-    font-size: 16px;
-  }
-
-  .cfg-title {
-    width: 125%;
-  }
-  .gradient {
-    /* background-image: url(assets/img/images/Browncavestretched.webp); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: auto;
-  }
-  .vertical-img-container {
-    padding-top: 10%;
-    padding-bottom: 40%;
-    display: flex;
-    margin-left: 15%;
-  }
-  /* .teams-horizontal {
-        display: flex;
-        width: 90%;
-        visibility: visible;
-    } */
-  .team-carousel {
-    display: flex;
-  }
-  .team-row-desktop {
-    display: none;
-  }
-  .team-icon {
-    height: 200px !important;
-  }
-}
-@media screen and (max-width: 700px) {
-  #cfg-blurb {
-    font-size: 19px;
-  }
-}
 @media screen and (max-width: 515px) {
   #cfg-blurb-first,
   #cfg-blurb-second {
