@@ -205,6 +205,12 @@ function toggleButton(question: string) {
 
 const sponsors: Sponsor[] = [
   {
+    name: "UMD Student Government Association",
+    image: "/img/logos/sga.svg",
+    amount: -1,
+    url: "https://www.umdsga.com/",
+  },
+  {
     name: "Department of Computer Science",
     image: "/img/logos/DepartmentOfCS.svg",
     amount: -1,
@@ -241,18 +247,6 @@ const sponsors: Sponsor[] = [
     url: "https://www.bloomberg.com/",
   },
   {
-    name: "A. James Clark School of Engineering",
-    image: "/img/logos/ClarkSchool.svg",
-    amount: -1,
-    url: "https://eng.umd.edu/",
-  },
-  {
-    name: "Ionq",
-    image: "/img/logos/ionq.svg",
-    amount: -1,
-    url: "https://www.ionq.com/",
-  },
-  {
     name: "Cipher Tech Solutions",
     image: "/img/logos/cipher_tech.svg",
     amount: -1,
@@ -265,16 +259,46 @@ const sponsors: Sponsor[] = [
     url: "https://www.endeavor.ai/",
   },
   {
-    name: "Robert H. Smith School of Business - Plus 1",
-    image: "/img/logos/smith_plus.svg",
+    name: "Cloudforce",
+    image: "/img/logos/cloud_force.svg",
     amount: -1,
-    url: "https://www.rhsmith.umd.edu/programs/plus-1",
+    url: "https://gocloudforce.com/",
   },
   {
     name: "Microsoft",
     image: "/img/logos/microsoft.svg",
     amount: -1,
     url: "https://www.microsoft.com/en-us",
+  },
+  {
+    name: "Robert H. Smith School of Business",
+    image: "/img/logos/school_of_business.svg",
+    amount: -1,
+    url: "https://www.rhsmith.umd.edu/",
+  },
+  {
+    name: "Robert H. Smith School of Business - Plus 1",
+    image: "/img/logos/smith_plus.svg",
+    amount: -1,
+    url: "https://www.rhsmith.umd.edu/programs/plus-1",
+  },
+  {
+    name: "Ionq",
+    image: "/img/logos/ionq.svg",
+    amount: -1,
+    url: "https://www.ionq.com/",
+  },
+  {
+    name: "University of Maryland Sustainability Fund",
+    image: "/img/logos/sustainability.svg",
+    amount: -1,
+    url: "https://sustainability.umd.edu/",
+  },
+  {
+    name: "A. James Clark School of Engineering",
+    image: "/img/logos/ClarkSchool.svg",
+    amount: -1,
+    url: "https://eng.umd.edu/",
   },
 ];
 
