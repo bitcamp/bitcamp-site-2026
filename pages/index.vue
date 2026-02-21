@@ -18,7 +18,7 @@
       </div>
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
-      <div class="green-planet-bg"></div>
+      <div class="green-planet-bg"></div>      
       <BitBot />
       <Navbar />
       <LandingPage />
@@ -346,7 +346,6 @@ export default {
     transform: translateY(0);
   }
 }
-
 .red-planet {
   --float-distance: -380px;
   will-change: transform;
