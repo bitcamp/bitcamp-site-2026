@@ -94,7 +94,7 @@ export default {
 
   computed: {
     trackStyle() {
-      const slideWidth = 60; // vw
+      const slideWidth = 70; // vw
       const offset = 50 - (this.currentTeamIndex * slideWidth + slideWidth / 2);
       return {
         transform: `translateX(${offset}vw)`,
@@ -252,7 +252,7 @@ export default {
 }
 
 .carousel-slide {
-  flex: 0 0 60vw;
+  flex: 0 0 70vw;
   display: flex;
   align-items: center;
   justify-content: center;
