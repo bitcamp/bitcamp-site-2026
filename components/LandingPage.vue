@@ -62,7 +62,7 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   min-height: 80vw;
   height: auto;
   overflow: hidden;
-  background: linear-gradient(180deg, #201f3a 70%, #010b18 100%);
+  background: transparent;
   width: 100%;
   aspect-ratio: 16 / 9;
 }
@@ -104,18 +104,8 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   width: 100%;
   height: auto;
   z-index: 0;
-}
-
-.gradient::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 45%;
-  background: linear-gradient(to bottom, transparent, #010b18 55%);
-  z-index: 0;
-  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 
 .message-wrapper {

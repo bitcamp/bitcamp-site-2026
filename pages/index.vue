@@ -2,6 +2,8 @@
   <div class="wrapper" ref="el">
     <div class="app-container" :style="pageHeightStyle">
       <div class="stars-container">
+        <div class="space-stars-bg"></div>
+        <div class="space-clouds-bg"></div>
         <div
           v-for="star in stars"
           :key="star.id"
@@ -18,7 +20,7 @@
       </div>
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
-      <div class="green-planet-bg"></div>      
+      <div class="green-planet-bg"></div>
       <BitBot />
       <Navbar />
       <LandingPage />
@@ -300,7 +302,7 @@ export default {
   min-height: 100vh;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  background-color: #010b18;
+  background: linear-gradient(180deg, #201f3a 0%, #010b18 12%, #010b18 100%);
   position: relative;
   z-index: 2;
 }
@@ -313,6 +315,36 @@ export default {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+}
+
+.space-stars-bg,
+.space-clouds-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  z-index: 0;
+}
+
+.space-stars-bg {
+  background-image: url("../assets/img/images/space_stars.svg");
+  z-index: 1;
+}
+
+.space-clouds-bg {
+  background-image: url("../assets/img/images/space_clouds.svg");
+  z-index: 1;
+}
+
+@media (max-width: 1100px) {
+  .space-stars-bg,
+  .space-clouds-bg {
+    display: none;
+  }
 }
 
 .star {
