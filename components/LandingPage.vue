@@ -104,7 +104,18 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
   width: 100%;
   height: auto;
   z-index: 0;
-  object-fit: cover;
+}
+
+.gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(to bottom, transparent, #010b18 55%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .message-wrapper {
@@ -167,7 +178,7 @@ const stars = Array.from({ length: 80 }, (_, i) => ({
 
 @media (max-width: 796px) {
   .background {
-    content: url("../assets/img/images/better_mobile.webp");
+    content: url("../assets/img/images/hero_space_mobile.svg");
   }
 
   .register-button {

@@ -87,6 +87,8 @@ export default {
     return {
       onResize: null as (() => void) | null,
       mobileCardTriggers: [] as ScrollTrigger[],
+      desktopCloudTriggers: [] as ScrollTrigger[],
+      desktopPopTweens: [] as gsap.core.Tween[],
       currentTrackIndex: 0,
       openTrackIndex: -1,
       starBorder,
@@ -138,32 +140,57 @@ export default {
   mounted() {
     this.initMouseFollow();
 
+    // --- Title: fade up ---
     gsap.fromTo(
       this.$el.querySelector(".main-title"),
-      { rotation: -75, y: -80, opacity: 0 },
+      { y: 60, opacity: 0 },
       {
         scrollTrigger: {
           trigger: this.$el.querySelector(".center-header"),
           start: "top 85%",
           once: true,
         },
-        rotation: 0,
         y: 0,
         opacity: 1,
-        ease: "bounce.out",
-        duration: 1.5,
+        ease: "power3.out",
+        duration: 1,
       },
     );
 
+    // --- Subtitle: fade up with slight delay ---
+    gsap.fromTo(
+      this.$el.querySelector(".main-subtitle"),
+      { y: 40, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: this.$el.querySelector(".center-header"),
+          start: "top 85%",
+          once: true,
+        },
+        y: 0,
+        opacity: 0.9,
+        ease: "power3.out",
+        duration: 1,
+        delay: 0.2,
+      },
+    );
+
+    // --- Desktop clouds: scale-up pop-out ---
+    this.setupDesktopClouds();
+
     this.setupMobileCards();
 
-    this.onResize = () => this.setupMobileCards();
+    this.onResize = () => {
+      this.setupMobileCards();
+      this.setupDesktopClouds();
+    };
     window.addEventListener("resize", this.onResize);
   },
 
   beforeUnmount() {
     if (this.onResize) window.removeEventListener("resize", this.onResize);
     this.killMobileCards();
+    this.killDesktopClouds();
     this.destroyMouseFollow();
   },
 
@@ -179,6 +206,64 @@ export default {
   },
 
   methods: {
+    setupDesktopClouds() {
+      const isDesktop = window.matchMedia("(min-width: 797px)").matches;
+      if (!isDesktop) {
+        this.killDesktopClouds();
+        return;
+      }
+
+      this.killDesktopClouds();
+
+      const clouds = Array.from(
+        this.$el.querySelectorAll(".desktop-view .track-cloud"),
+      ) as HTMLElement[];
+
+      if (!clouds.length) return;
+
+      clouds.forEach((cloud, i) => {
+        gsap.set(cloud, { scale: 0, opacity: 0 });
+
+        const tween = gsap.to(cloud, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.6,
+          ease: "back.out(1.7)",
+          delay: i * 0.1,
+          paused: true,
+        });
+
+        this.desktopPopTweens.push(tween);
+
+        const st = ScrollTrigger.create({
+          trigger: this.$el.querySelector(".content-wrapper"),
+          start: "top 70%",
+          once: true,
+          onEnter: () => tween.play(),
+        });
+
+        this.desktopCloudTriggers.push(st);
+      });
+
+      ScrollTrigger.refresh();
+    },
+
+    killDesktopClouds() {
+      this.desktopCloudTriggers.forEach((t) => t.kill());
+      this.desktopCloudTriggers = [];
+
+      this.desktopPopTweens.forEach((t) => t.kill());
+      this.desktopPopTweens = [];
+
+      const clouds = Array.from(
+        this.$el.querySelectorAll(".desktop-view .track-cloud"),
+      ) as HTMLElement[];
+
+      clouds.forEach((cloud) => {
+        gsap.set(cloud, { clearProps: "scale,opacity" });
+      });
+    },
+
     setupMobileCards() {
       const isMobile = !window.matchMedia("(min-width: 797px)").matches;
 
