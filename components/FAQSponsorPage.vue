@@ -262,13 +262,19 @@ const sponsors: Sponsor[] = [
     name: "Endeavor",
     image: "/img/logos/endeavor.svg",
     amount: -1,
-    url: "https://endeavor.org/",
+    url: "https://www.endeavor.ai/",
   },
   {
     name: "Robert H. Smith School of Business - Plus 1",
     image: "/img/logos/smith_plus.svg",
     amount: -1,
     url: "https://www.rhsmith.umd.edu/programs/plus-1",
+  },
+  {
+    name: "Microsoft",
+    image: "/img/logos/microsoft.svg",
+    amount: -1,
+    url: "https://www.microsoft.com/en-us",
   },
 ];
 
