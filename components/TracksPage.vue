@@ -140,7 +140,6 @@ export default {
   mounted() {
     this.initMouseFollow();
 
-    // --- Title: fade up ---
     gsap.fromTo(
       this.$el.querySelector(".main-title"),
       { y: 60, opacity: 0 },
@@ -157,7 +156,6 @@ export default {
       },
     );
 
-    // --- Subtitle: fade up with slight delay ---
     gsap.fromTo(
       this.$el.querySelector(".main-subtitle"),
       { y: 40, opacity: 0 },
@@ -175,7 +173,6 @@ export default {
       },
     );
 
-    // --- Desktop clouds: scale-up pop-out ---
     this.setupDesktopClouds();
 
     this.setupMobileCards();

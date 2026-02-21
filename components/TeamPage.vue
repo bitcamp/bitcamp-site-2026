@@ -287,6 +287,7 @@ export default defineComponent({
 
 .big_poloroid {
   width: 50vw;
+  margin-bottom: 5%;
   aspect-ratio: 20/12.5;
   display: flex;
   flex-direction: column;
