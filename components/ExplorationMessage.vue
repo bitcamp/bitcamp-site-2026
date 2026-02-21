@@ -17,7 +17,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -33,6 +33,8 @@ let descAnim: gsap.core.Tween | null = null;
 let titlePlayed = false;
 let descPlayed = false;
 
+let resizeRaf = 0;
+
 function setup() {
   titleAnim && titleAnim.revert();
   descAnim && descAnim.revert();
@@ -47,6 +49,11 @@ function setup() {
   const titleEl = containerRef.value.querySelector(".title")!;
   const descEl = containerRef.value.querySelector(".description")!;
 
+  gsap.set([titleEl, descEl], {
+    willChange: "transform,opacity",
+    force3D: true,
+  });
+
   titleSplit = SplitText.create(titleEl, { type: "chars,words,lines" });
   descSplit = SplitText.create(descEl, { type: "chars,words,lines" });
 
@@ -60,7 +67,11 @@ function setup() {
       duration: 0.8,
       ease: "power3",
       stagger: 0.25,
-      onComplete: () => { titlePlayed = true; },
+      force3D: true,
+      onComplete: () => {
+        titlePlayed = true;
+        (titleEl as HTMLElement).style.willChange = "";
+      },
       scrollTrigger: {
         trigger: titleEl,
         start: "top 85%",
@@ -78,22 +89,38 @@ function setup() {
       duration: 0.8,
       ease: "power3",
       stagger: 0.25,
-      onComplete: () => { descPlayed = true; },
+      force3D: true,
+      onComplete: () => {
+        descPlayed = true;
+        (descEl as HTMLElement).style.willChange = "";
+      },
       scrollTrigger: {
         trigger: descEl,
         start: "top 90%",
       },
     });
   }
+
+  ScrollTrigger.refresh();
 }
 
-onMounted(() => {
+function onResize() {
+  if (resizeRaf) cancelAnimationFrame(resizeRaf);
+  resizeRaf = requestAnimationFrame(() => {
+    resizeRaf = 0;
+    setup();
+  });
+}
+
+onMounted(async () => {
+  await nextTick();
   setup();
-  window.addEventListener("resize", setup);
+  window.addEventListener("resize", onResize);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("resize", setup);
+  window.removeEventListener("resize", onResize);
+  if (resizeRaf) cancelAnimationFrame(resizeRaf);
   titleAnim && titleAnim.revert();
   descAnim && descAnim.revert();
   titleSplit && titleSplit.revert();

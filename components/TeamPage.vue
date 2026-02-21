@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onBeforeUnmount } from "vue";
+import { defineComponent, onMounted, onBeforeUnmount, nextTick } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -64,15 +64,33 @@ export default defineComponent({
     let ctx: gsap.Context | null = null;
     let played = false;
 
-    onMounted(() => {
+    onMounted(async () => {
       if (played) return;
 
+      await nextTick();
+
       ctx = gsap.context(() => {
+        const scroller =
+          (document.querySelector(".wrapper") as Element) ?? window;
+
+        ScrollTrigger.defaults({ scroller });
+
+        gsap.set(
+          [
+            ".small_poloroid_top",
+            ".small_poloroid_bottom",
+            ".big_poloroid",
+            ".orbit",
+          ],
+          { willChange: "transform,opacity", force3D: true },
+        );
+
         gsap.from(".small_poloroid_top", {
           x: () => -window.innerWidth * 0.6,
           y: () => -window.innerHeight * 0.8,
           rotation: -45,
           scale: 0.4,
+          force3D: true,
           scrollTrigger: {
             trigger: "#roster",
             start: "top bottom",
@@ -87,6 +105,7 @@ export default defineComponent({
           y: () => window.innerHeight * 0.6,
           rotation: 35,
           scale: 0.4,
+          force3D: true,
           scrollTrigger: {
             trigger: "#roster",
             start: "top bottom",
@@ -101,6 +120,7 @@ export default defineComponent({
           y: () => window.innerHeight,
           rotation: -12,
           scale: 0.5,
+          force3D: true,
           scrollTrigger: {
             trigger: "#roster",
             start: "top 80%",
@@ -112,7 +132,7 @@ export default defineComponent({
 
         gsap.fromTo(
           ".orbit",
-          { y: -60, opacity: 0 },
+          { y: -60, opacity: 0, force3D: true },
           {
             y: 0,
             opacity: 1,
@@ -129,11 +149,12 @@ export default defineComponent({
           },
         );
       });
+
+      ScrollTrigger.refresh();
     });
 
     onBeforeUnmount(() => {
       ctx?.revert();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
     });
 
     return {};

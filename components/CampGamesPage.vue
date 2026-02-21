@@ -129,11 +129,17 @@ export default {
       return;
     }
 
+    selectors.forEach((sel) => {
+      const el = this.$el.querySelector(sel);
+      if (el) (el as HTMLElement).style.willChange = "transform,opacity";
+    });
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             (e.target as HTMLElement).classList.add("visible");
+            (e.target as HTMLElement).style.willChange = "";
             obs.unobserve(e.target);
           }
         });
@@ -234,7 +240,6 @@ export default {
   object-fit: contain;
 }
 
-/* CSS float animations replacing GSAP infinite yoyo tweens */
 @keyframes float-icon {
   from {
     transform: translateY(0);
@@ -254,7 +259,6 @@ export default {
   animation: float-icon 2s 0.6s ease-in-out infinite alternate;
 }
 
-/* Entrance animations replacing GSAP ScrollTrigger */
 @keyframes slide-up-fade {
   from {
     opacity: 0;

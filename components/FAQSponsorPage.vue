@@ -329,6 +329,8 @@ function setup() {
       const btn = q.querySelector<HTMLElement>(".Question_Button");
       if (!btn) return;
 
+      gsap.set([q, btn], { willChange: "transform,opacity", force3D: true });
+
       const split = new SplitText(btn, {
         type: "lines",
         linesClass: "faq-line",
@@ -341,6 +343,7 @@ function setup() {
         opacity: 0,
         rotationX: -90,
         transformOrigin: "50% 50% -120px",
+        force3D: true,
       });
 
       const tl = gsap.timeline({
@@ -362,6 +365,7 @@ function setup() {
           duration: 0.6,
           ease: "power3.out",
           stagger: 0.08,
+          force3D: true,
         },
         0,
       );
@@ -374,6 +378,8 @@ function setup() {
       ScrollTrigger.addEventListener("refreshInit", refreshInitHandler);
     }
   }, containerRef.value);
+
+  ScrollTrigger.refresh();
 }
 
 onMounted(async () => {

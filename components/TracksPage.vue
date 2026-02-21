@@ -136,6 +136,16 @@ export default {
   },
 
   mounted() {
+    gsap.set(
+      [
+        this.$el.querySelector(".main-title"),
+        this.$el.querySelector(".main-subtitle"),
+        ...Array.from(this.$el.querySelectorAll(".desktop-view .track-cloud")),
+        ...Array.from(this.$el.querySelectorAll(".mobile-card")),
+      ].filter(Boolean),
+      { willChange: "transform,opacity", force3D: true },
+    );
+
     gsap.fromTo(
       this.$el.querySelector(".main-title"),
       { y: 60, opacity: 0 },
@@ -149,6 +159,7 @@ export default {
         opacity: 1,
         ease: "power3.out",
         duration: 1,
+        force3D: true,
       },
     );
 
@@ -166,6 +177,7 @@ export default {
         ease: "power3.out",
         duration: 1,
         delay: 0.2,
+        force3D: true,
       },
     );
 
@@ -178,6 +190,8 @@ export default {
     };
 
     window.addEventListener("resize", this.onResize);
+
+    ScrollTrigger.refresh();
   },
 
   beforeUnmount() {
@@ -203,6 +217,8 @@ export default {
       if (!clouds.length) return;
 
       clouds.forEach((cloud, i) => {
+        gsap.set(cloud, { willChange: "transform,opacity", force3D: true });
+
         if (this.desktopPlayed) {
           gsap.set(cloud, { scale: 1, opacity: 1 });
           return;
@@ -217,8 +233,10 @@ export default {
           ease: "back.out(1.7)",
           delay: i * 0.1,
           paused: true,
+          force3D: true,
           onComplete: () => {
             if (i === clouds.length - 1) this.desktopPlayed = true;
+            cloud.style.willChange = "";
           },
         });
 
@@ -232,8 +250,6 @@ export default {
         this.desktopPopTweens.push(tween);
         this.desktopCloudTriggers.push(st);
       });
-
-      ScrollTrigger.refresh();
     },
 
     killDesktopClouds() {
@@ -242,6 +258,14 @@ export default {
 
       this.desktopPopTweens.forEach((t) => t.kill());
       this.desktopPopTweens = [];
+
+      const clouds = Array.from(
+        this.$el.querySelectorAll(".desktop-view .track-cloud"),
+      ) as HTMLElement[];
+
+      clouds.forEach((cloud) => {
+        cloud.style.willChange = "";
+      });
     },
 
     setupMobileCards() {
@@ -263,6 +287,8 @@ export default {
       if (!cards.length) return;
 
       cards.forEach((card) => {
+        gsap.set(card, { willChange: "transform,opacity", force3D: true });
+
         if (this.mobilePlayed) {
           gsap.set(card, { opacity: 1, y: 0 });
           return;
@@ -276,8 +302,10 @@ export default {
           duration: 0.55,
           ease: "power3.out",
           paused: true,
+          force3D: true,
           onComplete: () => {
             this.mobilePlayed = true;
+            card.style.willChange = "";
           },
         });
 
@@ -291,13 +319,19 @@ export default {
 
         this.mobileCardTriggers.push(st);
       });
-
-      ScrollTrigger.refresh();
     },
 
     killMobileCards() {
       this.mobileCardTriggers.forEach((t) => t.kill());
       this.mobileCardTriggers = [];
+
+      const cards = Array.from(
+        this.$el.querySelectorAll(".mobile-card"),
+      ) as HTMLElement[];
+
+      cards.forEach((card) => {
+        card.style.willChange = "";
+      });
     },
 
     positionMargin(index: number) {
