@@ -191,7 +191,7 @@ export default {
 
     window.addEventListener("resize", this.onResize);
 
-    ScrollTrigger.refresh();
+    // ScrollTrigger.refresh();
   },
 
   beforeUnmount() {

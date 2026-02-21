@@ -150,7 +150,7 @@ export default defineComponent({
         );
       });
 
-      ScrollTrigger.refresh();
+      // ScrollTrigger.refresh();
     });
 
     onBeforeUnmount(() => {

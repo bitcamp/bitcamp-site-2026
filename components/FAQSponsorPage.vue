@@ -379,7 +379,7 @@ function setup() {
     }
   }, containerRef.value);
 
-  ScrollTrigger.refresh();
+// ScrollTrigger.refresh();
 }
 
 onMounted(async () => {

@@ -101,7 +101,7 @@ function setup() {
     });
   }
 
-  ScrollTrigger.refresh();
+  // ScrollTrigger.refresh();
 }
 
 function onResize() {

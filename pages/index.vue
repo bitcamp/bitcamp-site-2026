@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper" ref="el">
     <div class="app-container" :style="pageHeightStyle">
-      <div class="stars-container">
+      <!-- <div class="stars-container">
         <div class="space-stars-bg"></div>
         <div class="space-clouds-bg"></div>
-      </div>
+      </div> -->
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
       <div class="green-planet-bg"></div>
@@ -127,7 +127,7 @@ function createTimeline() {
       );
   });
 
-  ScrollTrigger.refresh();
+  // ScrollTrigger.refresh();
 }
 
 function onResize() {
@@ -282,7 +282,7 @@ export default {
   position: relative;
   z-index: 2;
 }
-
+/* 
 .stars-container {
   position: absolute;
   top: 0;
@@ -315,7 +315,7 @@ export default {
 .space-clouds-bg {
   background-image: url("../assets/img/images/space_clouds.svg");
   z-index: 1;
-}
+} */
 
 @media (max-width: 1100px) {
   .space-stars-bg,
@@ -324,7 +324,7 @@ export default {
   }
 }
 
-@keyframes float {
+/* @keyframes float {
   0% {
     transform: translateY(0);
   }
@@ -334,7 +334,7 @@ export default {
   100% {
     transform: translateY(0);
   }
-}
+} */
 .red-planet {
   --float-distance: -380px;
   will-change: transform;
@@ -348,7 +348,7 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   pointer-events: none;
-  animation: float 25s infinite ease-in-out;
+  /* animation: float 25s infinite ease-in-out; */
 }
 
 .blue-planet {
@@ -364,7 +364,7 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   pointer-events: none;
-  animation: float 35s infinite ease-in-out;
+  /* animation: float 35s infinite ease-in-out; */
 }
 
 .green-planet-bg {
@@ -380,7 +380,7 @@ export default {
   background-repeat: no-repeat;
   z-index: 0;
   pointer-events: none;
-  animation: float 60s infinite ease-in-out;
+  /* animation: float 60s infinite ease-in-out; */
 }
 
 .LandingPage,
