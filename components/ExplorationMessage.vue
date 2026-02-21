@@ -30,6 +30,8 @@ let titleSplit: SplitText | null = null;
 let descSplit: SplitText | null = null;
 let titleAnim: gsap.core.Tween | null = null;
 let descAnim: gsap.core.Tween | null = null;
+let titlePlayed = false;
+let descPlayed = false;
 
 function setup() {
   titleAnim && titleAnim.revert();
@@ -48,31 +50,41 @@ function setup() {
   titleSplit = SplitText.create(titleEl, { type: "chars,words,lines" });
   descSplit = SplitText.create(descEl, { type: "chars,words,lines" });
 
-  titleAnim = gsap.from(titleSplit.lines, {
-    rotationX: -100,
-    transformOrigin: "50% 50% -160px",
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3",
-    stagger: 0.25,
-    scrollTrigger: {
-      trigger: titleEl,
-      start: "top 85%",
-    },
-  });
+  if (titlePlayed) {
+    gsap.set(titleSplit.lines, { rotationX: 0, opacity: 1 });
+  } else {
+    titleAnim = gsap.from(titleSplit.lines, {
+      rotationX: -100,
+      transformOrigin: "50% 50% -160px",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3",
+      stagger: 0.25,
+      onComplete: () => { titlePlayed = true; },
+      scrollTrigger: {
+        trigger: titleEl,
+        start: "top 85%",
+      },
+    });
+  }
 
-  descAnim = gsap.from(descSplit.lines, {
-    rotationX: -100,
-    transformOrigin: "50% 50% -160px",
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3",
-    stagger: 0.25,
-    scrollTrigger: {
-      trigger: descEl,
-      start: "top 90%",
-    },
-  });
+  if (descPlayed) {
+    gsap.set(descSplit.lines, { rotationX: 0, opacity: 1 });
+  } else {
+    descAnim = gsap.from(descSplit.lines, {
+      rotationX: -100,
+      transformOrigin: "50% 50% -160px",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3",
+      stagger: 0.25,
+      onComplete: () => { descPlayed = true; },
+      scrollTrigger: {
+        trigger: descEl,
+        start: "top 90%",
+      },
+    });
+  }
 }
 
 onMounted(() => {

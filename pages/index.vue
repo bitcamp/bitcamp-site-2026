@@ -43,25 +43,32 @@ import floatingMarshie from "@/assets/img/images/floating_marshie.svg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { onMounted, onUnmounted, nextTick, computed } from "vue";
+import { onMounted, onUnmounted, nextTick, computed, ref } from "vue";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 ScrollTrigger.defaults({
   scroller: ".wrapper",
 });
 
+const el = ref<HTMLElement | null>(null);
+
+const pageHeight = 8000;
+
 const pageHeightStyle = computed(() => ({
   "--page-height": `${pageHeight}px`,
 }));
 
 let ctx: gsap.Context | null = null;
+let resizeRaf = 0;
 
 function createTimeline() {
   ctx?.revert();
 
   ctx = gsap.context(() => {
-    const box = document.querySelector(".moving-box") as HTMLElement;
-    const layer = document.querySelector(".marker-layer") as HTMLElement;
+    const root = el.value ?? document;
+
+    const box = root.querySelector(".moving-box") as HTMLElement;
+    const layer = root.querySelector(".marker-layer") as HTMLElement;
     if (!box || !layer) return;
 
     gsap.set(box, { x: 0, y: 0 });
@@ -75,7 +82,7 @@ function createTimeline() {
     };
 
     const containers = gsap.utils.toArray<HTMLElement>(
-      ".marker-container:not(.initial)",
+      root.querySelectorAll(".marker-container:not(.initial)"),
     );
 
     const points = containers.map((container) => {
@@ -122,7 +129,14 @@ function createTimeline() {
 
   ScrollTrigger.refresh();
 }
-const pageHeight = 8000;
+
+function onResize() {
+  if (resizeRaf) cancelAnimationFrame(resizeRaf);
+  resizeRaf = requestAnimationFrame(() => {
+    resizeRaf = 0;
+    createTimeline();
+  });
+}
 
 useHead({
   title: "Bitcamp",
@@ -218,15 +232,16 @@ useHead({
 onMounted(async () => {
   await nextTick();
   createTimeline();
-
-  window.addEventListener("resize", createTimeline);
+  window.addEventListener("resize", onResize);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("resize", createTimeline);
+  window.removeEventListener("resize", onResize);
+  if (resizeRaf) cancelAnimationFrame(resizeRaf);
   ctx?.revert();
 });
 </script>
+
 <script lang="ts">
 import BitBot from "~/components/BitBot.vue";
 
@@ -308,7 +323,6 @@ export default {
     display: none;
   }
 }
-
 
 @keyframes float {
   0% {

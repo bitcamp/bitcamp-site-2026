@@ -12,11 +12,12 @@
           alt="Campfire games title"
         />
       </picture>
+
       <div class="cfg-box">
         <p id="cfg-blurb-first">
           The Campfire Games are a way to learn, grow, and build with the
           Bitcamp Community. At the start of this year's event, you will join
-          one of three teams based on your personality and interests—joining
+          one of three teams based on your personality and interests, joining
           forces with hackers from around the world!
         </p>
         <p id="cfg-blurb-second">
@@ -28,7 +29,7 @@
       </div>
 
       <div class="team-row-desktop">
-        <div v-for="(team, index) in teams" :key="team.name" class="team-stack">
+        <div v-for="team in teams" :key="team.name" class="team-stack">
           <img :src="team.icon" :alt="team.name + ' icon'" class="team-icon" />
           <img :src="team.text" :alt="team.name + ' text'" class="team-text" />
         </div>
@@ -38,6 +39,7 @@
         <button class="nav-button nav-button--left" @click="prevTeam">
           <img src="assets/img/icons/left-arrow.svg" alt="Left Arrow" />
         </button>
+
         <div class="carousel-viewport">
           <div class="carousel-track" :style="trackStyle">
             <div
@@ -61,6 +63,7 @@
             </div>
           </div>
         </div>
+
         <button class="nav-button nav-button--right" @click="nextTeam">
           <img src="assets/img/icons/right-arrow.svg" alt="Right Arrow" />
         </button>
@@ -70,7 +73,6 @@
 </template>
 
 <script lang="ts">
-import gsap from "gsap";
 import redTeamIcon from "@/assets/img/images/red-marshie.svg";
 import redTeamText from "@/assets/img/images/red-team-card.svg";
 import greenTeamIcon from "@/assets/img/images/green-marshie.svg";
@@ -84,6 +86,7 @@ export default {
   data() {
     return {
       currentTeamIndex: 1,
+      entrancePlayed: false,
       teams: [
         { name: "Red Team", icon: redTeamIcon, text: redTeamText },
         { name: "Green Team", icon: greenTeamIcon, text: greenTeamText },
@@ -94,11 +97,9 @@ export default {
 
   computed: {
     trackStyle() {
-      const slideWidth = 70; // vw
+      const slideWidth = 70;
       const offset = 50 - (this.currentTeamIndex * slideWidth + slideWidth / 2);
-      return {
-        transform: `translateX(${offset}vw)`,
-      };
+      return { transform: `translateX(${offset}vw)` };
     },
   },
 
@@ -113,47 +114,47 @@ export default {
   },
 
   mounted() {
-    const icons = this.$el.querySelectorAll(".team-icon");
-    icons.forEach((icon: HTMLElement, i: number) => {
-      gsap.to(icon, {
-        yPercent: -8,
-        duration: 1.2 + (i % 3) * 0.4,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-        delay: i * 0.3,
-      });
-    });
-
-    const sections = [
+    const selectors = [
       ".cfg-title",
       ".cfg-box",
       ".team-row-desktop",
       ".team-carousel",
     ];
-    sections.forEach((sel) => {
+
+    if (this.entrancePlayed) {
+      selectors.forEach((sel) => {
+        const el = this.$el.querySelector(sel);
+        if (el) el.classList.add("visible");
+      });
+      return;
+    }
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add("visible");
+            obs.unobserve(e.target);
+          }
+        });
+
+        if (entries.some((e) => e.isIntersecting)) {
+          this.entrancePlayed = true;
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    selectors.forEach((sel) => {
       const el = this.$el.querySelector(sel);
-      if (!el) return;
-      gsap.fromTo(
-        el,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            once: true,
-          },
-        },
-      );
+      if (el) obs.observe(el);
     });
+
+    (this as any)._entranceObs = obs;
   },
 
   beforeUnmount() {
-    gsap.killTweensOf(this.$el.querySelectorAll(".team-icon"));
+    (this as any)._entranceObs?.disconnect();
   },
 };
 </script>
@@ -231,6 +232,59 @@ export default {
   max-width: 350px;
   height: auto;
   object-fit: contain;
+}
+
+/* CSS float animations replacing GSAP infinite yoyo tweens */
+@keyframes float-icon {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8%);
+  }
+}
+
+.team-stack:nth-child(1) .team-icon {
+  animation: float-icon 1.2s ease-in-out infinite alternate;
+}
+.team-stack:nth-child(2) .team-icon {
+  animation: float-icon 1.6s 0.3s ease-in-out infinite alternate;
+}
+.team-stack:nth-child(3) .team-icon {
+  animation: float-icon 2s 0.6s ease-in-out infinite alternate;
+}
+
+/* Entrance animations replacing GSAP ScrollTrigger */
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.cfg-title,
+.cfg-box,
+.team-row-desktop,
+.team-carousel {
+  opacity: 0;
+  translate: 0 40px;
+}
+
+.cfg-title.visible {
+  animation: slide-up-fade 1s ease forwards;
+}
+.cfg-box.visible {
+  animation: slide-up-fade 1s 0.15s ease forwards;
+}
+.team-row-desktop.visible {
+  animation: slide-up-fade 1s 0.3s ease forwards;
+}
+.team-carousel.visible {
+  animation: slide-up-fade 1s 0.3s ease forwards;
 }
 
 .team-carousel {

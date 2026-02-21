@@ -89,13 +89,11 @@ export default {
       mobileCardTriggers: [] as ScrollTrigger[],
       desktopCloudTriggers: [] as ScrollTrigger[],
       desktopPopTweens: [] as gsap.core.Tween[],
+      desktopPlayed: false,
+      mobilePlayed: false,
       currentTrackIndex: 0,
       openTrackIndex: -1,
       starBorder,
-      cloudX: [] as ReturnType<typeof gsap.quickTo>[],
-      cloudY: [] as ReturnType<typeof gsap.quickTo>[],
-      onPointerMove: null as ((e: PointerEvent) => void) | null,
-      onPointerLeave: null as (() => void) | null,
       tracks: [
         {
           title: "General Track",
@@ -138,8 +136,6 @@ export default {
   },
 
   mounted() {
-    this.initMouseFollow();
-
     gsap.fromTo(
       this.$el.querySelector(".main-title"),
       { y: 60, opacity: 0 },
@@ -174,13 +170,13 @@ export default {
     );
 
     this.setupDesktopClouds();
-
     this.setupMobileCards();
 
     this.onResize = () => {
       this.setupMobileCards();
       this.setupDesktopClouds();
     };
+
     window.addEventListener("resize", this.onResize);
   },
 
@@ -188,18 +184,6 @@ export default {
     if (this.onResize) window.removeEventListener("resize", this.onResize);
     this.killMobileCards();
     this.killDesktopClouds();
-    this.destroyMouseFollow();
-  },
-
-  computed: {
-    trackStyle() {
-      const ITEM_WIDTH = 80;
-      const GAP = 4;
-      const ITEM_STEP = ITEM_WIDTH + GAP;
-      const LEFT_OFFSET = (100 - ITEM_WIDTH) / 2;
-      const translateX = LEFT_OFFSET - this.currentTrackIndex * ITEM_STEP;
-      return { transform: `translateX(${translateX}%)` };
-    },
   },
 
   methods: {
@@ -219,6 +203,11 @@ export default {
       if (!clouds.length) return;
 
       clouds.forEach((cloud, i) => {
+        if (this.desktopPlayed) {
+          gsap.set(cloud, { scale: 1, opacity: 1 });
+          return;
+        }
+
         gsap.set(cloud, { scale: 0, opacity: 0 });
 
         const tween = gsap.to(cloud, {
@@ -228,9 +217,10 @@ export default {
           ease: "back.out(1.7)",
           delay: i * 0.1,
           paused: true,
+          onComplete: () => {
+            if (i === clouds.length - 1) this.desktopPlayed = true;
+          },
         });
-
-        this.desktopPopTweens.push(tween);
 
         const st = ScrollTrigger.create({
           trigger: this.$el.querySelector(".content-wrapper"),
@@ -239,6 +229,7 @@ export default {
           onEnter: () => tween.play(),
         });
 
+        this.desktopPopTweens.push(tween);
         this.desktopCloudTriggers.push(st);
       });
 
@@ -251,19 +242,10 @@ export default {
 
       this.desktopPopTweens.forEach((t) => t.kill());
       this.desktopPopTweens = [];
-
-      const clouds = Array.from(
-        this.$el.querySelectorAll(".desktop-view .track-cloud"),
-      ) as HTMLElement[];
-
-      clouds.forEach((cloud) => {
-        gsap.set(cloud, { clearProps: "scale,opacity" });
-      });
     },
 
     setupMobileCards() {
       const isMobile = !window.matchMedia("(min-width: 797px)").matches;
-
       if (!isMobile) {
         this.killMobileCards();
         return;
@@ -276,11 +258,16 @@ export default {
 
       const cards = Array.from(
         this.$el.querySelectorAll(".mobile-card"),
-      ) as gsap.TweenTarget[];
+      ) as HTMLElement[];
 
       if (!cards.length) return;
 
       cards.forEach((card) => {
+        if (this.mobilePlayed) {
+          gsap.set(card, { opacity: 1, y: 0 });
+          return;
+        }
+
         gsap.set(card, { opacity: 0, y: 24 });
 
         const tween = gsap.to(card, {
@@ -289,10 +276,13 @@ export default {
           duration: 0.55,
           ease: "power3.out",
           paused: true,
+          onComplete: () => {
+            this.mobilePlayed = true;
+          },
         });
 
         const st = ScrollTrigger.create({
-          trigger: card as Element,
+          trigger: card,
           scroller,
           start: "top 90%",
           once: true,
@@ -308,65 +298,8 @@ export default {
     killMobileCards() {
       this.mobileCardTriggers.forEach((t) => t.kill());
       this.mobileCardTriggers = [];
-
-      const cards = Array.from(
-        this.$el.querySelectorAll(".mobile-card"),
-      ) as gsap.TweenTarget[];
-
-      gsap.killTweensOf(cards);
-      gsap.set(cards, { clearProps: "opacity,transform" });
     },
 
-    initMouseFollow() {
-      const clouds = this.$el.querySelectorAll(".desktop-view .track-cloud");
-      if (!clouds.length) return;
-
-      clouds.forEach((cloud: HTMLElement, i: number) => {
-        const qx = gsap.quickTo(cloud, "x", { duration: 0.6, ease: "power3" });
-        const qy = gsap.quickTo(cloud, "y", { duration: 0.6, ease: "power3" });
-
-        gsap.to(cloud, {
-          yPercent: -5,
-          duration: 1 + (i % 3) * 0.5,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-          delay: i * 0.3,
-        });
-
-        cloud.addEventListener("pointermove", (e: PointerEvent) => {
-          const rect = cloud.getBoundingClientRect();
-          const nx = (e.clientX - rect.left) / rect.width;
-          const ny = (e.clientY - rect.top) / rect.height;
-
-          qx(gsap.utils.interpolate(-20, 20, nx));
-          qy(gsap.utils.interpolate(-20, 20, ny));
-        });
-
-        cloud.addEventListener("pointerleave", () => {
-          qx(0);
-          qy(0);
-        });
-      });
-    },
-
-    destroyMouseFollow() {
-      const wrapper = this.$el?.querySelector(".content-wrapper");
-      if (!wrapper) return;
-      if (this.onPointerMove)
-        wrapper.removeEventListener("pointermove", this.onPointerMove);
-      if (this.onPointerLeave)
-        wrapper.removeEventListener("pointerleave", this.onPointerLeave);
-    },
-
-    nextTrack() {
-      this.currentTrackIndex =
-        (this.currentTrackIndex + 1) % this.tracks.length;
-    },
-    prevTrack() {
-      this.currentTrackIndex =
-        (this.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
-    },
     positionMargin(index: number) {
       if (index === 0 || index === 3) return { marginLeft: "50px" };
       if (index === 2 || index === 5) return { marginRight: "50px" };

@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -307,18 +307,25 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 const containerRef = ref<HTMLElement | null>(null);
 
 let ctx: gsap.Context | null = null;
+let played = false;
+
+let refreshInitHandler: (() => void) | null = null;
 
 function setup() {
   if (!containerRef.value) return;
+  if (played) return;
 
   ctx?.revert();
+
   ctx = gsap.context(() => {
     const scroller = (document.querySelector(".wrapper") as Element) ?? window;
     ScrollTrigger.defaults({ scroller });
 
-    const questions = gsap.utils.toArray<HTMLElement>(".Question");
+    const questionEls = gsap.utils.toArray<HTMLElement>(".Question");
 
-    questions.forEach((q) => {
+    const splits: SplitText[] = [];
+
+    questionEls.forEach((q) => {
       const btn = q.querySelector<HTMLElement>(".Question_Button");
       if (!btn) return;
 
@@ -326,6 +333,8 @@ function setup() {
         type: "lines",
         linesClass: "faq-line",
       });
+
+      splits.push(split);
 
       gsap.set(q, { opacity: 0, y: 30 });
       gsap.set(split.lines, {
@@ -339,6 +348,9 @@ function setup() {
           trigger: q,
           start: "top 90%",
           toggleActions: "play none none none",
+          onEnter: () => {
+            if (q === questionEls[questionEls.length - 1]) played = true;
+          },
         },
       });
 
@@ -353,11 +365,14 @@ function setup() {
         },
         0,
       );
-
-      ScrollTrigger.addEventListener("refreshInit", () => {
-        split.revert();
-      });
     });
+
+    if (!refreshInitHandler) {
+      refreshInitHandler = () => {
+        splits.forEach((s) => s.revert());
+      };
+      ScrollTrigger.addEventListener("refreshInit", refreshInitHandler);
+    }
   }, containerRef.value);
 }
 
@@ -369,6 +384,10 @@ onMounted(async () => {
 
 onUnmounted(() => {
   window.removeEventListener("resize", setup);
+  if (refreshInitHandler) {
+    ScrollTrigger.removeEventListener("refreshInit", refreshInitHandler);
+    refreshInitHandler = null;
+  }
   ctx?.revert();
 });
 </script>
@@ -454,7 +473,8 @@ onUnmounted(() => {
   font-size: 2vw;
   color: #1a2e33;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
   padding: 2rem;
   cursor: pointer;
   min-width: 0;

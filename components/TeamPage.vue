@@ -43,9 +43,6 @@
                 Explore the Unknown and discover what’s possible! - Saloni and
                 Neha
               </div>
-              <!-- <div class="meet">
-                            Meet the Team
-                        </div> -->
             </div>
           </div>
         </div>
@@ -55,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, onBeforeUnmount } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -64,65 +61,82 @@ gsap.registerPlugin(ScrollTrigger);
 export default defineComponent({
   name: "PastEventsGrid",
   setup() {
+    let ctx: gsap.Context | null = null;
+    let played = false;
+
     onMounted(() => {
-      gsap.from(".small_poloroid_top", {
-        x: () => -window.innerWidth * 0.6,
-        y: () => -window.innerHeight * 0.8,
-        rotation: -45,
-        scale: 0.4,
-        scrollTrigger: {
-          trigger: "#roster",
-          start: "top bottom",
-          end: "top top",
-          scrub: 1,
-          once: true,
-        },
-      });
+      if (played) return;
 
-      gsap.from(".small_poloroid_bottom", {
-        x: () => window.innerWidth * 0.5,
-        y: () => window.innerHeight * 0.6,
-        rotation: 35,
-        scale: 0.4,
-        scrollTrigger: {
-          trigger: "#roster",
-          start: "top bottom",
-          end: "top top",
-          scrub: 1.4,
-          once: true,
-        },
-      });
-
-      gsap.from(".big_poloroid", {
-        x: () => window.innerWidth * 0.3,
-        y: () => window.innerHeight,
-        rotation: -12,
-        scale: 0.5,
-        scrollTrigger: {
-          trigger: "#roster",
-          start: "top 80%",
-          end: "top top",
-          scrub: 1.8,
-          once: true,
-        },
-      });
-
-      gsap.fromTo(
-        ".orbit",
-        { y: -60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.4,
-          ease: "power2.out",
+      ctx = gsap.context(() => {
+        gsap.from(".small_poloroid_top", {
+          x: () => -window.innerWidth * 0.6,
+          y: () => -window.innerHeight * 0.8,
+          rotation: -45,
+          scale: 0.4,
           scrollTrigger: {
             trigger: "#roster",
-            start: "top 40%",
+            start: "top bottom",
+            end: "top top",
+            scrub: 1,
             once: true,
           },
-        },
-      );
+        });
+
+        gsap.from(".small_poloroid_bottom", {
+          x: () => window.innerWidth * 0.5,
+          y: () => window.innerHeight * 0.6,
+          rotation: 35,
+          scale: 0.4,
+          scrollTrigger: {
+            trigger: "#roster",
+            start: "top bottom",
+            end: "top top",
+            scrub: 1.4,
+            once: true,
+          },
+        });
+
+        gsap.from(".big_poloroid", {
+          x: () => window.innerWidth * 0.3,
+          y: () => window.innerHeight,
+          rotation: -12,
+          scale: 0.5,
+          scrollTrigger: {
+            trigger: "#roster",
+            start: "top 80%",
+            end: "top top",
+            scrub: 1.8,
+            once: true,
+          },
+        });
+
+        gsap.fromTo(
+          ".orbit",
+          { y: -60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.4,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#roster",
+              start: "top 40%",
+              once: true,
+            },
+            onComplete: () => {
+              played = true;
+            },
+          },
+        );
+      });
     });
+
+    onBeforeUnmount(() => {
+      ctx?.revert();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    });
+
+    return {};
   },
 });
 </script>
