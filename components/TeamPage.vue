@@ -107,18 +107,21 @@ export default defineComponent({
         },
       });
 
-      gsap.from(".orbit", {
-        opacity: 0,
-        scale: 0.3,
-        rotation: -180,
-        scrollTrigger: {
-          trigger: "#roster",
-          start: "top 90%",
-          end: "top 30%",
-          scrub: 1,
-          once: true,
+      gsap.fromTo(
+        ".orbit",
+        { y: -60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.4,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#roster",
+            start: "top 40%",
+            once: true,
+          },
         },
-      });
+      );
     });
   },
 });
