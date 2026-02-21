@@ -4,19 +4,6 @@
       <div class="stars-container">
         <div class="space-stars-bg"></div>
         <div class="space-clouds-bg"></div>
-        <div
-          v-for="star in stars"
-          :key="star.id"
-          class="star"
-          :style="{
-            left: star.x + '%',
-            top: star.y + 'px',
-            width: star.size + 'px',
-            height: star.size + 'px',
-            animationDelay: star.delay + 's',
-            animationDuration: star.duration + 's',
-          }"
-        ></div>
       </div>
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
@@ -114,24 +101,6 @@ function createTimeline() {
           invalidateOnRefresh: true,
         },
       })
-      .to(box, {
-        ease: "none",
-        motionPath: {
-          path: points,
-          curviness: 1.5,
-        },
-      });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".marker-layer",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
-      })
       .to(
         box,
         {
@@ -154,14 +123,6 @@ function createTimeline() {
   ScrollTrigger.refresh();
 }
 const pageHeight = 8000;
-const stars = Array.from({ length: 500 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * pageHeight,
-  size: Math.random() * 2.5 + 1,
-  delay: Math.random() * 5,
-  duration: Math.random() * 3 + 2,
-}));
 
 useHead({
   title: "Bitcamp",
@@ -315,6 +276,7 @@ export default {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  contain: layout style paint;
 }
 
 .space-stars-bg,
@@ -347,25 +309,6 @@ export default {
   }
 }
 
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background-color: #ffffff;
-  animation: twinkle ease-in-out infinite alternate;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 0.15;
-    transform: scale(0.8);
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.2);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-  }
-}
 
 @keyframes float {
   0% {
@@ -396,6 +339,7 @@ export default {
 
 .blue-planet {
   --float-distance: -300px;
+  will-change: transform;
   position: absolute;
   left: -1550px;
   top: 3010px;
@@ -411,6 +355,7 @@ export default {
 
 .green-planet-bg {
   --float-distance: -120px;
+  will-change: transform;
   position: absolute;
   right: -50px;
   bottom: 25%;
@@ -467,6 +412,7 @@ export default {
   pointer-events: none;
   z-index: 0;
   pointer-events: none;
+  contain: layout;
 }
 
 .marker-container {
@@ -492,6 +438,7 @@ export default {
   height: 300px;
   border-radius: 10px;
   z-index: 10;
+  will-change: transform;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

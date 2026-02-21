@@ -137,7 +137,6 @@ export default defineComponent({
   /* background: transparent; */
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .gradient::after {

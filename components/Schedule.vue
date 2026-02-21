@@ -537,7 +537,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
         border-width: 1px;
         border-style: solid;
         color: white;
@@ -655,7 +655,7 @@
         padding: 5px 15px;
         height: auto;
         width: auto;
-        transition: all 0.2s;
+        transition: background-color 0.2s, color 0.2s;
         border-radius: 10px;
         white-space: nowrap;
         font-family: 'Aleo', sans-serif;

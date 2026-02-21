@@ -14,6 +14,26 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   overflow-x: hidden;
   position: relative;
