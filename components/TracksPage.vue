@@ -67,8 +67,6 @@
 </template>
 
 <script lang="ts">
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import starBorder from "@/assets/img/star-border.png";
 import generalLogo from "@/assets/img/icons/general_logo.svg";
 import gamedevLogo from "@/assets/img/icons/gamedev_logo.svg";
@@ -77,22 +75,12 @@ import mlLogo from "@/assets/img/icons/ml_logo.svg";
 import datasciLogo from "@/assets/img/icons/datasci_logo.svg";
 import quantumLogo from "@/assets/img/icons/quantum_logo.svg";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default {
   name: "TracksPage",
 
   data() {
     return {
-      onResize: null as (() => void) | null,
-      mobileCardTriggers: [] as ScrollTrigger[],
-      desktopCloudTriggers: [] as ScrollTrigger[],
-      desktopPopTweens: [] as gsap.core.Tween[],
-      desktopFloatTweens: [] as gsap.core.Tween[],
-      desktopPlayed: false,
-      mobilePlayed: false,
-      currentTrackIndex: 0,
-      openTrackIndex: -1,
+      observer: null as IntersectionObserver | null,
       starBorder,
       tracks: [
         {
@@ -136,229 +124,51 @@ export default {
   },
 
   mounted() {
-    gsap.set(
-      [
-        this.$el.querySelector(".main-title"),
-        this.$el.querySelector(".main-subtitle"),
-        ...Array.from(this.$el.querySelectorAll(".desktop-view .track-cloud")),
-        ...Array.from(this.$el.querySelectorAll(".mobile-card")),
-      ].filter(Boolean),
-      { willChange: "transform,opacity", force3D: true },
-    );
-
-    gsap.fromTo(
-      this.$el.querySelector(".main-title"),
-      { y: 60, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: this.$el.querySelector(".center-header"),
-          start: "top 85%",
-          once: true,
-        },
-        y: 0,
-        opacity: 1,
-        ease: "power3.out",
-        duration: 1,
-        force3D: true,
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add("is-visible");
+            this.observer?.unobserve(e.target);
+          }
+        });
       },
+      { threshold: 0.15 },
     );
 
-    gsap.fromTo(
-      this.$el.querySelector(".main-subtitle"),
-      { y: 40, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: this.$el.querySelector(".center-header"),
-          start: "top 85%",
-          once: true,
-        },
-        y: 0,
-        opacity: 0.9,
-        ease: "power3.out",
-        duration: 1,
-        delay: 0.2,
-        force3D: true,
-      },
-    );
-
-    this.setupDesktopClouds();
-    this.setupMobileCards();
-
-    this.onResize = () => {
-      this.setupMobileCards();
-      this.setupDesktopClouds();
-    };
-
-    window.addEventListener("resize", this.onResize);
-
-    // ScrollTrigger.refresh();
+    this.$el
+      .querySelectorAll(".track-cloud, .mobile-card, .main-title, .main-subtitle")
+      .forEach((el: Element) => this.observer?.observe(el));
   },
 
   beforeUnmount() {
-    if (this.onResize) window.removeEventListener("resize", this.onResize);
-    this.killMobileCards();
-    this.killDesktopClouds();
-  },
-
-  methods: {
-    setupDesktopClouds() {
-      const isDesktop = window.matchMedia("(min-width: 797px)").matches;
-      if (!isDesktop) {
-        this.killDesktopClouds();
-        return;
-      }
-
-      this.killDesktopClouds();
-
-      const clouds = Array.from(
-        this.$el.querySelectorAll(".desktop-view .track-cloud"),
-      ) as HTMLElement[];
-
-      if (!clouds.length) return;
-
-      clouds.forEach((cloud, i) => {
-        gsap.set(cloud, { willChange: "transform,opacity", force3D: true });
-
-        if (this.desktopPlayed) {
-          gsap.set(cloud, { scale: 1, opacity: 1 });
-          const ft = gsap.to(cloud, {
-            y: -20,
-            duration: 3 + i * 0.4,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: i * 0.5,
-          });
-          this.desktopFloatTweens.push(ft);
-          return;
-        }
-
-        gsap.set(cloud, { scale: 0, opacity: 0 });
-
-        const tween = gsap.to(cloud, {
-          scale: 1,
-          opacity: 1,
-          duration: 0.6,
-          ease: "back.out(1.7)",
-          delay: i * 0.1,
-          paused: true,
-          force3D: true,
-          onComplete: () => {
-            if (i === clouds.length - 1) this.desktopPlayed = true;
-            cloud.style.willChange = "";
-            const ft = gsap.to(cloud, {
-              y: -20,
-              duration: 3 + i * 0.4,
-              ease: "sine.inOut",
-              yoyo: true,
-              repeat: -1,
-            });
-            this.desktopFloatTweens.push(ft);
-          },
-        });
-
-        const st = ScrollTrigger.create({
-          trigger: this.$el.querySelector(".content-wrapper"),
-          start: "top 70%",
-          once: true,
-          onEnter: () => tween.play(),
-        });
-
-        this.desktopPopTweens.push(tween);
-        this.desktopCloudTriggers.push(st);
-      });
-    },
-
-    killDesktopClouds() {
-      this.desktopCloudTriggers.forEach((t) => t.kill());
-      this.desktopCloudTriggers = [];
-
-      this.desktopPopTweens.forEach((t) => t.kill());
-      this.desktopPopTweens = [];
-
-      this.desktopFloatTweens.forEach((t) => t.kill());
-      this.desktopFloatTweens = [];
-
-      const clouds = Array.from(
-        this.$el.querySelectorAll(".desktop-view .track-cloud"),
-      ) as HTMLElement[];
-
-      clouds.forEach((cloud) => {
-        gsap.set(cloud, { y: 0 });
-        cloud.style.willChange = "";
-      });
-    },
-
-    setupMobileCards() {
-      const isMobile = !window.matchMedia("(min-width: 797px)").matches;
-      if (!isMobile) {
-        this.killMobileCards();
-        return;
-      }
-
-      this.killMobileCards();
-
-      const scroller =
-        (document.querySelector(".wrapper") as Element) ?? window;
-
-      const cards = Array.from(
-        this.$el.querySelectorAll(".mobile-card"),
-      ) as HTMLElement[];
-
-      if (!cards.length) return;
-
-      cards.forEach((card) => {
-        gsap.set(card, { willChange: "transform,opacity", force3D: true });
-
-        if (this.mobilePlayed) {
-          gsap.set(card, { opacity: 1, y: 0 });
-          return;
-        }
-
-        gsap.set(card, { opacity: 0, y: 24 });
-
-        const tween = gsap.to(card, {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          ease: "power3.out",
-          paused: true,
-          force3D: true,
-          onComplete: () => {
-            this.mobilePlayed = true;
-            card.style.willChange = "";
-          },
-        });
-
-        const st = ScrollTrigger.create({
-          trigger: card,
-          scroller,
-          start: "top 90%",
-          once: true,
-          onEnter: () => tween.play(),
-        });
-
-        this.mobileCardTriggers.push(st);
-      });
-    },
-
-    killMobileCards() {
-      this.mobileCardTriggers.forEach((t) => t.kill());
-      this.mobileCardTriggers = [];
-
-      const cards = Array.from(
-        this.$el.querySelectorAll(".mobile-card"),
-      ) as HTMLElement[];
-
-      cards.forEach((card) => {
-        card.style.willChange = "";
-      });
-    },
+    this.observer?.disconnect();
   },
 };
 </script>
 
 <style scoped>
+@keyframes cloud-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes cloud-float {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50%       { transform: scale(1) translateY(-14px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .tracks-page {
   position: relative;
   overflow-x: clip;
@@ -402,6 +212,11 @@ export default {
   line-height: 1;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
   white-space: nowrap;
+  opacity: 0;
+}
+
+.main-title.is-visible {
+  animation: fade-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .main-subtitle {
@@ -410,7 +225,11 @@ export default {
   line-height: 1.5;
   margin-top: 20px;
   max-width: 500px;
-  opacity: 0.9;
+  opacity: 0;
+}
+
+.main-subtitle.is-visible {
+  animation: fade-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
 }
 
 .star-border-overlay {
@@ -446,7 +265,22 @@ export default {
   width: clamp(180px, 22vw, 360px);
   z-index: 5;
   padding: 10px;
+  opacity: 0;
 }
+
+.track-cloud.is-visible {
+  will-change: transform;
+  animation:
+    cloud-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    cloud-float 3.2s ease-in-out infinite;
+}
+
+.pos-0.is-visible { animation-delay: 0s,    0.6s; }
+.pos-1.is-visible { animation-delay: 0.1s,  0.72s; }
+.pos-2.is-visible { animation-delay: 0.2s,  0.84s; }
+.pos-3.is-visible { animation-delay: 0.3s,  0.96s; }
+.pos-4.is-visible { animation-delay: 0.4s,  1.08s; }
+.pos-5.is-visible { animation-delay: 0.5s,  1.2s; }
 
 .cloud-content {
   position: relative;
@@ -497,45 +331,33 @@ export default {
 }
 
 .pos-0 {
-  grid-row: 1;
-  grid-column: 1;
-  align-self: end;
-  justify-self: start;
+  grid-row: 1; grid-column: 1;
+  align-self: end; justify-self: start;
   box-shadow: 0 0 100px rgba(227, 78, 37, 0.5);
 }
 .pos-1 {
-  grid-row: 1;
-  grid-column: 2;
-  align-self: start;
-  justify-self: center;
+  grid-row: 1; grid-column: 2;
+  align-self: start; justify-self: center;
   box-shadow: 0 0 100px rgba(228, 147, 47, 0.5);
 }
 .pos-2 {
-  grid-row: 1;
-  grid-column: 3;
-  align-self: end;
-  justify-self: end;
+  grid-row: 1; grid-column: 3;
+  align-self: end; justify-self: end;
   box-shadow: 0 0 100px rgba(201, 51, 139, 0.5);
 }
 .pos-3 {
-  grid-row: 3;
-  grid-column: 1;
-  align-self: start;
-  justify-self: start;
+  grid-row: 3; grid-column: 1;
+  align-self: start; justify-self: start;
   box-shadow: 0 0 100px rgba(175, 48, 186, 0.5);
 }
 .pos-4 {
-  grid-row: 3;
-  grid-column: 2;
-  align-self: end;
-  justify-self: center;
+  grid-row: 3; grid-column: 2;
+  align-self: end; justify-self: center;
   box-shadow: 0 0 100px rgba(46, 129, 170, 0.5);
 }
 .pos-5 {
-  grid-row: 3;
-  grid-column: 3;
-  align-self: start;
-  justify-self: end;
+  grid-row: 3; grid-column: 3;
+  align-self: start; justify-self: end;
   box-shadow: 0 0 100px rgba(50, 156, 61, 0.5);
 }
 
@@ -566,7 +388,19 @@ export default {
   border-radius: 16px;
   backdrop-filter: blur(10px);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+  opacity: 0;
 }
+
+.mobile-card.is-visible {
+  animation: fade-up 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.mobile-card--0.is-visible { animation-delay: 0s; }
+.mobile-card--1.is-visible { animation-delay: 0.07s; }
+.mobile-card--2.is-visible { animation-delay: 0.14s; }
+.mobile-card--3.is-visible { animation-delay: 0.21s; }
+.mobile-card--4.is-visible { animation-delay: 0.28s; }
+.mobile-card--5.is-visible { animation-delay: 0.35s; }
 
 .mobile-card:active {
   transform: scale(0.98);
@@ -626,36 +460,6 @@ export default {
   text-align: left;
   letter-spacing: 0.02em;
   text-shadow: 0 0 24px rgba(180, 200, 255, 0.12);
-}
-
-.mobile-card-orbit {
-  display: flex;
-  gap: 5px;
-  margin-top: 6px;
-  align-items: center;
-}
-
-.orbit-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--card-accent);
-  opacity: 0.6;
-  animation: orbit-pulse 2.5s ease-in-out infinite;
-}
-
-.orbit-dot:nth-child(2) {
-  opacity: 0.4;
-  width: 3px;
-  height: 3px;
-  animation-delay: 0.4s;
-}
-
-.orbit-dot:nth-child(3) {
-  opacity: 0.2;
-  width: 2px;
-  height: 2px;
-  animation-delay: 0.8s;
 }
 
 .mobile-card-body {
