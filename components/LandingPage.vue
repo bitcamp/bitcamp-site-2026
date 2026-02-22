@@ -27,13 +27,13 @@ export default {
 };
 </script>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .gradient {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 80vw;
@@ -43,7 +43,6 @@ export default {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
-
 
 .background {
   position: absolute;
@@ -57,10 +56,8 @@ export default {
 }
 
 .message-wrapper {
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: auto;
+  margin-bottom: 10%;
   width: 100%;
   z-index: 1;
 }
@@ -145,7 +142,6 @@ export default {
   }
 
   .message-wrapper {
-    position: relative;
     height: auto;
     z-index: 1;
     margin-top: 250vw;
