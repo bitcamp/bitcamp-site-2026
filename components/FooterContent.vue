@@ -2,13 +2,24 @@
   <div class="footer-container">
     <div class="footer-background">
       <picture>
-        <source media="(max-width: 700px)" srcset="../assets/img/images/footer_bg_mobile.svg" />
-        <img src="../assets/img/images/footer_bg.svg" alt="" class="background-image" />
+        <source
+          media="(max-width: 700px)"
+          srcset="../assets/img/images/footer_bg_mobile.svg"
+        />
+        <img
+          src="../assets/img/images/footer_bg.svg"
+          alt=""
+          class="background-image"
+        />
       </picture>
-      
+
       <div class="footer-content">
         <div class="logo-section">
-          <img src="../assets/img/images/bitcamp_logo.svg" alt="Bitcamp" class="bitcamp-logo" />
+          <img
+            src="../assets/img/images/bitcamp_logo.svg"
+            alt="Bitcamp"
+            class="bitcamp-logo"
+          />
         </div>
 
         <div class="links-section">
@@ -31,16 +42,32 @@
       </div>
 
       <div class="social-icons">
-        <a href="https://www.instagram.com/bitcamp" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.instagram.com/bitcamp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="../assets/img/images/instagram_logo.svg" alt="Instagram" />
         </a>
-        <a href="https://www.tiktok.com/@bitcamp_umd" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.tiktok.com/@bitcamp_umd"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="../assets/img/images/tiktok_logo.svg" alt="TikTok" />
         </a>
-        <a href="https://x.com/bitcmp" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://x.com/bitcmp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="../assets/img/images/x_logo.svg" alt="X" />
         </a>
-        <a href="https://www.facebook.com/bitcmp" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.facebook.com/bitcmp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="../assets/img/images/facebook_logo.svg" alt="Facebook" />
         </a>
       </div>
@@ -54,7 +81,7 @@
 
 <script lang="ts">
 export default {
-  name: 'Footer',
+  name: "Footer",
 };
 </script>
 
@@ -88,7 +115,7 @@ export default {
   object-fit: cover;
   object-position: center top;
   z-index: 0;
-  margin-top: 100px
+  margin-top: 100px;
 }
 
 .footer-content {
@@ -103,6 +130,7 @@ export default {
 }
 
 .logo-section {
+  margin-left: 1%;
   display: flex;
   align-items: center;
 }
@@ -110,7 +138,7 @@ export default {
 .bitcamp-logo {
   width: calc(5rem + 15vw);
   padding-left: 0.2vw;
-  margin-top:200px;
+  margin-top: 200px;
 }
 
 .links-section {
@@ -132,10 +160,10 @@ export default {
 }
 
 .link-column a {
-  color: #FFF7EB;
+  color: #fff7eb;
   text-decoration: none;
   font-size: calc(0.5rem + 1vw);
-  font-family: 'Avenir';
+  font-family: "Avenir";
   font-weight: 400;
   transition: opacity 0.2s;
 }
@@ -172,7 +200,7 @@ export default {
   position: absolute;
   bottom: 1.5vw;
   padding-left: 2vw;
-  color: #FFF7EB;
+  color: #fff7eb;
   font-size: calc(0.5rem + 1vw);
   font-weight: 300;
   z-index: 1;
@@ -183,7 +211,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start ;
+    justify-content: flex-start;
     gap: 2rem;
   }
 
