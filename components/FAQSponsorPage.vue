@@ -379,7 +379,7 @@ function setup() {
     }
   }, containerRef.value);
 
-// ScrollTrigger.refresh();
+  // ScrollTrigger.refresh();
 }
 
 onMounted(async () => {
@@ -588,7 +588,7 @@ onUnmounted(() => {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   border: none;
   background: transparent;
   padding: 3rem 12px 2.8rem;
@@ -606,14 +606,12 @@ onUnmounted(() => {
 
   &::before {
     content: "";
-    width: 3rem;
-    height: 3rem;
-    margin-top: 1rem;
-    margin-right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
 
-    display: inline-block;
+    display: block;
     transform-origin: 50% 50%;
-    transform: translateY(-4px);
 
     background-color: #fff7eb;
 
@@ -627,7 +625,7 @@ onUnmounted(() => {
   }
 
   &.opened::before {
-    transform: translateY(-4px) rotateZ(45deg);
+    transform: rotateZ(45deg);
   }
 }
 
@@ -709,16 +707,12 @@ onUnmounted(() => {
   .Question,
   .Question_Button {
     font-size: 3.5vw;
-    padding-bottom: 15px;
+    padding-bottom: 5%;
   }
 
   .Question_Button {
-    height: 10vw;
+    height: auto;
     padding: 2rem 12px 1.75rem;
-    &::before {
-      width: 3rem;
-      height: 3rem;
-    }
   }
 
   .Answer,
@@ -749,13 +743,6 @@ onUnmounted(() => {
   .sponsor-card {
     padding: 0.5rem;
     font-size: 3vw;
-  }
-}
-
-@media (min-width: 1200px) {
-  .Question_Button::before {
-    width: 3rem;
-    height: 3rem;
   }
 }
 </style>
