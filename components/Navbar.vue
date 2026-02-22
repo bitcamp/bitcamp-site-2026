@@ -18,6 +18,11 @@
       </div>
 
       <ul v-if="showDropdown || bigScreen" class="nav-pages">
+        <li v-if="!bigScreen" class="page mobile-menu-logo">
+          <a href="/">
+            <img src="../assets/img/images/bitcamp_logo.svg" alt="Bitcamp" />
+          </a>
+        </li>
         <li class="page">
           <a
             href="#tracks"
@@ -500,6 +505,39 @@ nav {
     transition: bottom 0.1s ease-out,
       transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .nav-pages li {
+    animation: slide-in-left 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .nav-pages li:nth-child(1) { animation-delay: 0.04s; }
+  .nav-pages li:nth-child(2) { animation-delay: 0.1s; }
+  .nav-pages li:nth-child(3) { animation-delay: 0.16s; }
+  .nav-pages li:nth-child(4) { animation-delay: 0.22s; }
+  .nav-pages li:nth-child(5) { animation-delay: 0.28s; }
+  .nav-pages li:nth-child(6) { animation-delay: 0.34s; }
+  .nav-pages li:nth-child(7) { animation-delay: 0.40s; }
+  .nav-pages li:nth-child(8) { animation-delay: 0.46s; }
+
+  .mobile-menu-logo {
+    margin-bottom: 0.5rem;
+
+    img {
+      height: 48px;
+      width: auto;
+    }
+  }
+
   .mobile-socials {
     padding-top: 0;
   }
