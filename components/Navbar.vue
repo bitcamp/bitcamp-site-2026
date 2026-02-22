@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ scrolled: scrolled }">
     <nav>
       <div class="non-pages">
         <div class="hamburgerContainer">
@@ -174,10 +174,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const showDropdown = ref(false);
 const bigScreen = ref(false);
+const scrolled = ref(false);
+
+let wrapperEl: HTMLElement | null = null;
 
 onMounted(() => {
   const startSize = window.innerWidth;
@@ -188,11 +191,21 @@ onMounted(() => {
   }
   window.addEventListener("resize", onresize);
   window.addEventListener("scroll", setColorAndOpacity);
+
+  wrapperEl = document.querySelector(".wrapper");
+  if (wrapperEl) {
+    wrapperEl.addEventListener("scroll", setColorAndOpacity);
+  }
+
+  setColorAndOpacity();
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", onresize);
   window.removeEventListener("scroll", setColorAndOpacity);
+  if (wrapperEl) {
+    wrapperEl.removeEventListener("scroll", setColorAndOpacity);
+  }
 });
 
 function onresize() {
@@ -208,7 +221,10 @@ function onresize() {
   setColorAndOpacity();
 }
 
-function setColorAndOpacity() {}
+function setColorAndOpacity() {
+  const scrollY = wrapperEl ? wrapperEl.scrollTop : window.scrollY;
+  scrolled.value = scrollY > 200;
+}
 
 function scrollTo(id: string) {
   const target = document.getElementById(id);
@@ -244,6 +260,8 @@ header {
   margin-top: 30px;
   padding: 0 2vw;
 
+  transition: background-color 0.3s ease;
+
   &::before {
     content: "";
     position: absolute;
@@ -253,6 +271,12 @@ header {
     height: calc(100% + 30px);
     background-color: #010b18;
     z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &.scrolled::before {
+    opacity: 1;
   }
 }
 
@@ -320,6 +344,10 @@ nav {
 
     &::before {
       display: none;
+    }
+
+    &.scrolled {
+      background-color: rgba(1, 11, 24, 0.9);
     }
   }
 
@@ -520,14 +548,30 @@ nav {
     animation: slide-in-left 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
-  .nav-pages li:nth-child(1) { animation-delay: 0.04s; }
-  .nav-pages li:nth-child(2) { animation-delay: 0.1s; }
-  .nav-pages li:nth-child(3) { animation-delay: 0.16s; }
-  .nav-pages li:nth-child(4) { animation-delay: 0.22s; }
-  .nav-pages li:nth-child(5) { animation-delay: 0.28s; }
-  .nav-pages li:nth-child(6) { animation-delay: 0.34s; }
-  .nav-pages li:nth-child(7) { animation-delay: 0.40s; }
-  .nav-pages li:nth-child(8) { animation-delay: 0.46s; }
+  .nav-pages li:nth-child(1) {
+    animation-delay: 0.04s;
+  }
+  .nav-pages li:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .nav-pages li:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+  .nav-pages li:nth-child(4) {
+    animation-delay: 0.22s;
+  }
+  .nav-pages li:nth-child(5) {
+    animation-delay: 0.28s;
+  }
+  .nav-pages li:nth-child(6) {
+    animation-delay: 0.34s;
+  }
+  .nav-pages li:nth-child(7) {
+    animation-delay: 0.4s;
+  }
+  .nav-pages li:nth-child(8) {
+    animation-delay: 0.46s;
+  }
 
   .mobile-menu-logo {
     margin-bottom: 0.5rem;
