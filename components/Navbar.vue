@@ -346,9 +346,6 @@ nav {
       display: none;
     }
 
-    &.scrolled {
-      background-color: rgba(1, 11, 24, 0.9);
-    }
   }
 
   nav {
