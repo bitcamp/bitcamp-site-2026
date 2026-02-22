@@ -5,6 +5,7 @@
         <div class="space-stars-bg"></div>
         <div class="space-clouds-bg"></div>
       </div> -->
+      <StarsBackground />
       <div class="red-planet"></div>
       <div class="blue-planet"></div>
       <div class="green-planet-bg"></div>
@@ -324,19 +325,30 @@ export default {
   }
 }
 
-/* @keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(var(--float-distance));
-  }
-  100% {
-    transform: translateY(0);
-  }
-} */
+@keyframes float-red {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-40px, -180px); }
+  50%  { transform: translate(60px, -320px); }
+  75%  { transform: translate(-20px, -140px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes float-blue {
+  0%   { transform: translate(0, 0); }
+  30%  { transform: translate(80px, -200px); }
+  60%  { transform: translate(-60px, -280px); }
+  80%  { transform: translate(30px, -100px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes float-green {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  33%  { transform: translate(-30px, -80px) rotate(3deg); }
+  66%  { transform: translate(20px, -120px) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
 .red-planet {
-  --float-distance: -380px;
   will-change: transform;
   position: absolute;
   right: -800px;
@@ -348,11 +360,10 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   pointer-events: none;
-  /* animation: float 25s infinite ease-in-out; */
+  animation: float-red 28s infinite ease-in-out;
 }
 
 .blue-planet {
-  --float-distance: -300px;
   will-change: transform;
   position: absolute;
   left: -1550px;
@@ -364,11 +375,10 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   pointer-events: none;
-  /* animation: float 35s infinite ease-in-out; */
+  animation: float-blue 38s infinite ease-in-out;
 }
 
 .green-planet-bg {
-  --float-distance: -120px;
   will-change: transform;
   position: absolute;
   right: -50px;
@@ -380,7 +390,7 @@ export default {
   background-repeat: no-repeat;
   z-index: 0;
   pointer-events: none;
-  /* animation: float 60s infinite ease-in-out; */
+  animation: float-green 55s infinite ease-in-out;
 }
 
 .LandingPage,

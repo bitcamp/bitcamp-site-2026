@@ -17,7 +17,6 @@
           :key="track.title"
           class="track-cloud"
           :class="'pos-' + index"
-          :style="positionMargin(index)"
         >
           <img :src="starBorder" class="star-border-overlay" alt="" />
           <div class="cloud-content">
@@ -89,6 +88,7 @@ export default {
       mobileCardTriggers: [] as ScrollTrigger[],
       desktopCloudTriggers: [] as ScrollTrigger[],
       desktopPopTweens: [] as gsap.core.Tween[],
+      desktopFloatTweens: [] as gsap.core.Tween[],
       desktopPlayed: false,
       mobilePlayed: false,
       currentTrackIndex: 0,
@@ -221,6 +221,15 @@ export default {
 
         if (this.desktopPlayed) {
           gsap.set(cloud, { scale: 1, opacity: 1 });
+          const ft = gsap.to(cloud, {
+            y: -20,
+            duration: 3 + i * 0.4,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: i * 0.5,
+          });
+          this.desktopFloatTweens.push(ft);
           return;
         }
 
@@ -237,6 +246,14 @@ export default {
           onComplete: () => {
             if (i === clouds.length - 1) this.desktopPlayed = true;
             cloud.style.willChange = "";
+            const ft = gsap.to(cloud, {
+              y: -20,
+              duration: 3 + i * 0.4,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: -1,
+            });
+            this.desktopFloatTweens.push(ft);
           },
         });
 
@@ -259,11 +276,15 @@ export default {
       this.desktopPopTweens.forEach((t) => t.kill());
       this.desktopPopTweens = [];
 
+      this.desktopFloatTweens.forEach((t) => t.kill());
+      this.desktopFloatTweens = [];
+
       const clouds = Array.from(
         this.$el.querySelectorAll(".desktop-view .track-cloud"),
       ) as HTMLElement[];
 
       clouds.forEach((cloud) => {
+        gsap.set(cloud, { y: 0 });
         cloud.style.willChange = "";
       });
     },
@@ -333,12 +354,6 @@ export default {
         card.style.willChange = "";
       });
     },
-
-    positionMargin(index: number) {
-      if (index === 0 || index === 3) return { marginLeft: "50px" };
-      if (index === 2 || index === 5) return { marginRight: "50px" };
-      return {};
-    },
   },
 };
 </script>
@@ -372,16 +387,17 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 30vw;
-  z-index: 1;
+  width: clamp(260px, 28vw, 480px);
+  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 28px 32px;
 }
 
 .main-title {
   font-family: "Aleo";
-  font-size: 5vw;
+  font-size: clamp(32px, 5vw, 80px);
   margin: 0;
   line-height: 1;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
@@ -390,7 +406,7 @@ export default {
 
 .main-subtitle {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: 1.1vw;
+  font-size: clamp(12px, 1.1vw, 17px);
   line-height: 1.5;
   margin-top: 20px;
   max-width: 500px;
@@ -409,7 +425,13 @@ export default {
 }
 
 .desktop-view {
-  display: block;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr clamp(160px, 22vh, 280px) 1fr;
+  padding: clamp(16px, 5vh, 60px) clamp(16px, 5vw, 80px);
+  gap: clamp(8px, 1.5vh, 20px) clamp(12px, 2vw, 40px);
 }
 
 .track-cloud {
@@ -420,9 +442,8 @@ export default {
   );
   border: 1px solid rgba(100, 130, 220, 0.1);
   border-radius: 120px;
-  position: absolute;
-  width: 24vw;
-  max-width: 380px;
+  position: relative;
+  width: clamp(180px, 22vw, 360px);
   z-index: 5;
   padding: 10px;
 }
@@ -451,8 +472,8 @@ export default {
 }
 
 .icon-img {
-  width: 120px;
-  height: 120px;
+  width: clamp(80px, 8vw, 120px);
+  height: clamp(80px, 8vw, 120px);
   object-fit: contain;
 }
 
@@ -463,48 +484,58 @@ export default {
 
 .cloud-title {
   font-family: "Aleo";
-  font-size: 1.8vw;
+  font-size: clamp(14px, 1.6vw, 26px);
   font-weight: bold;
   margin: 0.5rem 0 0.4rem;
 }
 
 .cloud-desc {
   font-family: "Avenir", Helvetica, sans-serif;
-  font-size: 1vw;
+  font-size: clamp(11px, 0.9vw, 15px);
   line-height: 1.35;
   margin: 0;
 }
 
 .pos-0 {
-  top: 15%;
-  left: max(5%, 40px);
+  grid-row: 1;
+  grid-column: 1;
+  align-self: end;
+  justify-self: start;
   box-shadow: 0 0 100px rgba(227, 78, 37, 0.5);
 }
 .pos-1 {
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+  grid-row: 1;
+  grid-column: 2;
+  align-self: start;
+  justify-self: center;
   box-shadow: 0 0 100px rgba(228, 147, 47, 0.5);
 }
 .pos-2 {
-  top: 15%;
-  right: max(5%, 40px);
+  grid-row: 1;
+  grid-column: 3;
+  align-self: end;
+  justify-self: end;
   box-shadow: 0 0 100px rgba(201, 51, 139, 0.5);
 }
 .pos-3 {
-  bottom: 15%;
-  left: max(5%, 40px);
+  grid-row: 3;
+  grid-column: 1;
+  align-self: start;
+  justify-self: start;
   box-shadow: 0 0 100px rgba(175, 48, 186, 0.5);
 }
 .pos-4 {
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+  grid-row: 3;
+  grid-column: 2;
+  align-self: end;
+  justify-self: center;
   box-shadow: 0 0 100px rgba(46, 129, 170, 0.5);
 }
 .pos-5 {
-  bottom: 15%;
-  right: max(5%, 40px);
+  grid-row: 3;
+  grid-column: 3;
+  align-self: start;
+  justify-self: end;
   box-shadow: 0 0 100px rgba(50, 156, 61, 0.5);
 }
 
@@ -638,37 +669,6 @@ export default {
   margin: 0;
   border-top: 1px solid rgba(100, 130, 220, 0.1);
   padding-top: 12px;
-}
-
-@media (max-width: 1400px) {
-  .pos-0 {
-    top: 23%;
-    left: max(5%, 40px);
-  }
-  .pos-2 {
-    top: 20%;
-    right: max(5%, 40px);
-  }
-}
-
-@media (max-width: 1200px) {
-  .content-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1800px;
-    height: 85vh;
-    z-index: 10;
-    padding-inline: 5vw;
-  }
-
-  .pos-0 {
-    top: 25%;
-    left: max(5%, 40px);
-  }
-  .pos-2 {
-    top: 25%;
-    right: max(5%, 40px);
-  }
 }
 
 @media (max-width: 796px) {
