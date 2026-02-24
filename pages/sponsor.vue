@@ -248,7 +248,7 @@
             />
             <ProspectusEmptyRow :categoryName="'Marketing'" />
             <ProspectusRow
-              :categoryName="'Logo on Shirt & Website'"
+              :categoryName="'Logo on Website'"
               :tierNames="['Byte', 'Kilo', 'Mega', 'Giga', 'Tera', 'Peta']"
               :args="[
                 'check-b',
