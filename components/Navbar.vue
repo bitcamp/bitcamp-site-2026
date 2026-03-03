@@ -59,14 +59,14 @@
           </a>
         </li>
 
-        <li class="page">
+        <!-- <li class="page">
           <a
             href="#schedule"
             class="page-type"
             @click.prevent="scrollTo('schedule')"
             >Schedule</a
           >
-        </li>
+        </li> -->
         <li class="page">
           <a href="#faq" class="page-type" @click.prevent="scrollTo('faq')"
             >FAQ</a
