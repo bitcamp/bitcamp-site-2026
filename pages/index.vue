@@ -152,11 +152,11 @@ useHead({
     },
     {
       property: "og:title",
-      content: "Bitcamp 2025",
+      content: "Bitcamp 2026",
     },
     {
       property: "og:site_name",
-      content: "Bitcamp 2025",
+      content: "Bitcamp 2026",
     },
     {
       property: "og:url",
@@ -181,7 +181,7 @@ useHead({
     },
     {
       property: "twitter:title",
-      content: "Bitcamp 2025",
+      content: "Bitcamp 2026",
     },
     {
       property: "twitter:description",
