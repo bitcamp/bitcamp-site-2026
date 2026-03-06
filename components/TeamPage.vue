@@ -286,10 +286,16 @@ export default defineComponent({
   row-gap: 0;
 }
 
+.small_photo,
+.team_photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .small_poloroid_top {
   width: 23vw;
   height: auto;
-  aspect-ratio: 13/16;
   display: flex;
   position: relative;
   left: 6vw;
@@ -297,9 +303,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 8.5% 8.5% 1% 8.5%;
-  object-fit: cover;
-  object-position: center;
+  padding: 5% 5% 20% 5%;
   margin: 0;
   rotate: -4deg;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -308,7 +312,6 @@ export default defineComponent({
 .small_poloroid_bottom {
   width: 23vw;
   height: auto;
-  aspect-ratio: 13/16;
   position: relative;
   left: 0.5vw;
   top: -5vh;
@@ -316,7 +319,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 8.5% 8.5% 4% 8.5%;
+  padding: 5% 5% 20% 5%;
   margin: 0;
   rotate: 6deg;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -324,31 +327,15 @@ export default defineComponent({
 
 .big_poloroid {
   width: 50vw;
+  height: auto;
   margin-bottom: 5%;
-  aspect-ratio: 20/12.5;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 2.5%;
+  padding: 3%;
   rotate: 2deg;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
-}
-
-.team_photo {
-  height: auto;
-  width: 100%;
-  padding-bottom: 2%;
-  overflow: hidden;
-  object-fit: cover;
-}
-
-.small_photo {
-  height: auto;
-  width: 100%;
-  padding-bottom: 2%;
-  overflow: hidden;
-  object-fit: cont;
 }
 
 .polo_box {
@@ -464,12 +451,6 @@ export default defineComponent({
     margin-top: 8%;
   }
 
-  .big_poloroid {
-    width: 105%;
-    padding: 5%;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.6);
-  }
-
   .polo_box {
     font-size: 2.1cqi;
   }
@@ -478,20 +459,27 @@ export default defineComponent({
     margin-top: 5%;
   }
 
+  .big_poloroid {
+    width: 105%;
+    padding: 5%;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.6);
+  }
+
   .small_poloroid_top {
     width: 50vw;
     left: 0;
     top: -4vh;
-    padding: 4%;
+    padding: 4% 4% 18% 4%;
     rotate: -5deg;
     z-index: 99999;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
   }
+
   .small_poloroid_bottom {
     width: 50vw;
-    padding: 4%;
     left: 0;
     top: -2vh;
+    padding: 4% 4% 18% 4%;
     z-index: 99999;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
   }

@@ -34,7 +34,6 @@
         <div class="marker-container fourth"><div class="marker"></div></div>
         <div class="marker-container fifth"><div class="marker"></div></div>
         <div class="marker-container sixth"><div class="marker"></div></div>
-        <div class="marker-container seventh"><div class="marker"></div></div>
       </div>
     </div>
   </div>
@@ -510,26 +509,21 @@ export default {
 
 .third {
   right: 10%;
-  top: 43%;
+  top: 45%;
 }
 
 .fourth {
   left: 20%;
-  top: 60%;
+  top: 65%;
 }
 
 .fifth {
   left: 60%;
-  top: 74%;
+  top: 80%;
 }
 
 .sixth {
   left: 15%;
-  top: 85%;
-}
-
-.seventh {
-  right: 10%;
   top: 95%;
 }
 
