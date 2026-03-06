@@ -34,6 +34,7 @@
         <div class="marker-container fourth"><div class="marker"></div></div>
         <div class="marker-container fifth"><div class="marker"></div></div>
         <div class="marker-container sixth"><div class="marker"></div></div>
+        <div class="marker-container seventh"><div class="marker"></div></div>
       </div>
     </div>
   </div>
@@ -326,26 +327,54 @@ export default {
 }
 
 @keyframes float-red {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-40px, -180px); }
-  50%  { transform: translate(60px, -320px); }
-  75%  { transform: translate(-20px, -140px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-40px, -180px);
+  }
+  50% {
+    transform: translate(60px, -320px);
+  }
+  75% {
+    transform: translate(-20px, -140px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes float-blue {
-  0%   { transform: translate(0, 0); }
-  30%  { transform: translate(80px, -200px); }
-  60%  { transform: translate(-60px, -280px); }
-  80%  { transform: translate(30px, -100px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translate(80px, -200px);
+  }
+  60% {
+    transform: translate(-60px, -280px);
+  }
+  80% {
+    transform: translate(30px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes float-green {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  33%  { transform: translate(-30px, -80px) rotate(3deg); }
-  66%  { transform: translate(20px, -120px) rotate(-2deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-30px, -80px) rotate(3deg);
+  }
+  66% {
+    transform: translate(20px, -120px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 .red-planet {
@@ -443,7 +472,7 @@ export default {
   position: absolute;
   width: 140px;
   height: 140px;
-  /* border: 2px dashed rgba(255, 255, 255, 0.25); */
+  /* border: 2px dashed rgb(255, 0, 0); */
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -481,21 +510,26 @@ export default {
 
 .third {
   right: 10%;
-  top: 45%;
+  top: 43%;
 }
 
 .fourth {
   left: 20%;
-  top: 65%;
+  top: 60%;
 }
 
 .fifth {
   left: 60%;
-  top: 80%;
+  top: 74%;
 }
 
 .sixth {
   left: 15%;
+  top: 85%;
+}
+
+.seventh {
+  right: 10%;
   top: 95%;
 }
 

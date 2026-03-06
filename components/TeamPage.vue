@@ -344,10 +344,11 @@ export default defineComponent({
 }
 
 .small_photo {
-  width: 110%;
-  aspect-ratio: 1.15/1;
+  height: auto;
+  width: 100%;
   padding-bottom: 2%;
   overflow: hidden;
+  object-fit: cont;
 }
 
 .polo_box {
