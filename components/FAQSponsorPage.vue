@@ -275,6 +275,12 @@ const sponsors: Sponsor[] = [
     amount: -1,
     url: "https://eng.umd.edu/",
   },
+  {
+    name: "Pure Buttons",
+    image: "/img/logos/Pure-Buttons.svg",
+    amount: -1,
+    url: "https://www.purebuttons.com/",
+  },
 ];
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
