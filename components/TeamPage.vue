@@ -7,15 +7,23 @@
             <img
               class="small_photo"
               src="../assets/img/images/NehaVeeragandham.webp"
-              alt="lebron"
+              alt="Neha Veeragandham"
             />
+            <div class="small_caption">
+              <span class="small_name">Neha Veeragandham</span>
+              <span class="small_title">Co-Executive Director</span>
+            </div>
           </div>
           <div class="small_poloroid_bottom">
             <img
               class="small_photo"
               src="../assets/img/images/SaloniShah.webp"
-              alt="lebron"
+              alt="Saloni Shah"
             />
+            <div class="small_caption">
+              <span class="small_name">Saloni Shah</span>
+              <span class="small_title">Co-Executive Director</span>
+            </div>
           </div>
         </div>
         <div class="second_vertical">
@@ -326,6 +334,31 @@ export default defineComponent({
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.small_caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 8%;
+}
+
+.small_name {
+  font-family: Avenir;
+  font-weight: 700;
+  color: #000;
+  font-size: 1.1cqi;
+  line-height: 1.3;
+}
+
+.small_title {
+  font-family: Avenir;
+  font-weight: 400;
+  color: #555;
+  font-size: 0.9cqi;
+  line-height: 1.3;
+  font-style: italic;
+}
+
 .big_poloroid {
   width: 50vw;
   height: auto;
@@ -455,6 +488,18 @@ export default defineComponent({
 
   .polo_box {
     font-size: 2.1cqi;
+  }
+
+  .small_name {
+    font-size: 2.8cqi;
+  }
+
+  .small_title {
+    font-size: 2.2cqi;
+  }
+
+  .small_caption {
+    padding-top: 14%;
   }
   .orbit {
     width: 110%;
