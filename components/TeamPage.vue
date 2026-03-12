@@ -291,6 +291,7 @@ export default defineComponent({
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
 .small_poloroid_top {
@@ -447,6 +448,7 @@ export default defineComponent({
     flex-direction: row;
     width: 110%;
     justify-content: center;
+    align-items: flex-start;
     gap: 5%;
     margin-top: 8%;
   }
