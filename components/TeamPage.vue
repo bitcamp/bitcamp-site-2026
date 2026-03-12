@@ -343,20 +343,19 @@ export default defineComponent({
 }
 
 .small_name {
-  font-family: Avenir;
+  font-family: "Caveat", cursive;
   font-weight: 700;
-  color: #000;
-  font-size: 1.1cqi;
-  line-height: 1.3;
+  color: #222;
+  font-size: 1.4cqi;
+  line-height: 1.2;
 }
 
 .small_title {
-  font-family: Avenir;
+  font-family: "Caveat", cursive;
   font-weight: 400;
   color: #555;
-  font-size: 0.9cqi;
-  line-height: 1.3;
-  font-style: italic;
+  font-size: 1.1cqi;
+  line-height: 1.2;
 }
 
 .big_poloroid {
@@ -379,7 +378,6 @@ export default defineComponent({
   color: #000000;
   padding-top: 2%;
   padding-bottom: 2%;
-  font-style: Medium;
   font-size: 1.2cqi;
   line-height: 1.4;
 }
@@ -487,15 +485,15 @@ export default defineComponent({
   }
 
   .polo_box {
-    font-size: 2.1cqi;
+    font-size: 2.6cqi;
   }
 
   .small_name {
-    font-size: 2.8cqi;
+    font-size: 3.4cqi;
   }
 
   .small_title {
-    font-size: 2.2cqi;
+    font-size: 2.8cqi;
   }
 
   .small_caption {
