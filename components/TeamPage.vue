@@ -6,14 +6,14 @@
           <div class="small_poloroid_top">
             <img
               class="small_photo"
-              src="../assets/img/images/NehaVeeragandham.svg"
+              src="../assets/img/images/NehaVeeragandham.webp"
               alt="lebron"
             />
           </div>
           <div class="small_poloroid_bottom">
             <img
               class="small_photo"
-              src="../assets/img/images/SaloniShah.svg"
+              src="../assets/img/images/SaloniShah.webp"
               alt="lebron"
             />
           </div>
@@ -29,7 +29,7 @@
           <div class="big_poloroid">
             <img
               class="team_photo"
-              src="../assets/img/images/DirectorGroup.svg"
+              src="../assets/img/images/DirectorGroupPhoto.webp"
               alt="lebron"
             />
             <div class="caption_box">
