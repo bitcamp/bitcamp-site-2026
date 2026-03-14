@@ -7,20 +7,20 @@
       <div class="image image-sunset"></div>
       <div class="image image-night"></div>
       <div class="image image-sunrise"></div>
-      <div class="roster-container">
-        <div class="color-container">
-          <RosterExec />
-          <RosterDirector />
-          <RosterDesign />
-          <RosterEvents />
-          <RosterExp />
-          <RosterLog />
-          <RosterMark />
-          <RosterSponsFin />
-          <RosterTech />
-          <RosterSenior />
+        <div class="roster-container">
+          <div class="color-container">
+            <RosterExec />
+            <RosterDirector />
+            <RosterDesign />
+            <RosterEvents />
+            <RosterExp />
+            <RosterLog />
+            <RosterMark />
+            <RosterSponsFin />
+            <RosterTech />
+            <RosterSenior />
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -41,7 +41,7 @@ import RosterSponsFin from '~/components/RosterSponsFin.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 export default {
   name: 'HomePage',
-  components: { RosterDesign, RosterDirector, RosterExec, RosterExp, RosterLog, RosterMark, RosterSenior, RosterSponsFin, RosterTech },
+  components: { RosterDesign, RosterExec, RosterDirector, RosterEvents, RosterExp, RosterLog, RosterMark, RosterSenior, RosterSponsFin, RosterTech },
 
   setup() {
     const wrapperRef = ref<HTMLElement | null>(null);

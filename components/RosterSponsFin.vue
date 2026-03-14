@@ -1,134 +1,40 @@
 <template>
     <div id="sponsfin" class="container">
-        <div class="team-name">Sponsorship and Finance</div>
+        <div class="team-name">Sponsorship & Finance</div>
         <div class="section">
-            <RosterCard name="Rishi Agarwal" position="Sponsorship" pronouns="he/him" :imageSrc="rishi"
-                linkedinUrl="http://www.linkedin.com/in/rishi-agarwal13" />
-            <RosterCard name="Nikita (Niki) Arya" position="Sponsorship (Contact Finders/Writers)" pronouns="she/her"
-                :imageSrc="nikita" linkedinUrl="http://www.linkedin.com/in/nikitaaryaa" />
-            <RosterCard name="Melanie Chen" position="Finance (Invoicing)" pronouns="she/her" :imageSrc="melanie"
-                linkedinUrl="https://www.linkedin.com/in/melaniechenn" />
-            <RosterCard name="Aditri Gadigi" position="Finance (Reimbursements)" pronouns="she/her" :imageSrc="aditri"
-                linkedinUrl="http://www.linkedin.com/in/aditrig" />
-            <RosterCard name="Jennifer Li" position="Sponsorship (General, Mass Mailing)" pronouns="she/her"
-                :imageSrc="jennifer" linkedinUrl="https://www.linkedin.com/in/li-jennifer-j/" />
-            <RosterCard name="Saharsh Maloo" position="Sponsorship (General, Mass Mailing)" pronouns="he/him"
-                :imageSrc="saharsh" linkedinUrl="https://www.linkedin.com/in/saharsh-maloo" />
-            <RosterCard name="Bhavini Pandey" position="Sponsorship (Contact Finders/Writers)" pronouns="she/her"
-                :imageSrc="bhavini" linkedinUrl="https://www.linkedin.com/in/bhavini-pandey-05/" />
+            <RosterCard name="Abhinav Manda" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="abhinavmanda" />
+            <RosterCard name="Aditri Gadigi" position="Sponsorship & Finance Organizer" pronouns="she/her" linkedinUrl="http://www.linkedin.com/in/aditrig" :imageSrc="aditrigadigi" />
+            <RosterCard name="Christopher Huang" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="christopherhuang" />
+            <RosterCard name="Manit Mishra" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="manitmishra" />
+            <RosterCard name="Melanie Chen" position="Sponsorship & Finance Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/melaniechenn" :imageSrc="melaniechen" />
+            <RosterCard name="Sania Manyem" position="Sponsorship & Finance Organizer" pronouns="she/her" :imageSrc="saniamanyem" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import rishi from '../assets/img/images/headshots/rishiagarwal.webp';
-import saharsh from '../assets/img/images/headshots/saharashmaloo2.webp';
-import nikita from '../assets/img/images/headshots/nikitaarya.webp';
-import melanie from '../assets/img/images/headshots/melaniechen.webp';
-import aditri from '../assets/img/images/headshots/aditrigadigi.webp';
-import jennifer from '../assets/img/images/headshots/jenniferli.webp';
-import bhavini from '../assets/img/images/headshots/bhavinipandey.webp';
+import RosterCard from './RosterCard.vue'
+import abhinavmanda from '../assets/img/images/headshots/AbhinavManda.webp'
+import aditrigadigi from '../assets/img/images/headshots/AditriGadigi.webp'
+import christopherhuang from '../assets/img/images/headshots/ChristopherHuang.webp'
+import manitmishra from '../assets/img/images/headshots/ManitMishra.webp'
+import melaniechen from '../assets/img/images/headshots/MelanieChen.webp'
+import saniamanyem from '../assets/img/images/headshots/SaniaManyem.webp'
 
 export default {
-    name: 'HomePage',
-    // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-    components: {},
-
-    head() {
+    name: 'RosterSponsFin',
+    components: { RosterCard },
+    data() {
         return {
-            title: 'Bitcamp',
-            meta: [
-                {
-                    name: 'description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:site_name',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'og:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    property: 'twitter:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'twitter:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'twitter:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    name: 'msapplication-TileColor',
-                    content: '#ff6f3f',
-                },
-                {
-                    name: 'msapplication-config',
-                    content: '/bitcamp-brand/favicons/browserconfig.xml',
-                },
-                {
-                    name: 'theme-color',
-                    content: '#ffffff',
-                },
-            ],
-            link: [
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
-                },
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
-                },
-                {
-                    rel: 'manifest',
-                    href: '/bitcamp-brand/favicons/site.webmanifest',
-                },
-                {
-                    rel: 'mask-icon',
-                    href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-                    color: '#ff6f3f',
-                },
-                {
-                    rel: 'shortcut icon',
-                    href: '/bitcamp-brand/favicons/favicon.ico',
-                },
-            ],
-        };
-    }, data() {
-        return {
-            rishi, nikita, melanie, aditri, jennifer, saharsh, bhavini
+            abhinavmanda,
+            aditrigadigi,
+            christopherhuang,
+            manitmishra,
+            melaniechen,
+            saniamanyem
         }
     }
 };
-
 </script>
 
 <style scoped>

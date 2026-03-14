@@ -2,148 +2,60 @@
     <div id="tech" class="container">
         <div class="team-name">Tech</div>
         <div class="section">
-            <RosterCard name="Mohe Edeen Abu Maizer" position="Tech Member" pronouns="he/him" :imageSrc="mohe"
-                linkedinUrl="https://www.linkedin.com/in/moheedeen/" />
-            <RosterCard name="Eileen Chen" position="Tech Member" pronouns="she/her" :imageSrc="eileen"
-                linkedinUrl="https://www.linkedin.com/in/eileendc/" />
-            <RosterCard name="Tyson Cheung" position="Tech Member" pronouns="he/him" :imageSrc="tyson"
-                linkedinUrl="https://www.linkedin.com/in/tyson-cheung" />
-            <RosterCard name="Arya Gijare" position="Tech Member" pronouns="she/her" :imageSrc="arya"
-                linkedinUrl="https://www.linkedin.com/in/arya-gijare/" />
-            <RosterCard name="Sanya Gupta" position="Tech Member" pronouns="she/her" :imageSrc="sanya"
-                linkedinUrl="https://www.linkedin.com/in/sanya-gupta7" />
-            <RosterCard name="Joanne Lee" position="Tech Member" pronouns="she/her" :imageSrc="joanne"
-                linkedinUrl="https://www.linkedin.com/in/joanneynlee" />
-            <RosterCard name="Devon Lai" position="Tech Member" pronouns="he/him" :imageSrc="devon"
-                linkedinUrl="http://www.linkedin.com/in/devon-lai" />
-            <RosterCard name="Harrison Padgett" position="Tech Member" pronouns="he/him" :imageSrc="harrison"
-                linkedinUrl="https://www.linkedin.com/in/harrison-padgett" />
-            <RosterCard name="Swathi Pulipati" position="Tech Member" pronouns="she/her" :imageSrc="swathi"
-                linkedinUrl="https://linkedin.com/in/swathi-pulipati-1b450b232" />
-            <RosterCard name="Thirunavukkarasu (Thiru) Sethuraman" position="Tech Member" pronouns="he/him"
-                :imageSrc="thiru" linkedinUrl="https://www.linkedin.com/in/thirus27" />
-            <RosterCard name="Srujana Theerthala" position="Tech Member" pronouns="she/her" :imageSrc="srujana"
-                linkedinUrl="https://www.linkedin.com/in/srujana-theerthala-165671262" />
-            <RosterCard name="Harini Thirukonda" position="Tech Member" pronouns="she/her" :imageSrc="harini"
-                linkedinUrl="https://www.linkedin.com/in/harini-thirukonda-190036238/" />
+            <RosterCard name="Ananya Srinivasan" position="Tech Organizer" pronouns="she/her" :imageSrc="ananyasrinivasan" linkedinUrl="https://www.linkedin.com/in/ananyasrin" />
+            <RosterCard name="Anika Thakur" position="Tech Organizer" pronouns="she/her" :imageSrc="anikathakur" linkedinUrl="https://www.linkedin.com/in/anika-thakur" />
+            <RosterCard name="Daniel Yi" position="Tech Organizer" pronouns="he/him" :imageSrc="danielyi" linkedinUrl="https://www.linkedin.com/in/daniel-s-yi" />
+            <RosterCard name="Harini Thirukonda" position="Tech Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/harini-thirukonda-190036238/" :imageSrc="harinithirukonda" />
+            <RosterCard name="Harrison Padgett" position="Tech Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/harrison-padgett" :imageSrc="harrisonpadgett" />
+            <RosterCard name="Jadon Chu" position="Tech Organizer" pronouns="he/him" :imageSrc="jadonchu" linkedinUrl="https://www.linkedin.com/in/jadon-g-chu" />
+            <RosterCard name="Joseph Cho" position="Tech Organizer" pronouns="he/him" :imageSrc="josephcho" linkedinUrl="https://www.linkedin.com/in/jcho1114" />
+            <RosterCard name="Lusenie Turay" position="Tech Organizer" pronouns="he/him" :imageSrc="lusenieturay" linkedinUrl="https://www.linkedin.com/in/lusenie-turay" />
+            <RosterCard name="Sanya Gupta" position="Tech Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/sanya-gupta7" :imageSrc="sanyagupta" />
+            <RosterCard name="Srujana Theerthala" position="Tech Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/srujana-theerthala-165671262" :imageSrc="srujanatheerthala" />
+            <RosterCard name="Swathi Pulipati" position="Tech Organizer" pronouns="she/her" linkedinUrl="https://linkedin.com/in/swathi-pulipati-1b450b232" :imageSrc="swathipulipati" />
+            <RosterCard name="Thiru Sethuraman" position="Tech Organizer" pronouns="he/him" :imageSrc="thirusethuraman" linkedinUrl="https://www.linkedin.com/in/thirus27" />
+            <RosterCard name="Tyson Cheung" position="Tech Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/tyson-cheung" :imageSrc="tysoncheung" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import mohe from '../assets/img/images/headshots/mohe.webp';
-import eileen from '../assets/img/images/headshots/eileenchen.webp';
-import tyson from '../assets/img/images/headshots/tysoncheung.webp';
-import arya from '../assets/img/images/headshots/aryagijare.webp';
-import sanya from '../assets/img/images/headshots/sanyagupta.webp';
-import joanne from '../assets/img/images/headshots/joannelee.webp';
-import devon from '../assets/img/images/headshots/devonlai.webp';
-import harrison from '../assets/img/images/headshots/harrisonpadgett.webp';
-import swathi from '../assets/img/images/headshots/swathipulipati.webp';
-import thiru from '../assets/img/images/headshots/thirusethuraman.webp';
-import srujana from '../assets/img/images/headshots/srujanatheerthala.webp';
-import harini from '../assets/img/images/headshots/harinithirukonda.webp';
+import RosterCard from './RosterCard.vue'
+import ananyasrinivasan from '../assets/img/images/headshots/AnanyaSrinivasan.webp'
+import anikathakur from '../assets/img/images/headshots/AnikaThakur.webp'
+import danielyi from '../assets/img/images/headshots/DanielYi.webp'
+import harinithirukonda from '../assets/img/images/headshots/HariniThirukonda.webp'
+import harrisonpadgett from '../assets/img/images/headshots/HarrisonPadgett.webp'
+import jadonchu from '../assets/img/images/headshots/JadonChu.webp'
+import josephcho from '../assets/img/images/headshots/JosephCho.webp'
+import lusenieturay from '../assets/img/images/headshots/LusenieTuray.webp'
+import sanyagupta from '../assets/img/images/headshots/SanyaGupta.webp'
+import srujanatheerthala from '../assets/img/images/headshots/SrujanaTheerthala.webp'
+import swathipulipati from '../assets/img/images/headshots/SwathiPulipati.webp'
+import thirusethuraman from '../assets/img/images/headshots/ThiruSethuraman.webp'
+import tysoncheung from '../assets/img/images/headshots/TysonCheung.webp'
 
 export default {
-    name: 'HomePage',
-    // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-    components: {},
-
-    head() {
+    name: 'RosterTech',
+    components: { RosterCard },
+    data() {
         return {
-            title: 'Bitcamp',
-            meta: [
-                {
-                    name: 'description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:site_name',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'og:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    property: 'twitter:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'twitter:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'twitter:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    name: 'msapplication-TileColor',
-                    content: '#ff6f3f',
-                },
-                {
-                    name: 'msapplication-config',
-                    content: '/bitcamp-brand/favicons/browserconfig.xml',
-                },
-                {
-                    name: 'theme-color',
-                    content: '#ffffff',
-                },
-            ],
-            link: [
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
-                },
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
-                },
-                {
-                    rel: 'manifest',
-                    href: '/bitcamp-brand/favicons/site.webmanifest',
-                },
-                {
-                    rel: 'mask-icon',
-                    href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-                    color: '#ff6f3f',
-                },
-                {
-                    rel: 'shortcut icon',
-                    href: '/bitcamp-brand/favicons/favicon.ico',
-                },
-            ],
-        };
-    }, data() {
-        return {
-            mohe, eileen, tyson, arya, sanya, joanne, devon, harrison, swathi, thiru, srujana, harini
+            ananyasrinivasan,
+            anikathakur,
+            danielyi,
+            harinithirukonda,
+            harrisonpadgett,
+            jadonchu,
+            josephcho,
+            lusenieturay,
+            sanyagupta,
+            srujanatheerthala,
+            swathipulipati,
+            thirusethuraman,
+            tysoncheung
         }
     }
 };
-
 </script>
 
 <style scoped>
