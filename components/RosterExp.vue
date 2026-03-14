@@ -11,7 +11,7 @@
             <RosterCard name="Neha Dheenadhayalan" position="Experience Organizer" pronouns="she/her" :imageSrc="nehadheenadhayalan" linkedinUrl="https://www.linkedin.com/in/nehadheen" />
             <RosterCard name="Nithika Ramanathan" position="Experience Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/nithika-ramanathan/" :imageSrc="nithikaramanathan" />
             <RosterCard name="Sachi Verma" position="Experience Organizer" pronouns="she/her" :imageSrc="sachiverma" linkedinUrl="https://www.linkedin.com/in/sachiverma06" />
-            <RosterCard name="Sifene Fufa" position="Experience Organizer" pronouns="she/her" :imageSrc="sifenefufa" linkedinUrl="https://www.linkedin.com/in/sifene-fufa-a8975b33b//" />
+            <RosterCard name="Sifene Fufa" position="Experience Organizer" pronouns="she/her" :imageSrc="sifenefufa" linkedinUrl="https://www.linkedin.com/in/sifene-fufa-a8975b33b/" />
         </div>
     </div>
 </template>

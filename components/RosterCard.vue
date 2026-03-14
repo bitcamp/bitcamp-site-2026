@@ -65,8 +65,8 @@ export default {
 
 /* Profile Image */
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   background-color: #b0c4de;
   border-radius: 50%;
   margin: 0 auto 10px;
@@ -89,8 +89,8 @@ export default {
   position: absolute;
   top: -8px;
   left: -8px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background: white;
   border-radius: 50%;
   display: flex;
@@ -101,8 +101,8 @@ export default {
 }
 
 .linkedin-badge img {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: contain;
   padding: 2px;

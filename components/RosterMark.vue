@@ -4,7 +4,7 @@
         <div class="section">
             <RosterCard name="Anushka Agarwal" position="Marketing Organizer" pronouns="she/her" :imageSrc="anushkaagarwal" linkedinUrl="https://www.linkedin.com/in/anushka-agarwal-167922271" />
             <RosterCard name="Grace Yang" position="Marketing Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/graceyang2027/" :imageSrc="graceyang" />
-            <RosterCard name="Habib Camara" position="Marketing Organizer" pronouns="he/him" :imageSrc="habibcamara" linkedinUrl="https://www.linkedin.com/in/habib-camara-0b5336214" />
+            <RosterCard name="Habib Camara" position="Marketing Organizer" pronouns="he/him" :imageSrc="habibcamara" linkedinUrl="https://www.linkedin.com/in/habib-camara-4b4ab629a/" />
             <RosterCard name="Haswita Bokkisam" position="Marketing Organizer" pronouns="she/her" :imageSrc="haswitabokkisam" linkedinUrl="https://www.linkedin.com/in/haswita-bokkisam" />
             <RosterCard name="Isaac Lee" position="Marketing Organizer" pronouns="he/him" :imageSrc="isaaclee" linkedinUrl="https://www.linkedin.com/in/isaacjeelee" />
             <RosterCard name="Kai Chen" position="Marketing Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/kaiichen/" :imageSrc="kaichen" />
