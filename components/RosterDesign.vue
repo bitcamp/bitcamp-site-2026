@@ -4,10 +4,10 @@
         <div class="section">
             <RosterCard name="Aisiri Prasad" position="Design Organizer" pronouns="she/her" :imageSrc="aisiriprasad" linkedinUrl="https://www.linkedin.com/in/aisiriprasad" />
             <RosterCard name="Angela Zhang" position="Design Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/angela-zhang915/" :imageSrc="angelazhang" />
-            <RosterCard name="Anning Cui" position="Design Organizer" pronouns="she/her" />
+            <RosterCard name="Anning Cui" position="Design Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/cuianning/"/>
             <RosterCard name="Julie Lin" position="Design Organizer" pronouns="she/her" :imageSrc="julielin" linkedinUrl="https://www.linkedin.com/in/julie-xy-lin" />
             <RosterCard name="Leslie Kim" position="Design Organizer" pronouns="she/her" :imageSrc="lesliekim" linkedinUrl="https://www.linkedin.com/in/leslie-kim-0b05562b5" />
-            <RosterCard name="Mykha Floresca" position="Design Organizer" pronouns="she/her" :imageSrc="mykhafloresca" />
+            <RosterCard name="Mykha Floresca" position="Design Organizer" pronouns="she/her" :imageSrc="mykhafloresca" linkedinUrl="https://www.linkedin.com/in/mykha-lizette-floresca-b97448247/" />
             <RosterCard name="Olivia King" position="Design Organizer" pronouns="she/her" :imageSrc="oliviaking" linkedinUrl="https://www.linkedin.com/in/olivia-king-9509b930a" />
             <RosterCard name="Tracy Anne Tan" position="Design Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/tracy-anne-tan-69a37a27b" :imageSrc="tracyannetan" />
             <RosterCard name="Tyler Song" position="Design Organizer" pronouns="he/him" :imageSrc="tylersong" linkedinUrl="https://www.linkedin.com/in/tyler-song-9a306b2a9" />

@@ -5,7 +5,7 @@
             <RosterCard name="Adrian Alphons" position="Events Organizer" pronouns="he/him" :imageSrc="adrianalphons" linkedinUrl="https://www.linkedin.com/in/adrian-alphons" />
             <RosterCard name="Alisha Rajadhyksha" position="Events Organizer" pronouns="she/her" :imageSrc="alisharajadhyksha" linkedinUrl="https://www.linkedin.com/in/alisha-rajadhyksha" />
             <RosterCard name="Anunithaa Rajakumaresan" position="Events Organizer" pronouns="she/her" :imageSrc="anunithaarajakumaresan" linkedinUrl="https://www.linkedin.com/in/anunithaa-rajakumaresan-180261238/" />
-            <RosterCard name="Ethan Zhu" position="Events Organizer" pronouns="he/him" :imageSrc="ethanzhu" />
+            <RosterCard name="Ethan Zhu" position="Events Organizer" pronouns="he/him" :imageSrc="ethanzhu" linkedinUrl="https://www.linkedin.com/in/etzhu/"/>
             <RosterCard name="Hannah Chen" position="Events Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/hannah-chen-30099b27b" :imageSrc="hannahchen" />
             <RosterCard name="Saanvi Kataria" position="Events Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/-saanvikataria" :imageSrc="saanvikataria" />
             <RosterCard name="Sofie Douglass" position="Events Organizer" pronouns="she/her" :imageSrc="sofiedouglass" linkedinUrl="https://www.linkedin.com/in/sofia-douglass-6952b0395" />

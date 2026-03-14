@@ -2,12 +2,12 @@
     <div id="sponsfin" class="container">
         <div class="team-name">Sponsorship & Finance</div>
         <div class="section">
-            <RosterCard name="Abhinav Manda" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="abhinavmanda" />
+            <RosterCard name="Abhinav Manda" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="abhinavmanda" linkedinUrl="https://www.linkedin.com/in/abhinav-manda/" />
             <RosterCard name="Aditri Gadigi" position="Sponsorship & Finance Organizer" pronouns="she/her" linkedinUrl="http://www.linkedin.com/in/aditrig" :imageSrc="aditrigadigi" />
-            <RosterCard name="Christopher Huang" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="christopherhuang" />
-            <RosterCard name="Manit Mishra" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="manitmishra" />
+            <RosterCard name="Christopher Huang" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="christopherhuang" linkedinUrl="https://www.linkedin.com/in/chrishuang47/" />
+            <RosterCard name="Manit Mishra" position="Sponsorship & Finance Organizer" pronouns="he/him" :imageSrc="manitmishra" linkedinUrl="https://www.linkedin.com/in/manitmishra/" />
             <RosterCard name="Melanie Chen" position="Sponsorship & Finance Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/melaniechenn" :imageSrc="melaniechen" />
-            <RosterCard name="Sania Manyem" position="Sponsorship & Finance Organizer" pronouns="she/her" :imageSrc="saniamanyem" />
+            <RosterCard name="Sania Manyem" position="Sponsorship & Finance Organizer" pronouns="she/her" :imageSrc="saniamanyem" linkedinUrl="https://www.linkedin.com/in/sania-manyem-9ab7652b6/" />
         </div>
     </div>
 </template>
