@@ -1,173 +1,137 @@
 <template>
-    <div id="design" class="container">
-        <div class="team-name">Design</div>
-        <div class="section">
-            <RosterCard name="Adrien Rozario" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/adrien-rozario-847b68249/" :imageSrc="adrien" />
-            <RosterCard name="Angela Zhang" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/angela-zhang915/" :imageSrc="angela" />
-            <RosterCard name="Dahn Kim" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/dahn-kim-a92934254/" :imageSrc="dahn" />
-            <RosterCard name="Kyra Yip" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/kyra-skye-yip/" :imageSrc="kyra" />
-            <RosterCard name="Olivia Zhang" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/oliviaszhang" :imageSrc="olivia" />
-            <RosterCard name="Tracy Anne Tan" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/tracy-anne-tan-69a37a27b" :imageSrc="tracy" />
-            <RosterCard name="Trisha Anand" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/anandtrisha/" :imageSrc="trish" />
-            <RosterCard name="Vivian Howe" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/vivianhowe/" :imageSrc="vivian" />
-            <RosterCard name="Wendy Tu" position="Design Organizer" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/wendy-tu-umd/" :imageSrc="wendy" />
-        </div>
+  <div id="design" class="container">
+    <div class="team-name">Design</div>
+    <div class="section">
+      <RosterCard
+        name="Aisiri Prasad"
+        position="Design Organizer"
+        pronouns="she/her"
+        :imageSrc="aisiriprasad"
+        linkedinUrl="https://www.linkedin.com/in/aisiriprasad"
+      />
+      <RosterCard
+        name="Angela Zhang"
+        position="Design Organizer"
+        pronouns="she/her"
+        linkedinUrl="https://www.linkedin.com/in/angela-zhang915/"
+        :imageSrc="angelazhang"
+      />
+      <RosterCard
+        name="Anning Cui"
+        position="Design Organizer"
+        pronouns="she/her"
+        :imageSrc="anningcui"
+        linkedinUrl="https://www.linkedin.com/in/cuianning/"
+      />
+      <RosterCard
+        name="Julie Lin"
+        position="Design Organizer"
+        pronouns="she/her"
+        :imageSrc="julielin"
+        linkedinUrl="https://www.linkedin.com/in/julie-xy-lin"
+      />
+      <RosterCard
+        name="Leslie Kim"
+        position="Design Organizer"
+        pronouns="she/her"
+        :imageSrc="lesliekim"
+        linkedinUrl="https://www.linkedin.com/in/leslie-kim-0b05562b5"
+      />
+      <RosterCard
+        name="Mykha Floresca"
+        position="Design Organizer"
+        pronouns="she/her"
+        :imageSrc="mykhafloresca"
+        linkedinUrl="https://www.linkedin.com/in/mykha-lizette-floresca-b97448247/"
+      />
+      <RosterCard
+        name="Olivia King"
+        position="Design Organizer"
+        pronouns="she/her"
+        :imageSrc="oliviaking"
+        linkedinUrl="https://www.linkedin.com/in/olivia-king-9509b930a"
+      />
+      <RosterCard
+        name="Tracy Anne Tan"
+        position="Design Organizer"
+        pronouns="she/her"
+        linkedinUrl="https://www.linkedin.com/in/tracy-anne-tan-69a37a27b"
+        :imageSrc="tracyannetan"
+      />
+      <RosterCard
+        name="Tyler Song"
+        position="Design Organizer"
+        pronouns="he/him"
+        :imageSrc="tylersong"
+        linkedinUrl="https://www.linkedin.com/in/tyler-song-9a306b2a9"
+      />
+      <RosterCard
+        name="Vivian Howe"
+        position="Design Organizer"
+        pronouns="she/her"
+        linkedinUrl="https://www.linkedin.com/in/vivianhowe/"
+        :imageSrc="vivianhowe"
+      />
     </div>
+  </div>
 </template>
 
 <script lang="ts">
-import adrien from '../assets/img/images/headshots/Adrien.webp';
-import angela from '../assets/img/images/headshots/Angela.webp';
-import dahn from '../assets/img/images/headshots/Dahn.webp';
-import kyra from '../assets/img/images/headshots/Kyra.webp';
-import olivia from '../assets/img/images/headshots/Olivia.webp';
-import tracy from '../assets/img/images/headshots/Tracy.webp';
-import trish from '../assets/img/images/headshots/Trisha.webp';
-import vivian from '../assets/img/images/headshots/Vivian.webp';
-import wendy from '../assets/img/images/headshots/Wendy.webp';
+import RosterCard from "./RosterCard.vue";
+import aisiriprasad from "../assets/img/images/headshots/AisiriPrasad.webp";
+import angelazhang from "../assets/img/images/headshots/AngelaZhang.webp";
+import anningcui from "../assets/img/images/headshots/AnningCui.webp";
+import julielin from "../assets/img/images/headshots/JulieLin.webp";
+import lesliekim from "../assets/img/images/headshots/LeslieKim.webp";
+import mykhafloresca from "../assets/img/images/headshots/MykhaFloresca.webp";
+import oliviaking from "../assets/img/images/headshots/OliviaKing.webp";
+import tracyannetan from "../assets/img/images/headshots/TracyAnneTan.webp";
+import tylersong from "../assets/img/images/headshots/TylerSong.webp";
+import vivianhowe from "../assets/img/images/headshots/VivianHowe.webp";
 
 export default {
-    name: 'HomePage',
-    // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-    components: {},
-
-    head() {
-        return {
-            title: 'Bitcamp',
-            meta: [
-                {
-                    name: 'description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:site_name',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'og:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    property: 'twitter:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'twitter:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'twitter:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    name: 'msapplication-TileColor',
-                    content: '#ff6f3f',
-                },
-                {
-                    name: 'msapplication-config',
-                    content: '/bitcamp-brand/favicons/browserconfig.xml',
-                },
-                {
-                    name: 'theme-color',
-                    content: '#ffffff',
-                },
-            ],
-            link: [
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
-                },
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
-                },
-                {
-                    rel: 'manifest',
-                    href: '/bitcamp-brand/favicons/site.webmanifest',
-                },
-                {
-                    rel: 'mask-icon',
-                    href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-                    color: '#ff6f3f',
-                },
-                {
-                    rel: 'shortcut icon',
-                    href: '/bitcamp-brand/favicons/favicon.ico',
-                },
-            ],
-        };
-    }, data() {
-        return {
-            adrien,
-            angela,
-            dahn,
-            kyra,
-            olivia,
-            tracy,
-            trish,
-            vivian,
-            wendy
-        }
-    }
+  name: "RosterDesign",
+  components: { RosterCard },
+  data() {
+    return {
+      aisiriprasad,
+      angelazhang,
+      anningcui,
+      julielin,
+      lesliekim,
+      mykhafloresca,
+      oliviaking,
+      tracyannetan,
+      tylersong,
+      vivianhowe,
+    };
+  },
 };
-
 </script>
 
 <style scoped>
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-name {
-    font-family: Aleo;
-    font-weight: 700;
-    font-size: 4vh;
-    letter-spacing: 0%;
-    text-align: center;
-    color: #FFFFFF;
-    width: 100%;
-    padding-top: 5vh;
-    padding-bottom: 2vh;
+  font-family: Aleo;
+  font-weight: 700;
+  font-size: 4vh;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  padding-top: 5vh;
+  padding-bottom: 2vh;
 }
 
 .section {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 </style>

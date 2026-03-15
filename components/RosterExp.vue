@@ -2,145 +2,51 @@
     <div id="exp" class="container">
         <div class="team-name">Experience</div>
         <div class="section">
-            <RosterCard name="Avanti Athavale" position="Experience Organizer" pronouns="she/her" :imageSrc="avanti"
-                linkedinUrl="https://www.linkedin.com/in/avantiathavale/" />
-            <RosterCard name="Aditi Chalasani" position="Experience Organizer" pronouns="she/her" :imageSrc="aditi"
-                linkedinUrl="https://www.linkedin.com/in/aditichalasani/" />
-            <RosterCard name="Debarshi Dey" position="Experience Organizer" pronouns="he/him" :imageSrc="debarshi"
-                linkedinUrl="https://www.linkedin.com/in/debarshi-dey/" />
-            <RosterCard name="Sifene (Sif) Fufa" position="Experience Organizer" pronouns="she/her" :imageSrc="sif"
-                linkedinUrl="https://www.linkedin.com/in/sifene-fufa-a8975b33b//" />
-            <RosterCard name="Samuel (Sam) Galita" position="Experience Organizer" pronouns="he/him" :imageSrc="sam"
-                linkedinUrl="https://www.linkedin.com/in/samuel-galita-7498a5225/" />
-            <RosterCard name="Jaskaran (Jas) Gill" position="Experience Organizer" pronouns="he/him" :imageSrc="jas"
-                linkedinUrl="https://www.linkedin.com/in/jaskaran-gill123/" />
-            <RosterCard name="Alex Luo" position="Experience Organizer" pronouns="he/him" :imageSrc="alex"
-                linkedinUrl="https://www.linkedin.com/in/alexbluo/" />
-            <RosterCard name="Nithika Ramanathan" position="Experience Organizer" pronouns="she/her" :imageSrc="nithika"
-                linkedinUrl="https://www.linkedin.com/in/nithika-ramanathan/" />
-            <RosterCard name="Michelle Rhee" position="Experience Organizer" pronouns="she/her" :imageSrc="michelle"
-                linkedinUrl="https://www.linkedin.com/in/michelle-rhee-900903292/" />
-            <RosterCard name="Anannya Trehan" position="Experience Organizer" pronouns="she/her" :imageSrc="anannya"
-                linkedinUrl="https://www.linkedin.com/in/anannya-trehan/" />
-            <RosterCard name="Michelle Yu" position="Experience Organizer" pronouns="she/her" :imageSrc="michelleYu"
-                linkedinUrl="https://www.linkedin.com/in/michelle-yu-57122b246/" />
+            <RosterCard name="Anannya Trehan" position="Experience Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/anannya-trehan/" :imageSrc="anannyatrehan" />
+            <RosterCard name="Debarshi Dey" position="Experience Organizer" pronouns="he/him" :imageSrc="debarshidey" linkedinUrl="https://www.linkedin.com/in/debarshi-dey/" />
+            <RosterCard name="Kathrine Natesan" position="Experience Organizer" pronouns="she/her" :imageSrc="kathrinenatesan" linkedinUrl="https://www.linkedin.com/in/kathrine-natesan-041a713a5/"/>
+            <RosterCard name="Mazin Nadaf" position="Experience Organizer" pronouns="he/him" :imageSrc="mazinnadaf" linkedinUrl="https://www.linkedin.com/in/mazin-nadaf" />
+            <RosterCard name="Michelle Rhee" position="Experience Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/michelle-rhee-900903292/" :imageSrc="michellerhee" />
+            <RosterCard name="Michelle Yu" position="Experience Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/michelle-yu-57122b246/" :imageSrc="michelleyu" />
+            <RosterCard name="Neha Dheenadhayalan" position="Experience Organizer" pronouns="she/her" :imageSrc="nehadheenadhayalan" linkedinUrl="https://www.linkedin.com/in/nehadheen" />
+            <RosterCard name="Nithika Ramanathan" position="Experience Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/nithika-ramanathan/" :imageSrc="nithikaramanathan" />
+            <RosterCard name="Sachi Verma" position="Experience Organizer" pronouns="she/her" :imageSrc="sachiverma" linkedinUrl="https://www.linkedin.com/in/sachiverma06" />
+            <RosterCard name="Sifene Fufa" position="Experience Organizer" pronouns="she/her" :imageSrc="sifenefufa" linkedinUrl="https://www.linkedin.com/in/sifene-fufa-a8975b33b/" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import avanti from '../assets/img/images/headshots/Avanti.webp';
-import aditi from '../assets/img/images/headshots/Aditi.webp';
-import debarshi from '../assets/img/images/headshots/Debarshi.webp';
-import sif from '../assets/img/images/headshots/Sifene.webp';
-import sam from '../assets/img/images/headshots/Sam.webp';
-import jas from '../assets/img/images/headshots/Jas.webp';
-import alex from '../assets/img/images/headshots/Alex.webp';
-import nithika from '../assets/img/images/headshots/Nithika.webp';
-import michelle from '../assets/img/images/headshots/Michelle.webp';
-import anannya from '../assets/img/images/headshots/Anannya.webp';
-import michelleYu from '../assets/img/images/headshots/MichelleYu.webp';
+import RosterCard from './RosterCard.vue'
+import anannyatrehan from '../assets/img/images/headshots/AnannyaTrehan.webp'
+import debarshidey from '../assets/img/images/headshots/DebarshiDey.webp'
+import kathrinenatesan from '../assets/img/images/headshots/KathrineNatesan.webp'
+import mazinnadaf from '../assets/img/images/headshots/MazinNadaf.webp'
+import michellerhee from '../assets/img/images/headshots/MichelleRhee.webp'
+import michelleyu from '../assets/img/images/headshots/MichelleYu.webp'
+import nehadheenadhayalan from '../assets/img/images/headshots/NehaDheenadhayalan.webp'
+import nithikaramanathan from '../assets/img/images/headshots/NithikaRamanathan.webp'
+import sachiverma from '../assets/img/images/headshots/SachiVerma.webp'
+import sifenefufa from '../assets/img/images/headshots/SifeneFufa.webp'
 
 export default {
-    name: 'HomePage',
-    // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-    components: {},
-
-    head() {
+    name: 'RosterExp',
+    components: { RosterCard },
+    data() {
         return {
-            title: 'Bitcamp',
-            meta: [
-                {
-                    name: 'description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:site_name',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'og:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    property: 'twitter:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'twitter:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'twitter:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    name: 'msapplication-TileColor',
-                    content: '#ff6f3f',
-                },
-                {
-                    name: 'msapplication-config',
-                    content: '/bitcamp-brand/favicons/browserconfig.xml',
-                },
-                {
-                    name: 'theme-color',
-                    content: '#ffffff',
-                },
-            ],
-            link: [
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
-                },
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
-                },
-                {
-                    rel: 'manifest',
-                    href: '/bitcamp-brand/favicons/site.webmanifest',
-                },
-                {
-                    rel: 'mask-icon',
-                    href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-                    color: '#ff6f3f',
-                },
-                {
-                    rel: 'shortcut icon',
-                    href: '/bitcamp-brand/favicons/favicon.ico',
-                },
-            ],
-        };
-    }, data() {
-        return {
-            avanti, aditi, debarshi, sam, alex, nithika, michelle, anannya, sif, jas, michelleYu
+            anannyatrehan,
+            debarshidey,
+            kathrinenatesan,
+            mazinnadaf,
+            michellerhee,
+            michelleyu,
+            nehadheenadhayalan,
+            nithikaramanathan,
+            sachiverma,
+            sifenefufa
         }
     }
 };
-
 </script>
 
 <style scoped>

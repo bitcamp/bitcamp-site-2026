@@ -2,142 +2,51 @@
     <div id="dir" class="container">
         <div class="team-name">Directors</div>
         <div class="section">
-            <RosterCard name="Soumika (Mika) Pendem" position="Design Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/soumika-pendem/" :imageSrc="mika" />
-            <RosterCard name="Nitya Venkatiahgari" position="Events Director" pronouns="she/her"
-                linkedinUrl="https://linkedin.com/in/nitya-venkatiahgari" :imageSrc="nitya" />
-            <RosterCard name="Ananya Nagireddy" position="Experience Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/ananya-nagireddy-70233a1a0/" :imageSrc="ananya" />
-            <RosterCard name="Julia Chen" position="Logistics Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/julia-z-chen/" :imageSrc="julia" />
-            <RosterCard name="Neha Veeragandham" position="Logistics Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/nehaveeragandham/" :imageSrc="neha" />
-            <RosterCard name="Amber Chen" position="Marketing Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/amber--chen/" :imageSrc="amber" />
-            <RosterCard name="Beatrice Chung" position="Sponsorship Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/beatricechung/" :imageSrc="beatrice" />
-            <RosterCard name="Daniel Chung" position="Finance Director" pronouns="he/him"
-                linkedinUrl="https://www.linkedin.com/in/daniel03chung/" :imageSrc="daniel" />
-            <RosterCard name="Saloni Shah" position="Tech Director" pronouns="she/her"
-                linkedinUrl="https://www.linkedin.com/in/saloni-k-shah/" :imageSrc="saloni" />
-            <RosterCard name="Sai Pranav Theerthala" position="Tech Director" pronouns="he/him"
-                linkedinUrl="https://www.linkedin.com/in/sai-pranav-theerthala" :imageSrc="sai" />
+            <RosterCard name="Olivia Zhang" position="Design Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/oliviaszhang" :imageSrc="oliviazhang" />
+            <RosterCard name="Harleen Green" position="Events Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/harleengreen" :imageSrc="harleengreen" />
+            <RosterCard name="Avanti Athavale" position="Experience Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/avantiathavale/" :imageSrc="avantiathavale" />
+            <RosterCard name="Jessica Zhou" position="Logistics Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/jessica-zhou-2a53021b3/" :imageSrc="jessicazhou" />
+            <RosterCard name="Naomi Kaul" position="Logistics Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/naomi-kaul-a1b1341ba/" :imageSrc="naomikaul" />
+            <RosterCard name="Purva Jani" position="Marketing Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/purva-jani/" :imageSrc="purvajani" />
+            <RosterCard name="Bhavini Pandey" position="Sponsorship Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/bhavini-pandey-05/" :imageSrc="bhavinipandey" />
+            <RosterCard name="Nikita Arya" position="Finance Director" pronouns="she/her" :imageSrc="nikitaarya" linkedinUrl="http://www.linkedin.com/in/nikitaaryaa" />
+            <RosterCard name="Arya Gijare" position="Tech Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/arya-gijare/" :imageSrc="aryagijare" />
+            <RosterCard name="Mohe Edeen Abu Maizer" position="Tech Director" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/moheedeen/" :imageSrc="moheedeenabumaizer" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import amber from '../assets/img/images/headshots/Amber.webp';
-import ananya from '../assets/img/images/headshots/Ananya.webp';
-import beatrice from '../assets/img/images/headshots/beatricechung.webp';
-import daniel from '../assets/img/images/headshots/danielchung1.webp';
-import julia from '../assets/img/images/headshots/juliachen.webp';
-import mika from '../assets/img/images/headshots/Mika.webp';
-import neha from '../assets/img/images/headshots/nehaveeragandham.webp';
-import nitya from '../assets/img/images/headshots/Nitya.webp';
-import saloni from '../assets/img/images/headshots/salonishah.webp';
-import sai from '../assets/img/images/headshots/saipranavtheerthala1.webp'
+import RosterCard from './RosterCard.vue'
+import aryagijare from '../assets/img/images/headshots/AryaGijare.webp'
+import avantiathavale from '../assets/img/images/headshots/AvantiAthavale.webp'
+import bhavinipandey from '../assets/img/images/headshots/BhaviniPandey.webp'
+import harleengreen from '../assets/img/images/headshots/HarleenGreen.webp'
+import jessicazhou from '../assets/img/images/headshots/JessicaZhou.webp'
+import moheedeenabumaizer from '../assets/img/images/headshots/MoheEdeenAbuMaizer.webp'
+import naomikaul from '../assets/img/images/headshots/NaomiKaul.webp'
+import nikitaarya from '../assets/img/images/headshots/NikitaArya.webp'
+import oliviazhang from '../assets/img/images/headshots/OliviaZhang.webp'
+import purvajani from '../assets/img/images/headshots/PurvaJani.webp'
 
 export default {
-    name: 'HomePage',
-    // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-    components: {},
-
-    head() {
+    name: 'RosterDirector',
+    components: { RosterCard },
+    data() {
         return {
-            title: 'Bitcamp',
-            meta: [
-                {
-                    name: 'description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:site_name',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'og:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    property: 'twitter:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'twitter:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'twitter:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    name: 'msapplication-TileColor',
-                    content: '#ff6f3f',
-                },
-                {
-                    name: 'msapplication-config',
-                    content: '/bitcamp-brand/favicons/browserconfig.xml',
-                },
-                {
-                    name: 'theme-color',
-                    content: '#ffffff',
-                },
-            ],
-            link: [
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
-                },
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
-                },
-                {
-                    rel: 'manifest',
-                    href: '/bitcamp-brand/favicons/site.webmanifest',
-                },
-                {
-                    rel: 'mask-icon',
-                    href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-                    color: '#ff6f3f',
-                },
-                {
-                    rel: 'shortcut icon',
-                    href: '/bitcamp-brand/favicons/favicon.ico',
-                },
-            ],
-        };
-    }, data() {
-        return {
-            mika, nitya, ananya, julia, neha, amber, beatrice, daniel, saloni, sai
+            aryagijare,
+            avantiathavale,
+            bhavinipandey,
+            harleengreen,
+            jessicazhou,
+            moheedeenabumaizer,
+            naomikaul,
+            nikitaarya,
+            oliviazhang,
+            purvajani
         }
     }
 };
-
 </script>
 
 <style scoped>

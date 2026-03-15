@@ -98,3 +98,8 @@ a {
     transform: translateY(-1vw);
   }
 }
+
+/* Roster Section Scroll Offsets */
+#exec, #dir, #design, #events, #exp, #log, #mark, #sponsfin, #tech, #old {
+  scroll-margin-top: 8.5rem;
+}

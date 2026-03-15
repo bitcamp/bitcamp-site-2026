@@ -2,145 +2,54 @@
     <div id="log" class="container">
         <div class="team-name">Logistics</div>
         <div class="section">
-            <RosterCard name="Anoushka Arora" position="Logistics Organizer" pronouns="she/her" :imageSrc="anoushka"
-                linkedinUrl="https://www.linkedin.com/in/anoushka-arora-b77929153/" />
-            <RosterCard name="Sneha Balur" position="Logistics Organizer" pronouns="she/her" :imageSrc="sneha"
-                linkedinUrl="https://www.linkedin.com/in/sneha-balur/" />
-            <RosterCard name="James (Jim) Joseph Barry" position="Logistics Organizer" pronouns="he/him" :imageSrc="jim"
-                linkedinUrl="https://www.linkedin.com/in/james-barry-good-choice/?profileId=ACoAAFB_MukBscIhyXIavb9ybwfFmzfPhNf033k" />
-            <RosterCard name="Anshu Chandrasekhar" position="Logistics Organizer" pronouns="she/her" :imageSrc="anshu"
-                linkedinUrl="https://www.linkedin.com/in/anshu-chandrasekhar/" />
-            <RosterCard name="Shreya Gavarapattu" position="Logistics Organizer" pronouns="she/her" :imageSrc="shreya"
-                linkedinUrl="https://www.linkedin.com/in/shreyagav/" />
-            <RosterCard name="Naomi Kaul" position="Logistics Organizer" pronouns="she/her" :imageSrc="naomi"
-                linkedinUrl="https://www.linkedin.com/in/naomi-kaul-a1b1341ba/" />
-            <RosterCard name="Tiffany Liu" position="Logistics Organizer" pronouns="she/her" :imageSrc="tiffany"
-                linkedinUrl="https://www.linkedin.com/in/tiffany-liu-776628244/" />
-            <RosterCard name="Benjamin (Ben) Losey" position="Logistics Organizer" pronouns="he/him" :imageSrc="ben"
-                linkedinUrl="https://www.linkedin.com/in/benjamin-losey/" />
-            <RosterCard name="Charis Wang" position="Logistics Organizer" pronouns="she/her" :imageSrc="charis"
-                linkedinUrl="https://www.linkedin.com/in/charswng/" />
-            <RosterCard name="Ryan Zhao" position="Logistics Organizer" pronouns="he/him" :imageSrc="ryan"
-                linkedinUrl="https://www.linkedin.com/in/ryanzhao27/" />
-            <RosterCard name="Jessica Zhou" position="Logistics Organizer" pronouns="she/her" :imageSrc="jessica"
-                linkedinUrl="https://www.linkedin.com/in/jessica-zhou-2a53021b3/" />
+            <RosterCard name="Angela Wu" position="Logistics Organizer" pronouns="she/her" :imageSrc="angelawu" linkedinUrl="https://www.linkedin.com/in/angela-wu-737541285/"/>
+            <RosterCard name="Anoushka Arora" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/anoushka-arora-b77929153/" :imageSrc="anoushkaarora" />
+            <RosterCard name="Ben Losey" position="Logistics Organizer" pronouns="he/him" :imageSrc="benlosey" linkedinUrl="https://www.linkedin.com/in/benjamin-losey/"/>
+            <RosterCard name="Charis Wang" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/charswng/" :imageSrc="chariswang" />
+            <RosterCard name="Daanial Haris" position="Logistics Organizer" pronouns="he/him" :imageSrc="daanialharis" linkedinUrl="https://www.linkedin.com/in/daanial-haris/"/>
+            <RosterCard name="James Barry" position="Logistics Organizer" pronouns="he/him" :imageSrc="jamesbarry" linkedinUrl="https://www.linkedin.com/in/james-j-barry/"/>
+            <RosterCard name="Ryan Zhao" position="Logistics Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/ryanzhao27/" :imageSrc="ryanzhao" />
+            <RosterCard name="Sneha Balur" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/sneha-balur/" :imageSrc="snehabalur" />
+            <RosterCard name="Stanley Xu" position="Logistics Organizer" pronouns="he/him" :imageSrc="stanleyxu" linkedinUrl="https://www.linkedin.com/in/xustanley/"/>
+            <RosterCard name="Tiffany Liu" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/tiffany-liu-776628244/" :imageSrc="tiffanyliu" />
+            <RosterCard name="Zayan Ahmad" position="Logistics Organizer" pronouns="he/him" :imageSrc="zayanahmad" linkedinUrl="https://www.linkedin.com/in/zayan-ahmad-umd2029/"/>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import anoushka from '/assets/img/images/headshots/anoushkaarora.webp';
-import sneha from 'assets/img/images/headshots/snehabalur.webp';
-import jim from '/assets/img/images/headshots/jamesbarry.webp';
-import anshu from '/assets/img/images/headshots/anshuchandrasekhar.webp';
-import shreya from '/assets/img/images/headshots/shreyagavarapattu.webp';
-import naomi from '/assets/img/images/headshots/naomikaul.webp';
-import tiffany from '/assets/img/images/headshots/tiffanyliu.webp';
-import ben from '/assets/img/images/headshots/benjaminlosey.webp';
-import charis from '/assets/img/images/headshots/chariswang.webp';
-import ryan from '/assets/img/images/headshots/ryanzhao.webp';
-import jessica from '/assets/img/images/headshots/jessicazhou.webp';
+import RosterCard from './RosterCard.vue'
+import angelawu from '../assets/img/images/headshots/AngelaWu.webp'
+import anoushkaarora from '../assets/img/images/headshots/AnoushkaArora.webp'
+import benlosey from '../assets/img/images/headshots/BenLosey.webp'
+import chariswang from '../assets/img/images/headshots/CharisWang.webp'
+import daanialharis from '../assets/img/images/headshots/DaanialHaris.webp'
+import jamesbarry from '../assets/img/images/headshots/JamesBarry.webp'
+import ryanzhao from '../assets/img/images/headshots/RyanZhao.webp'
+import snehabalur from '../assets/img/images/headshots/SnehaBalur.webp'
+import stanleyxu from '../assets/img/images/headshots/StanleyXu.webp'
+import tiffanyliu from '../assets/img/images/headshots/TiffanyLiu.webp'
+import zayanahmad from '../assets/img/images/headshots/ZayanAhmad.webp'
 
 export default {
-    name: 'HomePage',
-    // components: { Navbar, FooterContent, LandingPage, Break, TracksPage, CampGamesPage, TeamPage, FAQSponsorPage },
-    components: {},
-
-    head() {
+    name: 'RosterLog',
+    components: { RosterCard },
+    data() {
         return {
-            title: 'Bitcamp',
-            meta: [
-                {
-                    name: 'description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:site_name',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'og:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'og:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    property: 'twitter:url',
-                    content: 'https://bit.camp/',
-                },
-                {
-                    property: 'twitter:title',
-                    content: 'Bitcamp 2024',
-                },
-                {
-                    property: 'twitter:description',
-                    content:
-                        "Bitcamp is a place for exploration. You will have 36 hours to delve into your curiosities, learn something new, and make something awesome. With world-class mentors and hundreds of fellow campers, you're in for an amazing time. If you're ready for an adventure, see you by the fire!",
-                },
-                {
-                    name: 'msapplication-TileColor',
-                    content: '#ff6f3f',
-                },
-                {
-                    name: 'msapplication-config',
-                    content: '/bitcamp-brand/favicons/browserconfig.xml',
-                },
-                {
-                    name: 'theme-color',
-                    content: '#ffffff',
-                },
-            ],
-            link: [
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '32x32',
-                    href: '/bitcamp-brand/favicons/favicon-32x32.png',
-                },
-                {
-                    rel: 'icon',
-                    type: 'image/png',
-                    sizes: '16x16',
-                    href: '/bitcamp-brand/favicons/favicon-16x16.png',
-                },
-                {
-                    rel: 'manifest',
-                    href: '/bitcamp-brand/favicons/site.webmanifest',
-                },
-                {
-                    rel: 'mask-icon',
-                    href: '/bitcamp-brand/favicons/safari-pinned-tab.svg',
-                    color: '#ff6f3f',
-                },
-                {
-                    rel: 'shortcut icon',
-                    href: '/bitcamp-brand/favicons/favicon.ico',
-                },
-            ],
-        };
-    }, data() {
-        return {
-            anoushka, sneha, jim, anshu, shreya, naomi, tiffany, ben, charis, ryan, jessica
+            angelawu,
+            anoushkaarora,
+            benlosey,
+            chariswang,
+            daanialharis,
+            jamesbarry,
+            ryanzhao,
+            snehabalur,
+            stanleyxu,
+            tiffanyliu,
+            zayanahmad
         }
     }
 };
-
 </script>
 
 <style scoped>

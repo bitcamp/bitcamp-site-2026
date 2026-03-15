@@ -25,9 +25,8 @@
                     </a>
                 </div>
                 <li class="page">
-                    <a href="#exec" class="page-type">Co-Executives</a>
+                    <a href="#exec" class="page-type">Co-Execs</a>
                 </li>
-
                 <li class="page">
                     <a href="#dir" class="page-type">Directors</a>
                 </li>
