@@ -51,6 +51,11 @@
                 Explore the Unknown and discover what’s possible! - Saloni and
                 Neha
               </div>
+              <div class="meet">
+                <a target="_blank" href="https://bit.camp/roster"
+                  >Meet the Team</a
+                >
+              </div>
             </div>
           </div>
         </div>
