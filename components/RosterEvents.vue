@@ -38,6 +38,13 @@
         :imageSrc="hannahchen"
       />
       <RosterCard
+        name="Jake Frischmann"
+        position="Events Organizer"
+        pronouns="he/him"
+        :imageSrc="jakefrischmann"
+        linkedinUrl="https://www.linkedin.com/in/jake-frischmann"
+      />
+      <RosterCard
         name="Saanvi Kataria"
         position="Events Organizer"
         pronouns="she/her"
@@ -64,6 +71,7 @@ import ethanzhu from "../assets/img/images/headshots/EthanZhu.webp";
 import hannahchen from "../assets/img/images/headshots/HannahChen.webp";
 import saanvikataria from "../assets/img/images/headshots/SaavniKataria.webp";
 import sofiedouglass from "../assets/img/images/headshots/SofieDouglass.webp";
+import jakefrischmann from "../assets/img/images/headshots/Jake_Frischmann.webp";
 
 export default {
   name: "RosterEvents",
@@ -77,6 +85,7 @@ export default {
       hannahchen,
       saanvikataria,
       sofiedouglass,
+      jakefrischmann,
     };
   },
 };

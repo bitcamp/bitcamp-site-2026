@@ -23,13 +23,13 @@
         :imageSrc="danielyi"
         linkedinUrl="https://www.linkedin.com/in/daniel-s-yi"
       />
-      <RosterCard
+      <!-- <RosterCard
         name="Harini Thirukonda"
         position="Tech Organizer"
         pronouns="she/her"
         linkedinUrl="https://www.linkedin.com/in/harini-thirukonda-190036238/"
         :imageSrc="harinithirukonda"
-      />
+      /> -->
       <RosterCard
         name="Harrison Padgett"
         position="Tech Organizer"
@@ -44,13 +44,13 @@
         :imageSrc="jadonchu"
         linkedinUrl="https://www.linkedin.com/in/jadon-g-chu"
       />
-      <RosterCard
+      <!-- <RosterCard
         name="Joseph Cho"
         position="Tech Organizer"
         pronouns="he/him"
         :imageSrc="josephcho"
         linkedinUrl="https://www.linkedin.com/in/jcho1114"
-      />
+      /> -->
       <RosterCard
         name="Lusenie Turay"
         position="Tech Organizer"
@@ -65,13 +65,13 @@
         linkedinUrl="https://www.linkedin.com/in/sanya-gupta7"
         :imageSrc="sanyagupta"
       />
-      <RosterCard
+      <!-- <RosterCard
         name="Srujana Theerthala"
         position="Tech Organizer"
         pronouns="she/her"
         linkedinUrl="https://www.linkedin.com/in/srujana-theerthala-165671262"
         :imageSrc="srujanatheerthala"
-      />
+      /> -->
       <RosterCard
         name="Swathi Pulipati"
         position="Tech Organizer"

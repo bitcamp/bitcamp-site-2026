@@ -2,34 +2,34 @@
   <div id="old" class="container">
     <div class="team-name">Senior Advisors</div>
     <div class="section">
-      <RosterCard
+      <!-- <RosterCard
         name="Anjali Samavedam"
         position="Senior Advisor"
         pronouns="she/her"
         linkedinUrl="https://www.linkedin.com/in/anjali-samavedam/"
         :imageSrc="anjalisamavedam"
-      />
-      <RosterCard
+      /> -->
+      <!-- <RosterCard
         name="Beatrice Chung"
         position="Senior Advisor"
         pronouns="she/her"
         linkedinUrl="https://www.linkedin.com/in/beatricechung/"
         :imageSrc="beatricechung"
-      />
-      <RosterCard
+      /> -->
+      <!-- <RosterCard
         name="Sai Pranav Theerthala"
         position="Senior Advisor"
         pronouns="he/him"
         linkedinUrl="https://www.linkedin.com/in/sai-pranav-theerthala"
         :imageSrc="saipranavtheerthala"
-      />
-      <RosterCard
+      /> -->
+      <!-- <RosterCard
         name="Sharvari Tirodkar"
         position="Senior Advisor"
         pronouns="she/her"
         linkedinUrl="http://linkedin.com/in/stirodka/"
         :imageSrc="sharvaritirodkar"
-      />
+      /> -->
     </div>
   </div>
 </template>

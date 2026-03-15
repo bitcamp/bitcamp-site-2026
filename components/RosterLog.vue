@@ -5,8 +5,8 @@
             <RosterCard name="Angela Wu" position="Logistics Organizer" pronouns="she/her" :imageSrc="angelawu" linkedinUrl="https://www.linkedin.com/in/angela-wu-737541285/"/>
             <RosterCard name="Anoushka Arora" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/anoushka-arora-b77929153/" :imageSrc="anoushkaarora" />
             <RosterCard name="Ben Losey" position="Logistics Organizer" pronouns="he/him" :imageSrc="benlosey" linkedinUrl="https://www.linkedin.com/in/benjamin-losey/"/>
-            <RosterCard name="Charis Wang" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/charswng/" :imageSrc="chariswang" />
-            <RosterCard name="Daanial Haris" position="Logistics Organizer" pronouns="he/him" :imageSrc="daanialharis" linkedinUrl="https://www.linkedin.com/in/daanial-haris/"/>
+            <!-- <RosterCard name="Charis Wang" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/charswng/" :imageSrc="chariswang" /> -->
+            <!-- <RosterCard name="Daanial Haris" position="Logistics Organizer" pronouns="he/him" :imageSrc="daanialharis" linkedinUrl="https://www.linkedin.com/in/daanial-haris/"/> -->
             <RosterCard name="James Barry" position="Logistics Organizer" pronouns="he/him" :imageSrc="jamesbarry" linkedinUrl="https://www.linkedin.com/in/james-j-barry/"/>
             <RosterCard name="Ryan Zhao" position="Logistics Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/ryanzhao27/" :imageSrc="ryanzhao" />
             <RosterCard name="Sneha Balur" position="Logistics Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/sneha-balur/" :imageSrc="snehabalur" />
