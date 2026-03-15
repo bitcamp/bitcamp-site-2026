@@ -51,11 +51,11 @@
                 Explore the Unknown and discover what’s possible! - Saloni and
                 Neha
               </div>
-              <div class="meet">
-                <a target="_blank" href="https://bit.camp/roster"
-                  >Meet the Team</a
-                >
-              </div>
+            </div>
+            <div class="meet">
+              <a target="_blank" href="https://bit.camp/roster"
+                >Meet the Team</a
+              >
             </div>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default defineComponent({
 }
 
 .meet {
-  width: 23vw;
+  width: 17vw;
   aspect-ratio: 10/2.5;
   background-color: #ff6f3f;
   border: 0.3rem solid #e54d1a;
@@ -560,7 +560,8 @@ export default defineComponent({
     width: 80%;
   }
   .meet {
-    font-size: 2.1cqi;
+    width: 24vw;
+    font-size: 2.7cqi;
   }
 
   /* @media screen and (max-width: 700px) {
