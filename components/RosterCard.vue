@@ -6,11 +6,13 @@
         <img v-else src="" class="profile-pic default-profile" loading="lazy" />
 
         <a v-if="linkedinUrl" :href="linkedinUrl" target="_blank" rel="noopener noreferrer" class="linkedin-badge">
-          <img src="assets/img/icons/linkedin.webp" alt="LinkedIn" loading="lazy" />
+          <img v-if="linkedinUrl.includes('github')" src="assets/img/icons/github.webp" alt="GitHub" loading="lazy" />
+          <img v-else-if="linkedinUrl.includes('myportfolio') || linkedinUrl.includes('portfolio')" src="assets/img/icons/globe.webp" alt="Portfolio" class="globe-icon" loading="lazy" />
+          <img v-else src="assets/img/icons/linkedin.webp" alt="LinkedIn" loading="lazy" />
         </a>
-        <div v-else class="linkedin-badge">
+        <!-- <div v-else class="linkedin-badge">
           <img src="assets/img/icons/linkedin.webp" alt="LinkedIn" loading="lazy" />
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -106,6 +108,10 @@ export default {
   border-radius: 50%;
   object-fit: contain;
   padding: 2px;
+}
+
+.linkedin-badge .globe-icon {
+  padding: 8px;
 }
 
 .name {

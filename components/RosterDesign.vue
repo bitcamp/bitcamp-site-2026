@@ -21,7 +21,7 @@
         position="Design Organizer"
         pronouns="she/her"
         :imageSrc="anningcui"
-        linkedinUrl="https://www.linkedin.com/in/cuianning/"
+        linkedinUrl=""
       />
       <RosterCard
         name="Julie Lin"
@@ -49,7 +49,7 @@
         position="Design Organizer"
         pronouns="she/her"
         :imageSrc="oliviaking"
-        linkedinUrl="https://www.linkedin.com/in/olivia-king-9509b930a"
+        linkedinUrl="https://oliviasking.myportfolio.com/"
       />
       <RosterCard
         name="Tracy Anne Tan"

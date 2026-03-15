@@ -7,7 +7,7 @@
         position="Tech Organizer"
         pronouns="she/her"
         :imageSrc="ananyasrinivasan"
-        linkedinUrl="https://www.linkedin.com/in/ananyasrin"
+        linkedinUrl=""
       />
       <RosterCard
         name="Anika Thakur"
@@ -21,7 +21,7 @@
         position="Tech Organizer"
         pronouns="he/him"
         :imageSrc="danielyi"
-        linkedinUrl="https://www.linkedin.com/in/daniel-s-yi"
+        linkedinUrl="https://github.com/eggoil166"
       />
       <!-- <RosterCard
         name="Harini Thirukonda"

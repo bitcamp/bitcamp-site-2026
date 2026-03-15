@@ -6,7 +6,7 @@
             <RosterCard name="Grace Yang" position="Marketing Organizer" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/graceyang2027/" :imageSrc="graceyang" />
             <RosterCard name="Habib Camara" position="Marketing Organizer" pronouns="he/him" :imageSrc="habibcamara" linkedinUrl="https://www.linkedin.com/in/habib-camara-4b4ab629a/" />
             <RosterCard name="Haswita Bokkisam" position="Marketing Organizer" pronouns="she/her" :imageSrc="haswitabokkisam" linkedinUrl="https://www.linkedin.com/in/haswita-bokkisam" />
-            <RosterCard name="Isaac Lee" position="Marketing Organizer" pronouns="he/him" :imageSrc="isaaclee" linkedinUrl="https://www.linkedin.com/in/isaacjeelee" />
+            <RosterCard name="Isaac Lee" position="Marketing Organizer" pronouns="he/him" :imageSrc="isaaclee" linkedinUrl="" />
             <RosterCard name="Kai Chen" position="Marketing Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/kaiichen/" :imageSrc="kaichen" />
             <RosterCard name="Sameer Chawla" position="Marketing Organizer" pronouns="he/him" linkedinUrl="https://www.linkedin.com/in/sameer-chawla01/" :imageSrc="sameerchawla" />
             <RosterCard name="Srinidhi Guruvayurappan" position="Marketing Organizer" pronouns="she/her" :imageSrc="srinidhiguruvayurappan" linkedinUrl="https://www.linkedin.com/in/srinidhi-guruvayurappan-1a40a829a/" />

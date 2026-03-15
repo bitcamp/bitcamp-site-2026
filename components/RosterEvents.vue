@@ -14,7 +14,7 @@
         position="Events Organizer"
         pronouns="she/her"
         :imageSrc="alisharajadhyksha"
-        linkedinUrl="https://www.linkedin.com/in/alisha-rajadhyksha"
+        linkedinUrl=""
       />
       <RosterCard
         name="Anunithaa Rajakumaresan"

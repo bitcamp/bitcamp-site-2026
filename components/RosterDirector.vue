@@ -5,7 +5,7 @@
             <RosterCard name="Olivia Zhang" position="Design Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/oliviaszhang" :imageSrc="oliviazhang" />
             <RosterCard name="Harleen Green" position="Events Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/harleengreen" :imageSrc="harleengreen" />
             <RosterCard name="Avanti Athavale" position="Experience Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/avantiathavale/" :imageSrc="avantiathavale" />
-            <RosterCard name="Jessica Zhou" position="Logistics Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/jessica-zhou-2a53021b3/" :imageSrc="jessicazhou" />
+            <RosterCard name="Jessica Zhou" position="Logistics Director" pronouns="she/her" linkedinUrl="" :imageSrc="jessicazhou" />
             <RosterCard name="Naomi Kaul" position="Logistics Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/naomi-kaul-a1b1341ba/" :imageSrc="naomikaul" />
             <RosterCard name="Purva Jani" position="Marketing Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/purva-jani/" :imageSrc="purvajani" />
             <RosterCard name="Bhavini Pandey" position="Sponsorship Director" pronouns="she/her" linkedinUrl="https://www.linkedin.com/in/bhavini-pandey-05/" :imageSrc="bhavinipandey" />
