@@ -18,14 +18,14 @@
 
 <script lang="ts">
 import RosterCard from './RosterCard.vue'
-import aryagijare from '../assets/img/images/headshots/AryaGijare.webp'
+import aryagijare from '../assets/img/images/headshots/aryagijare.webp'
 import avantiathavale from '../assets/img/images/headshots/AvantiAthavale.webp'
-import bhavinipandey from '../assets/img/images/headshots/BhaviniPandey.webp'
+import bhavinipandey from '../assets/img/images/headshots/bhavinipandey.webp'
 import harleengreen from '../assets/img/images/headshots/HarleenGreen.webp'
-import jessicazhou from '../assets/img/images/headshots/JessicaZhou.webp'
+import jessicazhou from '../assets/img/images/headshots/jessicazhou.webp'
 import moheedeenabumaizer from '../assets/img/images/headshots/MoheEdeenAbuMaizer.webp'
-import naomikaul from '../assets/img/images/headshots/NaomiKaul.webp'
-import nikitaarya from '../assets/img/images/headshots/NikitaArya.webp'
+import naomikaul from '../assets/img/images/headshots/naomikaul.webp'
+import nikitaarya from '../assets/img/images/headshots/nikitaarya.webp'
 import oliviazhang from '../assets/img/images/headshots/OliviaZhang.webp'
 import purvajani from '../assets/img/images/headshots/PurvaJani.webp'
 

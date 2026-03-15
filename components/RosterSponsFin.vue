@@ -15,7 +15,7 @@
 <script lang="ts">
 import RosterCard from './RosterCard.vue'
 import abhinavmanda from '../assets/img/images/headshots/AbhinavManda.webp'
-import aditrigadigi from '../assets/img/images/headshots/AditriGadigi.webp'
+import aditrigadigi from '../assets/img/images/headshots/aditrigadigi.webp'
 import christopherhuang from '../assets/img/images/headshots/ChristopherHuang.webp'
 import manitmishra from '../assets/img/images/headshots/ManitMishra.webp'
 import melaniechen from '../assets/img/images/headshots/MelanieChen.webp'

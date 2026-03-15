@@ -20,15 +20,15 @@
 <script lang="ts">
 import RosterCard from './RosterCard.vue'
 import angelawu from '../assets/img/images/headshots/AngelaWu.webp'
-import anoushkaarora from '../assets/img/images/headshots/AnoushkaArora.webp'
+import anoushkaarora from '../assets/img/images/headshots/anoushkaarora.webp'
 import benlosey from '../assets/img/images/headshots/BenLosey.webp'
-import chariswang from '../assets/img/images/headshots/CharisWang.webp'
+import chariswang from '../assets/img/images/headshots/chariswang.webp'
 import daanialharis from '../assets/img/images/headshots/DaanialHaris.webp'
-import jamesbarry from '../assets/img/images/headshots/JamesBarry.webp'
-import ryanzhao from '../assets/img/images/headshots/RyanZhao.webp'
-import snehabalur from '../assets/img/images/headshots/SnehaBalur.webp'
+import jamesbarry from '../assets/img/images/headshots/jamesbarry.webp'
+import ryanzhao from '../assets/img/images/headshots/ryanzhao.webp'
+import snehabalur from '../assets/img/images/headshots/snehabalur.webp'
 import stanleyxu from '../assets/img/images/headshots/StanleyXu.webp'
-import tiffanyliu from '../assets/img/images/headshots/TiffanyLiu.webp'
+import tiffanyliu from '../assets/img/images/headshots/tiffanyliu.webp'
 import zayanahmad from '../assets/img/images/headshots/ZayanAhmad.webp'
 
 export default {

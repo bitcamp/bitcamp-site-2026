@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import RosterCard from './RosterCard.vue'
-import nehaveeragandham from '../assets/img/images/headshots/NehaVeeragandham.webp'
-import salonishah from '../assets/img/images/headshots/SaloniShah.webp'
+import nehaveeragandham from '../assets/img/images/headshots/nehaveeragandham.webp'
+import salonishah from '../assets/img/images/headshots/salonishah.webp'
 
 export default {
     name: 'RosterExec',
