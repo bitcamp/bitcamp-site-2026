@@ -90,7 +90,7 @@ const questions = ref<FAQ[]>([
       "Bitcamp is a hackathon that values participant experience and mentorship over competitiveness and points. Come to have fun with your friends, learn something new, eat s'mores, and have a generally awesome time. We have all sorts of crazy activities planned for you...come find out the rest!",
   },
   {
-    question: "Where is Bitcamp?",
+    question: "Where is Bitcamp 2026?",
     answer:
       "Bitcamp will take place from April 10th to April 12th at Reckord Armory on the University of Maryland, College Park campus.",
   },
