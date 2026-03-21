@@ -154,11 +154,10 @@ const questions = ref<FAQ[]>([
       "Arduinos, sensors (ultrasonic, photoresistors, thermistors), inputs (buttons, switches), outputs (LEDs, piezo speakers, 7-segment displays, micro servo motors), passive components (resistors, capacitors, diodes), and wiring.",
   },
   {
-    question:
-      "Are travel reimbursements provided?",
+    question: "Are travel reimbursements provided?",
     answer:
       "Unfortunately, travel reimbursement applications have been closed at this time, but we hope to still see you at Bitcamp!",
-  }
+  },
 ]);
 
 const questions_left = questions.value.slice(
@@ -232,6 +231,12 @@ const sponsors: Sponsor[] = [
     image: "/img/logos/endeavor.svg",
     amount: -1,
     url: "https://www.endeavor.ai/",
+  },
+  {
+    name: "Netcorenetwork",
+    image: "/img/logos/netcore.svg",
+    amount: -1,
+    url: "https://www.netcore.network/",
   },
   {
     name: "Cloudforce",
