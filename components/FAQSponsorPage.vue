@@ -92,7 +92,7 @@ const questions = ref<FAQ[]>([
   {
     question: "Where is Bitcamp 2026?",
     answer:
-      "Bitcamp will take place from April 10th to April 12th at Reckord Armory on the University of Maryland, College Park campus.",
+      'Bitcamp will take place from April 10th to April 12th at the <a class="link" href="https://www.google.com/maps/search/?api=1&query=Reckord+Armory%2C+4490+Rossborough+Ln%2C+College+Park%2C+MD+20742" target="_blank">Reckord Armory</a> on the University of Maryland, College Park campus.',
   },
   {
     question: "What's a hackathon?",
