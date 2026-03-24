@@ -3,14 +3,16 @@
     <div class="profile-header">
       <div class="profile-image">
         <img v-if="imageSrc" :src="imageSrc" alt="Profile Image" class="profile-pic" loading="lazy" />
-        <img v-else src="" alt="Default Profile" class="profile-pic default-profile" loading="lazy" />
+        <img v-else src="" class="profile-pic default-profile" loading="lazy" />
 
         <a v-if="linkedinUrl" :href="linkedinUrl" target="_blank" rel="noopener noreferrer" class="linkedin-badge">
-          <img src="assets/img/icons/linkedin.webp" alt="LinkedIn" loading="lazy" />
+          <img v-if="linkedinUrl.includes('github')" src="assets/img/icons/github.webp" alt="GitHub" loading="lazy" />
+          <img v-else-if="linkedinUrl.includes('myportfolio') || linkedinUrl.includes('portfolio')" src="assets/img/icons/globe.webp" alt="Portfolio" class="globe-icon" loading="lazy" />
+          <img v-else src="assets/img/icons/linkedin.webp" alt="LinkedIn" loading="lazy" />
         </a>
-        <div v-else class="linkedin-badge">
+        <!-- <div v-else class="linkedin-badge">
           <img src="assets/img/icons/linkedin.webp" alt="LinkedIn" loading="lazy" />
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -65,8 +67,8 @@ export default {
 
 /* Profile Image */
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   background-color: #b0c4de;
   border-radius: 50%;
   margin: 0 auto 10px;
@@ -89,8 +91,8 @@ export default {
   position: absolute;
   top: -8px;
   left: -8px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background: white;
   border-radius: 50%;
   display: flex;
@@ -101,17 +103,21 @@ export default {
 }
 
 .linkedin-badge img {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: contain;
   padding: 2px;
 }
 
+.linkedin-badge .globe-icon {
+  padding: 8px;
+}
+
 .name {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .position {

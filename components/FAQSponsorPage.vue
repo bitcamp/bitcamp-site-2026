@@ -90,6 +90,11 @@ const questions = ref<FAQ[]>([
       "Bitcamp is a hackathon that values participant experience and mentorship over competitiveness and points. Come to have fun with your friends, learn something new, eat s'mores, and have a generally awesome time. We have all sorts of crazy activities planned for you...come find out the rest!",
   },
   {
+    question: "Where is Bitcamp 2026?",
+    answer:
+      'Bitcamp will take place from April 10th to April 12th at the <a class="link" href="https://www.google.com/maps/search/?api=1&query=Reckord+Armory%2C+4490+Rossborough+Ln%2C+College+Park%2C+MD+20742" target="_blank">Reckord Armory</a> on the University of Maryland, College Park campus.',
+  },
+  {
     question: "What's a hackathon?",
     answer:
       "A hackathon is a creative marathon all about building something cool. Students are encouraged to come up with an idea, form teams, and then build out that idea (typically through programming!) into a product in 36 hours. We want you to take something you love (sports, art, camping, anything!) and combine it with technology to make something awesome. It's a great time to push the envelope and learn some new skills.",
@@ -154,11 +159,10 @@ const questions = ref<FAQ[]>([
       "Arduinos, sensors (ultrasonic, photoresistors, thermistors), inputs (buttons, switches), outputs (LEDs, piezo speakers, 7-segment displays, micro servo motors), passive components (resistors, capacitors, diodes), and wiring.",
   },
   {
-    question:
-      "Are travel reimbursements provided?",
+    question: "Are travel reimbursements provided?",
     answer:
       "Unfortunately, travel reimbursement applications have been closed at this time, but we hope to still see you at Bitcamp!",
-  }
+  },
 ]);
 
 const questions_left = questions.value.slice(
@@ -232,6 +236,12 @@ const sponsors: Sponsor[] = [
     image: "/img/logos/endeavor.svg",
     amount: -1,
     url: "https://www.endeavor.ai/",
+  },
+  {
+    name: "Netcorenetwork",
+    image: "/img/logos/netcore.svg",
+    amount: -1,
+    url: "https://www.netcore.network/",
   },
   {
     name: "Cloudforce",

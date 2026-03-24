@@ -5,7 +5,15 @@
       <p class="description">
         You have 36 hours to explore, learn, and create with world-class mentors
         and over 1,000 participants. Whether you're a seasoned hacker or new to
-        it all, there's something for everyone.
+        it all, there's something for everyone. Join us April 10th to 12th at
+        the
+        <a
+          class="link"
+          href="https://www.google.com/maps/search/?api=1&query=Reckord+Armory%2C+4490+Rossborough+Ln%2C+College+Park%2C+MD+20742"
+          target="_blank"
+          >Reckord Armory</a
+        >
+        on the University of Maryland, College Park campus.
       </p>
     </div>
   </div>
@@ -133,7 +141,7 @@ onUnmounted(() => {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: -2rem;
+  margin-bottom: -10rem;
 }
 
 .exploration-message {

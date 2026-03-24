@@ -6,16 +6,24 @@
           <div class="small_poloroid_top">
             <img
               class="small_photo"
-              src="../assets/img/images/NehaVeeragandham.svg"
-              alt="lebron"
+              src="../assets/img/images/NehaVeeragandham.webp"
+              alt="Neha Veeragandham"
             />
+            <div class="small_caption">
+              <span class="small_name">Neha Veeragandham</span>
+              <span class="small_title">Co-Executive Director</span>
+            </div>
           </div>
           <div class="small_poloroid_bottom">
             <img
               class="small_photo"
-              src="../assets/img/images/SaloniShah.svg"
-              alt="lebron"
+              src="../assets/img/images/SaloniShah.webp"
+              alt="Saloni Shah"
             />
+            <div class="small_caption">
+              <span class="small_name">Saloni Shah</span>
+              <span class="small_title">Co-Executive Director</span>
+            </div>
           </div>
         </div>
         <div class="second_vertical">
@@ -29,7 +37,7 @@
           <div class="big_poloroid">
             <img
               class="team_photo"
-              src="../assets/img/images/DirectorGroup.svg"
+              src="../assets/img/images/DirectorGroupPhoto.webp"
               alt="lebron"
             />
             <div class="caption_box">
@@ -43,6 +51,11 @@
                 Explore the Unknown and discover what’s possible! - Saloni and
                 Neha
               </div>
+            </div>
+            <div class="meet">
+              <a target="_blank" href="https://bit.camp/roster"
+                >Meet the Team</a
+              >
             </div>
           </div>
         </div>
@@ -224,7 +237,7 @@ export default defineComponent({
 }
 
 .meet {
-  width: 23vw;
+  width: 17vw;
   aspect-ratio: 10/2.5;
   background-color: #ff6f3f;
   border: 0.3rem solid #e54d1a;
@@ -291,6 +304,7 @@ export default defineComponent({
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
 .small_poloroid_top {
@@ -325,6 +339,30 @@ export default defineComponent({
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.small_caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 8%;
+}
+
+.small_name {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  color: #222;
+  font-size: 1.4cqi;
+  line-height: 1.2;
+}
+
+.small_title {
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+  color: #555;
+  font-size: 1.1cqi;
+  line-height: 1.2;
+}
+
 .big_poloroid {
   width: 50vw;
   height: auto;
@@ -345,7 +383,6 @@ export default defineComponent({
   color: #000000;
   padding-top: 2%;
   padding-bottom: 2%;
-  font-style: Medium;
   font-size: 1.2cqi;
   line-height: 1.4;
 }
@@ -447,12 +484,25 @@ export default defineComponent({
     flex-direction: row;
     width: 110%;
     justify-content: center;
+    align-items: flex-start;
     gap: 5%;
     margin-top: 8%;
   }
 
   .polo_box {
-    font-size: 2.1cqi;
+    font-size: 2.6cqi;
+  }
+
+  .small_name {
+    font-size: 3.4cqi;
+  }
+
+  .small_title {
+    font-size: 2.8cqi;
+  }
+
+  .small_caption {
+    padding-top: 14%;
   }
   .orbit {
     width: 110%;
@@ -510,7 +560,8 @@ export default defineComponent({
     width: 80%;
   }
   .meet {
-    font-size: 2.1cqi;
+    width: 24vw;
+    font-size: 2.7cqi;
   }
 
   /* @media screen and (max-width: 700px) {
