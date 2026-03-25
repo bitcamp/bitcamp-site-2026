@@ -23,13 +23,13 @@
         linkedinUrl="https://www.linkedin.com/in/sai-pranav-theerthala"
         :imageSrc="saipranavtheerthala"
       />
-      <!-- <RosterCard
+      <RosterCard
         name="Sharvari Tirodkar"
         position="Senior Advisor"
         pronouns="she/her"
         linkedinUrl="http://linkedin.com/in/stirodka/"
         :imageSrc="sharvaritirodkar"
-      /> -->
+      />
     </div>
   </div>
 </template>
