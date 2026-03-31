@@ -231,12 +231,12 @@ const sponsors: Sponsor[] = [
     amount: -1,
     url: "https://www.ciphertechsolutions.com/",
   },
-  {
-    name: "Endeavor",
-    image: "/img/logos/endeavor.svg",
-    amount: -1,
-    url: "https://www.endeavor.ai/",
-  },
+  // {
+  //   name: "Endeavor",
+  //   image: "/img/logos/endeavor.svg",
+  //   amount: -1,
+  //   url: "https://www.endeavor.ai/",
+  // },
   {
     name: "Netcorenetwork",
     image: "/img/logos/netcore.svg",
