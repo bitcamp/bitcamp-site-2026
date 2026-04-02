@@ -268,6 +268,18 @@ const sponsors: Sponsor[] = [
     url: "https://www.rhsmith.umd.edu/programs/plus-1",
   },
   {
+    name: "Johns Hopkins University Applied Physics Laboratory",
+    image: "/img/logos/apl.svg",
+    amount: -1,
+    url: "https://www.jhuapl.edu/",
+  },
+  {
+    name: "Ambrook",
+    image: "/img/logos/ambrook.svg",
+    amount: -1,
+    url: "https://ambrook.com/",
+  },
+  {
     name: "Ionq",
     image: "/img/logos/ionq.svg",
     amount: -1,
@@ -284,6 +296,18 @@ const sponsors: Sponsor[] = [
     image: "/img/logos/ClarkSchool.svg",
     amount: -1,
     url: "https://eng.umd.edu/",
+  },
+  {
+    name: "Featherless AI",
+    image: "/img/logos/featherless.svg",
+    amount: -1,
+    url: "https://featherless.ai/",
+  },
+  {
+    name: "Appifex AI",
+    image: "/img/logos/appifex.svg",
+    amount: -1,
+    url: "https://www.appifex.ai/",
   },
   {
     name: "Pure Buttons",
