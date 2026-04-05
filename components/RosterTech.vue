@@ -52,13 +52,6 @@
         linkedinUrl="https://www.linkedin.com/in/jcho1114"
       />
       <RosterCard
-        name="Lusenie Turay"
-        position="Tech Organizer"
-        pronouns="he/him"
-        :imageSrc="lusenieturay"
-        linkedinUrl="https://www.linkedin.com/in/lusenie-turay"
-      />
-      <RosterCard
         name="Sanya Gupta"
         position="Tech Organizer"
         pronouns="she/her"
@@ -106,7 +99,6 @@ import harinithirukonda from "../assets/img/images/headshots/harinithirukonda.we
 import harrisonpadgett from "../assets/img/images/headshots/harrisonpadgett.webp";
 import jadonchu from "../assets/img/images/headshots/JadonChu.webp";
 import josephcho from "../assets/img/images/headshots/JosephCho.webp";
-import lusenieturay from "../assets/img/images/headshots/LusenieTuray.webp";
 import sanyagupta from "../assets/img/images/headshots/sanyagupta.webp";
 import srujanatheerthala from "../assets/img/images/headshots/srujanatheerthala.webp";
 import swathipulipati from "../assets/img/images/headshots/swathipulipati.webp";
@@ -125,7 +117,6 @@ export default {
       harrisonpadgett,
       jadonchu,
       josephcho,
-      lusenieturay,
       sanyagupta,
       srujanatheerthala,
       swathipulipati,
