@@ -81,7 +81,7 @@
                 <p>
                   {{ formatTime(event?.startTimeMs, event?.endTimeMs) }}
                 </p>
-                <p>{{ event.location }}</p>
+                <p v-if="!shouldHideLocation(event)">{{ event.location }}</p>
               </div>
             </div>
           </div>
@@ -362,6 +362,14 @@ function formatAMPM(date: Date) {
 
 function closeEventModal() {
   showEventModal.value = false;
+}
+
+function shouldHideLocation(event: CalculatedEvent) {
+  const title = event.title?.trim();
+  return (
+    event.location === "TBD" &&
+    (title === "Hacking Begins!" || title === "Hacking Ends!")
+  );
 }
 </script>
 
