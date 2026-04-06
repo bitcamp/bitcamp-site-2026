@@ -5,6 +5,8 @@ export interface ParsedEvent {
   startTime: string;
   endTime: string;
   location: string;
+  zoom_email: string;
+  zoom_link: string;
   type: string;
   speakers?: string[];
   links?: {
@@ -19,6 +21,8 @@ export interface CalculatedEvent {
   description: string;
   location: string;
   type: string;
+  zoom_email: string;
+  zoom_link: string;
   speakers?: string[];
   links?: {
     title: string;
