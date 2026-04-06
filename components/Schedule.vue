@@ -44,9 +44,9 @@
               :key="idx"
               class="bar"
               :style="{
-                // add top padding (1rem) and 2.1rem for each 15 minute interval
+                // add top padding (1rem) and 2.8rem for each 15 minute interval
                 // subtract 1px to align bar in middle of grid row
-                top: `calc(1rem + ${idx * (60 / INTERVAL_M) * 2.1}rem - 1px)`,
+                top: `calc(1rem + ${idx * (60 / INTERVAL_M) * 2.8}rem - 1px)`,
               }"
             ></span>
             <div
@@ -171,9 +171,9 @@ onMounted(async () => {
 
 function formatTime(startTimeMs?: number, endTimeMs?: number) {
   if (!startTimeMs || !endTimeMs) return "";
-  return `${dayjs(startTimeMs).format("dddd")}, ${dayjs(startTimeMs).format(
+  return `${dayjs(startTimeMs).format("h:mm A")} - ${dayjs(endTimeMs).format(
     "h:mm A",
-  )} - ${dayjs(endTimeMs).format("h:mm A")}`;
+  )}`;
 }
 
 function setDaySelection(day: string) {
@@ -500,23 +500,31 @@ export default {
       top: 60px;
       bottom: 50px;
     }
+
+    @media screen and (max-width: 767.8px) {
+      width: 6rem; // Shrink to match narrower time column on mobile
+    }
   }
+
   .event-list {
     padding-top: 1rem;
     display: grid;
     grid-template-columns: [time] 10rem repeat(auto-fit, minmax(20rem, 1fr));
+    grid-auto-columns: minmax(
+      20rem,
+      1fr
+    ); // Keeps events from squishing on mobile
     column-gap: 0.5rem;
     position: relative;
-    // change grid-row height with the white hour-line bar layout
-    grid-auto-rows: 2.1rem;
+    grid-auto-rows: 2.8rem;
     min-width: 100%;
     width: 100%;
     height: 100%;
-
     padding-right: 1rem;
 
     @media screen and (max-width: 767.8px) {
-      grid-template-columns: [time] 10rem repeat(auto-fit, minmax(12rem, 1fr));
+      grid-template-columns: [time] 6rem repeat(auto-fit, minmax(14rem, 1fr));
+      grid-auto-columns: minmax(14rem, 1fr);
     }
 
     .bar {
@@ -526,7 +534,13 @@ export default {
       width: calc(100% - 9rem);
       left: 9rem;
       z-index: 0;
+
+      @media screen and (max-width: 767.8px) {
+        width: calc(100% - 6rem);
+        left: 6rem;
+      }
     }
+
     .time-container {
       position: sticky;
       left: 0.5rem;
@@ -551,9 +565,12 @@ export default {
 
         @media screen and (max-width: 767.8px) {
           font-size: 14px;
+          max-width: 5.5rem; // Adjust padding bounds for smaller mobile size
+          padding: 0 0.2rem;
         }
       }
     }
+
     .event-container {
       font-size: 1.1rem;
       min-width: 0;
@@ -584,9 +601,14 @@ export default {
       p {
         margin: 0;
         margin-bottom: 0.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
       }
 
       .name {
+        white-space: normal;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -670,10 +692,8 @@ export default {
     flex-wrap: wrap;
 
     @media screen and (max-width: 767.8px) {
-      background: rgba(255, 255, 255, 0.8);
       gap: 20px;
       padding: 15px 20px;
-      min-height: 74px;
     }
 
     button {
@@ -695,11 +715,6 @@ export default {
       &.active {
         background-color: #ff6f3f;
         color: #ffffff;
-
-        @media screen and (max-width: 767.8px) {
-          background: #ff6f3f;
-          color: #ffffff;
-        }
       }
 
       &:hover:not(.active) {
@@ -742,9 +757,8 @@ export default {
     z-index: 2;
 
     @media screen and (max-width: 767.8px) {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 1rem 0;
+      flex-wrap: wrap; // Simplified mobile layout
+      gap: 1rem 1.5rem;
       padding: 1rem;
     }
 
@@ -752,40 +766,6 @@ export default {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-
-      @media screen and (max-width: 767.8px) {
-        justify-content: center;
-      }
-
-      &:nth-child(1) {
-        @media screen and (max-width: 767.8px) {
-          grid-column: 1 / 3;
-        }
-      }
-
-      &:nth-child(2) {
-        @media screen and (max-width: 767.8px) {
-          grid-column: 3 / 5;
-        }
-      }
-
-      &:nth-child(3) {
-        @media screen and (max-width: 767.8px) {
-          grid-column: 5 / 7;
-        }
-      }
-
-      &:nth-child(4) {
-        @media screen and (max-width: 767.8px) {
-          grid-column: 2 / 4;
-        }
-      }
-
-      &:nth-child(5) {
-        @media screen and (max-width: 767.8px) {
-          grid-column: 4 / 6;
-        }
-      }
 
       .legend-color {
         width: 18px;
@@ -803,7 +783,7 @@ export default {
         font-family: "Avenir", sans-serif;
 
         @media screen and (max-width: 767.8px) {
-          font-size: 2.25rem;
+          font-size: 14px; // FIX: Was 2.25rem previously!
         }
       }
     }
