@@ -198,7 +198,10 @@
    */
   async function fetchRawEvents(): Promise<ParsedEvent[]> {
     // CHANGE BACKEND URL WHEN DEPLOYING TO api.bit.camp/schedule!!!!!
-    const eventsRes = await fetch('https://api.alpha.bit.camp/schedule');
+    // dev url
+    // const eventsRes = await fetch('https://api.alpha.bit.camp/schedule'); 
+    // prd url
+    const eventsRes = await fetch('https://api.bit.camp/schedule');
     const events = await eventsRes.json();
   
     return events.map((event: any): ParsedEvent => ({
