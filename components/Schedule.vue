@@ -1,11 +1,11 @@
 <!-- An events calendar that pulls events from DynamoDB -->
 
 <template>
-  <div class="whole-component">
+  <div id="schedule" class="whole-component">
     <div id="schedule-header">
       <h3 class="glow">Schedule</h3>
     </div>
-    <div id="schedule" class="section" :style="styles">
+    <div class="section" :style="styles">
       <!-- FULL SCHEDULE -->
       <div class="schedule-container">
         <div class="dates">

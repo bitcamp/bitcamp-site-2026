@@ -1,5 +1,5 @@
 <template>
-  <div class="gradient">
+  <div id="hero" class="gradient">
     <img
       src="../assets/img/images/hero_space.svg"
       class="background"

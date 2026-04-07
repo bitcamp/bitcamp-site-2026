@@ -19,7 +19,7 @@
 
       <ul v-if="showDropdown || bigScreen" class="nav-pages">
         <li v-if="!bigScreen" class="page mobile-menu-logo">
-          <a href="/">
+          <a href="#hero" @click.prevent="scrollTo('hero')">
             <img src="../assets/img/images/bitcamp_logo.svg" alt="Bitcamp" />
           </a>
         </li>
@@ -50,7 +50,7 @@
         </li>
 
         <li v-if="bigScreen" class="page page-logo">
-          <a href="/">
+          <a href="#hero" @click.prevent="scrollTo('hero')">
             <img
               id="logo-with-text"
               src="~/public/bitcamp-brand/logos/logotype.png"
@@ -232,7 +232,9 @@ function scrollTo(id: string) {
 
   const wrapper = document.querySelector(".wrapper") as HTMLElement | null;
   if (wrapper) {
-    const targetTop = target.getBoundingClientRect().top + wrapper.scrollTop;
+    const wrapperTop = wrapper.getBoundingClientRect().top;
+    const targetTop =
+      target.getBoundingClientRect().top - wrapperTop + wrapper.scrollTop;
     wrapper.scrollTo({ top: targetTop, behavior: "smooth" });
   } else {
     target.scrollIntoView({ behavior: "smooth" });
@@ -345,7 +347,6 @@ nav {
     &::before {
       display: none;
     }
-
   }
 
   nav {

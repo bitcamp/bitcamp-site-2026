@@ -62,6 +62,27 @@ const pageHeightStyle = computed(() => ({
 let ctx: gsap.Context | null = null;
 let resizeRaf = 0;
 
+function scrollWrapperToHash(hash: string, behavior: ScrollBehavior = "auto") {
+  if (!hash) return;
+
+  const id = decodeURIComponent(hash.replace(/^#/, ""));
+  if (!id) return;
+
+  const target = document.getElementById(id);
+  const wrapper = el.value;
+  if (!target || !wrapper) return;
+
+  const wrapperTop = wrapper.getBoundingClientRect().top;
+  const targetTop =
+    target.getBoundingClientRect().top - wrapperTop + wrapper.scrollTop;
+
+  wrapper.scrollTo({ top: targetTop, behavior });
+}
+
+function onHashChange() {
+  scrollWrapperToHash(window.location.hash, "smooth");
+}
+
 function createTimeline() {
   ctx?.revert();
 
@@ -234,10 +255,18 @@ onMounted(async () => {
   await nextTick();
   createTimeline();
   window.addEventListener("resize", onResize);
+  window.addEventListener("hashchange", onHashChange);
+
+  if (window.location.hash) {
+    requestAnimationFrame(() => {
+      scrollWrapperToHash(window.location.hash);
+    });
+  }
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", onResize);
+  window.removeEventListener("hashchange", onHashChange);
   if (resizeRaf) cancelAnimationFrame(resizeRaf);
   ctx?.revert();
 });

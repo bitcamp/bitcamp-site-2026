@@ -15,21 +15,29 @@
 
       <div class="footer-content">
         <div class="logo-section">
-          <img
-            src="../assets/img/images/bitcamp_logo.svg"
-            alt="Bitcamp"
-            class="bitcamp-logo"
-          />
+          <a href="#hero" @click.prevent="scrollTo('hero')">
+            <img
+              src="../assets/img/images/bitcamp_logo.svg"
+              alt="Bitcamp"
+              class="bitcamp-logo"
+            />
+          </a>
         </div>
 
         <div class="links-section">
           <div class="link-columns">
             <div class="link-column">
-              <a href="#tracks">Tracks</a>
-              <a href="#campfire-games">Campfire Games</a>
-              <a href="#roster">Our Team</a>
-              <a href="#schedule">Schedule</a>
-              <a href="#faq">FAQ</a>
+              <a href="#tracks" @click.prevent="scrollTo('tracks')">Tracks</a>
+              <a
+                href="#campfire-games"
+                @click.prevent="scrollTo('campfire-games')"
+                >Campfire Games</a
+              >
+              <a href="#roster" @click.prevent="scrollTo('roster')">Our Team</a>
+              <a href="#schedule" @click.prevent="scrollTo('schedule')"
+                >Schedule</a
+              >
+              <a href="#faq" @click.prevent="scrollTo('faq')">FAQ</a>
             </div>
             <div class="link-column">
               <a href="mailto:hello@bit.camp">Contact Us</a>
@@ -83,6 +91,24 @@
 export default {
   name: "Footer",
 };
+</script>
+
+<script setup lang="ts">
+function scrollTo(id: string) {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  const wrapper = document.querySelector(".wrapper") as HTMLElement | null;
+  if (wrapper) {
+    const wrapperTop = wrapper.getBoundingClientRect().top;
+    const targetTop =
+      target.getBoundingClientRect().top - wrapperTop + wrapper.scrollTop;
+    wrapper.scrollTo({ top: targetTop, behavior: "smooth" });
+    return;
+  }
+
+  target.scrollIntoView({ behavior: "smooth" });
+}
 </script>
 
 <style scoped>
