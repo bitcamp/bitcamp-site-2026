@@ -32,6 +32,16 @@ def lambda_handler(event, context):
                 "body": json.dumps({"error": "No message provided"}),
             }
 
+        elif len(user_message > 200):
+            return {
+                "statusCode": 400,
+                "headers": {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
+                },
+                "body": json.dumps({"error": "Message exceeds character limit."}),
+            }
+
         bot_reply = receive(user_message)
 
         return {
